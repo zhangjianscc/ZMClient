@@ -11,7 +11,10 @@ int main(int argc, char *argv[])
 
     // 启动登录界面
     LoginDialog dlg;
-    dlg.exec();
+    if(dlg.exec() != QDialog::Accepted)
+    {
+        return 0;
+    }
 
     // 启动主界面
     MainWindow w;

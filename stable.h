@@ -3,6 +3,8 @@
 
 #include<QtCore>
 #include<QtGui>
+#include<QHBoxLayout>
+#include<QVBoxLayout>
 
 
 
