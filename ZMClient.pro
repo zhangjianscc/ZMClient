@@ -29,7 +29,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp \
     UIModule/mainwindow.cpp \
-    UIModule/logindialog.cpp
+    UIModule/logindialog.cpp \
+    UIModule/Comm/mylineedit.cpp
 
 FORMS += \
     UIModule/mainwindow.ui \
@@ -38,7 +39,8 @@ FORMS += \
 HEADERS += \
     UIModule/mainwindow.h \
     UIModule/logindialog.h \
-    stable.h
+    stable.h \
+    UIModule/Comm/mylineedit.h
 
 RESOURCES += \
     images.qrc

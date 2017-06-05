@@ -5,6 +5,7 @@
 #include<QtGui>
 #include<QHBoxLayout>
 #include<QVBoxLayout>
+#include <QTextCodec>
 
 
 

@@ -36,3 +36,4 @@ MyLineEdit::MyLineEdit(QString imagePath,QString text) :
 
 
 }
+
