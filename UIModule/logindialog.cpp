@@ -1,4 +1,4 @@
-#include "logindialog.h"
+﻿#include "logindialog.h"
 #include "ui_logindialog.h"
 
 LoginDialog::LoginDialog(QWidget *parent) :
@@ -67,7 +67,7 @@ void LoginDialog::initUI()
     QFont font = ui->m_editUserName->font();
     font.setPointSize(ui->m_editUserName->height() / 3);
     ui->m_editUserName->setFont(font);
-    ui->m_editUserName->setText("请输入用户名   ");
+    ui->m_editUserName->setText(QStringLiteral("请输入用户名  "));
     ui->m_editUserName->setAlignment(Qt::AlignHCenter);
     ui->m_editUserName->setStyleSheet("QLineEdit{border-image:url(://images//textbox.png);border: 0px; border-radius: 3px;color:gray}");
     connect(ui->m_editUserName,SIGNAL(textChanged(QString)),this,SLOT(onSlotUserNameChanged(QString)));
@@ -89,7 +89,7 @@ void LoginDialog::initUI()
     QFont font2 = ui->m_editUserKey->font();
     font2.setPointSize(ui->m_editUserKey->height() / 3);
     ui->m_editUserKey->setFont(font2);
-    ui->m_editUserKey->setText("请输入你的密码   ");
+    ui->m_editUserKey->setText(QStringLiteral("请输入你的密码  "));
     ui->m_editUserKey->setAlignment(Qt::AlignHCenter);
     ui->m_editUserKey->setEchoMode(QLineEdit::Normal);
     ui->m_editUserKey->setStyleSheet("QLineEdit{border-image:url(://images//textbox.png);border: 0px; border-radius: 3px;color:gray}");
@@ -174,7 +174,7 @@ void LoginDialog::onSlotUserNameChanged(QString userName)
 
 void  LoginDialog::onSlotUserNameEditClicked(int,int)
 {
-    if(ui->m_editUserName->text() == "请输入用户名   ")  // 第一次点击时修改状态
+    if(ui->m_editUserName->text() == QStringLiteral("请输入用户名  "))  // 第一次点击时修改状态
     {
         ui->m_editUserName->setText("");
         ui->m_editUserName->setAlignment(Qt::AlignLeft);
@@ -184,7 +184,7 @@ void  LoginDialog::onSlotUserNameEditClicked(int,int)
 
 void  LoginDialog::onSlotUserKeyEditClicked(int,int)
 {
-    if(ui->m_editUserKey->text() == "请输入你的密码   ") // 第一次点击时修改状态
+    if(ui->m_editUserKey->text() == QStringLiteral("请输入你的密码  ")) // 第一次点击时修改状态
     {
         ui->m_editUserKey->setText("");
         ui->m_editUserKey->setAlignment(Qt::AlignLeft);

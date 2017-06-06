@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>300</width>
-    <height>350</height>
+    <height>355</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -253,6 +253,14 @@ QPushButton::pressed{border-image:url(:/images//mouseenter-02.png)}</string>
    </widget>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>m_editUserName</tabstop>
+  <tabstop>m_editUserKey</tabstop>
+  <tabstop>m_checkBoxRemenber</tabstop>
+  <tabstop>m_btnLogin</tabstop>
+  <tabstop>m_btnMinimize</tabstop>
+  <tabstop>m_btnClose</tabstop>
+ </tabstops>
  <resources>
   <include location="../images.qrc"/>
  </resources>
