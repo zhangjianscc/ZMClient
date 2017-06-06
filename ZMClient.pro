@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT       += network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -30,7 +31,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp \
     UIModule/mainwindow.cpp \
     UIModule/logindialog.cpp \
-    UIModule/Comm/mylineedit.cpp
+    UIModule/Comm/mylineedit.cpp \
+    base64/base64.cpp \
+    Common/readini.cpp \
+    Common/socketTcp.cpp
 
 FORMS += \
     UIModule/mainwindow.ui \
@@ -40,7 +44,10 @@ HEADERS += \
     UIModule/mainwindow.h \
     UIModule/logindialog.h \
     stable.h \
-    UIModule/Comm/mylineedit.h
+    UIModule/Comm/mylineedit.h \
+    base64/base64.h \
+    Common/readini.h \
+    Common/socketTcp.h
 
 RESOURCES += \
     images.qrc
