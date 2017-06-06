@@ -34,7 +34,8 @@ SOURCES += main.cpp \
     UIModule/Comm/mylineedit.cpp \
     base64/base64.cpp \
     Common/readini.cpp \
-    Common/socketTcp.cpp
+    Common/socketTcp.cpp \
+    UIModule/Comm/mytreeitem.cpp
 
 FORMS += \
     UIModule/mainwindow.ui \
@@ -47,7 +48,8 @@ HEADERS += \
     UIModule/Comm/mylineedit.h \
     base64/base64.h \
     Common/readini.h \
-    Common/socketTcp.h
+    Common/socketTcp.h \
+    UIModule/Comm/mytreeitem.h
 
 RESOURCES += \
     images.qrc

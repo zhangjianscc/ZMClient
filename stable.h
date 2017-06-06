@@ -14,6 +14,10 @@
 #include <QMouseEvent>
 #include <QBitmap>
 #include <QPainter>
+#include <QSettings>
+#include <QStackedWidget>
+#include <QTreeWidget>
+#include <QTreeWidgetItem>
 
 
 

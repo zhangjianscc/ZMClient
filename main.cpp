@@ -18,15 +18,16 @@ int main(int argc, char *argv[])
     sockettcp.newConnect();
     sockettcp.sendMessage("socket_begin");//连接服务器socket时发送socket_begin，结束发送socket_end
     // 启动登录界面
-    LoginDialog dlg;
-    if(dlg.exec() != QDialog::Accepted)
-    {
-        return 0;
-    }
+    //LoginDialog dlg;
+    //if(dlg.exec() != QDialog::Accepted)
+    //{
+     //   return 0;
+    //}
 
     // 启动主界面
     MainWindow w;
     w.showMaximized();
+    //w.show();
 
     return a.exec();
 }
