@@ -2,13 +2,20 @@
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::MainWindow)
+    QWidget(parent)
 {
-    ui->setupUi(this);
+
 }
 
 MainWindow::~MainWindow()
 {
-    delete ui;
+
+}
+
+void MainWindow::initMainFrame()
+{
+    // 标题栏
+    QWidget* pTitleWid = new QWidget();
+    QLabel* pLogLabel = new QLabel();
+
 }

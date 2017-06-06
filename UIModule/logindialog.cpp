@@ -148,6 +148,7 @@ void LoginDialog::onSlotBtnLogin()
     QString userName = ui->m_editUserName->text();
     QString userKey  = ui->m_editUserKey->text();
     // by ly
+    this->accept();
 }
 
 void LoginDialog::onSlotRemenberUserStateChanged(int value)
