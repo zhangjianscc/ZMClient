@@ -1,6 +1,6 @@
 #ifndef MYTREEITEM_H
 #define MYTREEITEM_H
-
+#include "stable.h"
 #include <QWidget>
 
 class MyTreeItem : public QWidget
@@ -15,6 +15,8 @@ private:
     QString m_selectImage;
     QString m_text;
     bool    m_bIsSelected;
+    QLabel* m_pLabelImage;
+    QLabel* m_pLabelText;
 
 signals:
 

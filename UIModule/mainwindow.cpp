@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "UIModule/Comm/mytreeitem.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QWidget(parent)
@@ -57,7 +58,7 @@ void MainWindow::initMainFrame()
     connect(pBtnClose,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnClose()));
 
     QHBoxLayout* playout = new QHBoxLayout(pTitleWid);
-    playout->setContentsMargins(5,0,0,0);
+    playout->setContentsMargins(10,0,10,0);
     playout->setSpacing(0);
     playout->addWidget(pLogLabel,0,Qt::AlignVCenter);
     playout->addStretch();
@@ -105,37 +106,65 @@ QWidget* MainWindow::initNavePane()
 {
     QWidget* pWid = new QWidget();
     pWid->setMinimumWidth(200);
-    QTreeWidget* pTree = new QTreeWidget();
-    pTree->setStyleSheet("QTreeWidget{background-color:rgb(217,217,217)}");
-    pTree->setColumnCount(1);
-    pTree->setHeaderHidden(true);
-    pTree->setSelectionBehavior(QAbstractItemView::SelectRows);
-    // 构造所有的树节点
-    QTreeWidgetItem* titleItem = new QTreeWidgetItem(pTree,QStringList("标题"));
-    titleItem->setData(0,Qt::UserRole,QVariant(0));
-
-    QTreeWidgetItem* moniterItem = new QTreeWidgetItem(pTree,QStringList("布控"));
-    moniterItem->setIcon(0,QIcon("://images//左侧图标01.png"));
-    moniterItem->setData(0,Qt::UserRole,QVariant(1));
-    QTreeWidgetItem* realTimeMonitorItem = new QTreeWidgetItem(moniterItem,QStringList("实时监控"));
-    QTreeWidgetItem* MonitorConfigItem = new QTreeWidgetItem(moniterItem,QStringList("布控设置"));
-
-    QTreeWidgetItem* faceItem = new QTreeWidgetItem(pTree,QStringList("人脸识别"));
-    QTreeWidgetItem* oneToOneItem = new QTreeWidgetItem(faceItem,QStringList("1:1对比"));
-    QTreeWidgetItem* oneToNItem = new QTreeWidgetItem(faceItem,QStringList("1:N对比"));
-    QTreeWidgetItem* identityItem = new QTreeWidgetItem(faceItem,QStringList("身份验证"));
-    QTreeWidgetItem* historyItem = new QTreeWidgetItem(faceItem,QStringList("历史人脸库对比"));
-
-    QTreeWidgetItem* modeItem = new QTreeWidgetItem(pTree,QStringList("模板库管理"));
-
-    QTreeWidgetItem* warningItem = new QTreeWidgetItem(pTree,QStringList("告警管理"));
-
-    QTreeWidgetItem* infoItem = new QTreeWidgetItem(pTree,QStringList("基础信息维护"));
-
-    //
-    QHBoxLayout* playout = new QHBoxLayout(pWid);
+    pWid->setStyleSheet("QWidget{background-color:rgb(217,217,217);border: 1px solid rgb(180,180,180)}");
+    QVBoxLayout* playout = new QVBoxLayout(pWid);
     playout->setMargin(0);
-    playout->addWidget(pTree);
+    playout->setSpacing(0);
+
+    QWidget* pWidTitle = new QWidget();
+    pWidTitle->setFixedHeight(120);
+    playout->addWidget(pWidTitle);
+
+    QToolButton* pBtn;
+
+    m_pBtnNaviCtr = addClassifyButton("布控","://images//左侧图标01.png","://images//左侧图标01-02.png");
+    playout->addWidget(m_pBtnNaviCtr);
+    connect(m_pBtnNaviCtr,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnNaviCtr()));
+
+    m_pBtnRealTimeMonitor = addDetailButton("实时监控");
+    playout->addWidget(m_pBtnRealTimeMonitor);
+    m_pBtnRealTimeMonitor->setVisible(false);
+    connect(m_pBtnRealTimeMonitor,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnRealTimeMonitor()));
+
+    m_pBtnMonitorConfig = addDetailButton("布控设置");
+    playout->addWidget(m_pBtnMonitorConfig);
+    m_pBtnMonitorConfig->setVisible(false);
+    connect(m_pBtnMonitorConfig,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnMonitorConfig()));
+
+    pBtn = addClassifyButton("人脸识别","://images//左侧图标02.png","://images//左侧图标02-02.png");
+    playout->addWidget(pBtn);
+    connect(pBtn,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnNaviCtr()));
+
+    pBtn = addDetailButton("1:1对比");
+    playout->addWidget(pBtn);
+    connect(pBtn,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnNaviCtr()));
+
+    pBtn = addDetailButton("1:N对比");
+    playout->addWidget(pBtn);
+    connect(pBtn,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnNaviCtr()));
+
+    pBtn = addDetailButton("身份验证");
+    playout->addWidget(pBtn);
+    connect(pBtn,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnNaviCtr()));
+
+    pBtn = addDetailButton("历史人脸库对比");
+    playout->addWidget(pBtn);
+    connect(pBtn,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnNaviCtr()));
+
+    pBtn = addClassifyButton("模板库管理","://images//左侧图标03.png","://images//左侧图标03-01.png");
+    playout->addWidget(pBtn);
+    connect(pBtn,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnNaviCtr()));
+
+    pBtn = addClassifyButton("告警管理","://images//左侧图标04.png","://images//左侧图标04-01.png");
+    playout->addWidget(pBtn);
+    connect(pBtn,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnNaviCtr()));
+
+    pBtn = addClassifyButton("基础信息维护","://images//左侧图标05.png","://images//左侧图标05-01.png");
+    playout->addWidget(pBtn);
+    connect(pBtn,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnNaviCtr()));
+
+    playout->addStretch();
+
     return pWid;
 }
 
@@ -192,3 +221,59 @@ QWidget* MainWindow::initHistoryFaceComparePane()
     QWidget* pWid = new QWidget();
     return pWid;
 }
+
+QToolButton* MainWindow::addClassifyButton(QString text,QString icon1,QString icon2)
+{
+    QToolButton* pBtn;
+
+    pBtn = new QToolButton();
+    pBtn->setText(text);
+    pBtn->setIcon(QIcon(QPixmap(icon1)));
+    pBtn->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    pBtn->setCheckable(true);
+    pBtn->setIconSize(QSize(21,20));
+    pBtn->setFixedHeight(40);
+    pBtn->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
+
+    pBtn->setStyleSheet("QToolButton{background-color:rgb(217,217,217)}"
+                        "QToolButton:pressed{background-color:rgb(76,76,76)}"
+                        "QToolButton:checked{background-color:rgb(76,76,76)}");
+
+    return pBtn;
+}
+
+QToolButton* MainWindow::addDetailButton(QString text)
+{
+    QToolButton* pBtn;
+
+    pBtn = new QToolButton();
+    pBtn->setText(text);
+    pBtn->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    pBtn->setCheckable(true);
+    pBtn->setFixedHeight(30);
+    pBtn->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
+
+    pBtn->setStyleSheet("QToolButton{background-color:rgb(217,217,217)}"
+                        "QToolButton:pressed{border-image: url(:/images/login-btn-02.png);}"
+                        "QToolButton:checked{border-image: url(:/images/login-btn-02.png);}");
+
+    return pBtn;
+}
+
+void MainWindow::onSlotBtnNaviCtr()
+{
+    if(m_pBtnNaviCtr->isChecked())
+    {
+        m_pBtnRealTimeMonitor->setVisible(true);
+        m_pBtnMonitorConfig->setVisible(true);
+    }
+    else
+    {
+        m_pBtnRealTimeMonitor->setVisible(false);
+        m_pBtnMonitorConfig->setVisible(false);
+    }
+}
+void MainWindow::onSlotBtnRealTimeMonitor()
+{}
+void MainWindow::onSlotBtnMonitorConfig()
+{}

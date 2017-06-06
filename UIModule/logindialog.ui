@@ -48,6 +48,9 @@
 border:0px;
 border-radius: 3px</string>
     </property>
+    <property name="frame">
+     <bool>false</bool>
+    </property>
     <property name="echoMode">
      <enum>QLineEdit::Password</enum>
     </property>
@@ -126,6 +129,9 @@ border-radius: 3px</string>
      <string notr="true">border-image:url(://images//login-btn.png);
 border:0px</string>
     </property>
+    <property name="default">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QCheckBox" name="m_checkBoxRemenber">
     <property name="geometry">
@@ -178,6 +184,9 @@ border-radius: 3px</string>
     </property>
     <property name="inputMethodHints">
      <set>Qt::ImhHiddenText</set>
+    </property>
+    <property name="frame">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QWidget" name="widget" native="true">

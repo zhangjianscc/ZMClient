@@ -28,13 +28,21 @@ private:
     QWidget* initHistoryFaceComparePane();       /// 历史对比面板
     void mousePressEvent(QMouseEvent *event);    ///
     void mouseMoveEvent(QMouseEvent *event);     ///
+    QToolButton* addClassifyButton(QString text,QString icon1,QString icon2);
+    QToolButton* addDetailButton(QString text);
 private:
     QPoint                m_curWindowPos;         /// 窗口当前位置
     QPoint                m_curMousePos;          /// 鼠标当前位置
     QPoint                m_destWindowPos;        /// 移动后窗口所在的位置
+    QToolButton*          m_pBtnNaviCtr;          /// 布控
+    QToolButton*          m_pBtnRealTimeMonitor;  /// 实时监控
+    QToolButton*          m_pBtnMonitorConfig;    /// 布控设置
 public slots:
     void onSlotBtnMinimize();                     /// 最小化
     void onSlotBtnClose();                        /// 关闭
+    void onSlotBtnNaviCtr();                      /// 布控
+    void onSlotBtnRealTimeMonitor();              /// 实时监控
+    void onSlotBtnMonitorConfig();                /// 布控设置
 };
 
 #endif // MAINWINDOW_H

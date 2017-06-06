@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
     //LoginDialog dlg;
     //if(dlg.exec() != QDialog::Accepted)
     //{
-     //   return 0;
+    //    return 0;
     //}
 
     // 启动主界面
