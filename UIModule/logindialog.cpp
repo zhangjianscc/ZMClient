@@ -1,5 +1,7 @@
 ﻿#include "logindialog.h"
 #include "ui_logindialog.h"
+#include "Common/singleton.h"
+#include "InterFaceToService/sysuserclient.h"
 
 LoginDialog::LoginDialog(QWidget *parent) :
     QDialog(parent),
@@ -115,7 +117,7 @@ void LoginDialog::loadSavedUserInfo()
 {
     // by ly
     m_mapSavedUser.clear();
-    m_mapSavedUser.insert("admin","123");
+    m_mapSavedUser.insert("admin","123456");
     m_mapSavedUser.insert("test1","123");
     m_mapSavedUser.insert("test2","123");
     m_mapSavedUser.insert("test3","123");
@@ -147,7 +149,29 @@ void LoginDialog::onSlotBtnLogin()
 {
     QString userName = ui->m_editUserName->text();
     QString userKey  = ui->m_editUserKey->text();
-    // by ly
+    // by ly添加登陆业务逻辑请求以及返回
+    SocketManager* inst = Singleton<SocketManager>::Instance();
+    inst->cn.getSocket();
+    char buf[2000];
+    int count = inst->receive(buf, 100);
+    if(count > 0){
+        QString resultString(buf);
+        if("OK" == resultString.trimmed())
+        {
+            //inst->sendMessage("OK");
+            SysUserClient sysuserclient;
+            QString reqjson = "";
+            sysuserclient.Login(userName, userKey, reqjson);  //请求json
+            inst->sendMessage(reqjson.toStdString().c_str());
+            memset(buf, 0x00, 2000);
+            int retcount = inst->receive(buf, 100);
+            if(retcount > 0)
+            {
+                QString RetString(buf);
+            }
+            this->loginResult(true, NULL);
+        }
+    }
 }
 
 void LoginDialog::onSlotRemenberUserStateChanged(int value)

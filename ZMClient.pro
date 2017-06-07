@@ -34,7 +34,10 @@ SOURCES += main.cpp \
     UIModule/Comm/mylineedit.cpp \
     base64/base64.cpp \
     Common/readini.cpp \
-    Common/socketTcp.cpp
+    Common/connection.cpp \
+    Common/socketmanager.cpp \
+    InterFaceToService/sysuserclient.cpp \
+    InterFaceToService/jsonformat.cpp
 
 FORMS += \
     UIModule/mainwindow.ui \
@@ -47,7 +50,15 @@ HEADERS += \
     UIModule/Comm/mylineedit.h \
     base64/base64.h \
     Common/readini.h \
-    Common/socketTcp.h
+    Common/SocketManager.h \
+    Common/conn_exception.h \
+    Common/connection.h \
+    Common/singleton.h \
+    InterFaceToService/jsonformat.h \
+    InterFaceToService/loginobj.h \
+    InterFaceToService/ParamCommon.h \
+    InterFaceToService/ParamsCommon.h \
+    InterFaceToService/sysuserclient.h
 
 RESOURCES += \
     images.qrc
