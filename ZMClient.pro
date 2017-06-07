@@ -35,7 +35,8 @@ SOURCES += main.cpp \
     base64/base64.cpp \
     Common/readini.cpp \
     Common/socketTcp.cpp \
-    UIModule/Comm/mytreeitem.cpp
+    UIModule/Comm/mytreeitem.cpp \
+    UIModule/Comm/mypushbutton.cpp
 
 FORMS += \
     UIModule/mainwindow.ui \
@@ -49,7 +50,10 @@ HEADERS += \
     base64/base64.h \
     Common/readini.h \
     Common/socketTcp.h \
-    UIModule/Comm/mytreeitem.h
+    UIModule/Comm/mytreeitem.h \
+    UIModule/Comm/mypushbutton.h
 
 RESOURCES += \
     images.qrc
+
+DISTFILES +=

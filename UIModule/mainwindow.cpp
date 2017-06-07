@@ -1,10 +1,13 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "UIModule/Comm/mytreeitem.h"
+#include "UIModule/Comm/mypushbutton.h"
+#include "stable.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QWidget(parent)
 {
+    initUserInfo();
     initMainFrame();
 }
 
@@ -58,7 +61,7 @@ void MainWindow::initMainFrame()
     connect(pBtnClose,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnClose()));
 
     QHBoxLayout* playout = new QHBoxLayout(pTitleWid);
-    playout->setContentsMargins(10,0,10,0);
+    playout->setContentsMargins(10,0,2,0);
     playout->setSpacing(0);
     playout->addWidget(pLogLabel,0,Qt::AlignVCenter);
     playout->addStretch();
@@ -69,20 +72,19 @@ void MainWindow::initMainFrame()
     QWidget* pContentWid = new QWidget();
     QWidget* pNaviPane = initNavePane();
 
-    QStackedWidget* pContentPane = new QStackedWidget();
-    pContentPane->addWidget(initBackGroundImagePane());     // 0
-    pContentPane->addWidget(initRealTimeMonitorPane());     // 1
-    pContentPane->addWidget(initWarningPane());             // 2
-    pContentPane->addWidget(initMonitorConfigPane());       // 3
-    pContentPane->addWidget(initOneToOneComparePane());     // 4
-    pContentPane->addWidget(initOneToNComparePane());       // 5
-    pContentPane->addWidget(initIdentityAuthenPane());      // 6
-    pContentPane->addWidget(initHistoryFaceComparePane());  // 7
+    m_pContentPane = new QStackedWidget();
+    m_pContentPane->addWidget(initBackGroundImagePane());     // 0
+    m_pContentPane->addWidget(initRealTimeMonitorPane());     // 1
+    m_pContentPane->addWidget(initMonitorConfigPane());       // 2
+    m_pContentPane->addWidget(initOneToOneComparePane());     // 3
+    m_pContentPane->addWidget(initOneToNComparePane());       // 4
+    m_pContentPane->addWidget(initIdentityAuthenPane());      // 5
+    m_pContentPane->addWidget(initHistoryFaceComparePane());  // 6
     QHBoxLayout* playout2 = new QHBoxLayout(pContentWid);
     playout2->setMargin(0);
     playout2->setSpacing(0);
     playout2->addWidget(pNaviPane,1);
-    playout2->addWidget(pContentPane,7);
+    playout2->addWidget(m_pContentPane,7);
 
     // 主布局
     QVBoxLayout* pMainLayout = new QVBoxLayout(this);
@@ -97,6 +99,7 @@ void MainWindow::onSlotBtnMinimize()
 {
     this->showMinimized();
 }
+
 void MainWindow::onSlotBtnClose()
 {
     this->close();
@@ -105,63 +108,67 @@ void MainWindow::onSlotBtnClose()
 QWidget* MainWindow::initNavePane()
 {
     QWidget* pWid = new QWidget();
-    pWid->setMinimumWidth(200);
+    pWid->setMinimumWidth(250);
     pWid->setStyleSheet("QWidget{background-color:rgb(217,217,217);border: 1px solid rgb(180,180,180)}");
     QVBoxLayout* playout = new QVBoxLayout(pWid);
     playout->setMargin(0);
     playout->setSpacing(0);
 
     QWidget* pWidTitle = new QWidget();
-    pWidTitle->setFixedHeight(120);
+    pWidTitle->setFixedHeight(80);
+    initUserPane(pWidTitle);
     playout->addWidget(pWidTitle);
 
-    QToolButton* pBtn;
 
-    m_pBtnNaviCtr = addClassifyButton("布控","://images//左侧图标01.png","://images//左侧图标01-02.png");
+    m_pBtnNaviCtr = new MyToolButton("布控","://images//左侧图标01.png","://images//左侧图标01-02.png");
     playout->addWidget(m_pBtnNaviCtr);
     connect(m_pBtnNaviCtr,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnNaviCtr()));
 
-    m_pBtnRealTimeMonitor = addDetailButton("实时监控");
+    m_pBtnRealTimeMonitor = new MyToolButton("实时监控");
     playout->addWidget(m_pBtnRealTimeMonitor);
     m_pBtnRealTimeMonitor->setVisible(false);
     connect(m_pBtnRealTimeMonitor,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnRealTimeMonitor()));
 
-    m_pBtnMonitorConfig = addDetailButton("布控设置");
+    m_pBtnMonitorConfig = new MyToolButton("布控设置");
     playout->addWidget(m_pBtnMonitorConfig);
     m_pBtnMonitorConfig->setVisible(false);
     connect(m_pBtnMonitorConfig,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnMonitorConfig()));
 
-    pBtn = addClassifyButton("人脸识别","://images//左侧图标02.png","://images//左侧图标02-02.png");
-    playout->addWidget(pBtn);
-    connect(pBtn,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnNaviCtr()));
+    m_pBtnFaceDetection = new MyToolButton("人脸识别","://images//左侧图标02.png","://images//左侧图标02-02.png");
+    playout->addWidget(m_pBtnFaceDetection);
+    connect(m_pBtnFaceDetection,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnFaceDetection()));
 
-    pBtn = addDetailButton("1:1对比");
-    playout->addWidget(pBtn);
-    connect(pBtn,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnNaviCtr()));
+    m_pBtnFaceOneToOne = new MyToolButton("1:1对比");
+    playout->addWidget(m_pBtnFaceOneToOne);
+    m_pBtnFaceOneToOne->setVisible(false);
+    connect(m_pBtnFaceOneToOne,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnFaceOneToOne()));
 
-    pBtn = addDetailButton("1:N对比");
-    playout->addWidget(pBtn);
-    connect(pBtn,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnNaviCtr()));
+    m_pBtnFaceOneToN = new MyToolButton("1:N对比");
+    playout->addWidget(m_pBtnFaceOneToN);
+    m_pBtnFaceOneToN->setVisible(false);
+    connect(m_pBtnFaceOneToN,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnFaceOneToN()));
 
-    pBtn = addDetailButton("身份验证");
-    playout->addWidget(pBtn);
-    connect(pBtn,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnNaviCtr()));
+    m_pBtnIndentify = new MyToolButton("身份验证");
+    playout->addWidget(m_pBtnIndentify);
+    m_pBtnIndentify->setVisible(false);
+    connect(m_pBtnIndentify,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnIndentify()));
 
-    pBtn = addDetailButton("历史人脸库对比");
-    playout->addWidget(pBtn);
-    connect(pBtn,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnNaviCtr()));
+    m_pBtnHistoryFace = new MyToolButton("      历史人脸库对比");
+    playout->addWidget(m_pBtnHistoryFace);
+    m_pBtnHistoryFace->setVisible(false);
+    connect(m_pBtnHistoryFace,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnHistoryFace()));
 
-    pBtn = addClassifyButton("模板库管理","://images//左侧图标03.png","://images//左侧图标03-01.png");
-    playout->addWidget(pBtn);
-    connect(pBtn,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnNaviCtr()));
+    m_pBtnModeManage = new MyToolButton("模板库管理","://images//左侧图标03.png","://images//左侧图标03-01.png");
+    playout->addWidget(m_pBtnModeManage);
+    connect(m_pBtnModeManage,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnModeManage()));
 
-    pBtn = addClassifyButton("告警管理","://images//左侧图标04.png","://images//左侧图标04-01.png");
-    playout->addWidget(pBtn);
-    connect(pBtn,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnNaviCtr()));
+    m_pBtnWarningManage = new MyToolButton("告警管理","://images//左侧图标04.png","://images//左侧图标04-01.png");
+    playout->addWidget(m_pBtnWarningManage);
+    connect(m_pBtnWarningManage,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnWarningManage()));
 
-    pBtn = addClassifyButton("基础信息维护","://images//左侧图标05.png","://images//左侧图标05-01.png");
-    playout->addWidget(pBtn);
-    connect(pBtn,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnNaviCtr()));
+    m_pBtnInfoManage = new MyToolButton("基础信息维护","://images//左侧图标05.png","://images//左侧图标05-01.png");
+    playout->addWidget(m_pBtnInfoManage);
+    connect(m_pBtnInfoManage,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnInfoManage()));
 
     playout->addStretch();
 
@@ -183,98 +190,241 @@ QWidget* MainWindow::initBackGroundImagePane()
 QWidget* MainWindow::initRealTimeMonitorPane()
 {
     QWidget* pWid = new QWidget();
-    return pWid;
-}
-
-QWidget* MainWindow::initWarningPane()
-{
-    QWidget* pWid = new QWidget();
+    QLabel* pLabel = new QLabel("实时监控");
+    QHBoxLayout* pLayout = new QHBoxLayout(pWid);
+    pLayout->addWidget(pLabel);
     return pWid;
 }
 
 QWidget* MainWindow::initMonitorConfigPane()
 {
     QWidget* pWid = new QWidget();
+    QLabel* pLabel = new QLabel("布控设置");
+    QHBoxLayout* pLayout = new QHBoxLayout(pWid);
+    pLayout->addWidget(pLabel);
     return pWid;
 }
 
 QWidget* MainWindow::initOneToOneComparePane()
 {
     QWidget* pWid = new QWidget();
+    QLabel* pLabel = new QLabel("1:1对比");
+    QHBoxLayout* pLayout = new QHBoxLayout(pWid);
+    pLayout->addWidget(pLabel);
     return pWid;
 }
 
 QWidget* MainWindow::initOneToNComparePane()
 {
     QWidget* pWid = new QWidget();
+    QLabel* pLabel = new QLabel("1：N对比");
+    QHBoxLayout* pLayout = new QHBoxLayout(pWid);
+    pLayout->addWidget(pLabel);
     return pWid;
 }
 
 QWidget* MainWindow::initIdentityAuthenPane()
 {
     QWidget* pWid = new QWidget();
+    QLabel* pLabel = new QLabel("身份验证");
+    QHBoxLayout* pLayout = new QHBoxLayout(pWid);
+    pLayout->addWidget(pLabel);
     return pWid;
 }
 
 QWidget* MainWindow::initHistoryFaceComparePane()
 {
     QWidget* pWid = new QWidget();
+    QLabel* pLabel = new QLabel("历史人脸库对比");
+    QHBoxLayout* pLayout = new QHBoxLayout(pWid);
+    pLayout->addWidget(pLabel);
     return pWid;
-}
-
-QToolButton* MainWindow::addClassifyButton(QString text,QString icon1,QString icon2)
-{
-    QToolButton* pBtn;
-
-    pBtn = new QToolButton();
-    pBtn->setText(text);
-    pBtn->setIcon(QIcon(QPixmap(icon1)));
-    pBtn->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    pBtn->setCheckable(true);
-    pBtn->setIconSize(QSize(21,20));
-    pBtn->setFixedHeight(40);
-    pBtn->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
-
-    pBtn->setStyleSheet("QToolButton{background-color:rgb(217,217,217)}"
-                        "QToolButton:pressed{background-color:rgb(76,76,76)}"
-                        "QToolButton:checked{background-color:rgb(76,76,76)}"
-                        "QToolButton::icon{back}");
-
-    return pBtn;
-}
-
-QToolButton* MainWindow::addDetailButton(QString text)
-{
-    QToolButton* pBtn;
-
-    pBtn = new QToolButton();
-    pBtn->setText(text);
-    pBtn->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    pBtn->setCheckable(true);
-    pBtn->setFixedHeight(30);
-    pBtn->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
-
-    pBtn->setStyleSheet("QToolButton{background-color:rgb(217,217,217)}"
-                        "QToolButton:pressed{border-image: url(:/images/导航栏选中.png);}"
-                        "QToolButton:checked{border-image: url(:/images/导航栏选中.png);}");
-
-    return pBtn;
 }
 
 void MainWindow::onSlotBtnNaviCtr()
 {
     if(m_pBtnNaviCtr->isChecked())
     {
+        m_pBtnNaviCtr->select();
         m_pBtnRealTimeMonitor->setVisible(true);
         m_pBtnMonitorConfig->setVisible(true);
     }
     else
     {
+        m_pBtnNaviCtr->unSelect();
         m_pBtnRealTimeMonitor->setVisible(false);
         m_pBtnMonitorConfig->setVisible(false);
     }
 }
 void MainWindow::onSlotBtnRealTimeMonitor()
-{}
+{
+    m_pBtnRealTimeMonitor->setChecked(true);
+
+    m_pContentPane->setCurrentIndex(1);
+    m_pBtnMonitorConfig->setChecked(false);
+    m_pBtnFaceOneToOne->setChecked(false);
+    m_pBtnFaceOneToN->setChecked(false);
+    m_pBtnIndentify->setChecked(false);
+    m_pBtnHistoryFace->setChecked(false);
+}
 void MainWindow::onSlotBtnMonitorConfig()
-{}
+{
+    m_pBtnMonitorConfig->setChecked(true);
+
+    m_pContentPane->setCurrentIndex(2);
+    m_pBtnRealTimeMonitor->setChecked(false);
+    m_pBtnFaceOneToOne->setChecked(false);
+    m_pBtnFaceOneToN->setChecked(false);
+    m_pBtnIndentify->setChecked(false);
+    m_pBtnHistoryFace->setChecked(false);
+}
+void MainWindow::onSlotBtnFaceDetection()
+{
+    if(m_pBtnFaceDetection->isChecked())
+    {
+        m_pBtnFaceDetection->select();
+        m_pBtnFaceOneToOne->setVisible(true);
+        m_pBtnFaceOneToN->setVisible(true);
+        m_pBtnIndentify->setVisible(true);
+        m_pBtnHistoryFace->setVisible(true);
+    }
+    else
+    {
+        m_pBtnFaceDetection->unSelect();
+        m_pBtnFaceOneToOne->setVisible(false);
+        m_pBtnFaceOneToN->setVisible(false);
+        m_pBtnIndentify->setVisible(false);
+        m_pBtnHistoryFace->setVisible(false);
+    }
+}
+void MainWindow::onSlotBtnFaceOneToOne()
+{
+    m_pBtnFaceOneToOne->setChecked(true);
+
+    m_pContentPane->setCurrentIndex(3);
+    m_pBtnRealTimeMonitor->setChecked(false);
+    m_pBtnMonitorConfig->setChecked(false);
+    m_pBtnFaceOneToN->setChecked(false);
+    m_pBtnIndentify->setChecked(false);
+    m_pBtnHistoryFace->setChecked(false);
+}
+void MainWindow::onSlotBtnFaceOneToN()
+{
+    m_pBtnFaceOneToN->setChecked(true);
+
+    m_pContentPane->setCurrentIndex(4);
+    m_pBtnRealTimeMonitor->setChecked(false);
+    m_pBtnMonitorConfig->setChecked(false);
+    m_pBtnFaceOneToOne->setChecked(false);
+    m_pBtnIndentify->setChecked(false);
+    m_pBtnHistoryFace->setChecked(false);
+}
+void MainWindow::onSlotBtnIndentify()
+{
+    m_pBtnIndentify->setChecked(true);
+
+    m_pContentPane->setCurrentIndex(5);
+    m_pBtnRealTimeMonitor->setChecked(false);
+    m_pBtnMonitorConfig->setChecked(false);
+    m_pBtnFaceOneToOne->setChecked(false);
+    m_pBtnFaceOneToN->setChecked(false);
+    m_pBtnHistoryFace->setChecked(false);
+}
+void MainWindow::onSlotBtnHistoryFace()
+{
+    m_pBtnHistoryFace->setChecked(true);
+
+    m_pContentPane->setCurrentIndex(6);
+    m_pBtnRealTimeMonitor->setChecked(false);
+    m_pBtnMonitorConfig->setChecked(false);
+    m_pBtnFaceOneToOne->setChecked(false);
+    m_pBtnFaceOneToN->setChecked(false);
+    m_pBtnIndentify->setChecked(false);
+}
+void MainWindow::onSlotBtnModeManage()
+{
+    if(m_pBtnModeManage->isChecked())
+    {
+        m_pBtnModeManage->select();
+    }
+    else
+    {
+        m_pBtnModeManage->unSelect();
+    }
+}
+void MainWindow::onSlotBtnWarningManage()
+{
+    if(m_pBtnWarningManage->isChecked())
+    {
+        m_pBtnWarningManage->select();
+    }
+    else
+    {
+        m_pBtnWarningManage->unSelect();
+    }
+}
+void MainWindow::onSlotBtnInfoManage()
+{
+    if(m_pBtnInfoManage->isChecked())
+    {
+        m_pBtnInfoManage->select();
+    }
+    else
+    {
+        m_pBtnInfoManage->unSelect();
+    }
+}
+
+void MainWindow::initUserPane(QWidget* pWid)
+{
+    // 用户图标
+    QLabel* pLabelUserIcon = new QLabel();
+    pLabelUserIcon->setPixmap(QPixmap("://images//用户小图标.png"));
+    pLabelUserIcon->setStyleSheet("QLabel{border:none;}");
+
+    //  欢迎 语
+    QLabel* pLabelWelcome = new QLabel();
+    pLabelWelcome->setText(QString("欢迎%1").arg(m_strUserType));
+    pLabelWelcome->setStyleSheet("QLabel{border:none;font: 10pt}");
+
+    // 注销按钮
+    QPushButton* pBtnLogout = new QPushButton();
+    pBtnLogout->setStyleSheet("QPushButton{border-image:url(://images//注销按钮.png);border: 0px;border-radius: 0px;}"
+                                              "QPushButton:hover{border-image:url(://images//注销按钮.png);}"
+                                              "QPushButton:pressed{border-image:url(://images//注销按钮.png);}");
+    // 用户名
+    QLabel* pLabelUserName = new QLabel();
+    pLabelUserName->setText(m_strUserName);
+    pLabelUserName->setStyleSheet("QLabel{border:none;font: 16pt Arial Black;}");
+
+    // 日期时间
+    QLabel* pLabelDateTime = new QLabel();
+    QDateTime time = QDateTime::currentDateTime();
+    pLabelDateTime->setText(time.toString("yyyy年MM月dd日 hh:mm:ss"));
+    pLabelDateTime->setStyleSheet("QLabel{border:none;font: 10pt}");
+
+    QHBoxLayout* playout = new QHBoxLayout();
+    playout->addStretch();
+    playout->addWidget(pLabelUserIcon);
+    playout->addWidget(pLabelWelcome);
+    playout->addWidget(pBtnLogout);
+    playout->addStretch();
+
+    QVBoxLayout* pMainLayout = new QVBoxLayout(pWid);
+    pMainLayout->addLayout(playout);
+    pMainLayout->addWidget(pLabelUserName,0,Qt::AlignHCenter);
+    pMainLayout->addWidget(pLabelDateTime,0,Qt::AlignHCenter);
+}
+
+void MainWindow::initUserInfo()
+{
+    // by ly
+    m_strUserName = "administrator";
+    m_strUserType = "管理员";
+}
+
+
+
+
+
+
