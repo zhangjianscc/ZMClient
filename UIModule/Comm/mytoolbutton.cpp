@@ -1,4 +1,4 @@
-#include "mypushbutton.h"
+#include "mytoolbutton.h"
 #include "stable.h"
 
 MyToolButton::MyToolButton(QString text) :

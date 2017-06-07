@@ -31,12 +31,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp \
     UIModule/mainwindow.cpp \
     UIModule/logindialog.cpp \
-    UIModule/Comm/mylineedit.cpp \
     base64/base64.cpp \
     Common/readini.cpp \
     Common/socketTcp.cpp \
-    UIModule/Comm/mytreeitem.cpp \
-    UIModule/Comm/mypushbutton.cpp
+    UIModule/Comm/mytoolbutton.cpp \
+    UIModule/Comm/mywidgetfolder.cpp \
+    UIModule/Comm/myimagewidget.cpp
 
 FORMS += \
     UIModule/mainwindow.ui \
@@ -46,12 +46,12 @@ HEADERS += \
     UIModule/mainwindow.h \
     UIModule/logindialog.h \
     stable.h \
-    UIModule/Comm/mylineedit.h \
     base64/base64.h \
     Common/readini.h \
     Common/socketTcp.h \
-    UIModule/Comm/mytreeitem.h \
-    UIModule/Comm/mypushbutton.h
+    UIModule/Comm/mytoolbutton.h \
+    UIModule/Comm/mywidgetfolder.h \
+    UIModule/Comm/myimagewidget.h
 
 RESOURCES += \
     images.qrc

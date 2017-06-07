@@ -1,8 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "UIModule/Comm/mytreeitem.h"
-#include "UIModule/Comm/mypushbutton.h"
+#include "UIModule/Comm/mytoolbutton.h"
 #include "stable.h"
+#include "UIModule/Comm/mywidgetfolder.h"
+#include "UIModule/Comm/myimagewidget.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QWidget(parent)
@@ -36,7 +37,9 @@ void MainWindow::initMainFrame()
     // 标题栏
     QWidget* pTitleWid = new QWidget();
     pTitleWid->setFixedHeight(35);
-    pTitleWid->setStyleSheet("QWidget{color: rgb(238, 238, 238);border: 1px solid rgb(228,228,228);}");
+    //pTitleWid->setStyleSheet("QWidget{color: rgb(238, 238, 238);border: 1px solid rgb(228,228,228);}");
+    pTitleWid->setStyleSheet("QWidget{border-radius:0px;"
+                                "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(235, 235, 235), stop:1 rgb(170, 170, 170));}");
 
     QLabel* pLogLabel = new QLabel();
     pLogLabel->setStyleSheet("QLabel{border: none}");
@@ -46,7 +49,7 @@ void MainWindow::initMainFrame()
 
     QPushButton* pBtnMinimize = new QPushButton();
     pBtnMinimize->setFixedSize(30,26);
-    pBtnMinimize->setStyleSheet("QPushButton{background-image:url(://images//shutdown-02.png);border: none;border-top-left-radius: 0px;}"
+    pBtnMinimize->setStyleSheet("QPushButton{background-image:url(://images//shutdown-02.png);border: none;border-top-left-radius: 0px;"
                                 "border-top-right-radius: 0px;border-bottom-left-radius: 5px;border-bottom-right-radius: 0px;}"
                                               "QPushButton:hover{background-image:url(://images//shutdown.png);}"
                                               "QPushButton:pressed{background-image:url(://images//shutdown.png);}");
@@ -190,9 +193,43 @@ QWidget* MainWindow::initBackGroundImagePane()
 QWidget* MainWindow::initRealTimeMonitorPane()
 {
     QWidget* pWid = new QWidget();
-    QLabel* pLabel = new QLabel("实时监控");
-    QHBoxLayout* pLayout = new QHBoxLayout(pWid);
-    pLayout->addWidget(pLabel);
+    pWid->setStyleSheet("QWidget{border:none;background-color:rgb(227,227,227)}");
+
+    MyWidgetFolder* pFolderReal = new MyWidgetFolder("://images//实时监控图标01.png","实时采集");
+    QWidget* pRealContent = new QWidget();
+    pRealContent->setStyleSheet("QWidget{border:1px;border-radius:2px;background-color:rgb(236,236,236)}");
+    pFolderReal->setContentWidget(pRealContent);
+    QGridLayout* pLayoutReal = new QGridLayout(pRealContent);
+    for(int i = 0 ; i < 3 ; ++i)
+    {
+        for(int j = 0 ; j < 3 ; ++j)
+        {
+            MyImageWidget* pImageWid = new MyImageWidget();
+            pLayoutReal->addWidget(pImageWid,i,j,Qt::AlignCenter);
+        }
+    }
+
+
+    MyWidgetFolder* pFolderWarning = new MyWidgetFolder("://images//实时监控图标02.png","告警信息");
+    QWidget* pWarningContent = new QWidget();
+    pWarningContent->setStyleSheet("QWidget{border:1px;border-radius:2px;background-color:rgb(236,236,236)}");
+    pFolderWarning->setContentWidget(pWarningContent);
+    QGridLayout* pLayoutWarning = new QGridLayout(pWarningContent);
+    for(int i = 0 ; i < 2 ; ++i)
+    {
+        for(int j = 0 ; j < 3 ; ++j)
+        {
+            MyImageWidget* pImageWid = new MyImageWidget();
+            pLayoutWarning->addWidget(pImageWid,i,j,Qt::AlignCenter);
+        }
+    }
+
+
+    QHBoxLayout* pMainLayout = new QHBoxLayout(pWid);
+    pMainLayout->setContentsMargins(10,20,10,20);
+    pMainLayout->setSpacing(10);
+    pMainLayout->addWidget(pFolderReal,3);
+    pMainLayout->addWidget(pFolderWarning,2);
     return pWid;
 }
 
