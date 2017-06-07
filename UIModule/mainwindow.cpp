@@ -237,7 +237,8 @@ QToolButton* MainWindow::addClassifyButton(QString text,QString icon1,QString ic
 
     pBtn->setStyleSheet("QToolButton{background-color:rgb(217,217,217)}"
                         "QToolButton:pressed{background-color:rgb(76,76,76)}"
-                        "QToolButton:checked{background-color:rgb(76,76,76)}");
+                        "QToolButton:checked{background-color:rgb(76,76,76)}"
+                        "QToolButton::icon{back}");
 
     return pBtn;
 }
@@ -254,8 +255,8 @@ QToolButton* MainWindow::addDetailButton(QString text)
     pBtn->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
 
     pBtn->setStyleSheet("QToolButton{background-color:rgb(217,217,217)}"
-                        "QToolButton:pressed{border-image: url(:/images/login-btn-02.png);}"
-                        "QToolButton:checked{border-image: url(:/images/login-btn-02.png);}");
+                        "QToolButton:pressed{border-image: url(:/images/导航栏选中.png);}"
+                        "QToolButton:checked{border-image: url(:/images/导航栏选中.png);}");
 
     return pBtn;
 }

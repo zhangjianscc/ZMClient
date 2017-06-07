@@ -32,12 +32,8 @@ void LoginDialog::initUI()
 {
     // 去除窗口标题栏 设置圆角对话框
     this->setWindowFlags(Qt::FramelessWindowHint);
-    QBitmap objBitmap(size());
-    QPainter painter(&objBitmap); //QPainter用于在位图上绘画
-    painter.fillRect(rect(),Qt::white);//填充位图矩形框(用白色填充)
-    painter.setBrush(QColor(0,0,0));
-    painter.drawRoundedRect(this->rect(),12,12);//在位图上画圆角矩形(用黑色填充)
-    setMask(objBitmap);    //使用setmask过滤即可
+    QPixmap pix("://images//login_back.png");
+    this->setMask(pix.mask());
 
     // 最小化按钮
     ui->m_btnMinimize->setStyleSheet("QPushButton{border-image:url(://images//mouseenter-01.png);border: 0px;border-radius: 0px;}"
@@ -46,8 +42,7 @@ void LoginDialog::initUI()
     connect(ui->m_btnMinimize,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnMinimize()));
 
     // 关闭按钮
-    ui->m_btnClose->setStyleSheet("QPushButton{border-image:url(://images//mouseenter03.png);border: 0px;border-top-left-radius: 0px;"
-                                  "border-top-right-radius: 12px;border-bottom-left-radius: 0px;border-bottom-right-radius: 0px;}"
+    ui->m_btnClose->setStyleSheet("QPushButton{border-image:url(://images//mouseenter03.png);border: 0px;border-radius: 0px;}"
                                               "QPushButton:hover{border-image:url(://images//mouseenter.png);}"
                                               "QPushButton:pressed{border-image:url(://images//mouseenter.png);}");
     connect(ui->m_btnClose,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnClose()));
