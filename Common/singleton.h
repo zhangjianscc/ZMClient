@@ -19,5 +19,4 @@ public:
         return inst.data();
     }
 };
-//SocketManager* inst = Singleton<SocketManager>::Instance();
 #endif // SINGLETON_H

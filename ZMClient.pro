@@ -37,7 +37,8 @@ SOURCES += main.cpp \
     Common/connection.cpp \
     Common/socketmanager.cpp \
     InterFaceToService/sysuserclient.cpp \
-    InterFaceToService/jsonformat.cpp
+    InterFaceToService/jsonformat.cpp \
+    Common/singleton.cpp
 
 FORMS += \
     UIModule/mainwindow.ui \

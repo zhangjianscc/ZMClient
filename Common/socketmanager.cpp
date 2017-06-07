@@ -3,27 +3,41 @@
 
 bool SocketManager::connetService(string server, string port)
 {
-        this->server = server;
-        this->port = port;
-        socket=INVALID_SOCKET;
-        return true;
-}
-bool SocketManager::sendMessage(const char* message)
-{
+    this->server = server;
+    this->port = port;
+    socket=INVALID_SOCKET;
     try{
-        if (WSAStartup(WSVERS, &wsadata) != 0){   /* 启动某版本的DLL */
+        if (WSAStartup(WSVERS, &wsadata) != 0){   //启动某版本的DLL
             return false;
         }
         cn.makeConnect(server, port, "tcp");
         socket=cn.getSocket();
-        if(send(socket, message, strlen(message), 0)==SOCKET_ERROR){
+    }catch(ConnException e){
+        cout<<e.msg<<" 错误号 "<<e.err<<endl;
+        return false;
+    }
+    return true;
+}
+bool SocketManager::sendMessage(const char* message)
+{
+    /*try{
+        if (WSAStartup(WSVERS, &wsadata) != 0){   //启动某版本的DLL
+            return false;
+        }
+        cn.makeConnect(server, port, "tcp");
+        socket=cn.getSocket();
+        if(send(socket, message, (int)strlen(message), 0)==SOCKET_ERROR){
             return false;
         }
         return true;
     }catch(ConnException e){
         cout<<e.msg<<" 错误号 "<<e.err<<endl;
         return false;
+    }*/
+    if(send(socket, message, (int)strlen(message), 0)==SOCKET_ERROR){
+        return false;
     }
+    return true;
 }
 
 
