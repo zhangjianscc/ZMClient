@@ -6,7 +6,7 @@ MyWidgetFolder::MyWidgetFolder(QString iconPath,QString title) :
     m_strIconPath(iconPath),
     m_strTitle(title)
 {
-    this->setStyleSheet("QWidget{border:1px;border-radius:2px;background-color:rgb(236,236,236)}");
+    this->setStyleSheet("MyWidgetFolder{border:1px;border-radius:2px;background-color:rgb(236,236,236)}");
 
     QWidget* pWidTitleBar = new QWidget();
     pWidTitleBar->setFixedHeight(25);

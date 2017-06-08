@@ -53,8 +53,8 @@
         <file>images/左侧图标05-01.png</file>
         <file>images/左上角logo.png</file>
         <file>images/01主界面.png</file>
-        <file>images/02主界面.png</file>
         <file>images/导航栏选中.png</file>
         <file>images/login_back.png</file>
+        <file>images/head.jpg</file>
     </qresource>
 </RCC>

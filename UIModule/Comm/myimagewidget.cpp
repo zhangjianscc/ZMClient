@@ -4,11 +4,11 @@
 MyImageWidget::MyImageWidget() :
     QWidget(0)
 {
-    this->setStyleSheet("MyImageWidget{border:0px;border-radius:2px;background-color:rgb(129,210,255)}");
-    this->setFixedSize(100,200);
+    this->setStyleSheet("MyImageWidget{border:0px;border-radius:2px;background-color:rgb(236,236,236)}");
+    //this->setFixedSize(100,150);
 
     m_pLabelImage = new QLabel();
-    m_pLabelImage->setFixedSize(50,100);
+    m_pLabelImage->setFixedSize(100,114);
     m_pLabelImage->setScaledContents(true);
     //m_pLabelImage->setPixmap(pixmap);
     m_pLabelImage->setStyleSheet("QLabel{border:0px;background-color:rgb(178,178,178)}");
@@ -26,6 +26,7 @@ MyImageWidget::MyImageWidget() :
     m_pLabelPosition->setStyleSheet("QLabel{border:0px;background-color:rgb(236,236,236)}");
 
     QVBoxLayout* pMainLayout = new QVBoxLayout(this);
+    pMainLayout->setSpacing(1);
     pMainLayout->addWidget(m_pLabelImage,0,Qt::AlignHCenter);
     pMainLayout->addWidget(m_pLabelDate,0,Qt::AlignHCenter);
     pMainLayout->addWidget(m_pLabelTime,0,Qt::AlignHCenter);
