@@ -10,17 +10,20 @@
 class ParamsCommon:public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QJsonObject PARAM READ Param WRITE setParam)
+    Q_PROPERTY(QJsonObject PARAM READ PARAM WRITE setPARAM)
+
+public:
+
+    QJsonObject PARAM(){return m_param;}
+    void setPARAM(QJsonObject& param){m_param=param;}
+
 public:
     void SetParam(QObject& param)
     {
         JsonFormat Jf;
         QJsonObject JsonObj=Jf.ToJsonObj(param);
-        setParam(JsonObj);
+        setPARAM(JsonObj);
     }
-    QJsonObject Param(){return m_param;}
-private:
-    void setParam(QJsonObject& param){m_param=param;}
 private:
     QJsonObject m_param;
 };

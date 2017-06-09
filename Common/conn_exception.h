@@ -1,3 +1,5 @@
+﻿#ifndef CONNEXCEPTION_H
+#define CONNEXCEPTION_H
 #include <string>
 #include <exception>
 
@@ -22,3 +24,4 @@ public:
 	~ConnException(){
 	}
 };
+#endif //CONNEXCEPTION_H

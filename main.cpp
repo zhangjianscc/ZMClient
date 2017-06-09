@@ -7,8 +7,10 @@
 
 int main(int argc, char *argv[])
 {
-    QTextCodec *codec = QTextCodec::codecForName("GBK");
+    // 指定编码格式为utf-8
+    QTextCodec* codec = QTextCodec::codecForName("UTF-8");
     QTextCodec::setCodecForLocale(codec);
+
     QApplication a(argc, argv);
 
     //  by ly 初始化网络通信等其它模块,读取配置文件ini
@@ -28,7 +30,8 @@ int main(int argc, char *argv[])
 
     // 启动主界面
     MainWindow w;
-    w.show();
+    w.showMaximized();
+    //w.show();
 
     return a.exec();
 }

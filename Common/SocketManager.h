@@ -21,7 +21,7 @@ using namespace std;
 
 //user pre-compile identifiers
 #define WSVERS MAKEWORD(2, 0)	 //winsock version 2.0
-#pragma comment(lib, "ws2_32.lib")
+//#pragma comment(lib, "ws2_32.lib")
 
 //这个类把Socket通信封装，connection.h是网上的代码，基本没有错误了
 //这个类负责发送和接受

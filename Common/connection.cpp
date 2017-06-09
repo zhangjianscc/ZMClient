@@ -1,5 +1,4 @@
-﻿#pragma once
-#include "Common/connection.h"
+﻿#include "Common/connection.h"
 
 SOCKET Connection::passivesock(const string &serv, const string &tp, const int qlen)
 {
@@ -123,3 +122,4 @@ bool Connection::makeConnect(const string &host, const string &service, const st
     }
     return true;
 }
+

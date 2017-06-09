@@ -1,5 +1,4 @@
-﻿#pragma once
-#include "Common/SocketManager.h"
+﻿#include "Common/SocketManager.h"
 
 bool SocketManager::connetService(string server, string port)
 {

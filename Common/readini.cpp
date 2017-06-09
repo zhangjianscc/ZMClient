@@ -1,5 +1,5 @@
 ﻿#include "readini.h"
-
+#include <QSettings>
 ReadIni::ReadIni()
 {
 

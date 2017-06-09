@@ -1,6 +1,7 @@
 ﻿#ifndef SINGLETON_H
 #define SINGLETON_H
 #include "Common/SocketManager.h"
+#include <QMutex>
 template <class T>
 class Singleton
 {
