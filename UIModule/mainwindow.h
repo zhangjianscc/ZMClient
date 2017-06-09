@@ -33,6 +33,7 @@ private:
     QWidget* initHistoryFaceComparePane();       /// 历史对比面板
     void mousePressEvent(QMouseEvent *event);    ///
     void mouseMoveEvent(QMouseEvent *event);     ///
+    void mouseReleaseEvent(QMouseEvent *event);  ///
 private:
     QPoint                m_curWindowPos;         /// 窗口当前位置
     QPoint                m_curMousePos;          /// 鼠标当前位置
@@ -52,6 +53,8 @@ private:
 
     QString               m_strUserType;          /// 用户类型
     QString               m_strUserName;          /// 用户名
+
+    bool                  m_bIsMoveing;
 
     RealTimeMonitorPane*  m_pRealTimeMonitorPane; /// 实时监控面板
 public slots:

@@ -6,6 +6,7 @@
 
 class MyImageWidget;
 class MyImageCompareWidget;
+class QGridLayout;
 class RealTimeMonitorPane : public QWidget
 {
     Q_OBJECT
@@ -19,17 +20,29 @@ public:
         QString time;
         QString position;
     };
-    void updateUIData(QList<stImageData>& list);
+    struct stImageSimilarData
+    {
+        QString name;
+        QPixmap pix;
+        double  similarity;
+        QString source;
+    };
+    void updateImageData(QList<stImageData>& list);
+    void updateImageSimilarityData(QList<stImageSimilarData>& list);
+protected:
+    void paintEvent(QPaintEvent *event);
 private:
-    void initFrame();
+    void initUI();
 
 private:
     QList<MyImageWidget*> m_listImageWid;
     QList<MyImageCompareWidget*> m_listImageCompareWid;
+    QGridLayout* m_pLayoutWarning;
 
 signals:
 
 public slots:
+    void onSlotLeftImageClieked(MyImageWidget*);
 };
 
 #endif // REALTIMEMONITORPANE_H

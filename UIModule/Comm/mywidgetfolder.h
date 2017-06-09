@@ -9,6 +9,8 @@ class MyWidgetFolder : public QWidget
 public:
     explicit MyWidgetFolder(QString iconPath = "",QString title = "");
     void setContentWidget(QWidget* pWid);
+protected:
+    void paintEvent(QPaintEvent *event);
 private:
     QString      m_strIconPath;
     QString      m_strTitle;

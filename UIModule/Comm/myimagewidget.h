@@ -8,16 +8,19 @@ class MyImageWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit MyImageWidget();
+    explicit MyImageWidget(QWidget* parent = 0);
+    void initUI();
     void setChecked(bool checked);
     void reset();
     void setData(QPixmap& pixmap,QString name,QString date,QString time,QString position);
+    QString getName();
 
 protected:
     void mousePressEvent(QMouseEvent *ev);
     void mouseReleaseEvent(QMouseEvent *ev);
+    void paintEvent(QPaintEvent *event);
 
-public:
+private:
     QPoint  m_mousePos;
     QString m_strName;
     QString m_strDate;
@@ -32,7 +35,7 @@ private:
 
 
 signals:
-    void clicked();
+    void clicked(MyImageWidget*);
 
 public slots:
 };

@@ -38,7 +38,8 @@ SOURCES += main.cpp \
     UIModule/Comm/mywidgetfolder.cpp \
     UIModule/Comm/myimagewidget.cpp \
     UIModule/realtimemonitorpane.cpp \
-    UIModule/Comm/myimagecomparewidget.cpp
+    UIModule/Comm/myimagecomparewidget.cpp \
+    UIModule/Comm/myimagelabel.cpp
 
 FORMS += \
     UIModule/mainwindow.ui \
@@ -55,9 +56,10 @@ HEADERS += \
     UIModule/Comm/mywidgetfolder.h \
     UIModule/Comm/myimagewidget.h \
     UIModule/realtimemonitorpane.h \
-    UIModule/Comm/myimagecomparewidget.h
+    UIModule/Comm/myimagecomparewidget.h \
+    UIModule/Comm/myimagelabel.h
 
 RESOURCES += \
-    images.qrc
+    Resouce.qrc
 
 DISTFILES +=

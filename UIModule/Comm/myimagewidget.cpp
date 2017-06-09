@@ -1,39 +1,49 @@
 #include "myimagewidget.h"
 #include "stable.h"
+#include "UIModule/Comm/myimagelabel.h"
 
-MyImageWidget::MyImageWidget() :
-    QWidget(0)
+
+MyImageWidget::MyImageWidget(QWidget* parent) :
+    QWidget(parent)
 {
-    this->setStyleSheet("MyImageWidget{border:0px;border-radius:2px;background-color:rgb(236,236,236)}");
-    //this->setFixedSize(100,150);
+    initUI();
+}
+
+void MyImageWidget::initUI()
+{
+    this->setStyleSheet("MyImageWidget{border-radius:2px;background-color:rgb(236,236,236)}");
+
+    //QDesktopWidget *deskWgt = QApplication::desktop();
+    //QRect re = deskWgt->screenGeometry();
 
     m_pLabelImage = new QLabel();
-    m_pLabelImage->setFixedSize(100,114);
+    m_pLabelImage->setFixedSize(130,156);
     m_pLabelImage->setScaledContents(true);
-    //m_pLabelImage->setPixmap(pixmap);
-    m_pLabelImage->setStyleSheet("QLabel{border:0px;background-color:rgb(178,178,178)}");
+    m_pLabelImage->setAlignment(Qt::AlignCenter);
+    m_pLabelImage->setStyleSheet("QLabel{border:1px solid rgb(109,109,109);background-color:rgb(178,178,178)}");
 
     m_pLabelDate = new QLabel();
     m_pLabelDate->setText(m_strDate);
-    m_pLabelDate->setStyleSheet("QLabel{border:0px;background-color:rgb(236,236,236)}");
+    m_pLabelDate->setStyleSheet("QLabel{border:0px;background:transparent}");
 
     m_pLabelTime = new QLabel();
     m_pLabelTime->setText(m_strTime);
-    m_pLabelTime->setStyleSheet("QLabel{border:0px;background-color:rgb(236,236,236)}");
+    m_pLabelTime->setStyleSheet("QLabel{border:0px;background:transparent}");
 
     m_pLabelPosition = new QLabel();
     m_pLabelPosition->setText(m_strPosition);
-    m_pLabelPosition->setStyleSheet("QLabel{border:0px;background-color:rgb(236,236,236)}");
+    m_pLabelPosition->setStyleSheet("QLabel{border:0px;background:transparent}");
+
+
 
     QVBoxLayout* pMainLayout = new QVBoxLayout(this);
     pMainLayout->setSpacing(1);
-    pMainLayout->addWidget(m_pLabelImage,0,Qt::AlignHCenter);
+    pMainLayout->addWidget(m_pLabelImage,1);
     pMainLayout->addWidget(m_pLabelDate,0,Qt::AlignHCenter);
     pMainLayout->addWidget(m_pLabelTime,0,Qt::AlignHCenter);
     pMainLayout->addWidget(m_pLabelPosition,0,Qt::AlignHCenter);
 
 }
-
 void MyImageWidget::mousePressEvent(QMouseEvent *ev)
 {
     m_mousePos = QPoint(ev->x(), ev->y());
@@ -46,18 +56,18 @@ void MyImageWidget::mouseReleaseEvent(QMouseEvent *ev)
         m_bIsChecked = true;
         setChecked(m_bIsChecked);
     }
-    emit clicked();
+    emit clicked(this);
 }
 
 void MyImageWidget::setChecked(bool checked)
 {
     if(checked)
     {
-        this->setStyleSheet("MyImageWidget{border:none;border-radius:2px;background-color:rgb(129,210,255)}");
+        this->setStyleSheet("MyImageWidget{background-color:rgb(129,210,255)}");
     }
     else
     {
-        this->setStyleSheet("MyImageWidget{border:none;border-radius:2px;background-color:rgb(236,236,236)}");
+        this->setStyleSheet("MyImageWidget{background-color:rgb(236,236,236)}");
     }
 }
 
@@ -73,6 +83,8 @@ void MyImageWidget::reset()
     m_pLabelDate->setText(m_strDate);
     m_pLabelTime->setText(m_strTime);
     m_pLabelPosition->setText(m_strPosition);
+
+    this->setStyleSheet("MyImageWidget{background-color:rgb(236,236,236)}");
 }
 
 void MyImageWidget::setData(QPixmap& pixmap,QString name,QString date,QString time,QString position)
@@ -84,13 +96,27 @@ void MyImageWidget::setData(QPixmap& pixmap,QString name,QString date,QString ti
     m_strPosition = position;
 
     m_pLabelImage->setPixmap(pixmap);
+
     m_pLabelDate->setText(m_strDate);
     m_pLabelTime->setText(m_strTime);
     m_pLabelPosition->setText(m_strPosition);
+
+    this->setStyleSheet("MyImageWidget{background-color:rgb(236,236,236)}");
 }
 
 
+void MyImageWidget::paintEvent(QPaintEvent *event)
+{
+    QStyleOption opt;
+    opt.init(this);
+    QPainter p(this);
+    style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
+    QWidget::paintEvent(event);
+}
 
-
+QString MyImageWidget::getName()
+{
+    return m_strName;
+}
 
 

@@ -41,6 +41,7 @@ void LoginDialog::initUI()
                                               "QPushButton:pressed{border-image:url(://images//mouseenter-02.png);}");
     connect(ui->m_btnMinimize,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnMinimize()));
 
+
     // 关闭按钮
     ui->m_btnClose->setStyleSheet("QPushButton{border-image:url(://images//mouseenter03.png);border: 0px;border-radius: 0px;}"
                                               "QPushButton:hover{border-image:url(://images//mouseenter.png);}"

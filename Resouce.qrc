@@ -56,5 +56,8 @@
         <file>images/导航栏选中.png</file>
         <file>images/login_back.png</file>
         <file>images/head.jpg</file>
+        <file>images/c-02.png</file>
+        <file>images/选项卡×选图标.png</file>
+        <file>stylesheet.qss</file>
     </qresource>
 </RCC>

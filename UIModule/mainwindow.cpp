@@ -7,7 +7,8 @@
 #include "realtimemonitorpane.h"
 
 MainWindow::MainWindow(QWidget *parent) :
-    QWidget(parent)
+    QWidget(parent),
+    m_bIsMoveing(false)
 {
     initUserInfo();
     initMainFrame();
@@ -20,14 +21,26 @@ MainWindow::~MainWindow()
 
 void MainWindow::mousePressEvent(QMouseEvent *event)
 {
-     //this->m_curWindowPos = this->pos();
-     //this->m_curMousePos = event->globalPos();
-     //this->m_destWindowPos = m_curMousePos - m_curWindowPos;
+    if(event->pos().y() <= 35)
+    {
+        m_bIsMoveing = true;
+        this->m_curWindowPos = this->pos();
+        this->m_curMousePos = event->globalPos();
+        this->m_destWindowPos = m_curMousePos - m_curWindowPos;
+    }
 }
 
 void MainWindow::mouseMoveEvent(QMouseEvent *event)
 {
-     //this->move(event->globalPos() - this->m_destWindowPos);
+    if(m_bIsMoveing)
+    {
+        this->move(event->globalPos() - this->m_destWindowPos);
+    }
+}
+
+void MainWindow::mouseReleaseEvent(QMouseEvent *event)
+{
+    m_bIsMoveing = false;
 }
 
 void MainWindow::initMainFrame()
@@ -442,13 +455,14 @@ void MainWindow::updateRealTimeMonitorData()
     for(int i = 0 ; i < 9 ; i++)
     {
         RealTimeMonitorPane::stImageData data;
+        data.name = QString("image%1").arg(i);
         data.pix = QPixmap("://images//head.jpg");
         data.date = "2017-6-5";
         data.time = "12:59:59";
         data.position = "成都市.高新区.天府五街";
         list.append(data);
     }
-    m_pRealTimeMonitorPane->updateUIData(list);
+    m_pRealTimeMonitorPane->updateImageData(list);
 }
 
 
