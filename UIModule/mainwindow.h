@@ -10,12 +10,9 @@ class MainWindow;
 class QToolButton;
 class MyToolButton;
 class QStackedWidget;
-<<<<<<< HEAD
 class MyTargetButton;
-
-=======
 class RealTimeMonitorPane;
->>>>>>> 4ce3b4eb9d5d039499e90866c18f9a4024a7dc89
+
 class MainWindow : public QWidget
 {
     Q_OBJECT
@@ -59,14 +56,14 @@ private:
     QString               m_strUserType;          /// 用户类型
     QString               m_strUserName;          /// 用户名
 
-<<<<<<< HEAD
+
     MyTargetButton *m_pTargetButton;
 
-=======
+
     bool                  m_bIsMoveing;
 
     RealTimeMonitorPane*  m_pRealTimeMonitorPane; /// 实时监控面板
->>>>>>> 4ce3b4eb9d5d039499e90866c18f9a4024a7dc89
+
 public slots:
     void onSlotBtnMinimize();                     /// 最小化
     void onSlotBtnClose();                        /// 关闭

@@ -4,12 +4,9 @@
 #include "stable.h"
 #include "UIModule/Comm/mywidgetfolder.h"
 #include "UIModule/Comm/myimagewidget.h"
-<<<<<<< HEAD
 #include "UIModule/Comm/mytargetbutton.h"
 #include "warningwidget.h"
-=======
 #include "realtimemonitorpane.h"
->>>>>>> 4ce3b4eb9d5d039499e90866c18f9a4024a7dc89
 
 MainWindow::MainWindow(QWidget *parent) :
     QWidget(parent),
@@ -463,7 +460,7 @@ void MainWindow::initUserInfo()
     m_strUserType = "管理员";
 }
 
-<<<<<<< HEAD
+
 void MainWindow::slot_test()
 {
     if(m_pTargetButton->isChecked())
@@ -475,7 +472,7 @@ void MainWindow::slot_test()
         m_pTargetButton->unSelect();
     }
 }
-=======
+
 void MainWindow::updateRealTimeMonitorData()
 {
     // by ly
@@ -499,4 +496,4 @@ void MainWindow::updateRealTimeMonitorData()
 
 
 
->>>>>>> 4ce3b4eb9d5d039499e90866c18f9a4024a7dc89
+

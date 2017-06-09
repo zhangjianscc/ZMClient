@@ -37,14 +37,11 @@ SOURCES += main.cpp \
     UIModule/Comm/mytoolbutton.cpp \
     UIModule/Comm/mywidgetfolder.cpp \
     UIModule/Comm/myimagewidget.cpp \
-<<<<<<< HEAD
     UIModule/Comm/mytargetbutton.cpp \
-    UIModule/warningwidget.cpp
-=======
+    UIModule/warningwidget.cpp \
     UIModule/realtimemonitorpane.cpp \
     UIModule/Comm/myimagecomparewidget.cpp \
     UIModule/Comm/myimagelabel.cpp
->>>>>>> 4ce3b4eb9d5d039499e90866c18f9a4024a7dc89
 
 FORMS += \
     UIModule/mainwindow.ui \
@@ -60,14 +57,11 @@ HEADERS += \
     UIModule/Comm/mytoolbutton.h \
     UIModule/Comm/mywidgetfolder.h \
     UIModule/Comm/myimagewidget.h \
-<<<<<<< HEAD
     UIModule/Comm/mytargetbutton.h \
-    UIModule/warningwidget.h
-=======
+    UIModule/warningwidget.h \
     UIModule/realtimemonitorpane.h \
     UIModule/Comm/myimagecomparewidget.h \
     UIModule/Comm/myimagelabel.h
->>>>>>> 4ce3b4eb9d5d039499e90866c18f9a4024a7dc89
 
 RESOURCES += \
     Resouce.qrc
