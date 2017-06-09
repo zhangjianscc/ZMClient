@@ -10,6 +10,8 @@ class MainWindow;
 class QToolButton;
 class MyToolButton;
 class QStackedWidget;
+class MyTargetButton;
+
 class MainWindow : public QWidget
 {
     Q_OBJECT
@@ -50,6 +52,9 @@ private:
 
     QString               m_strUserType;          /// 用户类型
     QString               m_strUserName;          /// 用户名
+
+    MyTargetButton *m_pTargetButton;
+
 public slots:
     void onSlotBtnMinimize();                     /// 最小化
     void onSlotBtnClose();                        /// 关闭
@@ -64,6 +69,8 @@ public slots:
     void onSlotBtnModeManage();                   /// 模板管理
     void onSlotBtnWarningManage();                /// 告警管理
     void onSlotBtnInfoManage();                   /// 基础信息管理
+
+    void slot_test();
 };
 
 #endif // MAINWINDOW_H

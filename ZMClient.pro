@@ -36,7 +36,9 @@ SOURCES += main.cpp \
     Common/socketTcp.cpp \
     UIModule/Comm/mytoolbutton.cpp \
     UIModule/Comm/mywidgetfolder.cpp \
-    UIModule/Comm/myimagewidget.cpp
+    UIModule/Comm/myimagewidget.cpp \
+    UIModule/Comm/mytargetbutton.cpp \
+    UIModule/warningwidget.cpp
 
 FORMS += \
     UIModule/mainwindow.ui \
@@ -51,7 +53,9 @@ HEADERS += \
     Common/socketTcp.h \
     UIModule/Comm/mytoolbutton.h \
     UIModule/Comm/mywidgetfolder.h \
-    UIModule/Comm/myimagewidget.h
+    UIModule/Comm/myimagewidget.h \
+    UIModule/Comm/mytargetbutton.h \
+    UIModule/warningwidget.h
 
 RESOURCES += \
     images.qrc

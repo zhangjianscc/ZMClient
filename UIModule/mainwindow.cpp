@@ -4,6 +4,8 @@
 #include "stable.h"
 #include "UIModule/Comm/mywidgetfolder.h"
 #include "UIModule/Comm/myimagewidget.h"
+#include "UIModule/Comm/mytargetbutton.h"
+#include "warningwidget.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QWidget(parent)
@@ -236,9 +238,21 @@ QWidget* MainWindow::initRealTimeMonitorPane()
 QWidget* MainWindow::initMonitorConfigPane()
 {
     QWidget* pWid = new QWidget();
-    QLabel* pLabel = new QLabel("布控设置");
+    /*QLabel* pLabel = new QLabel("布控设置");
     QHBoxLayout* pLayout = new QHBoxLayout(pWid);
-    pLayout->addWidget(pLabel);
+    pLayout->addWidget(pLabel);*/
+
+    //测试功能代码
+    /*m_pTargetButton = new MyTargetButton(tr("全国失踪人口库"));
+    QHBoxLayout* pLayout = new QHBoxLayout(pWid);
+    pLayout->addWidget(m_pTargetButton);
+
+    connect(m_pTargetButton, SIGNAL(clicked(bool)), this, SLOT(slot_test()));*/
+
+    QHBoxLayout* pLayout = new QHBoxLayout(pWid);
+    WarningWidget *m_pWarningWidget = new WarningWidget;
+    pLayout->addWidget(m_pWarningWidget);
+
     return pWid;
 }
 
@@ -460,8 +474,14 @@ void MainWindow::initUserInfo()
     m_strUserType = "管理员";
 }
 
-
-
-
-
-
+void MainWindow::slot_test()
+{
+    if(m_pTargetButton->isChecked())
+    {
+        m_pTargetButton->selected();
+    }
+    else
+    {
+        m_pTargetButton->unSelect();
+    }
+}
