@@ -134,8 +134,12 @@ void MainWindow::onSlotBtnClose()
 
 QWidget* MainWindow::initNavePane()
 {
+    QDesktopWidget *deskWgt = QApplication::desktop();
+    QRect re = deskWgt->screenGeometry();
+    int leftWid = re.width()/6;
+
     QWidget* pWid = new QWidget();
-    pWid->setMinimumWidth(250);
+    pWid->setMinimumWidth(leftWid);
     pWid->setStyleSheet("QWidget{background-color:rgb(217,217,217);border: 1px solid rgb(180,180,180)}");
     QVBoxLayout* playout = new QVBoxLayout(pWid);
     playout->setMargin(0);
@@ -484,7 +488,7 @@ void MainWindow::updateRealTimeMonitorData()
         RealTimeMonitorPane::stImageData data;
         data.name = QString("image%1").arg(i);
         data.pix = QPixmap("://images//head.jpg");
-        data.date = "2017-6-5";
+        data.date = "2017-06-05";
         data.time = "12:59:59";
         data.position = "成都市.高新区.天府五街";
         list.append(data);

@@ -13,11 +13,14 @@ void MyImageWidget::initUI()
 {
     this->setStyleSheet("MyImageWidget{border-radius:2px;background-color:rgb(236,236,236)}");
 
-    //QDesktopWidget *deskWgt = QApplication::desktop();
-    //QRect re = deskWgt->screenGeometry();
+    // 默认程序全屏运行 此处计算图片合适大小
+    QDesktopWidget *deskWgt = QApplication::desktop();
+    QRect re = deskWgt->screenGeometry();
+    int imageWid = re.width()/10;
+    int imageHei = re.height()/5;
 
     m_pLabelImage = new QLabel();
-    m_pLabelImage->setFixedSize(130,156);
+    m_pLabelImage->setFixedSize(imageWid,imageHei);
     m_pLabelImage->setScaledContents(true);
     m_pLabelImage->setAlignment(Qt::AlignCenter);
     m_pLabelImage->setStyleSheet("QLabel{border:1px solid rgb(109,109,109);background-color:rgb(178,178,178)}");
@@ -38,7 +41,7 @@ void MyImageWidget::initUI()
 
     QVBoxLayout* pMainLayout = new QVBoxLayout(this);
     pMainLayout->setSpacing(1);
-    pMainLayout->addWidget(m_pLabelImage,1);
+    pMainLayout->addWidget(m_pLabelImage,0,Qt::AlignCenter);
     pMainLayout->addWidget(m_pLabelDate,0,Qt::AlignHCenter);
     pMainLayout->addWidget(m_pLabelTime,0,Qt::AlignHCenter);
     pMainLayout->addWidget(m_pLabelPosition,0,Qt::AlignHCenter);

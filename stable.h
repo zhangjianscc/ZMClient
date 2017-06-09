@@ -28,6 +28,8 @@
 #include <QApplication>
 #include <QProgressBar>
 #include <QScrollArea>
+#include <QTableWidget>
+#include <QHeaderView>
 
 
 #endif // STABLE_H

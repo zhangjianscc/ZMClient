@@ -19,7 +19,7 @@ void RealTimeMonitorPane::initUI()
     QWidget* pRealContent = new QWidget();
     pFolderReal->setContentWidget(pRealContent);
     QGridLayout* pLayoutReal = new QGridLayout(pRealContent);
-    pLayoutReal->setMargin(20);
+    //pLayoutReal->setMargin(20);
     for(int i = 0 ; i < 3 ; ++i)
     {
         for(int j = 0 ; j < 3 ; ++j)
@@ -33,21 +33,21 @@ void RealTimeMonitorPane::initUI()
 
 
     MyWidgetFolder* pFolderWarning = new MyWidgetFolder("://images//实时监控图标02.png","告警信息");
-    QScrollArea* pScrollContent = new QScrollArea();
-    pFolderWarning->setContentWidget(pScrollContent);
-
-    QWidget* pScrollWid = new QWidget();
-    pScrollContent->setWidget(pScrollWid);
-    pScrollContent->setWidgetResizable(true);
-    m_pLayoutWarning = new QGridLayout(pScrollWid);
-    m_pLayoutWarning->setMargin(10);
-
+    m_pTableWarningPane = new QTableWidget();
+    pFolderWarning->setContentWidget(m_pTableWarningPane);
+    m_pTableWarningPane->horizontalHeader()->setVisible(false);
+    m_pTableWarningPane->verticalHeader()->setVisible(false);
+    m_pTableWarningPane->setColumnCount(2);
+    m_pTableWarningPane->setShowGrid(false);
+    m_pTableWarningPane->horizontalHeader()->setStretchLastSection(true);
+    m_pTableWarningPane->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_pTableWarningPane->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
 
     QHBoxLayout* pMainLayout = new QHBoxLayout(this);
     pMainLayout->setContentsMargins(10,20,10,20);
     pMainLayout->setSpacing(10);
-    pMainLayout->addWidget(pFolderReal,2);
-    pMainLayout->addWidget(pFolderWarning,1);
+    pMainLayout->addWidget(pFolderReal,3);
+    pMainLayout->addWidget(pFolderWarning,2);
 }
 
 void RealTimeMonitorPane::updateImageData(QList<stImageData>& list)
@@ -63,27 +63,19 @@ void RealTimeMonitorPane::updateImageData(QList<stImageData>& list)
 
 void RealTimeMonitorPane::updateImageSimilarityData(QList<stImageSimilarData>& list)
 {
-    // 隐藏之前的图片数据
-    for(int i = 0 ; i < m_listImageCompareWid.size() ; ++i)
-    {
-        m_listImageCompareWid[i]->setVisible(false);
-    }
+    // 初始化表格
+    m_pTableWarningPane->clearContents();
+    m_pTableWarningPane->setRowCount(list.size()/2 + list.size()%2);
 
-    // 刷新数据
-    for(int i = 0 ; i < list.count() ; ++i)
+
+    // 添加数据
+    for(int i = 0 ; i < list.size() ; ++i)
     {
-        if( i < m_listImageCompareWid.size())
-        {
-            m_listImageCompareWid[i]->setData(list[i].pix,list[i].similarity,list[i].source);
-            m_listImageCompareWid[i]->setVisible(true);
-        }
-        else
-        {
-            MyImageCompareWidget* pWid = new MyImageCompareWidget();
-            pWid->setData(list[i].pix,list[i].similarity,list[i].source);
-            m_listImageCompareWid.append(pWid);
-            m_pLayoutWarning->addWidget(pWid,m_listImageCompareWid.size() / 2,m_listImageCompareWid.size() % 2);
-        }
+        MyImageCompareWidget* pWid = new MyImageCompareWidget();
+        pWid->setData(list[i].pix,list[i].similarity,list[i].source);
+        m_pTableWarningPane->setCellWidget(i/2,i%2,pWid);
+        m_pTableWarningPane->setRowHeight(i/2,pWid->height() + 10);
+        m_pTableWarningPane->setColumnWidth(0,m_pTableWarningPane->width()/2 - 1);
     }
 }
 
@@ -143,7 +135,7 @@ void RealTimeMonitorPane::onSlotLeftImageClieked(MyImageWidget* pImageWid)
     else if(pImageWid->getName() == "image3")
     {
         QList<RealTimeMonitorPane::stImageSimilarData> list;
-        for(int i = 0 ; i < 5 ; i++)
+        for(int i = 0 ; i < 15 ; i++)
         {
             RealTimeMonitorPane::stImageSimilarData data;
             data.name = QString("image").arg(i);

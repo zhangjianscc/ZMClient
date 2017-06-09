@@ -7,6 +7,7 @@
 class MyImageWidget;
 class MyImageCompareWidget;
 class QGridLayout;
+class QTableWidget;
 class RealTimeMonitorPane : public QWidget
 {
     Q_OBJECT
@@ -37,7 +38,7 @@ private:
 private:
     QList<MyImageWidget*> m_listImageWid;
     QList<MyImageCompareWidget*> m_listImageCompareWid;
-    QGridLayout* m_pLayoutWarning;
+    QTableWidget* m_pTableWarningPane;
 
 signals:
 
