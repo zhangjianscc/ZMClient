@@ -213,9 +213,7 @@ border-bottom-right-radius: 0px</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-image: url(:/images/mouseenter-01.png);
-QPushButton::hover{border-image:url(:/images/mouseenter-02.png)};
-QPushButton::pressed{border-image:url(:/images//mouseenter-02.png)}</string>
+      <string notr="true"/>
      </property>
      <property name="text">
       <string/>
@@ -253,7 +251,7 @@ QPushButton::pressed{border-image:url(:/images//mouseenter-02.png)}</string>
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="../images.qrc">:/images/登录界面logo.png</pixmap>
+      <pixmap resource="../Resouce.qrc">:/images/登录界面logo.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -271,7 +269,7 @@ QPushButton::pressed{border-image:url(:/images//mouseenter-02.png)}</string>
   <tabstop>m_btnClose</tabstop>
  </tabstops>
  <resources>
-  <include location="../images.qrc"/>
+  <include location="../Resouce.qrc"/>
  </resources>
  <connections/>
 </ui>

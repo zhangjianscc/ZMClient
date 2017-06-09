@@ -17,8 +17,8 @@ MyToolButton::MyToolButton(QString text) :
     this->setFont(font);
     this->setText(m_text);
 
-    this->setStyleSheet("QToolButton{background-color:rgb(217,217,217);font: 12pt Arial Black;}"
-                        "QToolButton:checked{border-image: url(:/images/导航栏选中.png);color:rgb(255,255,255);font: 12pt Arial Black;}");
+    this->setStyleSheet("MyToolButton{background-color:rgb(217,217,217);font: 12pt Arial Black;}"
+                        "MyToolButton:checked{border-image: url(:/images/导航栏选中.png);color:rgb(255,255,255);font: 12pt Arial Black;}");
 }
 
 MyToolButton::MyToolButton(QString text,QString icon1,QString icon2) :

@@ -1,8 +1,25 @@
-﻿#include "UIModule/mainwindow.h"
-#include <QApplication>
-#include "UIModule/logindialog.h"
+﻿#include "stable.h"
 #include "stable.h"
+#include "UIModule/mainwindow.h"
+#include "UIModule/logindialog.h"
+#include <QApplication>
 #include "Common/socketTcp.h"
+
+
+void loadStyleSheet(QString qssName)
+{
+    QFile data(qssName);
+
+    QString qssFile;
+    if(data.open(QFile::ReadOnly))
+    {
+        QTextStream styleIn(&data);
+        qssFile = styleIn.readAll();
+        data.close();
+        qApp->setStyleSheet(qssFile);
+    }
+
+}
 
 int main(int argc, char *argv[])
 {
@@ -11,6 +28,8 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForLocale(codec);
 
     QApplication a(argc, argv);
+
+    loadStyleSheet(QString(":/stylesheet.qss"));
 
     // 初始化网络通信等其它模块
     // by ly
@@ -26,8 +45,11 @@ int main(int argc, char *argv[])
 
     // 启动主界面
     MainWindow w;
-    w.showMaximized();
+    //w.showMaximized();
+    //w.setFixedSize(1200,800);
     //w.show();
+    w.showFullScreen();
 
     return a.exec();
 }
+

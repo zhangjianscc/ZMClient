@@ -10,8 +10,12 @@ class MainWindow;
 class QToolButton;
 class MyToolButton;
 class QStackedWidget;
+<<<<<<< HEAD
 class MyTargetButton;
 
+=======
+class RealTimeMonitorPane;
+>>>>>>> 4ce3b4eb9d5d039499e90866c18f9a4024a7dc89
 class MainWindow : public QWidget
 {
     Q_OBJECT
@@ -19,6 +23,7 @@ class MainWindow : public QWidget
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    void updateRealTimeMonitorData();/// 更新实时监控面板数据
 private:
     void initUserInfo();                         /// 初始化用户信息
     void initMainFrame();                        /// 主界面初始化
@@ -33,6 +38,7 @@ private:
     QWidget* initHistoryFaceComparePane();       /// 历史对比面板
     void mousePressEvent(QMouseEvent *event);    ///
     void mouseMoveEvent(QMouseEvent *event);     ///
+    void mouseReleaseEvent(QMouseEvent *event);  ///
 private:
     QPoint                m_curWindowPos;         /// 窗口当前位置
     QPoint                m_curMousePos;          /// 鼠标当前位置
@@ -53,8 +59,14 @@ private:
     QString               m_strUserType;          /// 用户类型
     QString               m_strUserName;          /// 用户名
 
+<<<<<<< HEAD
     MyTargetButton *m_pTargetButton;
 
+=======
+    bool                  m_bIsMoveing;
+
+    RealTimeMonitorPane*  m_pRealTimeMonitorPane; /// 实时监控面板
+>>>>>>> 4ce3b4eb9d5d039499e90866c18f9a4024a7dc89
 public slots:
     void onSlotBtnMinimize();                     /// 最小化
     void onSlotBtnClose();                        /// 关闭

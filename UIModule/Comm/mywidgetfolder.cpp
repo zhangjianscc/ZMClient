@@ -6,7 +6,7 @@ MyWidgetFolder::MyWidgetFolder(QString iconPath,QString title) :
     m_strIconPath(iconPath),
     m_strTitle(title)
 {
-    this->setStyleSheet("QWidget{border:1px;border-radius:2px;background-color:rgb(236,236,236)}");
+    this->setStyleSheet("MyWidgetFolder{border:2px solid rgb(180,180,180);border-radius:2px;background-color:rgb(236,236,236)}");
 
     QWidget* pWidTitleBar = new QWidget();
     pWidTitleBar->setFixedHeight(25);
@@ -42,5 +42,15 @@ void MyWidgetFolder::setContentWidget(QWidget* pWid)
         m_pMainLayout->removeItem(m_pMainLayout->itemAt(m_pMainLayout->count()-1));
     }
 
+    pWid->setStyleSheet("QWidget{background:transparent}");
     m_pMainLayout->addWidget(pWid,1);
+}
+
+void MyWidgetFolder::paintEvent(QPaintEvent *event)
+{
+    QStyleOption opt;
+    opt.init(this);
+    QPainter p(this);
+    style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
+    QWidget::paintEvent(event);
 }

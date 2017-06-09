@@ -4,11 +4,16 @@
 #include "stable.h"
 #include "UIModule/Comm/mywidgetfolder.h"
 #include "UIModule/Comm/myimagewidget.h"
+<<<<<<< HEAD
 #include "UIModule/Comm/mytargetbutton.h"
 #include "warningwidget.h"
+=======
+#include "realtimemonitorpane.h"
+>>>>>>> 4ce3b4eb9d5d039499e90866c18f9a4024a7dc89
 
 MainWindow::MainWindow(QWidget *parent) :
-    QWidget(parent)
+    QWidget(parent),
+    m_bIsMoveing(false)
 {
     initUserInfo();
     initMainFrame();
@@ -21,14 +26,26 @@ MainWindow::~MainWindow()
 
 void MainWindow::mousePressEvent(QMouseEvent *event)
 {
-     //this->m_curWindowPos = this->pos();
-     //this->m_curMousePos = event->globalPos();
-     //this->m_destWindowPos = m_curMousePos - m_curWindowPos;
+    if(event->pos().y() <= 35)
+    {
+        m_bIsMoveing = true;
+        this->m_curWindowPos = this->pos();
+        this->m_curMousePos = event->globalPos();
+        this->m_destWindowPos = m_curMousePos - m_curWindowPos;
+    }
 }
 
 void MainWindow::mouseMoveEvent(QMouseEvent *event)
 {
-     //this->move(event->globalPos() - this->m_destWindowPos);
+    if(m_bIsMoveing)
+    {
+        this->move(event->globalPos() - this->m_destWindowPos);
+    }
+}
+
+void MainWindow::mouseReleaseEvent(QMouseEvent *event)
+{
+    m_bIsMoveing = false;
 }
 
 void MainWindow::initMainFrame()
@@ -79,12 +96,20 @@ void MainWindow::initMainFrame()
 
     m_pContentPane = new QStackedWidget();
     m_pContentPane->addWidget(initBackGroundImagePane());     // 0
-    m_pContentPane->addWidget(initRealTimeMonitorPane());     // 1
+
+    m_pRealTimeMonitorPane = new RealTimeMonitorPane();
+    m_pContentPane->addWidget(m_pRealTimeMonitorPane);        // 1
+
     m_pContentPane->addWidget(initMonitorConfigPane());       // 2
+
     m_pContentPane->addWidget(initOneToOneComparePane());     // 3
+
     m_pContentPane->addWidget(initOneToNComparePane());       // 4
+
     m_pContentPane->addWidget(initIdentityAuthenPane());      // 5
+
     m_pContentPane->addWidget(initHistoryFaceComparePane());  // 6
+
     QHBoxLayout* playout2 = new QHBoxLayout(pContentWid);
     playout2->setMargin(0);
     playout2->setSpacing(0);
@@ -194,45 +219,7 @@ QWidget* MainWindow::initBackGroundImagePane()
 
 QWidget* MainWindow::initRealTimeMonitorPane()
 {
-    QWidget* pWid = new QWidget();
-    pWid->setStyleSheet("QWidget{border:none;background-color:rgb(227,227,227)}");
 
-    MyWidgetFolder* pFolderReal = new MyWidgetFolder("://images//实时监控图标01.png","实时采集");
-    QWidget* pRealContent = new QWidget();
-    pRealContent->setStyleSheet("QWidget{border:1px;border-radius:2px;background-color:rgb(236,236,236)}");
-    pFolderReal->setContentWidget(pRealContent);
-    QGridLayout* pLayoutReal = new QGridLayout(pRealContent);
-    for(int i = 0 ; i < 3 ; ++i)
-    {
-        for(int j = 0 ; j < 3 ; ++j)
-        {
-            MyImageWidget* pImageWid = new MyImageWidget();
-            pLayoutReal->addWidget(pImageWid,i,j,Qt::AlignCenter);
-        }
-    }
-
-
-    MyWidgetFolder* pFolderWarning = new MyWidgetFolder("://images//实时监控图标02.png","告警信息");
-    QWidget* pWarningContent = new QWidget();
-    pWarningContent->setStyleSheet("QWidget{border:1px;border-radius:2px;background-color:rgb(236,236,236)}");
-    pFolderWarning->setContentWidget(pWarningContent);
-    QGridLayout* pLayoutWarning = new QGridLayout(pWarningContent);
-    for(int i = 0 ; i < 2 ; ++i)
-    {
-        for(int j = 0 ; j < 3 ; ++j)
-        {
-            MyImageWidget* pImageWid = new MyImageWidget();
-            pLayoutWarning->addWidget(pImageWid,i,j,Qt::AlignCenter);
-        }
-    }
-
-
-    QHBoxLayout* pMainLayout = new QHBoxLayout(pWid);
-    pMainLayout->setContentsMargins(10,20,10,20);
-    pMainLayout->setSpacing(10);
-    pMainLayout->addWidget(pFolderReal,3);
-    pMainLayout->addWidget(pFolderWarning,2);
-    return pWid;
 }
 
 QWidget* MainWindow::initMonitorConfigPane()
@@ -317,6 +304,8 @@ void MainWindow::onSlotBtnRealTimeMonitor()
     m_pBtnFaceOneToN->setChecked(false);
     m_pBtnIndentify->setChecked(false);
     m_pBtnHistoryFace->setChecked(false);
+
+    updateRealTimeMonitorData();
 }
 void MainWindow::onSlotBtnMonitorConfig()
 {
@@ -474,6 +463,7 @@ void MainWindow::initUserInfo()
     m_strUserType = "管理员";
 }
 
+<<<<<<< HEAD
 void MainWindow::slot_test()
 {
     if(m_pTargetButton->isChecked())
@@ -485,3 +475,28 @@ void MainWindow::slot_test()
         m_pTargetButton->unSelect();
     }
 }
+=======
+void MainWindow::updateRealTimeMonitorData()
+{
+    // by ly
+    // 获取图片数据
+
+    QList<RealTimeMonitorPane::stImageData> list;
+    for(int i = 0 ; i < 9 ; i++)
+    {
+        RealTimeMonitorPane::stImageData data;
+        data.name = QString("image%1").arg(i);
+        data.pix = QPixmap("://images//head.jpg");
+        data.date = "2017-6-5";
+        data.time = "12:59:59";
+        data.position = "成都市.高新区.天府五街";
+        list.append(data);
+    }
+    m_pRealTimeMonitorPane->updateImageData(list);
+}
+
+
+
+
+
+>>>>>>> 4ce3b4eb9d5d039499e90866c18f9a4024a7dc89

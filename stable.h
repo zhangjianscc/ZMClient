@@ -22,8 +22,12 @@
 #include <QDir>
 #include <QDateTime>
 #include <QGridLayout>
-
-
+#include <QFile>
+#include <QTextStream>
+#include <QDesktopWidget>
+#include <QApplication>
+#include <QProgressBar>
+#include <QScrollArea>
 
 
 #endif // STABLE_H
