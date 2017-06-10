@@ -42,6 +42,9 @@ void RealTimeMonitorPane::initUI()
     m_pTableWarningPane->horizontalHeader()->setStretchLastSection(true);
     m_pTableWarningPane->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_pTableWarningPane->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    m_pTableWarningPane->setSelectionMode(QAbstractItemView::NoSelection);
+    m_pTableWarningPane->verticalScrollBar()->setStyleSheet("QScrollBar:vertical{border:none;width:10px;background:rgb(236,236,236)}"
+                                                            "QScrollBar::handle{border:none;border-radius:5px;width:10px;background:rgb(178,178,178);}");
 
     QHBoxLayout* pMainLayout = new QHBoxLayout(this);
     pMainLayout->setContentsMargins(10,20,10,20);
@@ -109,13 +112,12 @@ void RealTimeMonitorPane::onSlotLeftImageClieked(MyImageWidget* pImageWid)
         {
             RealTimeMonitorPane::stImageSimilarData data;
             data.name = QString("image").arg(i);
-            data.pix = QPixmap("://images//head.jpg");
+            data.pix = QPixmap(QString("://images//head%1.jpg").arg(qrand()%7 + 1));
             data.similarity = 0.123456;
             data.source = "全球失踪人口库";
             list.append(data);
-            //
-            updateImageSimilarityData(list);
         }
+        updateImageSimilarityData(list);
     }
     else if(pImageWid->getName() == "image2")
     {
@@ -124,13 +126,12 @@ void RealTimeMonitorPane::onSlotLeftImageClieked(MyImageWidget* pImageWid)
         {
             RealTimeMonitorPane::stImageSimilarData data;
             data.name = QString("image").arg(i);
-            data.pix = QPixmap("://images//head.jpg");
+            data.pix = QPixmap(QString("://images//head%1.jpg").arg(qrand()%7 + 1));
             data.similarity = 0.753256;
             data.source = "成都犯罪分子库";
             list.append(data);
-            //
-            updateImageSimilarityData(list);
         }
+        updateImageSimilarityData(list);
     }
     else if(pImageWid->getName() == "image3")
     {
@@ -139,13 +140,13 @@ void RealTimeMonitorPane::onSlotLeftImageClieked(MyImageWidget* pImageWid)
         {
             RealTimeMonitorPane::stImageSimilarData data;
             data.name = QString("image").arg(i);
-            data.pix = QPixmap("://images//head.jpg");
+            data.pix = QPixmap(QString("://images//head%1.jpg").arg(qrand()%7 + 1));
             data.similarity = 1.0;
             data.source = "全国失踪人口库";
             list.append(data);
-            //
-            updateImageSimilarityData(list);
         }
+
+        updateImageSimilarityData(list);
     }
     else
     {

@@ -6,7 +6,11 @@
 #include "UIModule/Comm/myimagewidget.h"
 #include "UIModule/Comm/mytargetbutton.h"
 #include "warningwidget.h"
-#include "realtimemonitorpane.h"
+#include "realtimemonitorpane.h"、
+#include "faceonetoonepane.h"
+#include "facehistorycompare.h"
+#include "faceonetonpane.h"
+#include "faceidentityrecog.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QWidget(parent),
@@ -52,7 +56,7 @@ void MainWindow::initMainFrame()
 
     // 标题栏
     QWidget* pTitleWid = new QWidget();
-    pTitleWid->setFixedHeight(35);
+    pTitleWid->setFixedHeight(g_topMenuPaneHei);
     //pTitleWid->setStyleSheet("QWidget{color: rgb(238, 238, 238);border: 1px solid rgb(228,228,228);}");
     pTitleWid->setStyleSheet("QWidget{border-radius:0px;"
                                 "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(235, 235, 235), stop:1 rgb(170, 170, 170));}");
@@ -97,9 +101,11 @@ void MainWindow::initMainFrame()
     m_pRealTimeMonitorPane = new RealTimeMonitorPane();
     m_pContentPane->addWidget(m_pRealTimeMonitorPane);        // 1
 
+
     m_pContentPane->addWidget(initMonitorConfigPane());       // 2
 
-    m_pContentPane->addWidget(initOneToOneComparePane());     // 3
+    m_pFaceOneToOnePane = new FaceOneToOnePane();
+    m_pContentPane->addWidget(m_pFaceOneToOnePane);     // 3
 
     m_pContentPane->addWidget(initOneToNComparePane());       // 4
 
@@ -134,9 +140,7 @@ void MainWindow::onSlotBtnClose()
 
 QWidget* MainWindow::initNavePane()
 {
-    QDesktopWidget *deskWgt = QApplication::desktop();
-    QRect re = deskWgt->screenGeometry();
-    int leftWid = re.width()/6;
+    int leftWid = g_leftNaviPaneWid;
 
     QWidget* pWid = new QWidget();
     pWid->setMinimumWidth(leftWid);
@@ -487,7 +491,9 @@ void MainWindow::updateRealTimeMonitorData()
     {
         RealTimeMonitorPane::stImageData data;
         data.name = QString("image%1").arg(i);
-        data.pix = QPixmap("://images//head.jpg");
+        QString str = QString("://images//head%1.jpg").arg(qrand()%7 + 1);
+        qDebug()<<str;
+        data.pix = QPixmap(str);
         data.date = "2017-06-05";
         data.time = "12:59:59";
         data.position = "成都市.高新区.天府五街";

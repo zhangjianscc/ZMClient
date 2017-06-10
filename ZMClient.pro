@@ -41,7 +41,11 @@ SOURCES += main.cpp \
     UIModule/warningwidget.cpp \
     UIModule/realtimemonitorpane.cpp \
     UIModule/Comm/myimagecomparewidget.cpp \
-    UIModule/Comm/myimagelabel.cpp
+    UIModule/Comm/myimagelabel.cpp \
+    UIModule/faceonetoonepane.cpp \
+    UIModule/faceonetonpane.cpp \
+    UIModule/faceidentityrecog.cpp \
+    UIModule/facehistorycompare.cpp
 
 FORMS += \
     UIModule/mainwindow.ui \
@@ -61,7 +65,11 @@ HEADERS += \
     UIModule/warningwidget.h \
     UIModule/realtimemonitorpane.h \
     UIModule/Comm/myimagecomparewidget.h \
-    UIModule/Comm/myimagelabel.h
+    UIModule/Comm/myimagelabel.h \
+    UIModule/faceonetoonepane.h \
+    UIModule/faceonetonpane.h \
+    UIModule/faceidentityrecog.h \
+    UIModule/facehistorycompare.h
 
 RESOURCES += \
     Resouce.qrc

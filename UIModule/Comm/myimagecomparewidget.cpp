@@ -11,10 +11,8 @@ void MyImageCompareWidget::initUI()
     this->setStyleSheet("MyImageWidget{border-radius:2px;background-color:rgb(236,236,236)}");
 
     // 默认程序全屏运行 此处计算图片合适大小
-    QDesktopWidget *deskWgt = QApplication::desktop();
-    QRect re = deskWgt->screenGeometry();
-    int imageWid = re.width()/10;
-    int imageHei = re.height()/5;
+    int imageWid = g_wid/12;
+    int imageHei = g_hei/6;
 
     m_pLabelImage = new QLabel();
     m_pLabelImage->setFixedSize(imageWid,imageHei);
@@ -27,10 +25,12 @@ void MyImageCompareWidget::initUI()
 
     m_pSimilayBar = new QProgressBar();
     m_pSimilayBar->setRange(0,100);
-    m_pSimilayBar->setFixedWidth(imageWid/2);
-    m_pSimilayBar->setFixedHeight(15);
+    //m_pSimilayBar->setFixedWidth(imageWid);
+    m_pSimilayBar->setFixedHeight(10);
     m_pSimilayBar->setOrientation(Qt::Horizontal);
     m_pSimilayBar->setTextVisible(false);
+    m_pSimilayBar->setStyleSheet("QProgressBar{border:none;border-radius:5px;background-color:rgb(178,178,178);}"
+                                 "QProgressBar::chunk{border:none;border-radius:5px;background-color:rgb(255,0,0);}");
 
     m_pLabelSimilarValue = new QLabel();
     m_pLabelSimilarValue->setText("相似度%");

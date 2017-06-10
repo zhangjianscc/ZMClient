@@ -12,6 +12,7 @@ class MyToolButton;
 class QStackedWidget;
 class MyTargetButton;
 class RealTimeMonitorPane;
+class FaceOneToOnePane;
 
 class MainWindow : public QWidget
 {
@@ -63,6 +64,7 @@ private:
     bool                  m_bIsMoveing;
 
     RealTimeMonitorPane*  m_pRealTimeMonitorPane; /// 实时监控面板
+    FaceOneToOnePane*     m_pFaceOneToOnePane;    /// 1:1 人脸识别
 
 public slots:
     void onSlotBtnMinimize();                     /// 最小化

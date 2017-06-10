@@ -1,4 +1,4 @@
-﻿#include "stable.h"
+#include "stable.h"
 #include "stable.h"
 #include "UIModule/mainwindow.h"
 #include "UIModule/logindialog.h"
@@ -37,18 +37,22 @@ int main(int argc, char *argv[])
     sockettcp.newConnect();
     sockettcp.sendMessage("socket_begin");//连接服务器socket时发送socket_begin，结束发送socket_end
     // 启动登录界面
-    LoginDialog dlg;
-    if(dlg.exec() != QDialog::Accepted)
-    {
-        return 0;
-    }
+    //LoginDialog dlg;
+    //if(dlg.exec() != QDialog::Accepted)
+    //{
+    //    return 0;
+    //}
 
     // 启动主界面
     MainWindow w;
     //w.showMaximized();
-    //w.setFixedSize(1200,800);
-    //w.show();
-    w.showFullScreen();
+    w.setFixedSize(g_wid,g_hei);
+
+    int pointX = (QApplication::desktop()->width() - w.width())/2 > 0?(QApplication::desktop()->width() - w.width())/2:0;
+    int pointY = (QApplication::desktop()->height() - w.height())/2 > 0?(QApplication::desktop()->height() - w.height())/2:0;
+    w.move (pointX,pointY);
+    w.show();
+    //w.showFullScreen();
 
     return a.exec();
 }
