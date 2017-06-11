@@ -8,6 +8,8 @@ class FaceOneToNPane : public QWidget
     Q_OBJECT
 public:
     FaceOneToNPane(QWidget* parent = 0);
+private:
+    void initUI();
 signals:
 
 public slots:

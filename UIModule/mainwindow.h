@@ -13,6 +13,7 @@ class QStackedWidget;
 class MyTargetButton;
 class RealTimeMonitorPane;
 class FaceOneToOnePane;
+class FaceOneToNPane;
 
 class MainWindow : public QWidget
 {
@@ -65,6 +66,7 @@ private:
 
     RealTimeMonitorPane*  m_pRealTimeMonitorPane; /// 实时监控面板
     FaceOneToOnePane*     m_pFaceOneToOnePane;    /// 1:1 人脸识别
+    FaceOneToNPane*       m_pFaceOneToNPane;      /// 1:N 人脸识别
 
 public slots:
     void onSlotBtnMinimize();                     /// 最小化

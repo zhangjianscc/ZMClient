@@ -45,14 +45,15 @@ int main(int argc, char *argv[])
 
     // 启动主界面
     MainWindow w;
-    //w.showMaximized();
     w.setFixedSize(g_wid,g_hei);
 
-    int pointX = (QApplication::desktop()->width() - w.width())/2 > 0?(QApplication::desktop()->width() - w.width())/2:0;
-    int pointY = (QApplication::desktop()->height() - w.height())/2 > 0?(QApplication::desktop()->height() - w.height())/2:0;
-    w.move (pointX,pointY);
+    QDesktopWidget *deskWgt = QApplication::desktop();
+    int x = deskWgt->width();
+    int y = deskWgt->height();
+    int pointX = (x - w.width())/2 > 0?(x - w.width())/2:0;
+    int pointY = (y - w.height())/2 > 0?(y - w.height())/2:0;
+    w.move(pointX,pointY);
     w.show();
-    //w.showFullScreen();
 
     return a.exec();
 }

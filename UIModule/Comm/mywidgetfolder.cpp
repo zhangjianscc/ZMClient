@@ -20,7 +20,7 @@ MyWidgetFolder::MyWidgetFolder(QString iconPath,QString title) :
 
     QLabel* pLabelTitle = new QLabel();
     pLabelTitle->setAttribute(Qt::WA_TranslucentBackground);
-    pLabelTitle->setStyleSheet("QLabel{border:none;font: 12pt Arial Black;}");
+    pLabelTitle->setStyleSheet("QLabel{border:none;font: 12pt Fixedsys;}");
     pLabelTitle->setText(title);
 
     QHBoxLayout* pTitleLayout = new QHBoxLayout(pWidTitleBar);
