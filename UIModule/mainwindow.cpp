@@ -234,17 +234,6 @@ QWidget* MainWindow::initMonitorConfigPane()
     QHBoxLayout* pLayout = new QHBoxLayout(pWid);
     pLayout->addWidget(pLabel);*/
 
-    //测试功能代码
-    /*m_pTargetButton = new MyTargetButton(tr("全国失踪人口库"));
-    QHBoxLayout* pLayout = new QHBoxLayout(pWid);
-    pLayout->addWidget(m_pTargetButton);
-
-    connect(m_pTargetButton, SIGNAL(clicked(bool)), this, SLOT(slot_test()));*/
-
-    QHBoxLayout* pLayout = new QHBoxLayout(pWid);
-    WarningWidget *m_pWarningWidget = new WarningWidget;
-    pLayout->addWidget(m_pWarningWidget);
-
     return pWid;
 }
 
@@ -322,6 +311,16 @@ void MainWindow::onSlotBtnMonitorConfig()
     m_pBtnFaceOneToN->setChecked(false);
     m_pBtnIndentify->setChecked(false);
     m_pBtnHistoryFace->setChecked(false);
+
+    //测试功能代码
+    /*m_pTargetButton = new MyTargetButton(tr("全国失踪人口库"));
+    QHBoxLayout* pLayout = new QHBoxLayout(pWid);
+    pLayout->addWidget(m_pTargetButton);
+
+    connect(m_pTargetButton, SIGNAL(clicked(bool)), this, SLOT(slot_test()));*/
+
+    WarningWidget *m_pWarningWidget = new WarningWidget;
+    m_pWarningWidget->show();
 }
 void MainWindow::onSlotBtnFaceDetection()
 {
@@ -466,19 +465,6 @@ void MainWindow::initUserInfo()
     // by ly
     m_strUserName = "administrator";
     m_strUserType = "管理员";
-}
-
-
-void MainWindow::slot_test()
-{
-    if(m_pTargetButton->isChecked())
-    {
-        m_pTargetButton->selected();
-    }
-    else
-    {
-        m_pTargetButton->unSelect();
-    }
 }
 
 void MainWindow::updateRealTimeMonitorData()

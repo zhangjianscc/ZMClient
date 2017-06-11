@@ -13,6 +13,7 @@ class QStackedWidget;
 class MyTargetButton;
 class RealTimeMonitorPane;
 class FaceOneToOnePane;
+class WarningWidget;
 
 class MainWindow : public QWidget
 {
@@ -80,8 +81,6 @@ public slots:
     void onSlotBtnModeManage();                   /// 模板管理
     void onSlotBtnWarningManage();                /// 告警管理
     void onSlotBtnInfoManage();                   /// 基础信息管理
-
-    void slot_test();
 };
 
 #endif // MAINWINDOW_H
