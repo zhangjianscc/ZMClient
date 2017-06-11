@@ -2,9 +2,9 @@
 #define STABLE_H
 
 
-const int g_wid = 1200;
-const int g_hei = 650;
-const int g_leftNaviPaneWid = 260;
+const int g_wid = 1366;
+const int g_hei = 768;
+const int g_leftNaviPaneWid = 266;
 const int g_topMenuPaneHei = 40;
 
 #include <QHBoxLayout>

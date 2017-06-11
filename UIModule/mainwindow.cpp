@@ -6,11 +6,22 @@
 #include "UIModule/Comm/myimagewidget.h"
 #include "UIModule/Comm/mytargetbutton.h"
 #include "warningwidget.h"
-#include "realtimemonitorpane.h"、
+#include "realtimemonitorpane.h"
 #include "faceonetoonepane.h"
 #include "facehistorycompare.h"
 #include "faceonetonpane.h"
 #include "faceidentityrecog.h"
+#include "faceonetonpane2.h"
+#include "faceidentityrecog2.h"
+#include "facehistorycompare2.h"
+#include "monitorconfigpane.h"
+#include "targetpersonmanager.h"
+#include "templatemanager.h"
+#include "librarymanager.h"
+#include "realwarningmanager.h"
+#include "monitorareamaintain.h"
+#include "monitorpositionmaintain.h"
+#include "monitordevicemaintain.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QWidget(parent),
@@ -101,18 +112,41 @@ void MainWindow::initMainFrame()
     m_pRealTimeMonitorPane = new RealTimeMonitorPane();
     m_pContentPane->addWidget(m_pRealTimeMonitorPane);        // 1
 
-
-    m_pContentPane->addWidget(initMonitorConfigPane());       // 2
+    m_pMonitorConfigPane = new MonitorConfigPane();
+    m_pContentPane->addWidget(m_pMonitorConfigPane);       // 2
 
     m_pFaceOneToOnePane = new FaceOneToOnePane();
     m_pContentPane->addWidget(m_pFaceOneToOnePane);     // 3
 
-    m_pFaceOneToNPane = new FaceOneToNPane();
-    m_pContentPane->addWidget(m_pFaceOneToNPane);       // 4
+    m_pFaceOneToNPane2 = new FaceOneToNPane2();
+    m_pContentPane->addWidget(m_pFaceOneToNPane2);       // 4
 
-    m_pContentPane->addWidget(initIdentityAuthenPane());      // 5
+    m_pFaceIdentityRecog2 = new FaceIdentityRecog2();
+    m_pContentPane->addWidget(m_pFaceIdentityRecog2);      // 5
 
-    m_pContentPane->addWidget(initHistoryFaceComparePane());  // 6
+    m_pFaceHistoryCompare2 = new FaceHistoryCompare2();
+    m_pContentPane->addWidget(m_pFaceHistoryCompare2);  // 6
+
+    m_pTargetPersonManager = new TargetPersonManager();
+    m_pContentPane->addWidget(m_pTargetPersonManager);  // 7
+
+    m_pTemplateManager = new TemplateManager();
+    m_pContentPane->addWidget(m_pTemplateManager);  // 8
+
+    m_pLibraryManager = new LibraryManager();
+    m_pContentPane->addWidget(m_pLibraryManager);  // 9
+
+    m_pRealWarningManager = new RealWarningManager();
+    m_pContentPane->addWidget(m_pRealWarningManager);  // 10
+
+    m_pMonitorAreaMaintain = new MonitorAreaMaintain;
+    m_pContentPane->addWidget(m_pMonitorAreaMaintain);  // 11
+
+    m_pMonitorPositionMaintain = new MonitorPositionMaintain();
+    m_pContentPane->addWidget(m_pMonitorPositionMaintain);  // 12
+
+    m_pMonitorDeviceMaintain = new MonitorDeviceMaintain();
+    m_pContentPane->addWidget(m_pMonitorDeviceMaintain);  // 13
 
     QHBoxLayout* playout2 = new QHBoxLayout(pContentWid);
     playout2->setMargin(0);
@@ -189,7 +223,7 @@ QWidget* MainWindow::initNavePane()
     m_pBtnIndentify->setVisible(false);
     connect(m_pBtnIndentify,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnIndentify()));
 
-    m_pBtnHistoryFace = new MyToolButton("      历史人脸库对比");
+    m_pBtnHistoryFace = new MyToolButton("历史人脸库对比");
     playout->addWidget(m_pBtnHistoryFace);
     m_pBtnHistoryFace->setVisible(false);
     connect(m_pBtnHistoryFace,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnHistoryFace()));
@@ -198,13 +232,48 @@ QWidget* MainWindow::initNavePane()
     playout->addWidget(m_pBtnModeManage);
     connect(m_pBtnModeManage,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnModeManage()));
 
+    m_pBtnTargetPersonManager = new MyToolButton("目标人管理");
+    playout->addWidget(m_pBtnTargetPersonManager);
+    m_pBtnTargetPersonManager->setVisible(false);
+    connect(m_pBtnTargetPersonManager,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnTargetPersonManager()));
+
+    m_pBtnTemplateManager = new MyToolButton("模板管理");
+    playout->addWidget(m_pBtnTemplateManager);
+    m_pBtnTemplateManager->setVisible(false);
+    connect(m_pBtnTemplateManager,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnTemplateManager()));
+
+    m_pBtnLibraryManager = new MyToolButton("库管理");
+    playout->addWidget(m_pBtnLibraryManager);
+    m_pBtnLibraryManager->setVisible(false);
+    connect(m_pBtnLibraryManager,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnLibraryManager()));
+
     m_pBtnWarningManage = new MyToolButton("告警管理","://images//左侧图标04.png","://images//左侧图标04-01.png");
     playout->addWidget(m_pBtnWarningManage);
     connect(m_pBtnWarningManage,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnWarningManage()));
 
+    m_pBtnRealWarningManager = new MyToolButton("实时告警管理");
+    playout->addWidget(m_pBtnRealWarningManager);
+    m_pBtnRealWarningManager->setVisible(false);
+    connect(m_pBtnRealWarningManager,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnRealWarningManager()));
+
     m_pBtnInfoManage = new MyToolButton("基础信息维护","://images//左侧图标05.png","://images//左侧图标05-01.png");
     playout->addWidget(m_pBtnInfoManage);
     connect(m_pBtnInfoManage,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnInfoManage()));
+
+    m_pBtnMonitorAreaMaintain = new MyToolButton("监控区域信息维护");
+    playout->addWidget(m_pBtnMonitorAreaMaintain);
+    m_pBtnMonitorAreaMaintain->setVisible(false);
+    connect(m_pBtnMonitorAreaMaintain,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnMonitorAreaMaintain()));
+
+    m_pBtnMonitorPositionMaintain = new MyToolButton("监控位置信息维护");
+    playout->addWidget(m_pBtnMonitorPositionMaintain);
+    m_pBtnMonitorPositionMaintain->setVisible(false);
+    connect(m_pBtnMonitorPositionMaintain,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnMonitorPositionMaintain()));
+
+    m_pBtnMonitorDeviceMaintain = new MyToolButton("人脸采集设备信息维护");
+    playout->addWidget(m_pBtnMonitorDeviceMaintain);
+    m_pBtnMonitorDeviceMaintain->setVisible(false);
+    connect(m_pBtnMonitorDeviceMaintain,SIGNAL(clicked(bool)),this,SLOT(onSlotBtnDeviceMaintain()));
 
     playout->addStretch();
 
@@ -223,68 +292,6 @@ QWidget* MainWindow::initBackGroundImagePane()
     return pWid;
 }
 
-QWidget* MainWindow::initRealTimeMonitorPane()
-{
-
-}
-
-QWidget* MainWindow::initMonitorConfigPane()
-{
-    QWidget* pWid = new QWidget();
-    /*QLabel* pLabel = new QLabel("布控设置");
-    QHBoxLayout* pLayout = new QHBoxLayout(pWid);
-    pLayout->addWidget(pLabel);*/
-
-    //测试功能代码
-    /*m_pTargetButton = new MyTargetButton(tr("全国失踪人口库"));
-    QHBoxLayout* pLayout = new QHBoxLayout(pWid);
-    pLayout->addWidget(m_pTargetButton);
-
-    connect(m_pTargetButton, SIGNAL(clicked(bool)), this, SLOT(slot_test()));*/
-
-    QHBoxLayout* pLayout = new QHBoxLayout(pWid);
-    WarningWidget *m_pWarningWidget = new WarningWidget;
-    pLayout->addWidget(m_pWarningWidget);
-
-    return pWid;
-}
-
-QWidget* MainWindow::initOneToOneComparePane()
-{
-    QWidget* pWid = new QWidget();
-    QLabel* pLabel = new QLabel("1:1对比");
-    QHBoxLayout* pLayout = new QHBoxLayout(pWid);
-    pLayout->addWidget(pLabel);
-    return pWid;
-}
-
-QWidget* MainWindow::initOneToNComparePane()
-{
-    QWidget* pWid = new QWidget();
-    QLabel* pLabel = new QLabel("1：N对比");
-    QHBoxLayout* pLayout = new QHBoxLayout(pWid);
-    pLayout->addWidget(pLabel);
-    return pWid;
-}
-
-QWidget* MainWindow::initIdentityAuthenPane()
-{
-    QWidget* pWid = new QWidget();
-    QLabel* pLabel = new QLabel("身份验证");
-    QHBoxLayout* pLayout = new QHBoxLayout(pWid);
-    pLayout->addWidget(pLabel);
-    return pWid;
-}
-
-QWidget* MainWindow::initHistoryFaceComparePane()
-{
-    QWidget* pWid = new QWidget();
-    QLabel* pLabel = new QLabel("历史人脸库对比");
-    QHBoxLayout* pLayout = new QHBoxLayout(pWid);
-    pLayout->addWidget(pLabel);
-    return pWid;
-}
-
 void MainWindow::onSlotBtnNaviCtr()
 {
     if(m_pBtnNaviCtr->isChecked())
@@ -299,30 +306,6 @@ void MainWindow::onSlotBtnNaviCtr()
         m_pBtnRealTimeMonitor->setVisible(false);
         m_pBtnMonitorConfig->setVisible(false);
     }
-}
-void MainWindow::onSlotBtnRealTimeMonitor()
-{
-    m_pBtnRealTimeMonitor->setChecked(true);
-
-    m_pContentPane->setCurrentIndex(1);
-    m_pBtnMonitorConfig->setChecked(false);
-    m_pBtnFaceOneToOne->setChecked(false);
-    m_pBtnFaceOneToN->setChecked(false);
-    m_pBtnIndentify->setChecked(false);
-    m_pBtnHistoryFace->setChecked(false);
-
-    updateRealTimeMonitorData();
-}
-void MainWindow::onSlotBtnMonitorConfig()
-{
-    m_pBtnMonitorConfig->setChecked(true);
-
-    m_pContentPane->setCurrentIndex(2);
-    m_pBtnRealTimeMonitor->setChecked(false);
-    m_pBtnFaceOneToOne->setChecked(false);
-    m_pBtnFaceOneToN->setChecked(false);
-    m_pBtnIndentify->setChecked(false);
-    m_pBtnHistoryFace->setChecked(false);
 }
 void MainWindow::onSlotBtnFaceDetection()
 {
@@ -343,59 +326,90 @@ void MainWindow::onSlotBtnFaceDetection()
         m_pBtnHistoryFace->setVisible(false);
     }
 }
+void MainWindow::onSlotBtnRealTimeMonitor()
+{
+    m_pContentPane->setCurrentIndex(1);
+
+    checkPane(m_pBtnRealTimeMonitor);
+
+    updateRealTimeMonitorData();
+}
+void MainWindow::onSlotBtnMonitorConfig()
+{
+    m_pContentPane->setCurrentIndex(2);
+
+    checkPane(m_pBtnMonitorConfig);
+}
 void MainWindow::onSlotBtnFaceOneToOne()
 {
-    m_pBtnFaceOneToOne->setChecked(true);
-
     m_pContentPane->setCurrentIndex(3);
-    m_pBtnRealTimeMonitor->setChecked(false);
-    m_pBtnMonitorConfig->setChecked(false);
-    m_pBtnFaceOneToN->setChecked(false);
-    m_pBtnIndentify->setChecked(false);
-    m_pBtnHistoryFace->setChecked(false);
+    checkPane(m_pBtnFaceOneToOne);
 }
 void MainWindow::onSlotBtnFaceOneToN()
 {
-    m_pBtnFaceOneToN->setChecked(true);
-
     m_pContentPane->setCurrentIndex(4);
-    m_pBtnRealTimeMonitor->setChecked(false);
-    m_pBtnMonitorConfig->setChecked(false);
-    m_pBtnFaceOneToOne->setChecked(false);
-    m_pBtnIndentify->setChecked(false);
-    m_pBtnHistoryFace->setChecked(false);
+    checkPane(m_pBtnFaceOneToN);
 }
 void MainWindow::onSlotBtnIndentify()
 {
-    m_pBtnIndentify->setChecked(true);
-
     m_pContentPane->setCurrentIndex(5);
-    m_pBtnRealTimeMonitor->setChecked(false);
-    m_pBtnMonitorConfig->setChecked(false);
-    m_pBtnFaceOneToOne->setChecked(false);
-    m_pBtnFaceOneToN->setChecked(false);
-    m_pBtnHistoryFace->setChecked(false);
+    checkPane(m_pBtnIndentify);
 }
 void MainWindow::onSlotBtnHistoryFace()
 {
-    m_pBtnHistoryFace->setChecked(true);
-
     m_pContentPane->setCurrentIndex(6);
-    m_pBtnRealTimeMonitor->setChecked(false);
-    m_pBtnMonitorConfig->setChecked(false);
-    m_pBtnFaceOneToOne->setChecked(false);
-    m_pBtnFaceOneToN->setChecked(false);
-    m_pBtnIndentify->setChecked(false);
+    checkPane(m_pBtnHistoryFace);
+}
+void MainWindow::onSlotBtnTargetPersonManager()
+{
+    m_pContentPane->setCurrentIndex(7);
+    checkPane(m_pBtnTargetPersonManager);
+}
+void MainWindow::onSlotBtnTemplateManager()
+{
+    m_pContentPane->setCurrentIndex(8);
+    checkPane(m_pBtnTemplateManager);
+}
+void MainWindow::onSlotBtnLibraryManager()
+{
+    m_pContentPane->setCurrentIndex(9);
+    checkPane(m_pBtnLibraryManager);
+}
+void MainWindow::onSlotBtnRealWarningManager()
+{
+    m_pContentPane->setCurrentIndex(10);
+    checkPane(m_pBtnRealWarningManager);
+}
+void MainWindow::onSlotBtnMonitorAreaMaintain()
+{
+    m_pContentPane->setCurrentIndex(11);
+    checkPane(m_pBtnMonitorAreaMaintain);
+}
+void MainWindow::onSlotBtnMonitorPositionMaintain()
+{
+    m_pContentPane->setCurrentIndex(12);
+    checkPane(m_pBtnMonitorPositionMaintain);
+}
+void MainWindow::onSlotBtnDeviceMaintain()
+{
+    m_pContentPane->setCurrentIndex(13);
+    checkPane(m_pBtnMonitorDeviceMaintain);
 }
 void MainWindow::onSlotBtnModeManage()
 {
     if(m_pBtnModeManage->isChecked())
     {
         m_pBtnModeManage->select();
+        m_pBtnTargetPersonManager->setVisible(true);
+        m_pBtnTemplateManager->setVisible(true);
+        m_pBtnLibraryManager->setVisible(true);
     }
     else
     {
         m_pBtnModeManage->unSelect();
+        m_pBtnTargetPersonManager->setVisible(false);
+        m_pBtnTemplateManager->setVisible(false);
+        m_pBtnLibraryManager->setVisible(false);
     }
 }
 void MainWindow::onSlotBtnWarningManage()
@@ -403,10 +417,12 @@ void MainWindow::onSlotBtnWarningManage()
     if(m_pBtnWarningManage->isChecked())
     {
         m_pBtnWarningManage->select();
+        m_pBtnRealWarningManager->setVisible(true);
     }
     else
     {
         m_pBtnWarningManage->unSelect();
+        m_pBtnRealWarningManager->setVisible(false);
     }
 }
 void MainWindow::onSlotBtnInfoManage()
@@ -414,10 +430,16 @@ void MainWindow::onSlotBtnInfoManage()
     if(m_pBtnInfoManage->isChecked())
     {
         m_pBtnInfoManage->select();
+        m_pBtnMonitorAreaMaintain->setVisible(true);
+        m_pBtnMonitorPositionMaintain->setVisible(true);
+        m_pBtnMonitorDeviceMaintain->setVisible(true);
     }
     else
     {
         m_pBtnInfoManage->unSelect();
+        m_pBtnMonitorAreaMaintain->setVisible(false);
+        m_pBtnMonitorPositionMaintain->setVisible(false);
+        m_pBtnMonitorDeviceMaintain->setVisible(false);
     }
 }
 
@@ -504,6 +526,30 @@ void MainWindow::updateRealTimeMonitorData()
 }
 
 
+
+
+void MainWindow::checkPane(MyToolButton* pBtn)
+{
+    m_pBtnRealTimeMonitor->setChecked(false);
+    m_pBtnMonitorConfig->setChecked(false);
+
+    m_pBtnFaceOneToOne->setChecked(false);
+    m_pBtnFaceOneToN->setChecked(false);
+    m_pBtnIndentify->setChecked(false);
+    m_pBtnHistoryFace->setChecked(false);
+
+    m_pBtnRealWarningManager->setChecked(false);
+
+    m_pBtnTargetPersonManager->setChecked(false);
+    m_pBtnTemplateManager->setChecked(false);
+    m_pBtnLibraryManager->setChecked(false);
+
+    m_pBtnMonitorAreaMaintain->setChecked(false);
+    m_pBtnMonitorPositionMaintain->setChecked(false);
+    m_pBtnMonitorDeviceMaintain->setChecked(false);
+
+    pBtn->setChecked(true);
+}
 
 
 

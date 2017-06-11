@@ -15,9 +15,9 @@ MyToolButton::MyToolButton(QString text) :
     QFont font = this->font();
     font.setPointSize(12);
     this->setFont(font);
-    this->setText(m_text);
+    this->setText(QString("      %1").arg(m_text));
 
-    this->setStyleSheet("MyToolButton{background-color:rgb(217,217,217);font: 12pt Arial Black;}"
+    this->setStyleSheet("MyToolButton{background-color:rgb(217,217,217);font: 12pt Arial Black;text-align:left}"
                         "MyToolButton:checked{border-image: url(:/images/导航栏选中.png);color:rgb(255,255,255);font: 12pt Arial Black;}");
 }
 
