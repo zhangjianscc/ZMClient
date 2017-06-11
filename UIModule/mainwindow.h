@@ -13,11 +13,8 @@ class QStackedWidget;
 class MyTargetButton;
 class RealTimeMonitorPane;
 class FaceOneToOnePane;
-<<<<<<< HEAD
 class WarningWidget;
-=======
 class FaceOneToNPane;
->>>>>>> b3e3c39ab3539a79d42afcdf48e2a738c37006b7
 
 class MainWindow : public QWidget
 {
