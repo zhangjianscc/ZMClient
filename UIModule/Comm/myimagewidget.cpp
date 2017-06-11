@@ -14,8 +14,9 @@ void MyImageWidget::initUI()
     this->setStyleSheet("MyImageWidget{border-radius:2px;background-color:rgb(236,236,236)}");
 
     // 默认程序全屏运行 此处计算图片合适大小
-    int imageWid = g_wid/12;
-    int imageHei = g_hei/6;
+    int imageWid = g_wid/9.5;
+    int imageHei = g_hei/5;
+    // 调整图片显示比例
 
     m_pLabelImage = new QLabel();
     m_pLabelImage->setFixedSize(imageWid,imageHei);

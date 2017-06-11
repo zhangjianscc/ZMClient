@@ -107,7 +107,8 @@ void MainWindow::initMainFrame()
     m_pFaceOneToOnePane = new FaceOneToOnePane();
     m_pContentPane->addWidget(m_pFaceOneToOnePane);     // 3
 
-    m_pContentPane->addWidget(initOneToNComparePane());       // 4
+    m_pFaceOneToNPane = new FaceOneToNPane();
+    m_pContentPane->addWidget(m_pFaceOneToNPane);       // 4
 
     m_pContentPane->addWidget(initIdentityAuthenPane());      // 5
 
@@ -478,11 +479,11 @@ void MainWindow::updateRealTimeMonitorData()
         RealTimeMonitorPane::stImageData data;
         data.name = QString("image%1").arg(i);
         QString str = QString("://images//head%1.jpg").arg(qrand()%7 + 1);
-        qDebug()<<str;
+        //qDebug()<<str;
         data.pix = QPixmap(str);
         data.date = "2017-06-05";
         data.time = "12:59:59";
-        data.position = "成都市.高新区.天府五街";
+        data.position = "成都市.高新区.天府二街";
         list.append(data);
     }
     m_pRealTimeMonitorPane->updateImageData(list);

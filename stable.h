@@ -2,8 +2,8 @@
 #define STABLE_H
 
 
-const int g_wid = 1300;
-const int g_hei = 700;
+const int g_wid = 1200;
+const int g_hei = 650;
 const int g_leftNaviPaneWid = 260;
 const int g_topMenuPaneHei = 40;
 
@@ -38,5 +38,6 @@ const int g_topMenuPaneHei = 40;
 #include <QDebug>
 #include <QDesktopWidget>
 #include <QScrollBar>
+#include <QFileDialog>
 
 #endif // STABLE_H
