@@ -9,7 +9,7 @@ MyToolButton::MyToolButton(QString text) :
     this->setText(text);
     this->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     this->setCheckable(true);
-    this->setFixedHeight(40);
+    this->setFixedHeight(30);
     this->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
 
     QFont font = this->font();
@@ -36,7 +36,7 @@ MyToolButton::MyToolButton(QString text,QString icon1,QString icon2) :
 {
     this->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     this->setCheckable(true);
-    this->setFixedHeight(60);
+    this->setFixedHeight(50);
     this->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
 
     QPalette pa = this->palette();
@@ -62,17 +62,17 @@ void MyToolButton::select()
 {
     if(!m_bImageButton)return;
 
-    this->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    this->setCheckable(true);
-    this->setFixedHeight(60);
-    this->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
+    //this->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    //this->setCheckable(true);
+    //this->setFixedHeight(50);
+    //this->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
 
     QPalette pa = this->palette();
     pa.setColor(QPalette::Background, QColor(76,76,76));
     pa.setColor(QPalette::WindowText, QColor(255,255,255));
     this->setPalette(pa);
 
-    this->setIconSize(QSize(39,37));
+    //this->setIconSize(QSize(39,37));
     this->setIcon(QIcon(QPixmap(m_iconSelect)));
 }
 
@@ -80,16 +80,16 @@ void MyToolButton::unSelect()
 {
     if(!m_bImageButton)return;
 
-    this->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    this->setCheckable(true);
-    this->setFixedHeight(60);
-    this->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
+    //this->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    //this->setCheckable(true);
+    //this->setFixedHeight(60);
+    //this->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
 
     QPalette pa = this->palette();
     pa.setColor(QPalette::Background, QColor(217, 217, 217));
     pa.setColor(QPalette::WindowText, QColor(76, 76, 76));
     this->setPalette(pa);
 
-    this->setIconSize(QSize(39,37));
+    //this->setIconSize(QSize(39,37));
     this->setIcon(QIcon(QPixmap(m_iconNomal)));
 }

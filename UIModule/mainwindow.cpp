@@ -25,10 +25,10 @@ MainWindow::MainWindow(QWidget *parent) :
 #include "faceonetoonepane.h"
 #include "facehistorycompare.h"
 #include "faceonetonpane.h"
-#include "faceidentityrecog.h"
-#include "faceonetonpane2.h"
-#include "faceidentityrecog2.h"
-#include "facehistorycompare2.h"
+#include "faceidentitydiscern.h"
+#include "faceonetonpane.h"
+#include "faceidentitydiscern.h"
+#include "facehistorycompare.h"
 #include "monitorconfigpane.h"
 #include "targetpersonmanager.h"
 #include "templatemanager.h"
@@ -236,13 +236,13 @@ void MainWindow::initMainFrame()
     m_pFaceOneToOnePane = new FaceOneToOnePane();
     m_pContentPane->addWidget(m_pFaceOneToOnePane);     // 3
 
-    m_pFaceOneToNPane2 = new FaceOneToNPane2();
+    m_pFaceOneToNPane2 = new FaceOneToNPane();
     m_pContentPane->addWidget(m_pFaceOneToNPane2);       // 4
 
-    m_pFaceIdentityRecog2 = new FaceIdentityRecog2();
+    m_pFaceIdentityRecog2 = new FaceIdentityDiscern();
     m_pContentPane->addWidget(m_pFaceIdentityRecog2);      // 5
 
-    m_pFaceHistoryCompare2 = new FaceHistoryCompare2();
+    m_pFaceHistoryCompare2 = new FaceHistoryCompare();
     m_pContentPane->addWidget(m_pFaceHistoryCompare2);  // 6
 
     m_pTargetPersonManager = new TargetPersonManager();

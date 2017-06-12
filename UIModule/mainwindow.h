@@ -17,9 +17,9 @@ class MyTargetButton;
 class RealTimeMonitorPane;
 class FaceOneToOnePane;
 class FaceOneToNPane;
-class FaceOneToNPane2;
-class FaceIdentityRecog2;
-class FaceHistoryCompare2;
+class FaceOneToNPane;
+class FaceIdentityDiscern;
+class FaceHistoryCompare;
 class MonitorConfigPane;
 class TargetPersonManager;
 class TemplateManager;
@@ -137,9 +137,9 @@ private:
     MonitorConfigPane*    m_pMonitorConfigPane;          /// 布控->布控设置
 
     FaceOneToOnePane*     m_pFaceOneToOnePane;           /// 人脸识别-> 1:1
-    FaceOneToNPane2*      m_pFaceOneToNPane2;            /// 人脸识别-> 1:N
-    FaceIdentityRecog2*   m_pFaceIdentityRecog2;         /// 人脸识别-> 身份验证
-    FaceHistoryCompare2*  m_pFaceHistoryCompare2;        /// 人脸识别-> 历史人脸库对比
+    FaceOneToNPane*      m_pFaceOneToNPane2;            /// 人脸识别-> 1:N
+    FaceIdentityDiscern*   m_pFaceIdentityRecog2;         /// 人脸识别-> 身份验证
+    FaceHistoryCompare*  m_pFaceHistoryCompare2;        /// 人脸识别-> 历史人脸库对比
 
     TargetPersonManager*  m_pTargetPersonManager;        ///
     TemplateManager*      m_pTemplateManager;

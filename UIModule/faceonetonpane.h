@@ -1,18 +1,22 @@
-#ifndef FACEONETONPANE_H
-#define FACEONETONPANE_H
+#ifndef FACEONETONPANE2_H
+#define FACEONETONPANE2_H
 
 #include <QWidget>
+
+namespace Ui {
+class FaceOneToNPane;
+}
 
 class FaceOneToNPane : public QWidget
 {
     Q_OBJECT
-public:
-    FaceOneToNPane(QWidget* parent = 0);
-private:
-    void initUI();
-signals:
 
-public slots:
+public:
+    explicit FaceOneToNPane(QWidget *parent = 0);
+    ~FaceOneToNPane();
+
+private:
+    Ui::FaceOneToNPane *ui;
 };
 
-#endif // FACEONETONPANE_H
+#endif // FACEONETONPANE2_H
