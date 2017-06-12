@@ -11,6 +11,9 @@
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QJsonObject>
+#include "InterFaceToService/sysuser.h"
+#include <vector>
+#include "InterFaceToService/objformat.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QWidget(parent)
@@ -443,20 +446,41 @@ void MainWindow::updateRealTimeMonitorData()
 {
     // by ly
     // 获取图片数据
-    /*SocketManager* inst = Singleton<SocketManager>::Instance();
+    SocketManager* inst = Singleton<SocketManager>::Instance();
+//    QString test = "{\"ACTION_NAME\": \"QUERY_SUSPECT_ALARM_WITH_PAGE\",\"PARAMS\": {\"PAGER\": {\"startIndex\": 1,\"pageSize\": 15,\"firstPage\": 1,\
+//                \"endIndex\": 15,\"currentPage\": 1},\"PARAM\": {}}}";
     QString test = "{\
                    \"ACTION_NAME\": \"QUERY_SUSPECT_ALARM_REAL\",\
                    \"PARAMS\": {}\
                }";
     test += "\n\n";
     inst->sendMessage(test.toStdString().c_str());
+    QString repStr = "";
     char RecvBuf[10000] = {0};       //接受的数据缓存
     int count = inst->receive(RecvBuf, 10000);
     QString resultString(RecvBuf);
+    int falglength = resultString.indexOf(","); //查找返回字符串中长度结束符，
+    int totalcount = resultString.left(falglength).toInt();
+    int tempcount = resultString.trimmed().length();
+    bool flagQuit = true;
+    while (flagQuit)
+    {
+        count = inst->receive(RecvBuf, 10000);
+        QString tempRet(RecvBuf);
+        resultString += tempRet;
+        tempcount += tempRet.trimmed().length();
+        if(tempcount > totalcount)
+        {
+            flagQuit = false;
+        }
+    }
+    resultString = resultString.mid(falglength + 1); //截断返回长度+，
+    //repStr += resultString;
     //开始解析返回的数据
     QJsonParseError login_json_error;
     QString RET_CODE;    //返回标志
     QJsonArray  RET_LIST;    //数组数据
+    std::vector<Sysuser> data;
     //RETJSON所有的元素
     QJsonDocument login_parse_doucment = QJsonDocument::fromJson(resultString.toUtf8(), &login_json_error);
     //检查json是否有错误
@@ -467,7 +491,7 @@ void MainWindow::updateRealTimeMonitorData()
             //开始解析json对象
             QJsonObject obj = login_parse_doucment.object();
             //如果包含RET_CODE
-            /*if (obj.contains("RET_CODE"))
+            if (obj.contains("RET_CODE"))
             {
                 //得到RET_CODE
                 QJsonValue ret_code_value = obj.take("RET_CODE");
@@ -477,24 +501,44 @@ void MainWindow::updateRealTimeMonitorData()
                     RET_CODE = ret_code_value.toVariant().toString();
                 }
             }
-            if(obj.contains("RET_LIST"))
+//            if(obj.contains("RET_LIST"))
+//            {
+//                //得到RET_CODE
+//                QJsonValue ret_list_value = obj.take("RET_LIST");
+//                if (ret_list_value.isArray())
+//                {
+//                    //转换RET_CODE
+//                   //RET_LIST =  QJsonDocument::fromJson(ret_list_value.toArray(), &login_json_error);
+//                }
+//            }
+            if (obj.contains("RET_LIST"))
             {
                 //得到RET_CODE
-                QJsonValue ret_list_value = obj.take("RET_LIST");
-                if (ret_list_value.isArray())
+                QJsonValue ret_List_value = obj.take("RET_LIST");
+                QJsonArray JsonArray= ret_List_value.toArray();
+
+                for(int i = 0;i < JsonArray.size(); ++i)
                 {
-                    //转换RET_CODE
-                   //RET_LIST =  QJsonDocument::fromJson(ret_list_value.toArray(), &login_json_error);
+
+                    QJsonValue value=JsonArray.at(i);
+                    if(value.isObject())
+                    {
+                        QJsonObject jsonobj=value.toObject();
+                        Sysuser user;
+                        ObjectFormat objF;
+                        objF.FormatObject(jsonobj,user);
+                        data.push_back(user);
+                    }
                 }
             }
         }
     }
-    for(int i = 1; i < RET_LIST.size(); ++i)
+    std::vector<Sysuser>::iterator it;
+    for(it = data.begin(); it != data.end(); ++it)
     {
-        QJsonObject jsonlist = RET_LIST.at(i).toObject();
         RealTimeMonitorPane::stImageData stimagedata;
-        stimagedata.time = jsonlist.value("alarmTime").toString();
-    }*/
+        stimagedata.time = (*it).alarmTime();
+    }
     QList<RealTimeMonitorPane::stImageData> list;
     for(int i = 0 ; i < 9 ; i++)
     {

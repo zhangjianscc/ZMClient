@@ -115,11 +115,11 @@ void LoginDialog::loadSavedUserInfo()
 {
     // by ly
     m_mapSavedUser.clear();
-    m_mapSavedUser.insert(this->ui->m_editUserName->text(),this->ui->m_editUserKey->text());
-    //m_mapSavedUser.insert("admin","123");
-    //m_mapSavedUser.insert("test1","123");
-    //m_mapSavedUser.insert("test2","123");
-    //m_mapSavedUser.insert("test3","123");
+    //m_mapSavedUser.insert(this->ui->m_editUserName->text(),this->ui->m_editUserKey->text());
+    m_mapSavedUser.insert("admin","123456");
+    m_mapSavedUser.insert("test1","123");
+    m_mapSavedUser.insert("test2","123");
+    m_mapSavedUser.insert("test3","123");
 }
 
 void LoginDialog::loginResult(bool result,QString retMsg)

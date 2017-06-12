@@ -71,7 +71,8 @@ HEADERS += \
     InterFaceToService/ParamsCommon.h \
     InterFaceToService/sysuserclient.h \
     reqglobal.h \
-    respglobal.h
+    respglobal.h \
+    InterFaceToService/sysuser.h
 
 RESOURCES += \
     images.qrc

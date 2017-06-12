@@ -42,7 +42,7 @@ bool SocketManager::sendMessage(const char* message)
 
 int SocketManager::receive(char * buf, int len){
     try{
-        int	charCount;			/* recv character count		*/
+        int charCount;			//recv character count	缓冲区200KB
         if(socket == INVALID_SOCKET || socket == SOCKET_ERROR)
             return -1;
 

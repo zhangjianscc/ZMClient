@@ -1,4 +1,4 @@
-#include "objformat.h"
+﻿#include "objformat.h"
 #include <QJsonValue>
 #include <QtDebug>
 #include <QJsonArray>
@@ -40,7 +40,8 @@ void ObjectFormat::FormatValue(QJsonValue& JsonValue,const char* method,QObject&
     }
     else if(JsonValue.isString())
     {
-       QMetaObject::invokeMethod(&ClassObj,method,Q_ARG(QString,JsonValue.toString()));
+       QString value=JsonValue.toString();
+       QMetaObject::invokeMethod(&ClassObj,method,Q_ARG(QString,value));
     }
     else
     {
@@ -63,7 +64,7 @@ void ObjectFormat::FormatObject(QJsonObject& JsonObj,QObject& ClassObj)
 
          if(JsonValue.isUndefined()){
              qDebug()<<"Undefined Json Node!";
-             return;
+             continue;
          }
 
          QByteArray norm =QMetaObject::normalizedType(methodName.toUtf8().data());
