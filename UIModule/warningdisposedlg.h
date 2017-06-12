@@ -7,13 +7,13 @@ namespace Ui {
 class WarnigDisposeDlg;
 }
 
-class WarnigDisposeDlg : public QDialog
+class WarningDisposeDlg : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit WarnigDisposeDlg(QWidget *parent = 0);
-    ~WarnigDisposeDlg();
+    explicit WarningDisposeDlg(QWidget *parent = 0);
+    ~WarningDisposeDlg();
 
 private:
     Ui::WarnigDisposeDlg *ui;

@@ -77,10 +77,10 @@ HEADERS += \
     UIModule/targetpersonmanager.h \
     UIModule/templatemanager.h \
     UIModule/volumeaddtemplatedlg.h \
-    UIModule/warnigdisposedlg.h \
     UIModule/warningwidget.h \
     reqglobal.h \
-    respglobal.h
+    respglobal.h \
+    UIModule/warningdisposedlg.h
 
 SOURCES += \
     base64/base64.cpp \
@@ -126,9 +126,9 @@ SOURCES += \
     UIModule/targetpersonmanager.cpp \
     UIModule/templatemanager.cpp \
     UIModule/volumeaddtemplatedlg.cpp \
-    UIModule/warnigdisposedlg.cpp \
     UIModule/warningwidget.cpp \
-    main.cpp
+    main.cpp \
+    UIModule/warningdisposedlg.cpp
 
 FORMS += \
     UIModule/adddevicedlg.ui \
