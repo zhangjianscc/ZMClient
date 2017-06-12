@@ -1,14 +1,14 @@
-#include "warnigdisposedlg.h"
+#include "warningdisposedlg.h"
 #include "ui_warnigdisposedlg.h"
 
-WarnigDisposeDlg::WarnigDisposeDlg(QWidget *parent) :
+WarningDisposeDlg::WarningDisposeDlg(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::WarnigDisposeDlg)
 {
     ui->setupUi(this);
 }
 
-WarnigDisposeDlg::~WarnigDisposeDlg()
+WarningDisposeDlg::~WarningDisposeDlg()
 {
     delete ui;
 }
