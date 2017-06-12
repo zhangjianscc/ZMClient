@@ -6,13 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
+<<<<<<< HEAD
     <width>673</width>
     <height>579</height>
+=======
+    <width>624</width>
+    <height>396</height>
+>>>>>>> ed50c6119402aa2f1d459124d18c94076c1dc3b9
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+<<<<<<< HEAD
   <widget class="QWidget" name="widget" native="true">
    <property name="geometry">
     <rect>
@@ -149,5 +155,19 @@ background-color: rgb(227, 227, 227);</string>
  <resources>
   <include location="../images.qrc"/>
  </resources>
+=======
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+>>>>>>> ed50c6119402aa2f1d459124d18c94076c1dc3b9
  <connections/>
 </ui>

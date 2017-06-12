@@ -55,6 +55,19 @@
         <file>images/01主界面.png</file>
         <file>images/导航栏选中.png</file>
         <file>images/login_back.png</file>
+<<<<<<< HEAD:images.qrc
         <file>images/head.jpg</file>
+=======
+        <file>images/c-02.png</file>
+        <file>images/选项卡×选图标.png</file>
+        <file>stylesheet.qss</file>
+        <file>images/head1.jpg</file>
+        <file>images/head2.jpg</file>
+        <file>images/head3.jpg</file>
+        <file>images/head4.jpg</file>
+        <file>images/head5.jpg</file>
+        <file>images/head6.jpg</file>
+        <file>images/head7.jpg</file>
+>>>>>>> ed50c6119402aa2f1d459124d18c94076c1dc3b9:Resouce.qrc
     </qresource>
 </RCC>
