@@ -1,11 +1,4 @@
 #include "myimagecomparewidget.h"
-<<<<<<< HEAD
-
-MyImageCompareWidget::MyImageCompareWidget(QWidget *parent) : QWidget(parent)
-{
-    this->setStyleSheet("MyImageCompareWidget{border:0px;border-radius:2px;background-color:rgb(178,178,178)}");
-    this->setFixedSize(100,200);
-=======
 #include "stable.h"
 
 MyImageCompareWidget::MyImageCompareWidget(QWidget *parent) : QWidget(parent)
@@ -102,5 +95,4 @@ void MyImageCompareWidget::paintEvent(QPaintEvent *event)
     QPainter p(this);
     style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
     QWidget::paintEvent(event);
->>>>>>> ed50c6119402aa2f1d459124d18c94076c1dc3b9
 }

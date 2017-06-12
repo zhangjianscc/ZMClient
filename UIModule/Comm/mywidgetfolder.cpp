@@ -6,11 +6,7 @@ MyWidgetFolder::MyWidgetFolder(QString iconPath,QString title) :
     m_strIconPath(iconPath),
     m_strTitle(title)
 {
-<<<<<<< HEAD
-    this->setStyleSheet("MyWidgetFolder{border:1px;border-radius:2px;background-color:rgb(236,236,236)}");
-=======
     this->setStyleSheet("MyWidgetFolder{border:2px solid rgb(180,180,180);border-radius:2px;background-color:rgb(236,236,236)}");
->>>>>>> ed50c6119402aa2f1d459124d18c94076c1dc3b9
 
     QWidget* pWidTitleBar = new QWidget();
     pWidTitleBar->setFixedHeight(25);
@@ -24,11 +20,7 @@ MyWidgetFolder::MyWidgetFolder(QString iconPath,QString title) :
 
     QLabel* pLabelTitle = new QLabel();
     pLabelTitle->setAttribute(Qt::WA_TranslucentBackground);
-<<<<<<< HEAD
-    pLabelTitle->setStyleSheet("QLabel{border:none;font: 12pt Arial Black;}");
-=======
     pLabelTitle->setStyleSheet("QLabel{border:none;font: 12pt 黑体;}");
->>>>>>> ed50c6119402aa2f1d459124d18c94076c1dc3b9
     pLabelTitle->setText(title);
 
     QHBoxLayout* pTitleLayout = new QHBoxLayout(pWidTitleBar);
@@ -50,10 +42,6 @@ void MyWidgetFolder::setContentWidget(QWidget* pWid)
         m_pMainLayout->removeItem(m_pMainLayout->itemAt(m_pMainLayout->count()-1));
     }
 
-<<<<<<< HEAD
-    m_pMainLayout->addWidget(pWid,1);
-}
-=======
     pWid->setStyleSheet("QWidget{background:transparent}");
     m_pMainLayout->addWidget(pWid,1);
 }
@@ -66,4 +54,3 @@ void MyWidgetFolder::paintEvent(QPaintEvent *event)
     style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
     QWidget::paintEvent(event);
 }
->>>>>>> ed50c6119402aa2f1d459124d18c94076c1dc3b9

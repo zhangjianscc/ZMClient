@@ -15,15 +15,9 @@ MyToolButton::MyToolButton(QString text) :
     QFont font = this->font();
     font.setPointSize(12);
     this->setFont(font);
-<<<<<<< HEAD
-    this->setText(m_text);
-
-    this->setStyleSheet("MyToolButton{background-color:rgb(217,217,217);font: 12pt Arial Black;}"
-=======
     this->setText(QString("      %1").arg(m_text));
 
     this->setStyleSheet("MyToolButton{background-color:rgb(217,217,217);font: 12pt Arial Black;text-align:left}"
->>>>>>> ed50c6119402aa2f1d459124d18c94076c1dc3b9
                         "MyToolButton:checked{border-image: url(:/images/导航栏选中.png);color:rgb(255,255,255);font: 12pt Arial Black;}");
 }
 
@@ -64,7 +58,7 @@ void MyToolButton::select()
 
     //this->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     //this->setCheckable(true);
-    //this->setFixedHeight(50);
+    //this->setFixedHeight(40);
     //this->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
 
     QPalette pa = this->palette();
@@ -72,7 +66,7 @@ void MyToolButton::select()
     pa.setColor(QPalette::WindowText, QColor(255,255,255));
     this->setPalette(pa);
 
-    //this->setIconSize(QSize(39,37));
+    this->setIconSize(QSize(39,37));
     this->setIcon(QIcon(QPixmap(m_iconSelect)));
 }
 
@@ -90,6 +84,6 @@ void MyToolButton::unSelect()
     pa.setColor(QPalette::WindowText, QColor(76, 76, 76));
     this->setPalette(pa);
 
-    //this->setIconSize(QSize(39,37));
+    this->setIconSize(QSize(39,37));
     this->setIcon(QIcon(QPixmap(m_iconNomal)));
 }

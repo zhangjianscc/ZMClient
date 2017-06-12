@@ -147,7 +147,6 @@ void LoginDialog::onSlotBtnClose()
 
 void LoginDialog::onSlotBtnLogin()
 {
-<<<<<<< HEAD
    LOGIN login;
    login.account=ui->m_editUserName->text();
    login.password=ui->m_editUserKey->text();
@@ -188,12 +187,6 @@ void LoginDialog::onSlotBtnLogin()
        QMessageBox::information(this,"提示","登陆失败");
        this->loginResult(false, "登陆失败");
    }
-=======
-    QString userName = ui->m_editUserName->text();
-    QString userKey  = ui->m_editUserKey->text();
-    // by ly
-    this->accept();
->>>>>>> ed50c6119402aa2f1d459124d18c94076c1dc3b9
 }
 
 void LoginDialog::onSlotRemenberUserStateChanged(int value)

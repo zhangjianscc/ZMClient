@@ -8,22 +8,6 @@ RealTimeMonitorPane::RealTimeMonitorPane(QWidget *parent) : QWidget(parent)
 {
     m_listImageWid.clear();
     m_listImageCompareWid.clear();
-<<<<<<< HEAD
-    initFrame();
-}
-
-void RealTimeMonitorPane::initFrame()
-{
-    this->setStyleSheet("RealTimeMonitorPane{border:none;background-color:rgb(220,220,220)}");
-
-    MyWidgetFolder* pFolderReal = new MyWidgetFolder("://images//实时监控图标01.png","实时采集");
-    QWidget* pRealContent = new QWidget();
-    pRealContent->setStyleSheet("QWidget{border:1px;border-radius:2px;background-color:rgb(236,236,236)}");
-    pFolderReal->setContentWidget(pRealContent);
-    QGridLayout* pLayoutReal = new QGridLayout(pRealContent);
-    pLayoutReal->setMargin(50);
-    pLayoutReal->setSpacing(50);
-=======
     initUI();
 }
 
@@ -36,16 +20,12 @@ void RealTimeMonitorPane::initUI()
     pFolderReal->setContentWidget(pRealContent);
     QGridLayout* pLayoutReal = new QGridLayout(pRealContent);
     //pLayoutReal->setMargin(20);
->>>>>>> ed50c6119402aa2f1d459124d18c94076c1dc3b9
     for(int i = 0 ; i < 3 ; ++i)
     {
         for(int j = 0 ; j < 3 ; ++j)
         {
             MyImageWidget* pImageWid = new MyImageWidget();
-<<<<<<< HEAD
-=======
             connect(pImageWid,SIGNAL(clicked(MyImageWidget*)),this,SLOT(onSlotLeftImageClieked(MyImageWidget*)));
->>>>>>> ed50c6119402aa2f1d459124d18c94076c1dc3b9
             pLayoutReal->addWidget(pImageWid,i,j,Qt::AlignCenter);
             m_listImageWid.append(pImageWid);
         }
@@ -53,22 +33,6 @@ void RealTimeMonitorPane::initUI()
 
 
     MyWidgetFolder* pFolderWarning = new MyWidgetFolder("://images//实时监控图标02.png","告警信息");
-<<<<<<< HEAD
-    QWidget* pWarningContent = new QWidget();
-    pWarningContent->setStyleSheet("QWidget{border:1px;border-radius:2px;background-color:rgb(236,236,236)}");
-    pFolderWarning->setContentWidget(pWarningContent);
-    QGridLayout* pLayoutWarning = new QGridLayout(pWarningContent);
-    for(int i = 0 ; i < 2 ; ++i)
-    {
-        for(int j = 0 ; j < 3 ; ++j)
-        {
-            MyImageCompareWidget* pImageWid = new MyImageCompareWidget();
-            pLayoutWarning->addWidget(pImageWid,i,j,Qt::AlignCenter);
-            m_listImageCompareWid.append(pImageWid);
-        }
-    }
-
-=======
     m_pTableWarningPane = new QTableWidget();
     pFolderWarning->setContentWidget(m_pTableWarningPane);
     m_pTableWarningPane->horizontalHeader()->setVisible(false);
@@ -81,7 +45,6 @@ void RealTimeMonitorPane::initUI()
     m_pTableWarningPane->setSelectionMode(QAbstractItemView::NoSelection);
     m_pTableWarningPane->verticalScrollBar()->setStyleSheet("QScrollBar:vertical{border:none;width:10px;background:rgb(236,236,236)}"
                                                             "QScrollBar::handle{border:none;border-radius:5px;width:10px;background:rgb(178,178,178);}");
->>>>>>> ed50c6119402aa2f1d459124d18c94076c1dc3b9
 
     QHBoxLayout* pMainLayout = new QHBoxLayout(this);
     pMainLayout->setContentsMargins(10,20,10,20);
@@ -90,11 +53,7 @@ void RealTimeMonitorPane::initUI()
     pMainLayout->addWidget(pFolderWarning,2);
 }
 
-<<<<<<< HEAD
-void RealTimeMonitorPane::updateUIData(QList<stImageData>& list)
-=======
 void RealTimeMonitorPane::updateImageData(QList<stImageData>& list)
->>>>>>> ed50c6119402aa2f1d459124d18c94076c1dc3b9
 {
     for(int i = 0 ; i < list.count() ; ++i)
     {
@@ -104,8 +63,6 @@ void RealTimeMonitorPane::updateImageData(QList<stImageData>& list)
         }
     }
 }
-<<<<<<< HEAD
-=======
 
 void RealTimeMonitorPane::updateImageSimilarityData(QList<stImageSimilarData>& list)
 {
@@ -203,4 +160,3 @@ void RealTimeMonitorPane::onSlotLeftImageClieked(MyImageWidget* pImageWid)
 
 
 
->>>>>>> ed50c6119402aa2f1d459124d18c94076c1dc3b9

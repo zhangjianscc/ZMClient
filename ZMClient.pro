@@ -11,7 +11,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = ZMClient
 TEMPLATE = app
-DESTDIR = ..\BIN
+#DESTDIR = ..\BIN
 
 CONFIG += precompile_header
 PRECOMPILED_HEADER = stable.h
@@ -28,110 +28,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 LIBS += -lpthread libwsock32 libws2_32
 
-SOURCES += main.cpp \
-    UIModule/mainwindow.cpp \
-    UIModule/logindialog.cpp \
-    base64/base64.cpp \
-    UIModule/Comm/mytoolbutton.cpp \
-    UIModule/Comm/mywidgetfolder.cpp \
-    UIModule/Comm/myimagewidget.cpp \
-    UIModule/realtimemonitorpane.cpp \
-    UIModule/Comm/myimagecomparewidget.cpp \
-    Common/connection.cpp \
-    Common/readini.cpp \
-<<<<<<< HEAD
-    Common/singleton.cpp \
-    Common/socketmanager.cpp \
-    InterFaceToService/jsonformat.cpp \
-    InterFaceToService/objformat.cpp \
-    InterFaceToService/sysuserclient.cpp
-=======
-    Common/socketTcp.cpp \
-    UIModule/Comm/mytoolbutton.cpp \
-    UIModule/Comm/mywidgetfolder.cpp \
-    UIModule/Comm/myimagewidget.cpp \
-    UIModule/Comm/mytargetbutton.cpp \
-    UIModule/warningwidget.cpp \
-    UIModule/realtimemonitorpane.cpp \
-    UIModule/Comm/myimagecomparewidget.cpp \
-    UIModule/Comm/myimagelabel.cpp \
-    UIModule/faceonetoonepane.cpp \
-    UIModule/monitorconfigpane.cpp \
-    UIModule/targetpersonmanager.cpp \
-    UIModule/templatemanager.cpp \
-    UIModule/librarymanager.cpp \
-    UIModule/realwarningmanager.cpp \
-    UIModule/monitorareamaintain.cpp \
-    UIModule/monitorpositionmaintain.cpp \
-<<<<<<< HEAD
-    UIModule/monitordevicemaintain.cpp
->>>>>>> ed50c6119402aa2f1d459124d18c94076c1dc3b9
-=======
-    UIModule/monitordevicemaintain.cpp \
-    UIModule/maptrackpane.cpp \
-    UIModule/warnigdisposedlg.cpp \
-    UIModule/addmonitorareadlg.cpp \
-    UIModule/editmonitorareadlg.cpp \
-    UIModule/addmonitorpositiondlg.cpp \
-    UIModule/editmonitorpositiondlg.cpp \
-    UIModule/selectmonitorpositiondlg.cpp \
-    UIModule/adddevicedlg.cpp \
-    UIModule/editdevicedlg.cpp \
-    UIModule/addtargetpersondlg.cpp \
-    UIModule/addtargetpersonimagedlg.cpp \
-    UIModule/edittargetpersondlg.cpp \
-    UIModule/addtemplatedlg.cpp \
-    UIModule/volumeaddtemplatedlg.cpp \
-    UIModule/addlibrarydlg.cpp \
-    UIModule/facehistorycompare.cpp \
-    UIModule/faceidentitydiscern.cpp \
-    UIModule/faceonetonpane.cpp
->>>>>>> mybranch
-
-FORMS += \
-    UIModule/mainwindow.ui \
-    UIModule/logindialog.ui \
-    UIModule/monitorconfigpane.ui \
-    UIModule/targetpersonmanager.ui \
-    UIModule/templatemanager.ui \
-    UIModule/librarymanager.ui \
-    UIModule/realwarningmanager.ui \
-    UIModule/monitorareamaintain.ui \
-    UIModule/monitorpositionmaintain.ui \
-    UIModule/monitordevicemaintain.ui \
-    UIModule/maptrackpane.ui \
-    UIModule/edittargetperson.ui \
-    UIModule/addtargetperson.ui \
-    UIModule/addtargetpersonimage.ui \
-    UIModule/addtemplate.ui \
-    UIModule/volumeaddtemplate.ui \
-    UIModule/addlibrary.ui \
-    UIModule/warnigdisposedlg.ui \
-    UIModule/addmonitorareadlg.ui \
-    UIModule/editmonitorareadlg.ui \
-    UIModule/addmonitorpositiondlg.ui \
-    UIModule/editmonitorpositiondlg.ui \
-    UIModule/selectmonitorpositiondlg.ui \
-    UIModule/adddevicedlg.ui \
-    UIModule/editdevicedlg.ui \
-    UIModule/faceonetonpane.ui \
-    UIModule/faceidentitydiscern.ui \
-    UIModule/facehistorycompare.ui
-
 HEADERS += \
-    UIModule/mainwindow.h \
-    UIModule/logindialog.h \
-    stable.h \
     base64/base64.h \
-    UIModule/Comm/mytoolbutton.h \
-    UIModule/Comm/mywidgetfolder.h \
-    UIModule/Comm/myimagewidget.h \
-    UIModule/realtimemonitorpane.h \
-    UIModule/Comm/myimagecomparewidget.h \
     Common/conn_exception.h \
     Common/connection.h \
     Common/readini.h \
-<<<<<<< HEAD
     Common/singleton.h \
     Common/SocketManager.h \
     InterFaceToService/jsonformat.h \
@@ -139,53 +40,129 @@ HEADERS += \
     InterFaceToService/objformat.h \
     InterFaceToService/ParamCommon.h \
     InterFaceToService/ParamsCommon.h \
+    InterFaceToService/sysuser.h \
     InterFaceToService/sysuserclient.h \
-    reqglobal.h \
-    respglobal.h \
-    InterFaceToService/sysuser.h
-
-RESOURCES += \
-    images.qrc
-=======
-    Common/socketTcp.h \
-    UIModule/Comm/mytoolbutton.h \
-    UIModule/Comm/mywidgetfolder.h \
-    UIModule/Comm/myimagewidget.h \
-    UIModule/Comm/mytargetbutton.h \
-    UIModule/warningwidget.h \
-    UIModule/realtimemonitorpane.h \
     UIModule/Comm/myimagecomparewidget.h \
     UIModule/Comm/myimagelabel.h \
-    UIModule/faceonetoonepane.h \
-    UIModule/monitorconfigpane.h \
-    UIModule/targetpersonmanager.h \
-    UIModule/templatemanager.h \
-    UIModule/librarymanager.h \
-    UIModule/realwarningmanager.h \
-    UIModule/monitorareamaintain.h \
-    UIModule/monitorpositionmaintain.h \
-    UIModule/monitordevicemaintain.h \
-    UIModule/maptrackpane.h \
-    UIModule/warnigdisposedlg.h \
-    UIModule/addmonitorareadlg.h \
-    UIModule/editmonitorareadlg.h \
-    UIModule/addmonitorpositiondlg.h \
-    UIModule/editmonitorpositiondlg.h \
-    UIModule/selectmonitorpositiondlg.h \
+    UIModule/Comm/myimagewidget.h \
+    UIModule/Comm/mytargetbutton.h \
+    UIModule/Comm/mytoolbutton.h \
+    UIModule/Comm/mywidgetfolder.h \
     UIModule/adddevicedlg.h \
-    UIModule/editdevicedlg.h \
+    UIModule/addlibrarydlg.h \
+    UIModule/addmonitorareadlg.h \
+    UIModule/addmonitorpositiondlg.h \
     UIModule/addtargetpersondlg.h \
     UIModule/addtargetpersonimagedlg.h \
-    UIModule/edittargetpersondlg.h \
     UIModule/addtemplatedlg.h \
-    UIModule/volumeaddtemplatedlg.h \
-    UIModule/addlibrarydlg.h \
+    UIModule/editdevicedlg.h \
+    UIModule/editmonitorareadlg.h \
+    UIModule/editmonitorpositiondlg.h \
+    UIModule/edittargetpersondlg.h \
     UIModule/facehistorycompare.h \
     UIModule/faceidentitydiscern.h \
-    UIModule/faceonetonpane.h
+    UIModule/faceonetonpane.h \
+    UIModule/faceonetoonepane.h \
+    UIModule/librarymanager.h \
+    UIModule/logindialog.h \
+    UIModule/mainwindow.h \
+    UIModule/maptrackpane.h \
+    UIModule/monitorareamaintain.h \
+    UIModule/monitorconfigpane.h \
+    UIModule/monitordevicemaintain.h \
+    UIModule/monitorpositionmaintain.h \
+    UIModule/realtimemonitorpane.h \
+    UIModule/realwarningmanager.h \
+    UIModule/selectmonitorpositiondlg.h \
+    UIModule/targetpersonmanager.h \
+    UIModule/templatemanager.h \
+    UIModule/volumeaddtemplatedlg.h \
+    UIModule/warnigdisposedlg.h \
+    UIModule/warningwidget.h \
+    reqglobal.h \
+    respglobal.h
+
+SOURCES += \
+    base64/base64.cpp \
+    Common/connection.cpp \
+    Common/readini.cpp \
+    Common/singleton.cpp \
+    Common/socketmanager.cpp \
+    InterFaceToService/jsonformat.cpp \
+    InterFaceToService/objformat.cpp \
+    InterFaceToService/sysuserclient.cpp \
+    UIModule/Comm/myimagecomparewidget.cpp \
+    UIModule/Comm/myimagelabel.cpp \
+    UIModule/Comm/myimagewidget.cpp \
+    UIModule/Comm/mytargetbutton.cpp \
+    UIModule/Comm/mytoolbutton.cpp \
+    UIModule/Comm/mywidgetfolder.cpp \
+    UIModule/adddevicedlg.cpp \
+    UIModule/addlibrarydlg.cpp \
+    UIModule/addmonitorareadlg.cpp \
+    UIModule/addmonitorpositiondlg.cpp \
+    UIModule/addtargetpersondlg.cpp \
+    UIModule/addtargetpersonimagedlg.cpp \
+    UIModule/addtemplatedlg.cpp \
+    UIModule/editdevicedlg.cpp \
+    UIModule/editmonitorareadlg.cpp \
+    UIModule/editmonitorpositiondlg.cpp \
+    UIModule/edittargetpersondlg.cpp \
+    UIModule/facehistorycompare.cpp \
+    UIModule/faceidentitydiscern.cpp \
+    UIModule/faceonetonpane.cpp \
+    UIModule/faceonetoonepane.cpp \
+    UIModule/librarymanager.cpp \
+    UIModule/logindialog.cpp \
+    UIModule/mainwindow.cpp \
+    UIModule/maptrackpane.cpp \
+    UIModule/monitorareamaintain.cpp \
+    UIModule/monitorconfigpane.cpp \
+    UIModule/monitordevicemaintain.cpp \
+    UIModule/monitorpositionmaintain.cpp \
+    UIModule/realtimemonitorpane.cpp \
+    UIModule/realwarningmanager.cpp \
+    UIModule/selectmonitorpositiondlg.cpp \
+    UIModule/targetpersonmanager.cpp \
+    UIModule/templatemanager.cpp \
+    UIModule/volumeaddtemplatedlg.cpp \
+    UIModule/warnigdisposedlg.cpp \
+    UIModule/warningwidget.cpp \
+    main.cpp
+
+FORMS += \
+    UIModule/adddevicedlg.ui \
+    UIModule/addlibrary.ui \
+    UIModule/addmonitorareadlg.ui \
+    UIModule/addmonitorpositiondlg.ui \
+    UIModule/addtargetperson.ui \
+    UIModule/addtargetpersonimage.ui \
+    UIModule/addtemplate.ui \
+    UIModule/editdevicedlg.ui \
+    UIModule/editmonitorareadlg.ui \
+    UIModule/editmonitorpositiondlg.ui \
+    UIModule/edittargetperson.ui \
+    UIModule/facehistorycompare.ui \
+    UIModule/faceidentitydiscern.ui \
+    UIModule/faceonetonpane.ui \
+    UIModule/librarymanager.ui \
+    UIModule/logindialog.ui \
+    UIModule/maptrackpane.ui \
+    UIModule/monitorareamaintain.ui \
+    UIModule/monitorconfigpane.ui \
+    UIModule/monitordevicemaintain.ui \
+    UIModule/monitorpositionmaintain.ui \
+    UIModule/realwarningmanager.ui \
+    UIModule/selectmonitorpositiondlg.ui \
+    UIModule/targetpersonmanager.ui \
+    UIModule/templatemanager.ui \
+    UIModule/volumeaddtemplate.ui \
+    UIModule/warnigdisposedlg.ui \
+    UIModule/mainwindow.ui
 
 RESOURCES += \
     Resouce.qrc
->>>>>>> ed50c6119402aa2f1d459124d18c94076c1dc3b9
 
-DISTFILES +=
+DISTFILES += \
+    stylesheet.qss \
+    config.ini

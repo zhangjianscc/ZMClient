@@ -1,14 +1,9 @@
 #include "stable.h"
-<<<<<<< HEAD
-#include "Common/readini.h"
-#include "Common/singleton.h"
-=======
 #include "stable.h"
 #include "UIModule/mainwindow.h"
 #include "UIModule/logindialog.h"
 #include <QApplication>
 #include "Common/socketTcp.h"
->>>>>>> ed50c6119402aa2f1d459124d18c94076c1dc3b9
 
 
 void loadStyleSheet(QString qssName)
@@ -34,24 +29,11 @@ int main(int argc, char *argv[])
 
     QApplication a(argc, argv);
 
-<<<<<<< HEAD
-    //  by ly 初始化网络通信等其它模块,读取配置文件ini
-    SocketManager* inst = Singleton<SocketManager>::Instance();
-    ReadIni readinidata;  //读取配置文件对象
-    QString serviceIP = "127.0.0.1";  //缺省服务器ip地址
-    QString servicePort = "1990";    //缺省服务器端口
-    readinidata.ReadIniData(serviceIP, servicePort);
-    inst->connetService(serviceIP.toStdString(), servicePort.toStdString());
-    inst->sendMessage("socket_begin");   //连接请求服务器的时候发送socket_begin,结束发送socket_end;
-=======
-    loadStyleSheet(QString(":/stylesheet.qss"));
+    //loadStyleSheet(QString(":/stylesheet.qss"));
 
     // 初始化网络通信等其它模块
     // by ly
-    socketTcp sockettcp;  //socket 对象
-    sockettcp.newConnect();
-    sockettcp.sendMessage("socket_begin");//连接服务器socket时发送socket_begin，结束发送socket_end
->>>>>>> ed50c6119402aa2f1d459124d18c94076c1dc3b9
+
     // 启动登录界面
     //LoginDialog dlg;
     //if(dlg.exec() != QDialog::Accepted)
@@ -61,10 +43,6 @@ int main(int argc, char *argv[])
 
     // 启动主界面
     MainWindow w;
-<<<<<<< HEAD
-    w.showMaximized();
-    //w.show();
-=======
     w.setFixedSize(g_wid,g_hei);
 
     QDesktopWidget *deskWgt = QApplication::desktop();
@@ -74,7 +52,6 @@ int main(int argc, char *argv[])
     int pointY = (y - w.height())/2 > 0?(y - w.height())/2:0;
     w.move(pointX,pointY);
     w.show();
->>>>>>> ed50c6119402aa2f1d459124d18c94076c1dc3b9
 
     return a.exec();
 }
