@@ -14,6 +14,9 @@ class FaceOneToNPane : public QWidget
 public:
     explicit FaceOneToNPane(QWidget *parent = 0);
     ~FaceOneToNPane();
+private:
+    void initUI();
+    void initTargetLibraryData(QStringList listLibrary); // by ly
 
 private:
     Ui::FaceOneToNPane *ui;
