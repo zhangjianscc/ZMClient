@@ -1,9 +1,9 @@
-#include "stable.h"
-#include "stable.h"
+﻿#include "stable.h"
 #include "UIModule/mainwindow.h"
 #include "UIModule/logindialog.h"
 #include <QApplication>
-#include "Common/socketTcp.h"
+#include "Common/readini.h"
+#include "Common/singleton.h"
 
 
 void loadStyleSheet(QString qssName)
@@ -32,15 +32,20 @@ int main(int argc, char *argv[])
     //loadStyleSheet(QString(":/stylesheet.qss"));
 
     // 初始化网络通信等其它模块
-    // by ly
-
+    //  by ly 初始化网络通信等其它模块,读取配置文件ini
+    SocketManager* inst = Singleton<SocketManager>::Instance();
+    ReadIni readinidata;  //读取配置文件对象
+    QString serviceIP = "127.0.0.1";  //缺省服务器ip地址
+    QString servicePort = "1990";    //缺省服务器端口
+    readinidata.ReadIniData(serviceIP, servicePort);
+    inst->connetService(serviceIP.toStdString(), servicePort.toStdString());
+    inst->sendMessage("socket_begin");   //连接请求服务器的时候发送socket_begin,结束发送socket_end;
     // 启动登录界面
-    //LoginDialog dlg;
-    //if(dlg.exec() != QDialog::Accepted)
-    //{
-    //    return 0;
-    //}
-
+    LoginDialog dlg;
+    if(dlg.exec() != QDialog::Accepted)
+    {
+        return 0;
+    }
     // 启动主界面
     MainWindow w;
     w.setFixedSize(g_wid,g_hei);

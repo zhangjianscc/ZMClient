@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "UIModule/Comm/mytoolbutton.h"
 #include "stable.h"
@@ -21,6 +21,15 @@
 #include "monitorareamaintain.h"
 #include "monitorpositionmaintain.h"
 #include "monitordevicemaintain.h"
+#include "Common/singleton.h"
+#include <QJsonParseError>
+#include <QJsonDocument>
+#include <QJsonArray>
+#include <QJsonObject>
+#include "InterFaceToService/sysuser.h"
+#include <vector>
+#include "InterFaceToService/objformat.h"
+#include "base64/base64.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QWidget(parent),
@@ -495,20 +504,124 @@ void MainWindow::updateRealTimeMonitorData()
 {
     // by ly
     // 获取图片数据
-
-    QList<RealTimeMonitorPane::stImageData> list;
-    for(int i = 0 ; i < 9 ; i++)
+    SocketManager* inst = Singleton<SocketManager>::Instance();
+//    QString test = "{\"ACTION_NAME\": \"QUERY_SUSPECT_ALARM_WITH_PAGE\",\"PARAMS\": {\"PAGER\": {\"startIndex\": 1,\"pageSize\": 15,\"firstPage\": 1,\
+//                \"endIndex\": 15,\"currentPage\": 1},\"PARAM\": {}}}";
+    QString test = "{\
+                   \"ACTION_NAME\": \"QUERY_SUSPECT_ALARM_REAL\",\
+                   \"PARAMS\": {}\
+               }";
+    test += "\n\n";
+    inst->sendMessage(test.toStdString().c_str());
+    QString repStr = "";
+    char RecvBuf[10000] = {0};       //接受的数据缓存
+    int count = inst->receive(RecvBuf, 10000);
+    QString resultString(RecvBuf);
+    int falglength = resultString.indexOf(","); //查找返回字符串中长度结束符，
+    int totalcount = resultString.left(falglength).toInt();
+    int tempcount = resultString.trimmed().length();
+    bool flagQuit = true;
+    while (flagQuit)
     {
-        RealTimeMonitorPane::stImageData data;
-        data.name = QString("image%1").arg(i);
-        QString str = QString("://images//head%1.jpg").arg(qrand()%7 + 1);
-        //qDebug()<<str;
-        data.pix = QPixmap(str);
-        data.date = "2017-06-05";
-        data.time = "12:59:59";
-        data.position = "成都市.高新区.天府二街";
-        list.append(data);
+        count = inst->receive(RecvBuf, 10000);
+        QString tempRet(RecvBuf);
+        resultString += tempRet;
+        tempcount += tempRet.trimmed().length();
+        if(tempcount > totalcount)
+        {
+            flagQuit = false;
+        }
     }
+    resultString = resultString.mid(falglength + 1); //截断返回长度+，
+    //repStr += resultString;
+    //开始解析返回的数据
+    QJsonParseError login_json_error;
+    QString RET_CODE;    //返回标志
+    QJsonArray  RET_LIST;    //数组数据
+    std::vector<Sysuser> data;
+    //RETJSON所有的元素
+    QJsonDocument login_parse_doucment = QJsonDocument::fromJson(resultString.toUtf8(), &login_json_error);
+    //检查json是否有错误
+    if (login_json_error.error == QJsonParseError::NoError)
+    {
+        if (login_parse_doucment.isObject())
+        {
+            //开始解析json对象
+            QJsonObject obj = login_parse_doucment.object();
+            //如果包含RET_CODE
+            if (obj.contains("RET_CODE"))
+            {
+                //得到RET_CODE
+                QJsonValue ret_code_value = obj.take("RET_CODE");
+                if (ret_code_value.isString())
+                {
+                    //转换RET_CODE
+                    RET_CODE = ret_code_value.toVariant().toString();
+                }
+            }
+//            if(obj.contains("RET_LIST"))
+//            {
+//                //得到RET_CODE
+//                QJsonValue ret_list_value = obj.take("RET_LIST");
+//                if (ret_list_value.isArray())
+//                {
+//                    //转换RET_CODE
+//                   //RET_LIST =  QJsonDocument::fromJson(ret_list_value.toArray(), &login_json_error);
+//                }
+//            }
+            if (obj.contains("RET_LIST"))
+            {
+                //得到RET_CODE
+                QJsonValue ret_List_value = obj.take("RET_LIST");
+                QJsonArray JsonArray= ret_List_value.toArray();
+
+                for(int i = 0;i < JsonArray.size(); ++i)
+                {
+
+                    QJsonValue value=JsonArray.at(i);
+                    if(value.isObject())
+                    {
+                        QJsonObject jsonobj=value.toObject();
+                        Sysuser user;
+                        ObjectFormat objF;
+                        objF.FormatObject(jsonobj,user);
+                        data.push_back(user);
+                    }
+                }
+            }
+        }
+    }
+    std::vector<Sysuser>::iterator it;
+    QList<RealTimeMonitorPane::stImageData> list;
+    Base64 base64;
+    //获取当前路径
+    QString path;
+    QDir dir;
+    path = dir.currentPath();
+    path += "temp.png";
+    for(it = data.begin(); it != data.end(); ++it)
+    {
+        RealTimeMonitorPane::stImageData stimagedata;
+        base64.Base64_To_Image(((*it).monitorPhotoPath()).toUtf8(), path);
+        stimagedata.pix = path;
+        //stimagedata.date = (*it).date();
+        stimagedata.time = (*it).alarmTime();
+        stimagedata.position = (*it).alarmAddress();
+        list.append(stimagedata);
+    }
+
+//    for(int i = 0 ; i < 9 ; i++)
+//    {
+//        RealTimeMonitorPane::stImageData data;
+//        data.name = QString("image%1").arg(i);
+//        QString str = QString("://images//head%1.jpg").arg(qrand()%7 + 1);
+//        //qDebug()<<str;
+//        data.pix = QPixmap(str);
+//        data.date = "2017-06-05";
+//        data.time = "12:59:59";
+//        data.position = "成都市.高新区.天府二街";
+//        list.append(data);
+//    }
     m_pRealTimeMonitorPane->updateImageData(list);
 }
 

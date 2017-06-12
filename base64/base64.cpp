@@ -1,4 +1,4 @@
-#include "base64.h"
+﻿#include "base64.h"
 
 Base64::Base64()
 {
