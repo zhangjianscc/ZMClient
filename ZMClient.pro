@@ -43,12 +43,6 @@ SOURCES += main.cpp \
     UIModule/Comm/myimagecomparewidget.cpp \
     UIModule/Comm/myimagelabel.cpp \
     UIModule/faceonetoonepane.cpp \
-    UIModule/faceonetonpane.cpp \
-    UIModule/faceidentityrecog.cpp \
-    UIModule/facehistorycompare.cpp \
-    UIModule/faceonetonpane2.cpp \
-    UIModule/faceidentityrecog2.cpp \
-    UIModule/facehistorycompare2.cpp \
     UIModule/monitorconfigpane.cpp \
     UIModule/targetpersonmanager.cpp \
     UIModule/templatemanager.cpp \
@@ -56,14 +50,29 @@ SOURCES += main.cpp \
     UIModule/realwarningmanager.cpp \
     UIModule/monitorareamaintain.cpp \
     UIModule/monitorpositionmaintain.cpp \
-    UIModule/monitordevicemaintain.cpp
+    UIModule/monitordevicemaintain.cpp \
+    UIModule/maptrackpane.cpp \
+    UIModule/warnigdisposedlg.cpp \
+    UIModule/addmonitorareadlg.cpp \
+    UIModule/editmonitorareadlg.cpp \
+    UIModule/addmonitorpositiondlg.cpp \
+    UIModule/editmonitorpositiondlg.cpp \
+    UIModule/selectmonitorpositiondlg.cpp \
+    UIModule/adddevicedlg.cpp \
+    UIModule/editdevicedlg.cpp \
+    UIModule/addtargetpersondlg.cpp \
+    UIModule/addtargetpersonimagedlg.cpp \
+    UIModule/edittargetpersondlg.cpp \
+    UIModule/addtemplatedlg.cpp \
+    UIModule/volumeaddtemplatedlg.cpp \
+    UIModule/addlibrarydlg.cpp \
+    UIModule/facehistorycompare.cpp \
+    UIModule/faceidentitydiscern.cpp \
+    UIModule/faceonetonpane.cpp
 
 FORMS += \
     UIModule/mainwindow.ui \
     UIModule/logindialog.ui \
-    UIModule/faceonetonpane2.ui \
-    UIModule/faceidentityrecog2.ui \
-    UIModule/facehistorycompare2.ui \
     UIModule/monitorconfigpane.ui \
     UIModule/targetpersonmanager.ui \
     UIModule/templatemanager.ui \
@@ -71,7 +80,25 @@ FORMS += \
     UIModule/realwarningmanager.ui \
     UIModule/monitorareamaintain.ui \
     UIModule/monitorpositionmaintain.ui \
-    UIModule/monitordevicemaintain.ui
+    UIModule/monitordevicemaintain.ui \
+    UIModule/maptrackpane.ui \
+    UIModule/edittargetperson.ui \
+    UIModule/addtargetperson.ui \
+    UIModule/addtargetpersonimage.ui \
+    UIModule/addtemplate.ui \
+    UIModule/volumeaddtemplate.ui \
+    UIModule/addlibrary.ui \
+    UIModule/warnigdisposedlg.ui \
+    UIModule/addmonitorareadlg.ui \
+    UIModule/editmonitorareadlg.ui \
+    UIModule/addmonitorpositiondlg.ui \
+    UIModule/editmonitorpositiondlg.ui \
+    UIModule/selectmonitorpositiondlg.ui \
+    UIModule/adddevicedlg.ui \
+    UIModule/editdevicedlg.ui \
+    UIModule/faceonetonpane.ui \
+    UIModule/faceidentitydiscern.ui \
+    UIModule/facehistorycompare.ui
 
 HEADERS += \
     UIModule/mainwindow.h \
@@ -89,12 +116,6 @@ HEADERS += \
     UIModule/Comm/myimagecomparewidget.h \
     UIModule/Comm/myimagelabel.h \
     UIModule/faceonetoonepane.h \
-    UIModule/faceonetonpane.h \
-    UIModule/faceidentityrecog.h \
-    UIModule/facehistorycompare.h \
-    UIModule/faceonetonpane2.h \
-    UIModule/faceidentityrecog2.h \
-    UIModule/facehistorycompare2.h \
     UIModule/monitorconfigpane.h \
     UIModule/targetpersonmanager.h \
     UIModule/templatemanager.h \
@@ -102,7 +123,25 @@ HEADERS += \
     UIModule/realwarningmanager.h \
     UIModule/monitorareamaintain.h \
     UIModule/monitorpositionmaintain.h \
-    UIModule/monitordevicemaintain.h
+    UIModule/monitordevicemaintain.h \
+    UIModule/maptrackpane.h \
+    UIModule/warnigdisposedlg.h \
+    UIModule/addmonitorareadlg.h \
+    UIModule/editmonitorareadlg.h \
+    UIModule/addmonitorpositiondlg.h \
+    UIModule/editmonitorpositiondlg.h \
+    UIModule/selectmonitorpositiondlg.h \
+    UIModule/adddevicedlg.h \
+    UIModule/editdevicedlg.h \
+    UIModule/addtargetpersondlg.h \
+    UIModule/addtargetpersonimagedlg.h \
+    UIModule/edittargetpersondlg.h \
+    UIModule/addtemplatedlg.h \
+    UIModule/volumeaddtemplatedlg.h \
+    UIModule/addlibrarydlg.h \
+    UIModule/facehistorycompare.h \
+    UIModule/faceidentitydiscern.h \
+    UIModule/faceonetonpane.h
 
 RESOURCES += \
     Resouce.qrc

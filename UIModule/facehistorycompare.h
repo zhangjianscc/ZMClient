@@ -1,17 +1,22 @@
-#ifndef FACEHISTORYCOMPARE_H
-#define FACEHISTORYCOMPARE_H
+#ifndef FACEHISTORYCOMPARE2_H
+#define FACEHISTORYCOMPARE2_H
 
 #include <QWidget>
+
+namespace Ui {
+class FaceHistoryCompare;
+}
 
 class FaceHistoryCompare : public QWidget
 {
     Q_OBJECT
+
 public:
     explicit FaceHistoryCompare(QWidget *parent = 0);
+    ~FaceHistoryCompare();
 
-signals:
-
-public slots:
+private:
+    Ui::FaceHistoryCompare *ui;
 };
 
-#endif // FACEHISTORYCOMPARE_H
+#endif // FACEHISTORYCOMPARE2_H
