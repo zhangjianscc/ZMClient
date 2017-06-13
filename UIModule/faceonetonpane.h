@@ -7,6 +7,12 @@ namespace Ui {
 class FaceOneToNPane;
 }
 
+struct ComparedImageInfo
+{
+    QPixmap pix;
+    QString source;
+    double similar;
+};
 class FaceOneToNPane : public QWidget
 {
     Q_OBJECT
@@ -17,9 +23,14 @@ public:
 private:
     void initUI();
     void initTargetLibraryData(QStringList listLibrary); // by ly
+    void initComparedImageData(QList<ComparedImageInfo> list);// by ly
 
 private:
     Ui::FaceOneToNPane *ui;
+public slots:
+    void onSlotBeginCompare();
+    void onSlotSelectImage();
+    void onSlotSearchBtnClicked();
 };
 
 #endif // FACEONETONPANE2_H

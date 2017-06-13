@@ -149,9 +149,9 @@ background-color:rgb(236,236,236)</string>
             <property name="geometry">
              <rect>
               <x>39</x>
-              <y>40</y>
+              <y>60</y>
               <width>271</width>
-              <height>431</height>
+              <height>411</height>
              </rect>
             </property>
             <property name="styleSheet">
@@ -200,13 +200,19 @@ font: 11pt &quot;黑体&quot;;</string>
                <height>22</height>
               </rect>
              </property>
+             <property name="styleSheet">
+              <string notr="true">border-radius:3px;
+QComboBox::drop-down:border-image: url(:/images/down-01.png);
+
+</string>
+             </property>
             </widget>
             <widget class="QPushButton" name="m_btnSelectImage">
              <property name="geometry">
               <rect>
-               <x>90</x>
+               <x>80</x>
                <y>360</y>
-               <width>91</width>
+               <width>101</width>
                <height>41</height>
               </rect>
              </property>
@@ -239,9 +245,9 @@ border-image: url(:/images/选择照片.png);</string>
             <property name="geometry">
              <rect>
               <x>330</x>
-              <y>40</y>
+              <y>60</y>
               <width>271</width>
-              <height>431</height>
+              <height>411</height>
              </rect>
             </property>
             <property name="styleSheet">

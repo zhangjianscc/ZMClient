@@ -80,7 +80,9 @@ HEADERS += \
     UIModule/warningwidget.h \
     reqglobal.h \
     respglobal.h \
-    UIModule/warningdisposedlg.h
+    UIModule/warningdisposedlg.h \
+    UIModule/Comm/mycomparedimage.h \
+    UIModule/Comm/mysearchedit.h
 
 SOURCES += \
     base64/base64.cpp \
@@ -128,7 +130,9 @@ SOURCES += \
     UIModule/volumeaddtemplatedlg.cpp \
     UIModule/warningwidget.cpp \
     main.cpp \
-    UIModule/warningdisposedlg.cpp
+    UIModule/warningdisposedlg.cpp \
+    UIModule/Comm/mycomparedimage.cpp \
+    UIModule/Comm/mysearchedit.cpp
 
 FORMS += \
     UIModule/adddevicedlg.ui \

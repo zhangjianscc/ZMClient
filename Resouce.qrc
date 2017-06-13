@@ -68,5 +68,12 @@
         <file>images/head7.jpg</file>
         <file>images/弹窗X选.png</file>
         <file>images/弹窗X选-02.png</file>
+        <file>images/down-01.png</file>
+        <file>images/down-02.png</file>
+        <file>images/down-03.png</file>
+        <file>images/search-01.png</file>
+        <file>images/search-02.png</file>
+        <file>images/up-01.png</file>
+        <file>images/up-02.png</file>
     </qresource>
 </RCC>

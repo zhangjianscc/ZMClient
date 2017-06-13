@@ -28,6 +28,18 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForLocale(codec);
 
     QApplication a(argc, argv);
+    QString style("QComboBox{border-radius:3px;background-color:rgb(255,255,255)}"
+                  "QComboBox::drop-down {"
+                  "subcontrol-origin: padding;"
+                  "subcontrol-position: center right;"
+                  "border:none;"
+                  "width: 15px;"
+                  "height: 15px;"
+                  "}"
+                  "QComboBox::down-arrow {"
+                  "image: url(://images//down-01.png);"
+                  "}");
+    a.setStyleSheet(style);
 
     //loadStyleSheet(QString(":/stylesheet.qss"));
 
