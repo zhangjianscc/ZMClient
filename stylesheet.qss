@@ -15,7 +15,56 @@ QComboBox::down-arrow {
     image: url(://images//down-01.png);
 }
 
+QSpinBox{
+    border:2px solid rgb(150,150,150);
+    backgound:rgb(76,76,76);
+    padding: 3px;
+}
 
+QSpinBox::up-button{
+    subcontrol-origin: border;
+    subcontrol-position: right top;
+    image: url(:/images/up-01.png);
+}
+
+QSpinBox::up-button:pressed{
+    subcontrol-origin: border;
+    subcontrol-position: right top;
+    backgound-color:rgb(76,76,76);
+    image: url(:/images/up-02.png);
+}
+
+/*
+QSpinBox::up-arrow {
+    image: url(:/images/up-01.png);
+    width: 11px;
+    height: 10px;
+}
+*/
+
+QSpinBox::down-button{
+    subcontrol-origin: border;
+    subcontrol-position: right bottom;
+    backgound-color:rgb(76,76,76);
+    image: url(:/images/down-01.png);
+    /*width: 12px;*/
+    /*height: 20px;*/
+}
+
+QSpinBox::down-button:pressed{
+    subcontrol-origin: border;
+    subcontrol-position: right bottom;
+    backgound-color:rgb(76,76,76);
+    image: url(:/images/down-02.png);
+}
+
+/*
+QSpinBox::down-arrow {
+    image: url(:/images/down-01.png);
+    width: 11px;
+    height: 10px;
+}
+*/
 
 
 
