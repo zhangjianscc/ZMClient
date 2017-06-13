@@ -268,6 +268,16 @@ font: 75 15pt &quot;Arial&quot;;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
+   <widget class="QWidget" name="widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>340</y>
+      <width>120</width>
+      <height>80</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QWidget" name="targetTilWidget" native="true">
    <property name="geometry">
@@ -443,7 +453,7 @@ border-radius:0px;</string>
     </property>
     <property name="icon">
      <iconset resource="../Resouce.qrc">
-      <normaloff>:/images/left-pointing-magnifying-glass.png</normaloff>:/images/left-pointing-magnifying-glass.png</iconset>
+      <normaloff>:/images/search-01.png</normaloff>:/images/search-01.png</iconset>
     </property>
     <property name="iconSize">
      <size>

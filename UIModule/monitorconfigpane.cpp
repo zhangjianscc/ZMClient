@@ -27,12 +27,13 @@ void MonitorConfigPane::paintEvent(QPaintEvent *event)
 void MonitorConfigPane::initUi()
 {}
 
-void MonitorConfigPane::updateData(QList<MyTargetButton*> &listMyTargetButton)
+void MonitorConfigPane::updateData(QList<QString> &listString)
 {
-    ui->selectTarConTableWidget->setRowCount(listMyTargetButton.count()/3 + listMyTargetButton.count()%3);
+    ui->selectTarConTableWidget->setRowCount(listString.count()/3 + listString.count()%3);
 
-    for(int i=0; i<listMyTargetButton.count(); ++i)
+    for(int i=0; i<listString.count(); ++i)
     {
-        //ui->selectTarConTableWidget->setCellWidget(i/3, i%3, listMyTargetButton[i]);
+        MyTargetButton *pButton = new MyTargetButton(listString[i]);
+        ui->selectTarConTableWidget->setCellWidget(i/3, i%3, pButton);
     }
 }

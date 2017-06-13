@@ -2,6 +2,7 @@
 #define FACEONETONPANE2_H
 
 #include <QWidget>
+#include "UIModule/Comm/mysearchedit.h"
 
 namespace Ui {
 class FaceOneToNPane;

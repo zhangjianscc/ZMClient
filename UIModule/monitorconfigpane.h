@@ -25,7 +25,7 @@ private:
     Ui::MonitorConfigPane *ui;
 
     void initUi();
-    void updateData(QList<MyTargetButton*> &listMyTargetButton);
+    void updateData(QList<QString> &listString);
 
     int m_iWarningNumber;
     int m_iWarningValue;
