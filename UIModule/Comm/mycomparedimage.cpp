@@ -8,7 +8,8 @@ MyComparedImage::MyComparedImage(QWidget *parent) : QWidget(parent)
 
 void MyComparedImage::initUI()
 {
-    //this->setFixedSize(100,140);
+    //this->setFixedSize(215,180);
+    this->setFixedHeight(180);
 
     // 标题
     m_pLabelTitle = new QLabel();
@@ -18,7 +19,7 @@ void MyComparedImage::initUI()
     // 图片
     m_pLabelImage = new QLabel();
     m_pLabelImage->setScaledContents(true);
-    m_pLabelImage->setFixedSize(120,160);
+    m_pLabelImage->setFixedSize(120,140);
     m_pLabelImage->setStyleSheet("QLable{border:1px solid rgb(180,180,180);background-color:rgb(236,236,236)}");
 
     // 信息

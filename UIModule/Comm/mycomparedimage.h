@@ -5,6 +5,10 @@
 class QLabel;
 class QProgressBar;
 
+/**
+ * @brief The MyComparedImage class
+ * size 215*180
+ */
 class MyComparedImage : public QWidget
 {
     Q_OBJECT
