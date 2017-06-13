@@ -3,9 +3,10 @@
 WarningWidget::WarningWidget(QWidget *parent) :
     QWidget(parent)
 {
-    this->setFixedSize(400, 300);
-    this->setStyleSheet("WarningWidget{border:1px solid rgb(0,0,0);background-color:rgb(255,255,255)}");
+    this->setWindowFlags(Qt::FramelessWindowHint);
 
+    this->setFixedSize(600, 400);
+    this->setStyleSheet("WarningWidget{border:1px solid rgb(200,200,200);border-radius:5px;background-color:rgb(255,255,255)}");
     initUi();
 }
 
@@ -35,38 +36,48 @@ void WarningWidget::initUi()
     /// 标题栏
     QLabel *pTitleLabel = new QLabel;
     pTitleLabel->setFixedHeight(30);
-    pTitleLabel->setText(tr("告警"));
-    pTitleLabel->setStyleSheet("QLabel{border:1px;background-color:red}");
-
-    QWidget *pMainWidget = new QWidget;
+    pTitleLabel->setText(tr("    告警"));
+    pTitleLabel->setStyleSheet("QLabel{border:1px;background-color:rgb(255,0,0);color:rgb(255,255,255);"
+                               "border-top-left-radius:5px;border-top-right-radius:5px;}");
 
     /// 窗口内容
-    QWidget *pPictureWidget = new QWidget;
-    pPictureWidget->setStyleSheet("QWidget{border:1px;border-radius:2px;background-color:rgb(129,210,255)}");
+    m_pPictureWidget = new QWidget;
+    m_pPictureWidget->setFixedSize(200, 230);
+    m_pPictureWidget->setStyleSheet("QWidget{border:1px solid rgb(180,180,180);background-color:rgb(200,200,200)}");
 
     QLabel *pTimeLabel = new QLabel(tr("告警时间"));
-    QLabel *pTimeDataLabel = new QLabel;
+    m_pTimeDataLabel = new QLabel;
+    m_pTimeDataLabel->setStyleSheet("QLabel{border:none;color:rgb(255,0,0);background-color:rgb(255,255,255)}");
     QLabel *pAddrLabel = new QLabel(tr("告警地点"));
-    QLabel *pAddrDataLabel = new QLabel;
+    m_pAddrDataLabel = new QLabel;
+    m_pAddrDataLabel->setStyleSheet("QLabel{border:none;color:rgb(255,0,0);background-color:rgb(255,255,255)}");
     QLabel *pSameLabel = new QLabel(tr("相似度"));
-    QLabel *pSameDataLabel = new QLabel;
+    m_pSameDataLabel = new QLabel;
+    m_pSameDataLabel->setStyleSheet("QLabel{border:none;color:rgb(255,0,0);background-color:rgb(255,255,255)}");
     QLabel *pNameLabel = new QLabel(tr("目标人姓名"));
-    QLabel *pNameDataLabel = new QLabel;
+    m_pNameDataLabel = new QLabel;
+    m_pNameDataLabel->setStyleSheet("QLabel{border:none;color:rgb(255,0,0);background-color:rgb(255,255,255)}");
     QLabel *pSexLabel = new QLabel(tr("性别"));
-    QLabel *pSexDataLabel = new QLabel;
+    m_pSexDataLabel = new QLabel;
+    m_pSameDataLabel->setStyleSheet("QLabel{border:none;color:rgb(255,0,0);background-color:rgb(255,255,255)}");
     QLabel *pAgeLabel = new QLabel(tr("年龄"));
-    QLabel *pAgeDataLabel = new QLabel;
+    m_pAgeDataLabel = new QLabel;
+    m_pAgeDataLabel->setStyleSheet("QLabel{border:none;color:rgb(255,0,0);background-color:rgb(255,255,255)}");
     QLabel *pNumberLabel = new QLabel(tr("证件号"));
-    QLabel *pNumberDataLabel = new QLabel;
+    m_pNumberDataLabel = new QLabel;
+    m_pNumberDataLabel->setStyleSheet("QLabel{border:none;color:rgb(255,0,0);background-color:rgb(255,255,255)}");
     QLabel *pTypeLabel = new QLabel(tr("类型"));
-    QLabel *pTypeDataLabel = new QLabel;
+    m_pTypeDataLabel = new QLabel;
+    m_pTypeDataLabel->setStyleSheet("QLabel{border:none;color:rgb(255,0,0);background-color:rgb(255,255,255)}");
 
     QPushButton *pOkButton = new QPushButton;
-    pOkButton->setFixedSize(50, 30);
-    pOkButton->setText(tr("确定"));
-    pOkButton->setStyleSheet("QPushButton{border:1px;border-radius:2px;background-color:red}");
+    pOkButton->setFixedSize(100, 40);
+    pOkButton->setStyleSheet("QPushButton{border-image:url(://images//确定.png);border: 0px;border-radius: 0px;}"
+                             "QPushButton:hover{border-image:url(://images//确定-01.png);}"
+                             "QPushButton:pressed{border-image:url(://images//确定-02.png);}");
 
     QVBoxLayout *pNameLayout = new QVBoxLayout;
+    //pNameLayout->setSpacing(5);
     pNameLayout->addWidget(pTimeLabel, 0, Qt::AlignRight);
     pNameLayout->addWidget(pAddrLabel, 0, Qt::AlignRight);
     pNameLayout->addWidget(pSameLabel, 0, Qt::AlignRight);
@@ -77,23 +88,46 @@ void WarningWidget::initUi()
     pNameLayout->addWidget(pTypeLabel, 0, Qt::AlignRight);
 
     QVBoxLayout *pDataLayout = new QVBoxLayout;
-    pDataLayout->addWidget(pTimeDataLabel, 0, Qt::AlignLeft);
-    pDataLayout->addWidget(pAddrDataLabel, 0, Qt::AlignLeft);
-    pDataLayout->addWidget(pSameDataLabel, 0, Qt::AlignLeft);
-    pDataLayout->addWidget(pNameDataLabel, 0, Qt::AlignLeft);
-    pDataLayout->addWidget(pSexDataLabel, 0, Qt::AlignLeft);
-    pDataLayout->addWidget(pAgeDataLabel, 0, Qt::AlignLeft);
-    pDataLayout->addWidget(pNumberDataLabel, 0, Qt::AlignLeft);
-    pDataLayout->addWidget(pTypeDataLabel, 0, Qt::AlignLeft);
+    //pDataLayout->setSpacing(2);
+    pDataLayout->addWidget(m_pTimeDataLabel, 0, Qt::AlignLeft);
+    pDataLayout->addWidget(m_pAddrDataLabel, 0, Qt::AlignLeft);
+    pDataLayout->addWidget(m_pSameDataLabel, 0, Qt::AlignLeft);
+    pDataLayout->addWidget(m_pNameDataLabel, 0, Qt::AlignLeft);
+    pDataLayout->addWidget(m_pSexDataLabel, 0, Qt::AlignLeft);
+    pDataLayout->addWidget(m_pAgeDataLabel, 0, Qt::AlignLeft);
+    pDataLayout->addWidget(m_pNumberDataLabel, 0, Qt::AlignLeft);
+    pDataLayout->addWidget(m_pTypeDataLabel, 0, Qt::AlignLeft);
 
     QHBoxLayout *pHboxLayout = new QHBoxLayout;
-    pHboxLayout->addWidget(pPictureWidget, 2);
+    pHboxLayout->setMargin(40);
+    pHboxLayout->addWidget(m_pPictureWidget, 2);
     pHboxLayout->addLayout(pNameLayout, 1);
     pHboxLayout->addLayout(pDataLayout, 2);
 
     /// 主布局
     QVBoxLayout *pMainLayout = new QVBoxLayout(this);
+    pMainLayout->setContentsMargins(0, 0, 0, 10);
     pMainLayout->addWidget(pTitleLabel);
     pMainLayout->addLayout(pHboxLayout);
     pMainLayout->addWidget(pOkButton, 0, Qt::AlignHCenter);
+
+    connect(pOkButton, SIGNAL(clicked(bool)), this, SLOT(slot_okButClicked()));
+}
+
+void WarningWidget::setData(QPixmap pixMap, stData &data)
+{
+    m_pPictureWidget->setWindowIcon(QIcon(pixMap));
+    m_pTimeDataLabel->setText(data.time);
+    m_pAddrDataLabel->setText(data.addr);
+    m_pSameDataLabel->setText(data.same);
+    m_pNameDataLabel->setText(data.name);
+    m_pSexDataLabel->setText(data.sex);
+    m_pAgeDataLabel->setText(QString::number(data.age));
+    m_pNumberDataLabel->setText(QString::number(data.number));
+    m_pTypeDataLabel->setText(data.type);
+}
+
+void WarningWidget::slot_okButClicked()
+{
+    this->close();
 }

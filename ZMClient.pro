@@ -80,7 +80,8 @@ HEADERS += \
     UIModule/warningwidget.h \
     reqglobal.h \
     respglobal.h \
-    UIModule/warningdisposedlg.h
+    UIModule/warningdisposedlg.h \
+    qroundprogressbar.h
 
 SOURCES += \
     base64/base64.cpp \
@@ -128,7 +129,8 @@ SOURCES += \
     UIModule/volumeaddtemplatedlg.cpp \
     UIModule/warningwidget.cpp \
     main.cpp \
-    UIModule/warningdisposedlg.cpp
+    UIModule/warningdisposedlg.cpp \
+    qroundprogressbar.cpp
 
 FORMS += \
     UIModule/adddevicedlg.ui \
