@@ -6,20 +6,16 @@
 #include "Common/socketTcp.h"
 
 
-void loadStyleSheet(QString qssName)
+class CommonHelper
 {
-    QFile data(qssName);
-
-    QString qssFile;
-    if(data.open(QFile::ReadOnly))
-    {
-        QTextStream styleIn(&data);
-        qssFile = styleIn.readAll();
-        data.close();
-        qApp->setStyleSheet(qssFile);
+public:
+    static void setStyle(const QString &style) {
+        QFile qss(style);
+        qss.open(QFile::ReadOnly);
+        qApp->setStyleSheet(qss.readAll());
+        qss.close();
     }
-
-}
+};
 
 int main(int argc, char *argv[])
 {
@@ -28,20 +24,9 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForLocale(codec);
 
     QApplication a(argc, argv);
-    QString style("QComboBox{border-radius:3px;background-color:rgb(255,255,255)}"
-                  "QComboBox::drop-down {"
-                  "subcontrol-origin: padding;"
-                  "subcontrol-position: center right;"
-                  "border:none;"
-                  "width: 15px;"
-                  "height: 15px;"
-                  "}"
-                  "QComboBox::down-arrow {"
-                  "image: url(://images//down-01.png);"
-                  "}");
-    a.setStyleSheet(style);
 
-    //loadStyleSheet(QString(":/stylesheet.qss"));
+    // 加载QSS样式
+    CommonHelper::setStyle(":/stylesheet.qss");
 
     // 初始化网络通信等其它模块
     // by ly
