@@ -39,7 +39,7 @@ void FaceOneToNPane::initUI()
     connect(ui->m_btnBeginConpare,SIGNAL(clicked(bool)),this,SLOT(onSlotBeginCompare()));
 
     // 性别选择框
-    ui->m_comboSex->setStyleSheet("QComboBox{border-radius:3px;background-color:rgb(255,255,255)}");
+    //ui->m_comboSex->setStyleSheet("QComboBox{border-radius:3px;background-color:rgb(255,255,255)}");
     ui->m_comboSex->addItem("请选择");
     ui->m_comboSex->addItem("男");
     ui->m_comboSex->addItem("女");
@@ -72,7 +72,7 @@ void FaceOneToNPane::initUI()
     ui->m_editSearch->setTextMargins(5, 0, 40, 0);
     ui->m_editSearch->setStyleSheet("QLineEdit{border:1px solid rgb(180,180,180);background-color:rgb(255,255,255)}");
     QPushButton* pSearchBtn = new QPushButton();
-    pSearchBtn->setFixedSize(15,15);
+    pSearchBtn->setFixedSize(20,20);
     pSearchBtn->setStyleSheet("QPushButton{border:none;border-image:url(://images//search-02.png);background-color:rgb(255,255,255);}"
                               "QPushButton:hover{border-image:url(://images//search-01.png)}"
                               "QPushButton:pressed{border-image:url(://images//search-02.png)}");
@@ -83,25 +83,20 @@ void FaceOneToNPane::initUI()
     layout->addWidget(pSearchBtn,0,Qt::AlignCenter);
     ui->m_editSearch->setLayout(layout);
 
-    // comboBox
-    QString style("QComboBox{border-radius:3px;background-color:rgb(255,255,255)}"
-                  "QComboBox::drop-down {"
-                  "subcontrol-origin: padding;"
-                  "subcontrol-position: center right;"
-                  "border:none;"
-                  "width: 15px;"
-                  "height: 15px;"
-                  "}"
-                  "QComboBox::down-arrow {"
-                  "image: url(://images//down-01.png);"
-                  "}");
-    ui->m_comboSex->setStyleSheet(style);
+    // 显示比对结果数选择框
+    ui->m_comboMaxDisplayCount->addItem("请选择");
+    for(int i = 1 ; i < 11 ; ++i)
+    {
+        ui->m_comboMaxDisplayCount->addItem(QString::number(i));
+    }
+    ui->m_comboMaxDisplayCount->setCurrentIndex(0);
 }
 
 
 void FaceOneToNPane::initTargetLibraryData(QStringList list)
 {
     ui->m_tableDestLibary->clearContents();
+    ui->m_tableDestLibary->setColumnCount(1);
     ui->m_tableDestLibary->setRowCount(list.size());
 
 
@@ -123,7 +118,13 @@ void FaceOneToNPane::initComparedImageData(QList<ComparedImageInfo> list)
 {
     // 初始化表格
     ui->m_tableCompareResult->clearContents();
+    ui->m_tableCompareResult->setColumnCount(2);
+    ui->m_tableCompareResult->setColumnWidth(0,ui->m_tableCompareResult->width()/2);
+    ui->m_tableCompareResult->setColumnWidth(1,ui->m_tableCompareResult->width()/2);
+
     ui->m_tableCompareResult->setRowCount(list.size()/2 + list.size()%2);
+
+
 
 
     // 添加数据
@@ -131,15 +132,10 @@ void FaceOneToNPane::initComparedImageData(QList<ComparedImageInfo> list)
     {
         MyComparedImage* pImage = new MyComparedImage();
         pImage->setData(list[i].pix,list[i].source,list[i].similar);
+        int hei = pImage->height() + 10;
+        ui->m_tableCompareResult->setRowHeight(i/2,hei);
+        ui->m_tableCompareResult->setCellWidget(i/2,i%2,pImage);
 
-        QWidget* pCellWid = new QWidget();
-        QHBoxLayout* playout = new QHBoxLayout(pCellWid);
-        playout->setMargin(0);
-        playout->addWidget(pImage,0,Qt::AlignHCenter);
-
-        ui->m_tableCompareResult->setCellWidget(i/2,i%2,pCellWid);
-        ui->m_tableCompareResult->setRowHeight(i/2,pCellWid->height() + 40);
-        ui->m_tableCompareResult->setColumnWidth(0,ui->m_tableCompareResult->width()/2 - 1);
     }
 }
 
@@ -147,7 +143,7 @@ void FaceOneToNPane::onSlotBeginCompare()
 {
     // by ly
     QList<ComparedImageInfo> listImage;
-    for(int i = 0 ; i < 10 ; ++i)
+    for(int i = 1 ; i < 12 ; ++i)
     {
         ComparedImageInfo info;
         info.pix = QPixmap("://images//head2.jpg");
@@ -171,6 +167,7 @@ void FaceOneToNPane::onSlotSelectImage()
 void FaceOneToNPane::onSlotSearchBtnClicked()
 {
     // by ly
+    QString str = ui->m_editSearch->text();
     // initTargetLibraryData(QStringList list)
 }
 
