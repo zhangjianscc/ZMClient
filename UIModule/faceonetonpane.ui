@@ -80,7 +80,7 @@
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">border-radius:0px;
+         <string notr="true">border-radius:none;
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(235, 235, 235, 255), stop:1 rgba(170, 170, 170, 255));</string>
         </property>
         <widget class="QLabel" name="label">
@@ -124,33 +124,54 @@ font: 11pt &quot;黑体&quot;;</string>
       <item>
        <widget class="QWidget" name="widget_3" native="true">
         <property name="styleSheet">
-         <string notr="true">border:2px solid rgb(180,180,180);
-border-radius:2px;
+         <string notr="true">border:1px solid rgb(180,180,180);
 background-color:rgb(236,236,236)</string>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout" stretch="3,2">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
          <item>
           <widget class="QWidget" name="widget_4" native="true">
            <widget class="QWidget" name="widget_6" native="true">
             <property name="geometry">
              <rect>
               <x>39</x>
-              <y>39</y>
+              <y>60</y>
               <width>271</width>
-              <height>401</height>
+              <height>411</height>
              </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color:rgb(222,222,222)</string>
             </property>
             <widget class="QLabel" name="label_3">
              <property name="geometry">
               <rect>
-               <x>100</x>
+               <x>90</x>
                <y>20</y>
-               <width>81</width>
+               <width>101</width>
                <height>21</height>
               </rect>
              </property>
+             <property name="styleSheet">
+              <string notr="true">border:none;
+font: 13pt &quot;黑体&quot;;</string>
+             </property>
              <property name="text">
-              <string>TextLabel</string>
+              <string>请添加照片</string>
              </property>
             </widget>
             <widget class="QLabel" name="label_4">
@@ -158,48 +179,65 @@ background-color:rgb(236,236,236)</string>
               <rect>
                <x>70</x>
                <y>60</y>
-               <width>54</width>
+               <width>41</width>
                <height>21</height>
               </rect>
              </property>
+             <property name="styleSheet">
+              <string notr="true">border:none;
+font: 11pt &quot;黑体&quot;;</string>
+             </property>
              <property name="text">
-              <string>TextLabel</string>
+              <string>性别</string>
              </property>
             </widget>
-            <widget class="QComboBox" name="comboBox">
+            <widget class="QComboBox" name="m_comboSex">
              <property name="geometry">
               <rect>
-               <x>130</x>
+               <x>120</x>
                <y>60</y>
-               <width>81</width>
+               <width>91</width>
                <height>22</height>
               </rect>
              </property>
+             <property name="styleSheet">
+              <string notr="true">border-radius:3px;
+QComboBox::drop-down:border-image: url(:/images/down-01.png);
+
+</string>
+             </property>
             </widget>
-            <widget class="QPushButton" name="pushButton">
+            <widget class="QPushButton" name="m_btnSelectImage">
              <property name="geometry">
               <rect>
-               <x>90</x>
+               <x>80</x>
                <y>360</y>
-               <width>75</width>
-               <height>23</height>
+               <width>101</width>
+               <height>41</height>
               </rect>
              </property>
+             <property name="styleSheet">
+              <string notr="true">border:none;
+border-image: url(:/images/选择照片.png);</string>
+             </property>
              <property name="text">
-              <string>PushButton</string>
+              <string/>
              </property>
             </widget>
-            <widget class="QLabel" name="label_8">
+            <widget class="QLabel" name="m_labelImage">
              <property name="geometry">
               <rect>
-               <x>40</x>
-               <y>110</y>
-               <width>191</width>
-               <height>221</height>
+               <x>30</x>
+               <y>90</y>
+               <width>211</width>
+               <height>261</height>
               </rect>
              </property>
              <property name="text">
-              <string>TextLabel</string>
+              <string/>
+             </property>
+             <property name="scaledContents">
+              <bool>true</bool>
              </property>
             </widget>
            </widget>
@@ -207,60 +245,109 @@ background-color:rgb(236,236,236)</string>
             <property name="geometry">
              <rect>
               <x>330</x>
-              <y>39</y>
+              <y>60</y>
               <width>271</width>
-              <height>401</height>
+              <height>411</height>
              </rect>
             </property>
-            <widget class="QLineEdit" name="lineEdit">
+            <property name="styleSheet">
+             <string notr="true">background-color:rgb(222,222,222)</string>
+            </property>
+            <widget class="QTableWidget" name="m_tableDestLibary">
              <property name="geometry">
               <rect>
-               <x>32</x>
-               <y>10</y>
-               <width>201</width>
-               <height>20</height>
+               <x>1</x>
+               <y>90</y>
+               <width>269</width>
+               <height>340</height>
               </rect>
              </property>
+             <property name="minimumSize">
+              <size>
+               <width>269</width>
+               <height>340</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>269</width>
+               <height>340</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">border:none</string>
+             </property>
             </widget>
-            <widget class="QTableWidget" name="tableWidget">
+            <widget class="QLabel" name="label_8">
+             <property name="geometry">
+              <rect>
+               <x>80</x>
+               <y>50</y>
+               <width>111</width>
+               <height>21</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">border:none;
+font: 13pt &quot;黑体&quot;;</string>
+             </property>
+             <property name="text">
+              <string>请选择目标库</string>
+             </property>
+            </widget>
+            <widget class="QWidget" name="widget_8" native="true">
              <property name="geometry">
               <rect>
                <x>0</x>
-               <y>40</y>
+               <y>0</y>
                <width>271</width>
-               <height>361</height>
+               <height>41</height>
               </rect>
              </property>
+             <widget class="QLineEdit" name="m_editSearch">
+              <property name="geometry">
+               <rect>
+                <x>20</x>
+                <y>10</y>
+                <width>230</width>
+                <height>21</height>
+               </rect>
+              </property>
+             </widget>
             </widget>
            </widget>
            <widget class="QLabel" name="label_5">
             <property name="geometry">
              <rect>
-              <x>70</x>
-              <y>490</y>
-              <width>54</width>
-              <height>12</height>
+              <x>63</x>
+              <y>510</y>
+              <width>101</width>
+              <height>21</height>
              </rect>
             </property>
+            <property name="styleSheet">
+             <string notr="true">border:none;
+font: 11pt &quot;黑体&quot;;</string>
+            </property>
             <property name="text">
-             <string>TextLabel</string>
+             <string>对比阈值设置</string>
             </property>
            </widget>
-           <widget class="QSpinBox" name="spinBox">
+           <widget class="QSpinBox" name="m_spinNumber1">
             <property name="geometry">
              <rect>
-              <x>140</x>
-              <y>490</y>
+              <x>170</x>
+              <y>510</y>
               <width>42</width>
               <height>22</height>
              </rect>
             </property>
            </widget>
-           <widget class="QSpinBox" name="spinBox_2">
+           <widget class="QSpinBox" name="m_spinNumber2">
             <property name="geometry">
              <rect>
-              <x>190</x>
-              <y>490</y>
+              <x>220</x>
+              <y>510</y>
               <width>42</width>
               <height>22</height>
              </rect>
@@ -269,76 +356,108 @@ background-color:rgb(236,236,236)</string>
            <widget class="QLabel" name="label_6">
             <property name="geometry">
              <rect>
-              <x>240</x>
-              <y>490</y>
-              <width>54</width>
-              <height>12</height>
+              <x>270</x>
+              <y>510</y>
+              <width>41</width>
+              <height>21</height>
              </rect>
             </property>
+            <property name="styleSheet">
+             <string notr="true">border:none;
+font: 14pt &quot;黑体&quot;;</string>
+            </property>
             <property name="text">
-             <string>TextLabel</string>
+             <string>%</string>
             </property>
            </widget>
            <widget class="QLabel" name="label_7">
             <property name="geometry">
              <rect>
-              <x>370</x>
-              <y>480</y>
-              <width>54</width>
-              <height>12</height>
+              <x>340</x>
+              <y>510</y>
+              <width>151</width>
+              <height>20</height>
              </rect>
             </property>
+            <property name="styleSheet">
+             <string notr="true">border:none;
+font: 11pt &quot;黑体&quot;;</string>
+            </property>
             <property name="text">
-             <string>TextLabel</string>
+             <string>对比结果最大显示数</string>
             </property>
            </widget>
-           <widget class="QComboBox" name="comboBox_2">
+           <widget class="QComboBox" name="m_comboMaxDisplayCount">
             <property name="geometry">
              <rect>
-              <x>460</x>
-              <y>480</y>
+              <x>500</x>
+              <y>510</y>
               <width>69</width>
               <height>22</height>
              </rect>
             </property>
            </widget>
-           <widget class="QPushButton" name="pushButton_2">
+           <widget class="QPushButton" name="m_btnBeginConpare">
             <property name="geometry">
              <rect>
-              <x>280</x>
+              <x>260</x>
               <y>560</y>
-              <width>75</width>
-              <height>23</height>
+              <width>131</width>
+              <height>51</height>
              </rect>
             </property>
+            <property name="styleSheet">
+             <string notr="true">border:none;
+border-image: url(:/images/比对btn-01.png);</string>
+            </property>
             <property name="text">
-             <string>PushButton</string>
+             <string/>
             </property>
            </widget>
           </widget>
          </item>
          <item>
           <widget class="QWidget" name="widget_5" native="true">
-           <layout class="QVBoxLayout" name="verticalLayout_3">
-            <property name="spacing">
-             <number>0</number>
+           <widget class="QTableWidget" name="m_tableCompareResult">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>70</y>
+              <width>431</width>
+              <height>581</height>
+             </rect>
             </property>
-            <property name="leftMargin">
-             <number>0</number>
+            <property name="styleSheet">
+             <string notr="true">border:none</string>
             </property>
-            <property name="topMargin">
-             <number>0</number>
+            <attribute name="horizontalHeaderVisible">
+             <bool>false</bool>
+            </attribute>
+            <attribute name="horizontalHeaderHighlightSections">
+             <bool>true</bool>
+            </attribute>
+           </widget>
+           <widget class="QLabel" name="label_9">
+            <property name="geometry">
+             <rect>
+              <x>-5</x>
+              <y>0</y>
+              <width>436</width>
+              <height>71</height>
+             </rect>
             </property>
-            <property name="rightMargin">
-             <number>0</number>
+            <property name="styleSheet">
+             <string notr="true">border:none;
+color:rgb(0,0,0);
+font: 18pt &quot;黑体&quot;;</string>
             </property>
-            <property name="bottomMargin">
-             <number>0</number>
+            <property name="text">
+             <string>比对结果</string>
             </property>
-            <item>
-             <widget class="QTableWidget" name="tableWidget_2"/>
-            </item>
-           </layout>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
           </widget>
          </item>
         </layout>

@@ -81,7 +81,9 @@ HEADERS += \
     reqglobal.h \
     respglobal.h \
     UIModule/warningdisposedlg.h \
-    qroundprogressbar.h
+    qroundprogressbar.h \
+    UIModule/Comm/mycomparedimage.h \
+    UIModule/Comm/mysearchedit.h
 
 SOURCES += \
     base64/base64.cpp \
@@ -130,7 +132,9 @@ SOURCES += \
     UIModule/warningwidget.cpp \
     main.cpp \
     UIModule/warningdisposedlg.cpp \
-    qroundprogressbar.cpp
+    qroundprogressbar.cpp \
+    UIModule/Comm/mycomparedimage.cpp \
+    UIModule/Comm/mysearchedit.cpp
 
 FORMS += \
     UIModule/adddevicedlg.ui \

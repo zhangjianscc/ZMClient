@@ -6,20 +6,16 @@
 #include "Common/socketTcp.h"
 
 
-void loadStyleSheet(QString qssName)
+class CommonHelper
 {
-    QFile data(qssName);
-
-    QString qssFile;
-    if(data.open(QFile::ReadOnly))
-    {
-        QTextStream styleIn(&data);
-        qssFile = styleIn.readAll();
-        data.close();
-        qApp->setStyleSheet(qssFile);
+public:
+    static void setStyle(const QString &style) {
+        QFile qss(style);
+        qss.open(QFile::ReadOnly);
+        qApp->setStyleSheet(qss.readAll());
+        qss.close();
     }
-
-}
+};
 
 int main(int argc, char *argv[])
 {
@@ -29,7 +25,8 @@ int main(int argc, char *argv[])
 
     QApplication a(argc, argv);
 
-    //loadStyleSheet(QString(":/stylesheet.qss"));
+    // 加载QSS样式
+    CommonHelper::setStyle(":/stylesheet.qss");
 
     // 初始化网络通信等其它模块
     // by ly

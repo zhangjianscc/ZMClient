@@ -29,7 +29,7 @@ void MyImageCompareWidget::initUI()
     m_pSimilayBar->setFixedHeight(10);
     m_pSimilayBar->setOrientation(Qt::Horizontal);
     m_pSimilayBar->setTextVisible(false);
-    m_pSimilayBar->setStyleSheet("QProgressBar{border:none;border-radius:5px;background-color:rgb(178,178,178);}"
+    m_pSimilayBar->setStyleSheet("QProgressBar{border:1px;border-radius:5px;background-color:rgb(178,178,178);}"
                                  "QProgressBar::chunk{border:none;border-radius:5px;background-color:rgb(255,0,0);}");
 
     m_pLabelSimilarValue = new QLabel();
