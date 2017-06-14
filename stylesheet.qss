@@ -63,12 +63,11 @@ QSpinBox::down-button:pressed{
 }
 
 QProgressBar{
+    border:1px solid rgb(76,76,76);
     height:10px;
-    border:1px;
     border-radius:5px;
     background-color:rgb(178,178,178);
 }
-
 
 QProgressBar::chunk{
     border:none;
@@ -84,10 +83,10 @@ QPushButton#btnBeginCompare{
     height: 70px;
 }
 QPushButton#btnBeginCompare:hover{
-    border-image:url(://images//btnBeginCompare-02.png);
- }
+    border-image:url(:/images/btnBeginCompare-02.png);
+}
 QPushButton#btnBeginCompare:pressed{
-    border-image:url(://images//btnBeginCompare-03.png);
+    border-image:url(:/images/btnBeginCompare-03.png);
 }
 
 

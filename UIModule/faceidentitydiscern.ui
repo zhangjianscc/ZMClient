@@ -167,7 +167,7 @@ font: 14pt &quot;黑体&quot;;</string>
             <string>摄像头画面</string>
            </property>
           </widget>
-          <widget class="QLabel" name="label_4">
+          <widget class="QLabel" name="m_labelCameraImage">
            <property name="geometry">
             <rect>
              <x>30</x>
@@ -182,6 +182,9 @@ background-color: rgb(236, 236, 236);</string>
            </property>
            <property name="text">
             <string/>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
            </property>
           </widget>
          </widget>
@@ -233,7 +236,7 @@ background-color: rgb(236, 236, 236);</string>
           <widget class="QLabel" name="label_6">
            <property name="geometry">
             <rect>
-             <x>100</x>
+             <x>90</x>
              <y>130</y>
              <width>51</width>
              <height>21</height>
@@ -247,7 +250,7 @@ font: 11pt &quot;黑体&quot;;</string>
             <string>目标人</string>
            </property>
           </widget>
-          <widget class="QLabel" name="label_7">
+          <widget class="QLabel" name="m_labelTargetImage1">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -263,8 +266,11 @@ background-color: rgb(236, 236, 236);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
           </widget>
-          <widget class="QLabel" name="label_8">
+          <widget class="QLabel" name="m_labelTargetImage2">
            <property name="geometry">
             <rect>
              <x>100</x>
@@ -280,8 +286,11 @@ background-color: rgb(236, 236, 236);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
           </widget>
-          <widget class="QLabel" name="label_9">
+          <widget class="QLabel" name="m_labelTargetImage3">
            <property name="geometry">
             <rect>
              <x>190</x>
@@ -297,8 +306,11 @@ background-color: rgb(236, 236, 236);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
           </widget>
-          <widget class="QLabel" name="label_10">
+          <widget class="QLabel" name="m_labelTargetImage4">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -314,8 +326,11 @@ background-color: rgb(236, 236, 236);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
           </widget>
-          <widget class="QLabel" name="label_11">
+          <widget class="QLabel" name="m_labelTargetImage5">
            <property name="geometry">
             <rect>
              <x>100</x>
@@ -331,8 +346,11 @@ background-color: rgb(236, 236, 236);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
           </widget>
-          <widget class="QLabel" name="label_12">
+          <widget class="QLabel" name="m_labelTargetImage6">
            <property name="geometry">
             <rect>
              <x>190</x>
@@ -348,11 +366,14 @@ background-color: rgb(236, 236, 236);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
           </widget>
-          <widget class="QLabel" name="label_22">
+          <widget class="QLabel" name="m_labelTargetPerson">
            <property name="geometry">
             <rect>
-             <x>150</x>
+             <x>140</x>
              <y>130</y>
              <width>51</width>
              <height>21</height>
@@ -396,175 +417,31 @@ font: 11pt &quot;黑体&quot;;</string>
          <widget class="QLabel" name="label_13">
           <property name="geometry">
            <rect>
-            <x>180</x>
+            <x>170</x>
             <y>40</y>
-            <width>54</width>
-            <height>12</height>
+            <width>101</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border:none;
+font: 16pt &quot;黑体&quot;;</string>
+          </property>
+          <property name="text">
+           <string>对比结果</string>
+          </property>
+         </widget>
+         <widget class="QTableWidget" name="m_tableCompareResult">
+          <property name="geometry">
+           <rect>
+            <x>1</x>
+            <y>84</y>
+            <width>430</width>
+            <height>570</height>
            </rect>
           </property>
           <property name="styleSheet">
            <string notr="true">border:none</string>
-          </property>
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_14">
-          <property name="geometry">
-           <rect>
-            <x>80</x>
-            <y>91</y>
-            <width>111</width>
-            <height>151</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">border-radius:0px;
-background-color: rgb(236, 236, 236);</string>
-          </property>
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_15">
-          <property name="geometry">
-           <rect>
-            <x>243</x>
-            <y>90</y>
-            <width>111</width>
-            <height>151</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">border-radius:0px;
-background-color: rgb(236, 236, 236);</string>
-          </property>
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_16">
-          <property name="geometry">
-           <rect>
-            <x>60</x>
-            <y>270</y>
-            <width>54</width>
-            <height>12</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">border:none</string>
-          </property>
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_17">
-          <property name="geometry">
-           <rect>
-            <x>290</x>
-            <y>270</y>
-            <width>54</width>
-            <height>12</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">border:none</string>
-          </property>
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_18">
-          <property name="geometry">
-           <rect>
-            <x>80</x>
-            <y>350</y>
-            <width>111</width>
-            <height>151</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">border-radius:0px;
-background-color: rgb(236, 236, 236);</string>
-          </property>
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_19">
-          <property name="geometry">
-           <rect>
-            <x>243</x>
-            <y>350</y>
-            <width>111</width>
-            <height>151</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">border-radius:0px;
-background-color: rgb(236, 236, 236);</string>
-          </property>
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_20">
-          <property name="geometry">
-           <rect>
-            <x>90</x>
-            <y>540</y>
-            <width>54</width>
-            <height>12</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">border:none</string>
-          </property>
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_21">
-          <property name="geometry">
-           <rect>
-            <x>290</x>
-            <y>540</y>
-            <width>54</width>
-            <height>12</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">border:none</string>
-          </property>
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-         <widget class="QProgressBar" name="progressBar">
-          <property name="geometry">
-           <rect>
-            <x>150</x>
-            <y>270</y>
-            <width>118</width>
-            <height>10</height>
-           </rect>
-          </property>
-          <property name="value">
-           <number>24</number>
-          </property>
-         </widget>
-         <widget class="QProgressBar" name="progressBar_2">
-          <property name="geometry">
-           <rect>
-            <x>160</x>
-            <y>540</y>
-            <width>118</width>
-            <height>10</height>
-           </rect>
-          </property>
-          <property name="value">
-           <number>24</number>
           </property>
          </widget>
         </widget>

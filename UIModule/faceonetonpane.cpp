@@ -63,7 +63,8 @@ void FaceOneToNPane::initUI()
     ui->m_tableCompareResult->horizontalHeader()->setStretchLastSection(true);
     ui->m_tableCompareResult->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     ui->m_tableCompareResult->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    ui->m_tableCompareResult->setSelectionMode(QAbstractItemView::SingleSelection);
+    ui->m_tableCompareResult->setSelectionMode(QAbstractItemView::NoSelection);
+    ui->m_tableCompareResult->setFocusPolicy(Qt::NoFocus);
     ui->m_tableCompareResult->verticalScrollBar()->setStyleSheet("QScrollBar:vertical{border:none;width:10px;background:rgb(236,236,236)}"
                                                             "QScrollBar::handle{border:none;border-radius:5px;width:10px;background:rgb(178,178,178);}");
     // 搜索框

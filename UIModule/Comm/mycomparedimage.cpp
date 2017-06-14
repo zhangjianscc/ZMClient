@@ -30,8 +30,12 @@ void MyComparedImage::initUI()
     m_pProSimilar->setFixedSize(100,10);
     m_pProSimilar->setOrientation(Qt::Horizontal);
     m_pProSimilar->setTextVisible(false);
-    m_pProSimilar->setStyleSheet("QProgressBar{border:1px;border-radius:5px;background-color:rgb(178,178,178);}"
+
+    /*
+    m_pProSimilar->setStyleSheet("QProgressBar{border:1px solid rgb(76,76,76);border-radius:5px;background-color:rgb(178,178,178);}"
                                  "QProgressBar::chunk{border:none;border-radius:5px;background-color:rgb(255,0,0);}");
+                                 */
+
     m_pLabelSimilarValue = new QLabel("%");
     m_pLabelSimilarValue->setStyleSheet("QLabel{border:none;font-size:10px;color:rgb(0,0,0);background-color:rgb(236,236,236)}");
     QWidget* pInfoWid = new QWidget();
