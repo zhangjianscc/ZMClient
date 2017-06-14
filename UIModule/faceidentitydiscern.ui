@@ -133,6 +133,9 @@ background-color:rgb(236,236,236)</string>
            <height>655</height>
           </rect>
          </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:rgb(236,236,236)</string>
+         </property>
          <widget class="QWidget" name="widget_6" native="true">
           <property name="geometry">
            <rect>
@@ -142,17 +145,22 @@ background-color:rgb(236,236,236)</string>
             <height>401</height>
            </rect>
           </property>
+          <property name="styleSheet">
+           <string notr="true">border:1px solid rgb(180,180,180);
+border-redius:5px;
+background-color:rgb(222,222,222)</string>
+          </property>
           <widget class="QLabel" name="label_3">
            <property name="geometry">
             <rect>
              <x>100</x>
              <y>40</y>
-             <width>54</width>
-             <height>12</height>
+             <width>81</width>
+             <height>31</height>
             </rect>
            </property>
            <property name="text">
-            <string>TextLabel</string>
+            <string>摄像头画面</string>
            </property>
           </widget>
           <widget class="QLabel" name="label_4">
@@ -163,6 +171,9 @@ background-color:rgb(236,236,236)</string>
              <width>211</width>
              <height>251</height>
             </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color:rgb(236,236,236)</string>
            </property>
            <property name="text">
             <string/>
@@ -178,17 +189,22 @@ background-color:rgb(236,236,236)</string>
             <height>401</height>
            </rect>
           </property>
+          <property name="styleSheet">
+           <string notr="true">border:1px solid rgb(180,180,180);
+border-redius:5px;
+background-color:rgb(222,222,222)</string>
+          </property>
           <widget class="QLabel" name="label_5">
            <property name="geometry">
             <rect>
              <x>90</x>
              <y>30</y>
-             <width>54</width>
-             <height>12</height>
+             <width>81</width>
+             <height>31</height>
             </rect>
            </property>
            <property name="text">
-            <string>TextLabel</string>
+            <string>请选择目标人</string>
            </property>
           </widget>
           <widget class="QLineEdit" name="lineEdit">
@@ -197,7 +213,7 @@ background-color:rgb(236,236,236)</string>
              <x>30</x>
              <y>80</y>
              <width>211</width>
-             <height>20</height>
+             <height>30</height>
             </rect>
            </property>
           </widget>
@@ -205,13 +221,13 @@ background-color:rgb(236,236,236)</string>
            <property name="geometry">
             <rect>
              <x>100</x>
-             <y>140</y>
-             <width>54</width>
-             <height>12</height>
+             <y>131</y>
+             <width>81</width>
+             <height>21</height>
             </rect>
            </property>
            <property name="text">
-            <string>TextLabel</string>
+            <string>目标人...</string>
            </property>
           </widget>
           <widget class="QLabel" name="label_7">
@@ -315,6 +331,9 @@ background-color:rgb(236,236,236)</string>
            <width>432</width>
            <height>655</height>
           </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:rgb(236,236,236)</string>
          </property>
          <widget class="QLabel" name="label_13">
           <property name="geometry">
@@ -452,7 +471,7 @@ background-color:rgb(236,236,236)</string>
             <x>160</x>
             <y>530</y>
             <width>118</width>
-            <height>23</height>
+            <height>10</height>
            </rect>
           </property>
           <property name="value">

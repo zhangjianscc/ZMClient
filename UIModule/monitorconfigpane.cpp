@@ -1,5 +1,6 @@
 #include "monitorconfigpane.h"
 #include "ui_monitorconfigpane.h"
+#include "UIModule/Comm/mytargetbutton.h"
 
 MonitorConfigPane::MonitorConfigPane(QWidget *parent) :
     QWidget(parent),
