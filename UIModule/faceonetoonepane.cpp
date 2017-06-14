@@ -68,9 +68,7 @@ void FaceOneToOnePane::initUI()
     QPushButton* pBtnCompare = new QPushButton();
     pBtnCompare->setFixedSize(m_pLabelImage2->width()/2 + 20,m_pLabelImage2->width()/4 + 5);
     connect(pBtnCompare,SIGNAL(clicked(bool)),this,SLOT(onSlotCompare()));
-    pBtnCompare->setStyleSheet("QPushButton{border-image:url(://images//比对btn-01.png);border: 0px; border-radius: 3px;}"
-                         "QPushButton:hover{border-image:url(://images//比对btn-02.png);}"
-                         "QPushButton:pressed{border-image:url(://images//比对btn-03.png);}");
+    pBtnCompare->setObjectName("btnBeginCompare");
     QWidget* pLeftHWid = new QWidget();
     pLeftHWid->setStyleSheet("QWidget{border:none}");
     QHBoxLayout* pLeftHLayout = new QHBoxLayout(pLeftHWid);

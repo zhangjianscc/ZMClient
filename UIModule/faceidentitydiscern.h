@@ -14,9 +14,13 @@ class FaceIdentityDiscern : public QWidget
 public:
     explicit FaceIdentityDiscern(QWidget *parent = 0);
     ~FaceIdentityDiscern();
-
+private:
+    void initUI();
 private:
     Ui::FaceIdentityDiscern *ui;
+signals:
+public slots:
+    void onSlotSearchBtnClicked();
 };
 
 #endif // FACEIDENTITYRECOG2_H

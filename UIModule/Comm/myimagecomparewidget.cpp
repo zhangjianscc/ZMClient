@@ -9,13 +9,10 @@ MyImageCompareWidget::MyImageCompareWidget(QWidget *parent) : QWidget(parent)
 void MyImageCompareWidget::initUI()
 {
     this->setStyleSheet("MyImageWidget{border-radius:2px;background-color:rgb(236,236,236)}");
-
-    // 默认程序全屏运行 此处计算图片合适大小
-    int imageWid = g_wid/9.5;
-    int imageHei = g_hei/5;
+    this->setFixedHeight(200);
 
     m_pLabelImage = new QLabel();
-    m_pLabelImage->setFixedSize(imageWid,imageHei);
+    m_pLabelImage->setFixedSize(120,140);
     m_pLabelImage->setScaledContents(true);
     m_pLabelImage->setStyleSheet("QLabel{border:1px solid rgb(109,109,109);background-color:rgb(178,178,178)}");
 
@@ -25,8 +22,7 @@ void MyImageCompareWidget::initUI()
 
     m_pSimilayBar = new QProgressBar();
     m_pSimilayBar->setRange(0,100);
-    //m_pSimilayBar->setFixedWidth(imageWid);
-    m_pSimilayBar->setFixedHeight(10);
+    m_pSimilayBar->setFixedSize(100,10);
     m_pSimilayBar->setOrientation(Qt::Horizontal);
     m_pSimilayBar->setTextVisible(false);
     m_pSimilayBar->setStyleSheet("QProgressBar{border:1px;border-radius:5px;background-color:rgb(178,178,178);}"

@@ -32,11 +32,9 @@ void FaceOneToNPane::initUI()
                                               "QPushButton:pressed{border-image:url(://images//选择照片-02.png);}");
     connect(ui->m_btnSelectImage,SIGNAL(clicked(bool)),this,SLOT(onSlotSelectImage()));
 
-    // 开始比对按钮
-    ui->m_btnBeginConpare->setStyleSheet("QPushButton{border-image:url(://images//比对btn-01.png);border: 0px;border-radius: 0px;}"
-                                              "QPushButton:hover{border-image:url(://images//比对btn-02.png);}"
-                                              "QPushButton:pressed{border-image:url(://images//比对btn-03.png);}");
-    connect(ui->m_btnBeginConpare,SIGNAL(clicked(bool)),this,SLOT(onSlotBeginCompare()));
+    // 开始比对按钮btnBeginCompare
+    ui->btnBeginCompare->setText("");
+    connect(ui->btnBeginCompare,SIGNAL(clicked(bool)),this,SLOT(onSlotBeginCompare()));
 
     // 性别选择框
     //ui->m_comboSex->setStyleSheet("QComboBox{border-radius:3px;background-color:rgb(255,255,255)}");
@@ -123,11 +121,7 @@ void FaceOneToNPane::initComparedImageData(QList<ComparedImageInfo> list)
     ui->m_tableCompareResult->setColumnCount(2);
     ui->m_tableCompareResult->setColumnWidth(0,ui->m_tableCompareResult->width()/2);
     ui->m_tableCompareResult->setColumnWidth(1,ui->m_tableCompareResult->width()/2);
-
     ui->m_tableCompareResult->setRowCount(list.size()/2 + list.size()%2);
-
-
-
 
     // 添加数据
     for(int i = 0 ; i < list.size() ; ++i)
@@ -137,7 +131,6 @@ void FaceOneToNPane::initComparedImageData(QList<ComparedImageInfo> list)
         int hei = pImage->height() + 10;
         ui->m_tableCompareResult->setRowHeight(i/2,hei);
         ui->m_tableCompareResult->setCellWidget(i/2,i%2,pImage);
-
     }
 }
 
