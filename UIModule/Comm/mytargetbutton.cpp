@@ -5,7 +5,10 @@ MyTargetButton::MyTargetButton(QString text) :
 {
     this->setCheckable(true);
     this->setFixedSize(160, 50);
-    this->setStyleSheet("MyTargetButton{border:1px solid rgb(200,200,200);background-color:rgb(255,255,255)}");
+    this->setStyleSheet("MyTargetButton{border:1px solid rgb(200,200,200);background-color:rgb(255,255,255)}"
+                        "MyTargetButton:hover{background-color:rgb(255,255,255)}"
+                        "MyTargetButton:pressed{background-color:rgb(76,76,76)}");
+
 
     m_pNameLabel = new QLabel;
     QFont font;
@@ -27,6 +30,7 @@ MyTargetButton::MyTargetButton(QString text) :
     pHBoxLayout->addWidget(m_pNameLabel, 0, Qt::AlignHCenter);
     pHBoxLayout->addWidget(m_pStatusLabel);
     pHBoxLayout->addWidget(m_pCloseButton, 0, Qt::AlignTop);
+
 }
 
 void MyTargetButton::select()
@@ -58,4 +62,13 @@ void MyTargetButton::unSelect()
     this->setStyleSheet("QPushButton#123{border:2px solid rgb();background-color:rgb(255,255,255)}");*/
     this->setStyleSheet("QPushButton{border:1px solid rgb(200,200,200);background-color:rgb(255,255,255)}");
     m_pNameLabel->setStyleSheet("QLabel{border:none;color:rgb(0,0,0)}");
+}
+
+void MyTargetButton::paintEvent(QPaintEvent *event)
+{
+    QStyleOption opt;
+    opt.init(this);
+    QPainter p(this);
+    style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
+    QWidget::paintEvent(event);
 }

@@ -1,21 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <author/>
- <comment/>
- <exportmacro/>
  <class>MonitorConfigPane</class>
  <widget class="QWidget" name="MonitorConfigPane">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>1100</width>
+    <height>720</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1100</width>
+    <height>720</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1100</width>
+    <height>720</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <widget class="QWidget" name="valueTitWidget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>321</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:0px;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(235, 235, 235, 255), stop:1 rgba(170, 170, 170, 255));</string>
+   </property>
+   <widget class="QLabel" name="valuePicLabel">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>31</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="../Resouce.qrc">:/images/阈值设置.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="valueNameLabel">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>0</y>
+      <width>54</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>阈值设置</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="valueConWidget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>40</y>
+     <width>321</width>
+     <height>641</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:1px solid rgb(200,200,200);
+border-bottom-left-radius:5px;
+border-bottom-right-radius:5px;
+background-color:rgb(236,236,236);</string>
+   </property>
+   <widget class="QLabel" name="warningNumLabel">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>71</y>
+      <width>104</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:none; 
+border-radius:0px;</string>
+    </property>
+    <property name="text">
+     <string>告警结果显示数量</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>78</y>
+      <width>41</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:none; 
+border-radius:0px;
+background-color:rgb(255,255,255);</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="warningValLabel">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>220</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:none; 
+border-radius:0px;</string>
+    </property>
+    <property name="text">
+     <string>告警阈值</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="heighSpinBox">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>261</y>
+      <width>42</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>11</pointsize>
+      <weight>9</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:none; 
+color: rgb(255, 255, 255);
+border-radius:0px;
+background-color:rgb(76,76,76);
+font: 75 11pt &quot;Arial&quot;;</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="lowSpinBox">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>261</y>
+      <width>42</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>11</pointsize>
+      <weight>9</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:none; 
+color: rgb(255, 255, 255);
+border-radius:0px;
+background-color:rgb(76,76,76);
+font: 75 11pt &quot;Arial&quot;;</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>440</y>
+      <width>16</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:none; 
+border-radius:0px;</string>
+    </property>
+    <property name="text">
+     <string>CheckBox</string>
+    </property>
+    <property name="tristate">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="warningEnaLabel">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>440</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:none; 
+border-radius:0px;</string>
+    </property>
+    <property name="text">
+     <string>告警时弹窗</string>
+    </property>
+   </widget>
+   <widget class="QRoundProgressBar" name="widget_2" native="true">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>210</y>
+      <width>120</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:none; 
+border-radius:0px;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="warningPerLabel">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>260</y>
+      <width>20</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>15</pointsize>
+      <weight>9</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:none; 
+border-radius:0px;
+font: 75 15pt &quot;Arial&quot;;</string>
+    </property>
+    <property name="text">
+     <string>%</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QWidget" name="widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>340</y>
+      <width>120</width>
+      <height>80</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="targetTilWidget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>20</y>
+     <width>721</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:0px;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(235, 235, 235, 255), stop:1 rgba(170, 170, 170, 255));</string>
+   </property>
+   <widget class="QLabel" name="targetPicLabel">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>31</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="../Resouce.qrc">:/images/目标库设置.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="targetNameLabel">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>0</y>
+      <width>91</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>使用目标库设置</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="targetConWidget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>40</y>
+     <width>721</width>
+     <height>641</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:1px solid rgb(200,200,200);
+border-bottom-left-radius:5px;
+border-bottom-right-radius:5px;
+background-color:rgb(236,236,236);</string>
+   </property>
+   <widget class="QWidget" name="selectTarWidget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>30</y>
+      <width>661</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius:0px;
+background-color:rgb(76,76,76);</string>
+    </property>
+    <widget class="QLabel" name="selectTarTitLabel">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>1</y>
+       <width>91</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border:none; 
+color: rgb(255, 255, 255);
+border-radius:0px;</string>
+     </property>
+     <property name="text">
+      <string>请选择目标库</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="searchLineEdit">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>5</y>
+       <width>161</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">boder:none;
+background-color:rgb(255,255,255);</string>
+     </property>
+    </widget>
+    <zorder>selectTarTitLabel</zorder>
+    <zorder>searchLineEdit</zorder>
+    <zorder>searchPushButton</zorder>
+   </widget>
+   <widget class="QLabel" name="selectedLabel">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>431</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:none; 
+border-radius:0px;</string>
+    </property>
+    <property name="text">
+     <string>已选择：</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="savePushButton">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>602</y>
+      <width>75</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">boder:none solid rgb(0,0,0);
+border-top-left-radius:5px;
+border-top-right-radius:5px;
+background-color:rgb(18,132,194);</string>
+    </property>
+    <property name="text">
+     <string>保存</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="selectTarConTableWidget">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>60</y>
+      <width>661</width>
+      <height>321</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius:0px;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="searchPushButton">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>36</y>
+      <width>16</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:none; 
+border-radius:0px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="../Resouce.qrc">
+      <normaloff>:/images/search-01.png</normaloff>:/images/search-01.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>16</width>
+      <height>29</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="selectedTarConTableWidget">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>430</y>
+      <width>611</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:none; 
+border-radius:0px;</string>
+    </property>
+   </widget>
+  </widget>
  </widget>
- <pixmapfunction/>
+ <customwidgets>
+  <customwidget>
+   <class>QRoundProgressBar</class>
+   <extends>QWidget</extends>
+   <header>QRoundProgressBar.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../Resouce.qrc"/>
+ </resources>
  <connections/>
 </ui>

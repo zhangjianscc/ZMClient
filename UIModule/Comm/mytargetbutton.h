@@ -16,6 +16,9 @@ public:
     void selected();                    /// 按钮已选
     void unSelect();                    /// 按钮自由状态
 
+protected:
+    void paintEvent(QPaintEvent *event);
+
     QPushButton *m_pCloseButton;        /// 关闭项按钮
 
 private:

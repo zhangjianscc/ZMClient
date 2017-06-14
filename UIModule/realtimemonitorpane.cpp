@@ -42,7 +42,7 @@ void RealTimeMonitorPane::initUI()
     m_pTableWarningPane->horizontalHeader()->setStretchLastSection(true);
     m_pTableWarningPane->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_pTableWarningPane->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    m_pTableWarningPane->setSelectionMode(QAbstractItemView::NoSelection);
+   // m_pTableWarningPane->setSelectionMode(QAbstractItemView::NoSelection);
     m_pTableWarningPane->verticalScrollBar()->setStyleSheet("QScrollBar:vertical{border:none;width:10px;background:rgb(236,236,236)}"
                                                             "QScrollBar::handle{border:none;border-radius:5px;width:10px;background:rgb(178,178,178);}");
 

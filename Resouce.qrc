@@ -1,4 +1,4 @@
-<RCC>
+﻿<RCC>
     <qresource prefix="/">
         <file>images/1比1对比图标.png</file>
         <file>images/1比N小图标.png</file>

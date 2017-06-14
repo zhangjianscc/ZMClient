@@ -43,6 +43,9 @@ private:
     void mouseMoveEvent(QMouseEvent *event);             ///
     void mouseReleaseEvent(QMouseEvent *event);          ///
     void checkPane(MyToolButton* pBtn);
+
+    void test();
+
 private:
     QString               m_strUserType;                 /// 用户类型
     QString               m_strUserName;                 /// 用户名

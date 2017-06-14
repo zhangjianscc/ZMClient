@@ -338,6 +338,8 @@ void MainWindow::onSlotBtnMonitorConfig()
     m_pContentPane->setCurrentIndex(2);
 
     checkPane(m_pBtnMonitorConfig);
+
+    test();
 }
 void MainWindow::onSlotBtnFaceOneToOne()
 {
@@ -540,4 +542,5 @@ void MainWindow::checkPane(MyToolButton* pBtn)
 
 
 
-
+void MainWindow::test()
+{}
