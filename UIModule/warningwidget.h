@@ -28,6 +28,9 @@ public:
     QPoint m_curMousePos;
     QPoint m_destWindowPos;
 
+public slots:
+    void slot_okButClicked();
+
 protected:
     void mousePressEvent(QMouseEvent *ev);
     void mouseMoveEvent(QMouseEvent *ev);

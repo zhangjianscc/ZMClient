@@ -1,18 +1,37 @@
-#ifndef FACEONETONPANE_H
-#define FACEONETONPANE_H
+#ifndef FACEONETONPANE2_H
+#define FACEONETONPANE2_H
 
 #include <QWidget>
+#include "UIModule/Comm/mysearchedit.h"
 
+namespace Ui {
+class FaceOneToNPane;
+}
+
+struct ComparedImageInfo
+{
+    QPixmap pix;
+    QString source;
+    double similar;
+};
 class FaceOneToNPane : public QWidget
 {
     Q_OBJECT
+
 public:
-    FaceOneToNPane(QWidget* parent = 0);
+    explicit FaceOneToNPane(QWidget *parent = 0);
+    ~FaceOneToNPane();
 private:
     void initUI();
-signals:
+    void initTargetLibraryData(QStringList listLibrary); // by ly
+    void initComparedImageData(QList<ComparedImageInfo> list);// by ly
 
+private:
+    Ui::FaceOneToNPane *ui;
 public slots:
+    void onSlotBeginCompare();
+    void onSlotSelectImage();
+    void onSlotSearchBtnClicked();
 };
 
-#endif // FACEONETONPANE_H
+#endif // FACEONETONPANE2_H

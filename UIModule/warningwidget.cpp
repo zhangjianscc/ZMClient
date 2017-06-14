@@ -110,6 +110,8 @@ void WarningWidget::initUi()
     pMainLayout->addWidget(pTitleLabel);
     pMainLayout->addLayout(pHboxLayout);
     pMainLayout->addWidget(pOkButton, 0, Qt::AlignHCenter);
+
+    connect(pOkButton, SIGNAL(clicked(bool)), this, SLOT(slot_okButClicked()));
 }
 
 void WarningWidget::setData(QPixmap pixMap, stData &data)
@@ -123,4 +125,9 @@ void WarningWidget::setData(QPixmap pixMap, stData &data)
     m_pAgeDataLabel->setText(QString::number(data.age));
     m_pNumberDataLabel->setText(QString::number(data.number));
     m_pTypeDataLabel->setText(data.type);
+}
+
+void WarningWidget::slot_okButClicked()
+{
+    this->close();
 }

@@ -1,32 +1,70 @@
-/**********login dlg minimize btn**********/
-QPushButton#LoginDlg_MinimizeBtn{
-        border-image:url(://images//mouseenter-01.png);
-        border: 0px;
-        border-radius: 0px;
-}
-QPushButton#LoginDlg_MinimizeBtn:hover{
-        border-image:url(://images//mouseenter-02.png);
-}
-QPushButton#LoginDlg_MinimizeBtn:pressed{
-        border-image:url(://images//mouseenter-02.png);
+QComboBox{
+border-radius:3px;
+background-color:rgb(255,255,255)
 }
 
-/**********login dlg close btn**********/
-QPushButton#LoginDlg_CloseBtn{
-        border-image:url(://images//mouseenter03.png);
-        border: 0px;
-        border-radius: 0px;
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: center right;
+    border:none;
+    width: 15px;
+    height: 15px;
 }
 
-QPushButton#LoginDlg_CloseBtn:hover{
-        border-image:url(://images//mouseenter.png);
+QComboBox::down-arrow {
+    image: url(://images//down-01.png);
 }
 
-QPushButton#LoginDlg_CloseBtn:pressed{
-        border-image:url(://images//mouseenter.png);
+QSpinBox{
+    border:2px solid rgb(150,150,150);
+    backgound:rgb(76,76,76);
+    padding: 3px;
 }
 
+QSpinBox::up-button{
+    subcontrol-origin: border;
+    subcontrol-position: right top;
+    image: url(:/images/up-01.png);
+}
 
+QSpinBox::up-button:pressed{
+    subcontrol-origin: border;
+    subcontrol-position: right top;
+    backgound-color:rgb(76,76,76);
+    image: url(:/images/up-02.png);
+}
+
+/*
+QSpinBox::up-arrow {
+    image: url(:/images/up-01.png);
+    width: 11px;
+    height: 10px;
+}
+*/
+
+QSpinBox::down-button{
+    subcontrol-origin: border;
+    subcontrol-position: right bottom;
+    backgound-color:rgb(76,76,76);
+    image: url(:/images/down-01.png);
+    /*width: 12px;*/
+    /*height: 20px;*/
+}
+
+QSpinBox::down-button:pressed{
+    subcontrol-origin: border;
+    subcontrol-position: right bottom;
+    backgound-color:rgb(76,76,76);
+    image: url(:/images/down-02.png);
+}
+
+/*
+QSpinBox::down-arrow {
+    image: url(:/images/down-01.png);
+    width: 11px;
+    height: 10px;
+}
+*/
 
 
 

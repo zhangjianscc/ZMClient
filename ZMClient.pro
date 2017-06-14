@@ -11,7 +11,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = ZMClient
 TEMPLATE = app
-DESTDIR = ..\BIN
+#DESTDIR = ..\BIN
 
 CONFIG += precompile_header
 PRECOMPILED_HEADER = stable.h
@@ -26,52 +26,149 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # In order to do so, uncomment the following line.
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
-
-
-SOURCES += main.cpp \
-    UIModule/mainwindow.cpp \
-    UIModule/logindialog.cpp \
-    base64/base64.cpp \
-    Common/readini.cpp \
-    Common/socketTcp.cpp \
-    UIModule/Comm/mytoolbutton.cpp \
-    UIModule/Comm/mywidgetfolder.cpp \
-    UIModule/Comm/myimagewidget.cpp \
-    UIModule/Comm/mytargetbutton.cpp \
-    UIModule/warningwidget.cpp \
-    UIModule/realtimemonitorpane.cpp \
-    UIModule/Comm/myimagecomparewidget.cpp \
-    UIModule/Comm/myimagelabel.cpp \
-    UIModule/faceonetoonepane.cpp \
-    UIModule/faceonetonpane.cpp \
-    UIModule/faceidentityrecog.cpp \
-    UIModule/facehistorycompare.cpp
-
-FORMS += \
-    UIModule/mainwindow.ui \
-    UIModule/logindialog.ui
+LIBS += -lpthread libwsock32 libws2_32
 
 HEADERS += \
-    UIModule/mainwindow.h \
-    UIModule/logindialog.h \
-    stable.h \
     base64/base64.h \
+    Common/conn_exception.h \
+    Common/connection.h \
     Common/readini.h \
-    Common/socketTcp.h \
-    UIModule/Comm/mytoolbutton.h \
-    UIModule/Comm/mywidgetfolder.h \
-    UIModule/Comm/myimagewidget.h \
-    UIModule/Comm/mytargetbutton.h \
-    UIModule/warningwidget.h \
-    UIModule/realtimemonitorpane.h \
+    Common/singleton.h \
+    Common/SocketManager.h \
+    InterFaceToService/jsonformat.h \
+    InterFaceToService/loginobj.h \
+    InterFaceToService/objformat.h \
+    InterFaceToService/ParamCommon.h \
+    InterFaceToService/ParamsCommon.h \
+    InterFaceToService/sysuser.h \
+    InterFaceToService/sysuserclient.h \
     UIModule/Comm/myimagecomparewidget.h \
     UIModule/Comm/myimagelabel.h \
-    UIModule/faceonetoonepane.h \
+    UIModule/Comm/myimagewidget.h \
+    UIModule/Comm/mytargetbutton.h \
+    UIModule/Comm/mytoolbutton.h \
+    UIModule/Comm/mywidgetfolder.h \
+    UIModule/adddevicedlg.h \
+    UIModule/addlibrarydlg.h \
+    UIModule/addmonitorareadlg.h \
+    UIModule/addmonitorpositiondlg.h \
+    UIModule/addtargetpersondlg.h \
+    UIModule/addtargetpersonimagedlg.h \
+    UIModule/addtemplatedlg.h \
+    UIModule/editdevicedlg.h \
+    UIModule/editmonitorareadlg.h \
+    UIModule/editmonitorpositiondlg.h \
+    UIModule/edittargetpersondlg.h \
+    UIModule/facehistorycompare.h \
+    UIModule/faceidentitydiscern.h \
     UIModule/faceonetonpane.h \
-    UIModule/faceidentityrecog.h \
-    UIModule/facehistorycompare.h
+    UIModule/faceonetoonepane.h \
+    UIModule/librarymanager.h \
+    UIModule/logindialog.h \
+    UIModule/mainwindow.h \
+    UIModule/maptrackpane.h \
+    UIModule/monitorareamaintain.h \
+    UIModule/monitorconfigpane.h \
+    UIModule/monitordevicemaintain.h \
+    UIModule/monitorpositionmaintain.h \
+    UIModule/realtimemonitorpane.h \
+    UIModule/realwarningmanager.h \
+    UIModule/selectmonitorpositiondlg.h \
+    UIModule/targetpersonmanager.h \
+    UIModule/templatemanager.h \
+    UIModule/volumeaddtemplatedlg.h \
+    UIModule/warningwidget.h \
+    reqglobal.h \
+    respglobal.h \
+    UIModule/warningdisposedlg.h \
+    qroundprogressbar.h \
+    UIModule/Comm/mycomparedimage.h \
+    UIModule/Comm/mysearchedit.h
+
+SOURCES += \
+    base64/base64.cpp \
+    Common/connection.cpp \
+    Common/readini.cpp \
+    Common/singleton.cpp \
+    Common/socketmanager.cpp \
+    InterFaceToService/jsonformat.cpp \
+    InterFaceToService/objformat.cpp \
+    InterFaceToService/sysuserclient.cpp \
+    UIModule/Comm/myimagecomparewidget.cpp \
+    UIModule/Comm/myimagelabel.cpp \
+    UIModule/Comm/myimagewidget.cpp \
+    UIModule/Comm/mytargetbutton.cpp \
+    UIModule/Comm/mytoolbutton.cpp \
+    UIModule/Comm/mywidgetfolder.cpp \
+    UIModule/adddevicedlg.cpp \
+    UIModule/addlibrarydlg.cpp \
+    UIModule/addmonitorareadlg.cpp \
+    UIModule/addmonitorpositiondlg.cpp \
+    UIModule/addtargetpersondlg.cpp \
+    UIModule/addtargetpersonimagedlg.cpp \
+    UIModule/addtemplatedlg.cpp \
+    UIModule/editdevicedlg.cpp \
+    UIModule/editmonitorareadlg.cpp \
+    UIModule/editmonitorpositiondlg.cpp \
+    UIModule/edittargetpersondlg.cpp \
+    UIModule/facehistorycompare.cpp \
+    UIModule/faceidentitydiscern.cpp \
+    UIModule/faceonetonpane.cpp \
+    UIModule/faceonetoonepane.cpp \
+    UIModule/librarymanager.cpp \
+    UIModule/logindialog.cpp \
+    UIModule/mainwindow.cpp \
+    UIModule/maptrackpane.cpp \
+    UIModule/monitorareamaintain.cpp \
+    UIModule/monitorconfigpane.cpp \
+    UIModule/monitordevicemaintain.cpp \
+    UIModule/monitorpositionmaintain.cpp \
+    UIModule/realtimemonitorpane.cpp \
+    UIModule/realwarningmanager.cpp \
+    UIModule/selectmonitorpositiondlg.cpp \
+    UIModule/targetpersonmanager.cpp \
+    UIModule/templatemanager.cpp \
+    UIModule/volumeaddtemplatedlg.cpp \
+    UIModule/warningwidget.cpp \
+    main.cpp \
+    UIModule/warningdisposedlg.cpp \
+    qroundprogressbar.cpp \
+    UIModule/Comm/mycomparedimage.cpp \
+    UIModule/Comm/mysearchedit.cpp
+
+FORMS += \
+    UIModule/adddevicedlg.ui \
+    UIModule/addlibrary.ui \
+    UIModule/addmonitorareadlg.ui \
+    UIModule/addmonitorpositiondlg.ui \
+    UIModule/addtargetperson.ui \
+    UIModule/addtargetpersonimage.ui \
+    UIModule/addtemplate.ui \
+    UIModule/editdevicedlg.ui \
+    UIModule/editmonitorareadlg.ui \
+    UIModule/editmonitorpositiondlg.ui \
+    UIModule/edittargetperson.ui \
+    UIModule/facehistorycompare.ui \
+    UIModule/faceidentitydiscern.ui \
+    UIModule/faceonetonpane.ui \
+    UIModule/librarymanager.ui \
+    UIModule/logindialog.ui \
+    UIModule/maptrackpane.ui \
+    UIModule/monitorareamaintain.ui \
+    UIModule/monitorconfigpane.ui \
+    UIModule/monitordevicemaintain.ui \
+    UIModule/monitorpositionmaintain.ui \
+    UIModule/realwarningmanager.ui \
+    UIModule/selectmonitorpositiondlg.ui \
+    UIModule/targetpersonmanager.ui \
+    UIModule/templatemanager.ui \
+    UIModule/volumeaddtemplate.ui \
+    UIModule/warnigdisposedlg.ui \
+    UIModule/mainwindow.ui
 
 RESOURCES += \
     Resouce.qrc
 
-DISTFILES +=
+DISTFILES += \
+    stylesheet.qss \
+    config.ini
