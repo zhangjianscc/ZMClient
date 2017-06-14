@@ -69,8 +69,8 @@ void RealTimeMonitorPane::updateImageSimilarityData(QList<stImageSimilarData>& l
     // 初始化表格
     m_pTableWarningPane->clearContents();
     m_pTableWarningPane->setColumnCount(2);
-    m_pTableWarningPane->setColumnWidth(0,m_pTableWarningPane->width()/2);
-    m_pTableWarningPane->setColumnWidth(1,m_pTableWarningPane->width()/2);
+    m_pTableWarningPane->setColumnWidth(0,m_pTableWarningPane->width()/2 - 1);
+    m_pTableWarningPane->setColumnWidth(1,m_pTableWarningPane->width()/2 - 1);
     m_pTableWarningPane->setRowCount(list.size()/2 + list.size()%2);
 
 
@@ -79,13 +79,9 @@ void RealTimeMonitorPane::updateImageSimilarityData(QList<stImageSimilarData>& l
     {
         MyImageCompareWidget* pImage = new MyImageCompareWidget();
         pImage->setData(list[i].pix,list[i].similarity,list[i].source);
-        QWidget* pWid = new QWidget();
-        QHBoxLayout* playout = new QHBoxLayout(pWid);
-        playout->setMargin(0);
-        playout->addWidget(pImage,0,Qt::AlignHCenter);
-
-        m_pTableWarningPane->setRowHeight(i/2,pWid->height() + 10);
-        m_pTableWarningPane->setCellWidget(i/2,i%2,pWid);
+        int hei = pImage->height() + 10;
+        m_pTableWarningPane->setRowHeight(i/2,hei);
+        m_pTableWarningPane->setCellWidget(i/2,i%2,pImage);
     }
 }
 

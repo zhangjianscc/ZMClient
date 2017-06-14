@@ -134,30 +134,34 @@ background-color:rgb(236,236,236)</string>
           </rect>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color:rgb(236,236,236)</string>
+          <string notr="true">background:rgb(236,236,236)</string>
          </property>
          <widget class="QWidget" name="widget_6" native="true">
           <property name="geometry">
            <rect>
             <x>39</x>
-            <y>39</y>
+            <y>50</y>
             <width>271</width>
             <height>401</height>
            </rect>
           </property>
           <property name="styleSheet">
            <string notr="true">border:1px solid rgb(180,180,180);
-border-redius:5px;
+border-radius:5px;
 background-color:rgb(222,222,222)</string>
           </property>
           <widget class="QLabel" name="label_3">
            <property name="geometry">
             <rect>
-             <x>100</x>
-             <y>40</y>
-             <width>81</width>
+             <x>90</x>
+             <y>20</y>
+             <width>101</width>
              <height>31</height>
             </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border:none;
+font: 14pt &quot;黑体&quot;;</string>
            </property>
            <property name="text">
             <string>摄像头画面</string>
@@ -173,7 +177,8 @@ background-color:rgb(222,222,222)</string>
             </rect>
            </property>
            <property name="styleSheet">
-            <string notr="true">background-color:rgb(236,236,236)</string>
+            <string notr="true">border-radius:0px;
+background-color: rgb(236, 236, 236);</string>
            </property>
            <property name="text">
             <string/>
@@ -184,89 +189,113 @@ background-color:rgb(222,222,222)</string>
           <property name="geometry">
            <rect>
             <x>330</x>
-            <y>39</y>
-            <width>271</width>
+            <y>50</y>
+            <width>281</width>
             <height>401</height>
            </rect>
           </property>
           <property name="styleSheet">
            <string notr="true">border:1px solid rgb(180,180,180);
-border-redius:5px;
+border-radius:5px;
 background-color:rgb(222,222,222)</string>
           </property>
           <widget class="QLabel" name="label_5">
            <property name="geometry">
             <rect>
-             <x>90</x>
-             <y>30</y>
-             <width>81</width>
+             <x>80</x>
+             <y>20</y>
+             <width>121</width>
              <height>31</height>
             </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border:none;
+font: 14pt &quot;黑体&quot;;</string>
            </property>
            <property name="text">
             <string>请选择目标人</string>
            </property>
           </widget>
-          <widget class="QLineEdit" name="lineEdit">
+          <widget class="QLineEdit" name="m_editSearch">
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>80</y>
-             <width>211</width>
+             <y>70</y>
+             <width>221</width>
              <height>30</height>
             </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border-radius:0px;
+background-color: rgb(236, 236, 236);</string>
            </property>
           </widget>
           <widget class="QLabel" name="label_6">
            <property name="geometry">
             <rect>
              <x>100</x>
-             <y>131</y>
-             <width>81</width>
+             <y>130</y>
+             <width>51</width>
              <height>21</height>
             </rect>
            </property>
+           <property name="styleSheet">
+            <string notr="true">border:none;
+font: 11pt &quot;黑体&quot;;</string>
+           </property>
            <property name="text">
-            <string>目标人...</string>
+            <string>目标人</string>
            </property>
           </widget>
           <widget class="QLabel" name="label_7">
            <property name="geometry">
             <rect>
              <x>10</x>
-             <y>180</y>
-             <width>71</width>
-             <height>81</height>
+             <y>170</y>
+             <width>80</width>
+             <height>90</height>
             </rect>
            </property>
+           <property name="styleSheet">
+            <string notr="true">border-radius:0px;
+background-color: rgb(236, 236, 236);</string>
+           </property>
            <property name="text">
-            <string>TextLabel</string>
+            <string/>
            </property>
           </widget>
           <widget class="QLabel" name="label_8">
            <property name="geometry">
             <rect>
              <x>100</x>
-             <y>180</y>
-             <width>71</width>
-             <height>81</height>
+             <y>170</y>
+             <width>80</width>
+             <height>90</height>
             </rect>
            </property>
+           <property name="styleSheet">
+            <string notr="true">border-radius:0px;
+background-color: rgb(236, 236, 236);</string>
+           </property>
            <property name="text">
-            <string>TextLabel</string>
+            <string/>
            </property>
           </widget>
           <widget class="QLabel" name="label_9">
            <property name="geometry">
             <rect>
              <x>190</x>
-             <y>180</y>
-             <width>71</width>
-             <height>81</height>
+             <y>170</y>
+             <width>80</width>
+             <height>90</height>
             </rect>
            </property>
+           <property name="styleSheet">
+            <string notr="true">border-radius:0px;
+background-color: rgb(236, 236, 236);</string>
+           </property>
            <property name="text">
-            <string>TextLabel</string>
+            <string/>
            </property>
           </widget>
           <widget class="QLabel" name="label_10">
@@ -274,12 +303,16 @@ background-color:rgb(222,222,222)</string>
             <rect>
              <x>10</x>
              <y>280</y>
-             <width>71</width>
-             <height>81</height>
+             <width>80</width>
+             <height>90</height>
             </rect>
            </property>
+           <property name="styleSheet">
+            <string notr="true">border-radius:0px;
+background-color: rgb(236, 236, 236);</string>
+           </property>
            <property name="text">
-            <string>TextLabel</string>
+            <string/>
            </property>
           </widget>
           <widget class="QLabel" name="label_11">
@@ -287,12 +320,16 @@ background-color:rgb(222,222,222)</string>
             <rect>
              <x>100</x>
              <y>280</y>
-             <width>71</width>
-             <height>81</height>
+             <width>80</width>
+             <height>90</height>
             </rect>
            </property>
+           <property name="styleSheet">
+            <string notr="true">border-radius:0px;
+background-color: rgb(236, 236, 236);</string>
+           </property>
            <property name="text">
-            <string>TextLabel</string>
+            <string/>
            </property>
           </widget>
           <widget class="QLabel" name="label_12">
@@ -300,26 +337,47 @@ background-color:rgb(222,222,222)</string>
             <rect>
              <x>190</x>
              <y>280</y>
-             <width>71</width>
-             <height>81</height>
+             <width>80</width>
+             <height>90</height>
             </rect>
            </property>
+           <property name="styleSheet">
+            <string notr="true">border-radius:0px;
+background-color: rgb(236, 236, 236);</string>
+           </property>
            <property name="text">
-            <string>TextLabel</string>
+            <string/>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_22">
+           <property name="geometry">
+            <rect>
+             <x>150</x>
+             <y>130</y>
+             <width>51</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border:none;
+font: 11pt &quot;黑体&quot;;</string>
+           </property>
+           <property name="text">
+            <string>目标人</string>
            </property>
           </widget>
          </widget>
-         <widget class="QPushButton" name="pushButton">
+         <widget class="QPushButton" name="btnBeginCompare">
           <property name="geometry">
            <rect>
             <x>214</x>
-            <y>500</y>
-            <width>201</width>
-            <height>41</height>
+            <y>510</y>
+            <width>161</width>
+            <height>61</height>
            </rect>
           </property>
           <property name="text">
-           <string>PushButton</string>
+           <string>开始比对</string>
           </property>
          </widget>
         </widget>
@@ -333,7 +391,7 @@ background-color:rgb(222,222,222)</string>
           </rect>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color:rgb(236,236,236)</string>
+          <string notr="true">background:rgb(236,236,236)</string>
          </property>
          <widget class="QLabel" name="label_13">
           <property name="geometry">
@@ -344,6 +402,9 @@ background-color:rgb(222,222,222)</string>
             <height>12</height>
            </rect>
           </property>
+          <property name="styleSheet">
+           <string notr="true">border:none</string>
+          </property>
           <property name="text">
            <string>TextLabel</string>
           </property>
@@ -351,11 +412,15 @@ background-color:rgb(222,222,222)</string>
          <widget class="QLabel" name="label_14">
           <property name="geometry">
            <rect>
-            <x>63</x>
+            <x>80</x>
             <y>91</y>
             <width>111</width>
             <height>151</height>
            </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border-radius:0px;
+background-color: rgb(236, 236, 236);</string>
           </property>
           <property name="text">
            <string>TextLabel</string>
@@ -370,6 +435,10 @@ background-color:rgb(222,222,222)</string>
             <height>151</height>
            </rect>
           </property>
+          <property name="styleSheet">
+           <string notr="true">border-radius:0px;
+background-color: rgb(236, 236, 236);</string>
+          </property>
           <property name="text">
            <string>TextLabel</string>
           </property>
@@ -382,6 +451,9 @@ background-color:rgb(222,222,222)</string>
             <width>54</width>
             <height>12</height>
            </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border:none</string>
           </property>
           <property name="text">
            <string>TextLabel</string>
@@ -396,6 +468,9 @@ background-color:rgb(222,222,222)</string>
             <height>12</height>
            </rect>
           </property>
+          <property name="styleSheet">
+           <string notr="true">border:none</string>
+          </property>
           <property name="text">
            <string>TextLabel</string>
           </property>
@@ -403,11 +478,15 @@ background-color:rgb(222,222,222)</string>
          <widget class="QLabel" name="label_18">
           <property name="geometry">
            <rect>
-            <x>63</x>
+            <x>80</x>
             <y>350</y>
             <width>111</width>
             <height>151</height>
            </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border-radius:0px;
+background-color: rgb(236, 236, 236);</string>
           </property>
           <property name="text">
            <string>TextLabel</string>
@@ -422,6 +501,10 @@ background-color:rgb(222,222,222)</string>
             <height>151</height>
            </rect>
           </property>
+          <property name="styleSheet">
+           <string notr="true">border-radius:0px;
+background-color: rgb(236, 236, 236);</string>
+          </property>
           <property name="text">
            <string>TextLabel</string>
           </property>
@@ -434,6 +517,9 @@ background-color:rgb(222,222,222)</string>
             <width>54</width>
             <height>12</height>
            </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border:none</string>
           </property>
           <property name="text">
            <string>TextLabel</string>
@@ -448,6 +534,9 @@ background-color:rgb(222,222,222)</string>
             <height>12</height>
            </rect>
           </property>
+          <property name="styleSheet">
+           <string notr="true">border:none</string>
+          </property>
           <property name="text">
            <string>TextLabel</string>
           </property>
@@ -456,7 +545,7 @@ background-color:rgb(222,222,222)</string>
           <property name="geometry">
            <rect>
             <x>150</x>
-            <y>260</y>
+            <y>270</y>
             <width>118</width>
             <height>10</height>
            </rect>
@@ -469,7 +558,7 @@ background-color:rgb(222,222,222)</string>
           <property name="geometry">
            <rect>
             <x>160</x>
-            <y>530</y>
+            <y>540</y>
             <width>118</width>
             <height>10</height>
            </rect>
