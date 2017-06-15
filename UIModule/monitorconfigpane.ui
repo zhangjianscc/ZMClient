@@ -112,7 +112,23 @@ border-radius:0px;</string>
     <property name="styleSheet">
      <string notr="true">border:none; 
 border-radius:0px;
-background-color:rgb(255,255,255);</string>
+background-color:rgb(255,255,255);
+font: 75 11pt &quot;Arial&quot;;</string>
+    </property>
+    <property name="editable">
+     <bool>false</bool>
+    </property>
+    <property name="currentText">
+     <string/>
+    </property>
+    <property name="currentIndex">
+     <number>-1</number>
+    </property>
+    <property name="maxVisibleItems">
+     <number>100</number>
+    </property>
+    <property name="maxCount">
+     <number>100</number>
     </property>
    </widget>
    <widget class="QLabel" name="warningValLabel">
@@ -160,6 +176,9 @@ border-radius:0px;
 background-color:rgb(76,76,76);
 font: 75 11pt &quot;Arial&quot;;</string>
     </property>
+    <property name="maximum">
+     <number>10</number>
+    </property>
    </widget>
    <widget class="QSpinBox" name="lowSpinBox">
     <property name="geometry">
@@ -185,6 +204,9 @@ color: rgb(255, 255, 255);
 border-radius:0px;
 background-color:rgb(76,76,76);
 font: 75 11pt &quot;Arial&quot;;</string>
+    </property>
+    <property name="maximum">
+     <number>9</number>
     </property>
    </widget>
    <widget class="QCheckBox" name="checkBox">
@@ -224,7 +246,7 @@ border-radius:0px;</string>
      <string>告警时弹窗</string>
     </property>
    </widget>
-   <widget class="QRoundProgressBar" name="widget_2" native="true">
+   <widget class="QRoundProgressBar" name="roundProBarWidget" native="true">
     <property name="geometry">
      <rect>
       <x>40</x>
@@ -233,9 +255,128 @@ border-radius:0px;</string>
       <height>101</height>
      </rect>
     </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>236</red>
+          <green>236</green>
+          <blue>236</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>76</red>
+          <green>76</green>
+          <blue>76</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>236</red>
+          <green>236</green>
+          <blue>236</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Highlight">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>236</red>
+          <green>236</green>
+          <blue>236</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>76</red>
+          <green>76</green>
+          <blue>76</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>236</red>
+          <green>236</green>
+          <blue>236</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Highlight">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>236</red>
+          <green>236</green>
+          <blue>236</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>236</red>
+          <green>236</green>
+          <blue>236</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>236</red>
+          <green>236</green>
+          <blue>236</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Highlight">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>0</red>
+          <green>120</green>
+          <blue>215</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
+    </property>
     <property name="styleSheet">
      <string notr="true">border:none; 
-border-radius:0px;</string>
+border-radius:0px;
+background-color:rgb(236,236,236);</string>
     </property>
    </widget>
    <widget class="QLabel" name="warningPerLabel">
@@ -266,16 +407,6 @@ font: 75 15pt &quot;Arial&quot;;</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QWidget" name="widget" native="true">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>340</y>
-      <width>120</width>
-      <height>80</height>
-     </rect>
     </property>
    </widget>
   </widget>
@@ -382,9 +513,6 @@ border-radius:0px;</string>
 background-color:rgb(255,255,255);</string>
      </property>
     </widget>
-    <zorder>selectTarTitLabel</zorder>
-    <zorder>searchLineEdit</zorder>
-    <zorder>searchPushButton</zorder>
    </widget>
    <widget class="QLabel" name="selectedLabel">
     <property name="geometry">
@@ -439,9 +567,9 @@ background-color:rgb(18,132,194);</string>
     <property name="geometry">
      <rect>
       <x>650</x>
-      <y>36</y>
-      <width>16</width>
-      <height>20</height>
+      <y>38</y>
+      <width>15</width>
+      <height>15</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -450,16 +578,6 @@ border-radius:0px;</string>
     </property>
     <property name="text">
      <string/>
-    </property>
-    <property name="icon">
-     <iconset resource="../Resouce.qrc">
-      <normaloff>:/images/search-01.png</normaloff>:/images/search-01.png</iconset>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>16</width>
-      <height>29</height>
-     </size>
     </property>
    </widget>
    <widget class="QTableWidget" name="selectedTarConTableWidget">

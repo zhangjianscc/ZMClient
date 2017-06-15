@@ -175,3 +175,23 @@ void FaceOneToNPane::onSlotSearchBtnClicked()
     // by ly
     // initTargetLibraryData(QStringList list)
 }
+
+void FaceOneToNPane::slot_test()
+{
+    MyTargetButton *pushButton = qobject_cast<MyTargetButton*>(sender());
+    if(Q_NULLPTR == pushButton)
+    {
+        return;
+    }
+    else
+    {
+        if(pushButton->isChecked())
+        {
+            pushButton->select();
+        }
+        else
+        {
+            pushButton->unSelect();
+        }
+    }
+}

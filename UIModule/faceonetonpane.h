@@ -32,6 +32,8 @@ public slots:
     void onSlotBeginCompare();
     void onSlotSelectImage();
     void onSlotSearchBtnClicked();
+
+    void slot_test();
 };
 
 #endif // FACEONETONPANE2_H

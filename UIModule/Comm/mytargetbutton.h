@@ -5,6 +5,15 @@
 #include <QLabel>
 #include <QHBoxLayout>
 
+class MyButton :public QPushButton
+{
+    Q_OBJECT
+
+public:
+    explicit MyButton();
+    int m_iId;
+};
+
 class MyTargetButton : public QPushButton
 {
     Q_OBJECT
@@ -12,17 +21,17 @@ class MyTargetButton : public QPushButton
 public:
     explicit MyTargetButton(QString text);
 
-    void select();                      /// 按钮按下
-    void selected();                    /// 按钮已选
+    void select();                      /// 按钮按下显示风格1
+    void selected();                    /// 按钮按下显示风格2
     void unSelect();                    /// 按钮自由状态
+
+    MyButton *m_pCloseButton;           /// 关闭项按钮
+    QLabel *m_pNameLabel;               /// 按钮上显示的名称
 
 protected:
     void paintEvent(QPaintEvent *event);
 
-    QPushButton *m_pCloseButton;        /// 关闭项按钮
-
 private:
-    QLabel *m_pNameLabel;               /// 按钮上显示的名称
     QLabel *m_pStatusLabel;             /// 文字"已选"
 };
 
