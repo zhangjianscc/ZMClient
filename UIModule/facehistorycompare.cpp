@@ -1,6 +1,7 @@
 #include "facehistorycompare.h"
 #include "ui_facehistorycompare.h"
 #include "UIModule/Comm/facehistoryimageitem.h"
+#include "UIModule/maptrackpane.h"
 
 FaceHistoryCompare::FaceHistoryCompare(QWidget *parent) :
     QWidget(parent),
@@ -75,7 +76,10 @@ void FaceHistoryCompare::onSlotBeginCompare()
     initCompareResultTable(list);
 }
 void FaceHistoryCompare::onSlotRunTrack()
-{}
+{
+    MapTrackPane* pane = new MapTrackPane(NULL);
+    pane->show();
+}
 void FaceHistoryCompare::initCompareResultTable(QList<FaceHistoryCompareData> list)
 {
     // 初始化表格
