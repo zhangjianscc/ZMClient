@@ -270,9 +270,9 @@ border-radius:0px;</string>
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>76</red>
-          <green>76</green>
-          <blue>76</blue>
+          <red>236</red>
+          <green>236</green>
+          <blue>236</blue>
          </color>
         </brush>
        </colorrole>
@@ -308,9 +308,9 @@ border-radius:0px;</string>
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>76</red>
-          <green>76</green>
-          <blue>76</blue>
+          <red>236</red>
+          <green>236</green>
+          <blue>236</blue>
          </color>
         </brush>
        </colorrole>
@@ -509,7 +509,7 @@ border-radius:0px;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">boder:none;
+      <string notr="true">border:none;
 background-color:rgb(255,255,255);</string>
      </property>
     </widget>
@@ -541,7 +541,8 @@ border-radius:0px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">boder:none solid rgb(0,0,0);
+     <string notr="true">color:rgb(255,255,255);
+border:1px;
 border-top-left-radius:5px;
 border-top-right-radius:5px;
 background-color:rgb(18,132,194);</string>

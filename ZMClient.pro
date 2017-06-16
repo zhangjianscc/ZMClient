@@ -83,7 +83,9 @@ HEADERS += \
     UIModule/warningdisposedlg.h \
     qroundprogressbar.h \
     UIModule/Comm/mycomparedimage.h \
-    UIModule/Comm/mysearchedit.h
+    UIModule/Comm/mysearchedit.h \
+    UIModule/Comm/mytwoimagecomparepane.h \
+    UIModule/Comm/facehistoryimageitem.h
 
 SOURCES += \
     base64/base64.cpp \
@@ -134,7 +136,9 @@ SOURCES += \
     UIModule/warningdisposedlg.cpp \
     qroundprogressbar.cpp \
     UIModule/Comm/mycomparedimage.cpp \
-    UIModule/Comm/mysearchedit.cpp
+    UIModule/Comm/mysearchedit.cpp \
+    UIModule/Comm/mytwoimagecomparepane.cpp \
+    UIModule/Comm/facehistoryimageitem.cpp
 
 FORMS += \
     UIModule/adddevicedlg.ui \
@@ -164,7 +168,9 @@ FORMS += \
     UIModule/templatemanager.ui \
     UIModule/volumeaddtemplate.ui \
     UIModule/warnigdisposedlg.ui \
-    UIModule/mainwindow.ui
+    UIModule/mainwindow.ui \
+    UIModule/Comm/mytwoimagecomparepane.ui \
+    UIModule/Comm/facehistoryimageitem.ui
 
 RESOURCES += \
     Resouce.qrc

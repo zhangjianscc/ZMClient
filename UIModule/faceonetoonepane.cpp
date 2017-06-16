@@ -68,9 +68,7 @@ void FaceOneToOnePane::initUI()
     QPushButton* pBtnCompare = new QPushButton();
     pBtnCompare->setFixedSize(m_pLabelImage2->width()/2 + 20,m_pLabelImage2->width()/4 + 5);
     connect(pBtnCompare,SIGNAL(clicked(bool)),this,SLOT(onSlotCompare()));
-    pBtnCompare->setStyleSheet("QPushButton{border-image:url(://images//比对btn-01.png);border: 0px; border-radius: 3px;}"
-                         "QPushButton:hover{border-image:url(://images//比对btn-02.png);}"
-                         "QPushButton:pressed{border-image:url(://images//比对btn-03.png);}");
+    pBtnCompare->setObjectName("btnBeginCompare");
     QWidget* pLeftHWid = new QWidget();
     pLeftHWid->setStyleSheet("QWidget{border:none}");
     QHBoxLayout* pLeftHLayout = new QHBoxLayout(pLeftHWid);
@@ -111,8 +109,10 @@ void FaceOneToOnePane::initUI()
     m_pProSimilar->setTextVisible(false);
     m_pProSimilar->setRange(0,100);
     m_pProSimilar->setFixedSize(m_pLabelCompareIamge2->width(), 10);
-    m_pProSimilar->setStyleSheet("QProgressBar{border:none;border-radius:5px;background-color:rgb(178,178,178);}"
+    /*
+    m_pProSimilar->setStyleSheet("QProgressBar{border:1px solid rgb(76,76,76);border-radius:5px;background-color:rgb(178,178,178);}"
                                  "QProgressBar::chunk{border:none;border-radius:5px;background-color:rgb(255,0,0);}");
+    */
     m_pSimilarText = new QLabel("0.0%");
     QWidget* pWidSimilar = new QWidget();
     QHBoxLayout* pLayout4 = new QHBoxLayout(pWidSimilar);

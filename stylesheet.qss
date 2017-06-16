@@ -1,14 +1,16 @@
 QComboBox{
-border-radius:3px;
-background-color:rgb(255,255,255)
+    border-radius:3px;
+    background:rgb(255,255,255);
+    padding: 4px;
+    height:30;
+    font: 12pt "黑体";
 }
 
 QComboBox::drop-down {
     subcontrol-origin: padding;
     subcontrol-position: center right;
     border:none;
-    width: 15px;
-    height: 15px;
+    padding: 4px;
 }
 
 QComboBox::down-arrow {
@@ -17,21 +19,25 @@ QComboBox::down-arrow {
 
 QSpinBox{
     border:2px solid rgb(150,150,150);
-    backgound:rgb(76,76,76);
-    padding: 3px;
+    font: 16pt "黑体";
+    background: rgb(76, 76, 76);
+    padding: 4px;
+    width:40;
+    height:30;
 }
 
 QSpinBox::up-button{
     subcontrol-origin: border;
     subcontrol-position: right top;
+    padding: 4px;
     image: url(:/images/up-01.png);
 }
 
 QSpinBox::up-button:pressed{
     subcontrol-origin: border;
     subcontrol-position: right top;
-    backgound-color:rgb(76,76,76);
     image: url(:/images/up-02.png);
+    padding: 4px;
 }
 
 /*
@@ -45,29 +51,43 @@ QSpinBox::up-arrow {
 QSpinBox::down-button{
     subcontrol-origin: border;
     subcontrol-position: right bottom;
-    backgound-color:rgb(76,76,76);
     image: url(:/images/down-01.png);
-    /*width: 12px;*/
-    /*height: 20px;*/
+    padding: 4px;
 }
 
 QSpinBox::down-button:pressed{
     subcontrol-origin: border;
     subcontrol-position: right bottom;
-    backgound-color:rgb(76,76,76);
     image: url(:/images/down-02.png);
+    padding: 4px;
 }
 
-/*
-QSpinBox::down-arrow {
-    image: url(:/images/down-01.png);
-    width: 11px;
-    height: 10px;
+QProgressBar{
+    border:1px solid rgb(76,76,76);
+    height:10px;
+    border-radius:5px;
+    background-color:rgb(178,178,178);
 }
-*/
 
+QProgressBar::chunk{
+    border:none;
+    border-radius:5px;
+    background-color:rgb(255,0,0);
+}
 
-
+QPushButton#btnBeginCompare{
+    border-image:url(:/images/btnBeginCompare-01.png);
+    border: 0px;
+    border-radius: 0px;
+    width: 160px;
+    height: 70px;
+}
+QPushButton#btnBeginCompare:hover{
+    border-image:url(:/images/btnBeginCompare-02.png);
+}
+QPushButton#btnBeginCompare:pressed{
+    border-image:url(:/images/btnBeginCompare-03.png);
+}
 
 
 

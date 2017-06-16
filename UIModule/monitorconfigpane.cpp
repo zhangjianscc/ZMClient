@@ -72,6 +72,10 @@ void MonitorConfigPane::initUi()
     ui->selectedTarConTableWidget->verticalScrollBar()->setStyleSheet("QScrollBar:vertical{border:none;width:10px;background:rgb(236,236,236)}"
                                                                     "QScrollBar::handle{border:none;border-radius:5px;width:10px;background:rgb(178,178,178);}");
 
+    ui->savePushButton->setStyleSheet("QPushButton{color:rgb(255,255,255); border:1px; border-radius:5px;background-color:rgb(18,132,194)}"
+                                      "QPushButton:hover{color:rgb(255,255,255); border:1px; border-radius:5px;background-color:rgb(18,132,255)}"
+                                      "QPushButton:pressed{color:rgb(255,255,255); border:1px; border-radius:5px;background-color:rgb(18,132,194)}");
+
     connect(ui->heighSpinBox, SIGNAL(valueChanged(int)), this, SLOT(slot_valueChanged()));
     connect(ui->lowSpinBox, SIGNAL(valueChanged(int)), this, SLOT(slot_valueChanged()));
     connect(ui->searchPushButton, SIGNAL(clicked(bool)), this, SLOT(slot_searchButClicked()));

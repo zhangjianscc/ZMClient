@@ -19,9 +19,6 @@
         <file>images/shutdown-04.png</file>
         <file>images/textbox.png</file>
         <file>images/X选小图标.png</file>
-        <file>images/比对btn-01.png</file>
-        <file>images/比对btn-02.png</file>
-        <file>images/比对btn-03.png</file>
         <file>images/登录界面logo.png</file>
         <file>images/历史人脸库.png</file>
         <file>images/目标库设置.png</file>
@@ -75,5 +72,16 @@
         <file>images/search-02.png</file>
         <file>images/up-01.png</file>
         <file>images/up-02.png</file>
+        <file>images/libraryLabel.png</file>
+        <file>images/btnBeginCompare-01.png</file>
+        <file>images/btnBeginCompare-02.png</file>
+        <file>images/btnBeginCompare-03.png</file>
+        <file>images/实时告警管理小图标.png</file>
+        <file>images/人脸采集设备信息维护小图标.png</file>
+        <file>images/库管理小图标.png</file>
+        <file>images/模板管理.png</file>
+        <file>images/监控区域信息维护图标.png</file>
+        <file>images/目标人管理小图标.png</file>
+        <file>images/监控位置信息维护小图标.png</file>
     </qresource>
 </RCC>

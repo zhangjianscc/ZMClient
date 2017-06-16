@@ -42,7 +42,8 @@ void RealTimeMonitorPane::initUI()
     m_pTableWarningPane->horizontalHeader()->setStretchLastSection(true);
     m_pTableWarningPane->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_pTableWarningPane->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-   // m_pTableWarningPane->setSelectionMode(QAbstractItemView::NoSelection);
+    m_pTableWarningPane->setSelectionMode(QAbstractItemView::NoSelection);
+    m_pTableWarningPane->setFocusPolicy(Qt::NoFocus);
     m_pTableWarningPane->verticalScrollBar()->setStyleSheet("QScrollBar:vertical{border:none;width:10px;background:rgb(236,236,236)}"
                                                             "QScrollBar::handle{border:none;border-radius:5px;width:10px;background:rgb(178,178,178);}");
 
@@ -68,17 +69,20 @@ void RealTimeMonitorPane::updateImageSimilarityData(QList<stImageSimilarData>& l
 {
     // 初始化表格
     m_pTableWarningPane->clearContents();
+    m_pTableWarningPane->setColumnCount(2);
+    m_pTableWarningPane->setColumnWidth(0,m_pTableWarningPane->width()/2 - 1);
+    m_pTableWarningPane->setColumnWidth(1,m_pTableWarningPane->width()/2 - 1);
     m_pTableWarningPane->setRowCount(list.size()/2 + list.size()%2);
 
 
     // 添加数据
     for(int i = 0 ; i < list.size() ; ++i)
     {
-        MyImageCompareWidget* pWid = new MyImageCompareWidget();
-        pWid->setData(list[i].pix,list[i].similarity,list[i].source);
-        m_pTableWarningPane->setCellWidget(i/2,i%2,pWid);
-        m_pTableWarningPane->setRowHeight(i/2,pWid->height() + 10);
-        m_pTableWarningPane->setColumnWidth(0,m_pTableWarningPane->width()/2 - 1);
+        MyImageCompareWidget* pImage = new MyImageCompareWidget();
+        pImage->setData(list[i].pix,list[i].similarity,list[i].source);
+        int hei = pImage->height() + 10;
+        m_pTableWarningPane->setRowHeight(i/2,hei);
+        m_pTableWarningPane->setCellWidget(i/2,i%2,pImage);
     }
 }
 

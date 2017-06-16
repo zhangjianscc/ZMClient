@@ -8,7 +8,8 @@ MyComparedImage::MyComparedImage(QWidget *parent) : QWidget(parent)
 
 void MyComparedImage::initUI()
 {
-    //this->setFixedSize(100,140);
+    //this->setFixedSize(215,180);
+    this->setFixedHeight(180);
 
     // 标题
     m_pLabelTitle = new QLabel();
@@ -18,7 +19,7 @@ void MyComparedImage::initUI()
     // 图片
     m_pLabelImage = new QLabel();
     m_pLabelImage->setScaledContents(true);
-    m_pLabelImage->setFixedSize(120,160);
+    m_pLabelImage->setFixedSize(120,140);
     m_pLabelImage->setStyleSheet("QLable{border:1px solid rgb(180,180,180);background-color:rgb(236,236,236)}");
 
     // 信息
@@ -29,8 +30,12 @@ void MyComparedImage::initUI()
     m_pProSimilar->setFixedSize(100,10);
     m_pProSimilar->setOrientation(Qt::Horizontal);
     m_pProSimilar->setTextVisible(false);
-    m_pProSimilar->setStyleSheet("QProgressBar{border:1px;border-radius:5px;background-color:rgb(178,178,178);}"
+
+    /*
+    m_pProSimilar->setStyleSheet("QProgressBar{border:1px solid rgb(76,76,76);border-radius:5px;background-color:rgb(178,178,178);}"
                                  "QProgressBar::chunk{border:none;border-radius:5px;background-color:rgb(255,0,0);}");
+                                 */
+
     m_pLabelSimilarValue = new QLabel("%");
     m_pLabelSimilarValue->setStyleSheet("QLabel{border:none;font-size:10px;color:rgb(0,0,0);background-color:rgb(236,236,236)}");
     QWidget* pInfoWid = new QWidget();
