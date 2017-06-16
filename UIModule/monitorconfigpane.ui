@@ -382,9 +382,6 @@ border-radius:0px;</string>
 background-color:rgb(255,255,255);</string>
      </property>
     </widget>
-    <zorder>selectTarTitLabel</zorder>
-    <zorder>searchLineEdit</zorder>
-    <zorder>searchPushButton</zorder>
    </widget>
    <widget class="QLabel" name="selectedLabel">
     <property name="geometry">
@@ -474,6 +471,16 @@ border-radius:0px;</string>
     <property name="styleSheet">
      <string notr="true">border:none; 
 border-radius:0px;</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="widget_3" native="true">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>520</y>
+      <width>120</width>
+      <height>80</height>
+     </rect>
     </property>
    </widget>
   </widget>

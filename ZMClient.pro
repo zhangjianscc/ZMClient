@@ -85,7 +85,8 @@ HEADERS += \
     UIModule/Comm/mysearchedit.h \
     UIModule/Comm/mytwoimagecomparepane.h \
     UIModule/Comm/facehistoryimageitem.h \
-    UIModule/Comm/maptrackitem.h
+    UIModule/Comm/maptrackitem.h \
+    UIModule/Comm/mytablewidget.h
 
 SOURCES += \
     base64/base64.cpp \
@@ -139,7 +140,8 @@ SOURCES += \
     UIModule/Comm/mysearchedit.cpp \
     UIModule/Comm/mytwoimagecomparepane.cpp \
     UIModule/Comm/facehistoryimageitem.cpp \
-    UIModule/Comm/maptrackitem.cpp
+    UIModule/Comm/maptrackitem.cpp \
+    UIModule/Comm/mytablewidget.cpp
 
 FORMS += \
     UIModule/adddevicedlg.ui \
@@ -172,7 +174,8 @@ FORMS += \
     UIModule/mainwindow.ui \
     UIModule/Comm/mytwoimagecomparepane.ui \
     UIModule/Comm/facehistoryimageitem.ui \
-    UIModule/Comm/maptrackitem.ui
+    UIModule/Comm/maptrackitem.ui \
+    UIModule/Comm/mytablewidget.ui
 
 RESOURCES += \
     Resouce.qrc
