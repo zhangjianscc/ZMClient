@@ -106,9 +106,9 @@ void FaceOneToNPane::initTargetLibraryData(QStringList list)
         QWidget* pWid = new QWidget();
         QHBoxLayout* pLayout = new QHBoxLayout(pWid);
         pLayout->setMargin(0);
-        pLayout->addWidget(pBtn,0,Qt::AlignHCenter);
+        pLayout->addWidget(pBtn,0,Qt::AlignCenter);
+        ui->m_tableDestLibary->setRowHeight(i,pWid->height() + 3);
         ui->m_tableDestLibary->setCellWidget(i,0,pWid);
-        ui->m_tableDestLibary->setRowHeight(i,pBtn->height() + 3);
 
         connect(pBtn, SIGNAL(clicked(bool)), this, SLOT(slot_test()));
     }

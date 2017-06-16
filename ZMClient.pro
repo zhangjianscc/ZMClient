@@ -4,8 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
-QT       += network
+QT       += core gui network axcontainer
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -85,7 +84,9 @@ HEADERS += \
     UIModule/Comm/mycomparedimage.h \
     UIModule/Comm/mysearchedit.h \
     UIModule/Comm/mytwoimagecomparepane.h \
-    UIModule/Comm/facehistoryimageitem.h
+    UIModule/Comm/facehistoryimageitem.h \
+    UIModule/Comm/maptrackitem.h \
+    UIModule/Comm/mytablewidget.h
 
 SOURCES += \
     base64/base64.cpp \
@@ -138,7 +139,9 @@ SOURCES += \
     UIModule/Comm/mycomparedimage.cpp \
     UIModule/Comm/mysearchedit.cpp \
     UIModule/Comm/mytwoimagecomparepane.cpp \
-    UIModule/Comm/facehistoryimageitem.cpp
+    UIModule/Comm/facehistoryimageitem.cpp \
+    UIModule/Comm/maptrackitem.cpp \
+    UIModule/Comm/mytablewidget.cpp
 
 FORMS += \
     UIModule/adddevicedlg.ui \
@@ -170,7 +173,9 @@ FORMS += \
     UIModule/warnigdisposedlg.ui \
     UIModule/mainwindow.ui \
     UIModule/Comm/mytwoimagecomparepane.ui \
-    UIModule/Comm/facehistoryimageitem.ui
+    UIModule/Comm/facehistoryimageitem.ui \
+    UIModule/Comm/maptrackitem.ui \
+    UIModule/Comm/mytablewidget.ui
 
 RESOURCES += \
     Resouce.qrc

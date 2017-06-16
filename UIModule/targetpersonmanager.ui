@@ -76,7 +76,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb
           <rect>
            <x>20</x>
            <y>2</y>
-           <width>41</width>
+           <width>21</width>
            <height>20</height>
           </rect>
          </property>
@@ -87,7 +87,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb
           <string/>
          </property>
          <property name="pixmap">
-          <pixmap resource="../Resouce.qrc">:/images/1比N小图标.png</pixmap>
+          <pixmap resource="../Resouce.qrc">:/images/目标人管理小图标.png</pixmap>
          </property>
         </widget>
         <widget class="QLabel" name="label_2">
@@ -95,7 +95,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb
           <rect>
            <x>50</x>
            <y>2</y>
-           <width>71</width>
+           <width>81</width>
            <height>20</height>
           </rect>
          </property>
@@ -104,7 +104,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb
 font: 11pt &quot;黑体&quot;;</string>
          </property>
          <property name="text">
-          <string>地图轨迹</string>
+          <string>目标人管理</string>
          </property>
         </widget>
        </widget>
@@ -117,12 +117,33 @@ border-radius:2px;
 background-color:rgb(236,236,236)</string>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_3">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
          <item>
           <widget class="QWidget" name="widget_4" native="true">
            <property name="minimumSize">
             <size>
              <width>0</width>
-             <height>120</height>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>80</height>
             </size>
            </property>
            <widget class="QLabel" name="label_3">
@@ -194,7 +215,7 @@ background-color:rgb(236,236,236)</string>
             <property name="geometry">
              <rect>
               <x>30</x>
-              <y>70</y>
+              <y>50</y>
               <width>54</width>
               <height>12</height>
              </rect>
@@ -207,7 +228,7 @@ background-color:rgb(236,236,236)</string>
             <property name="geometry">
              <rect>
               <x>200</x>
-              <y>60</y>
+              <y>50</y>
               <width>54</width>
               <height>12</height>
              </rect>
@@ -220,7 +241,7 @@ background-color:rgb(236,236,236)</string>
             <property name="geometry">
              <rect>
               <x>360</x>
-              <y>60</y>
+              <y>50</y>
               <width>54</width>
               <height>12</height>
              </rect>
@@ -233,7 +254,7 @@ background-color:rgb(236,236,236)</string>
             <property name="geometry">
              <rect>
               <x>540</x>
-              <y>60</y>
+              <y>50</y>
               <width>54</width>
               <height>12</height>
              </rect>
@@ -246,7 +267,7 @@ background-color:rgb(236,236,236)</string>
             <property name="geometry">
              <rect>
               <x>690</x>
-              <y>60</y>
+              <y>40</y>
               <width>75</width>
               <height>23</height>
              </rect>
@@ -284,7 +305,7 @@ background-color:rgb(236,236,236)</string>
            <widget class="QLineEdit" name="lineEdit">
             <property name="geometry">
              <rect>
-              <x>80</x>
+              <x>100</x>
               <y>20</y>
               <width>81</width>
               <height>20</height>
@@ -345,7 +366,7 @@ background-color:rgb(236,236,236)</string>
             <property name="geometry">
              <rect>
               <x>100</x>
-              <y>60</y>
+              <y>40</y>
               <width>69</width>
               <height>22</height>
              </rect>
@@ -355,7 +376,7 @@ background-color:rgb(236,236,236)</string>
             <property name="geometry">
              <rect>
               <x>260</x>
-              <y>50</y>
+              <y>40</y>
               <width>113</width>
               <height>20</height>
              </rect>
@@ -365,7 +386,7 @@ background-color:rgb(236,236,236)</string>
             <property name="geometry">
              <rect>
               <x>410</x>
-              <y>60</y>
+              <y>40</y>
               <width>91</width>
               <height>21</height>
              </rect>
@@ -375,7 +396,7 @@ background-color:rgb(236,236,236)</string>
             <property name="geometry">
              <rect>
               <x>600</x>
-              <y>60</y>
+              <y>50</y>
               <width>69</width>
               <height>22</height>
              </rect>
@@ -384,173 +405,7 @@ background-color:rgb(236,236,236)</string>
           </widget>
          </item>
          <item>
-          <widget class="QTableWidget" name="tableWidget"/>
-         </item>
-         <item>
-          <widget class="QWidget" name="widget_5" native="true">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>60</height>
-            </size>
-           </property>
-           <widget class="QPushButton" name="pushButton_3">
-            <property name="geometry">
-             <rect>
-              <x>10</x>
-              <y>30</y>
-              <width>75</width>
-              <height>23</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>PushButton</string>
-            </property>
-           </widget>
-           <widget class="QPushButton" name="pushButton_4">
-            <property name="geometry">
-             <rect>
-              <x>90</x>
-              <y>30</y>
-              <width>75</width>
-              <height>23</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>PushButton</string>
-            </property>
-           </widget>
-           <widget class="QPushButton" name="pushButton_5">
-            <property name="geometry">
-             <rect>
-              <x>170</x>
-              <y>30</y>
-              <width>75</width>
-              <height>23</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>PushButton</string>
-            </property>
-           </widget>
-           <widget class="QPushButton" name="pushButton_6">
-            <property name="geometry">
-             <rect>
-              <x>790</x>
-              <y>30</y>
-              <width>21</width>
-              <height>23</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>PushButton</string>
-            </property>
-           </widget>
-           <widget class="QPushButton" name="pushButton_7">
-            <property name="geometry">
-             <rect>
-              <x>820</x>
-              <y>30</y>
-              <width>21</width>
-              <height>23</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>PushButton</string>
-            </property>
-           </widget>
-           <widget class="QPushButton" name="pushButton_8">
-            <property name="geometry">
-             <rect>
-              <x>840</x>
-              <y>30</y>
-              <width>21</width>
-              <height>23</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>PushButton</string>
-            </property>
-           </widget>
-           <widget class="QPushButton" name="pushButton_9">
-            <property name="geometry">
-             <rect>
-              <x>860</x>
-              <y>30</y>
-              <width>21</width>
-              <height>23</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>PushButton</string>
-            </property>
-           </widget>
-           <widget class="QPushButton" name="pushButton_10">
-            <property name="geometry">
-             <rect>
-              <x>890</x>
-              <y>30</y>
-              <width>21</width>
-              <height>23</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>PushButton</string>
-            </property>
-           </widget>
-           <widget class="QPushButton" name="pushButton_11">
-            <property name="geometry">
-             <rect>
-              <x>970</x>
-              <y>30</y>
-              <width>21</width>
-              <height>23</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>PushButton</string>
-            </property>
-           </widget>
-           <widget class="QPushButton" name="pushButton_12">
-            <property name="geometry">
-             <rect>
-              <x>990</x>
-              <y>30</y>
-              <width>21</width>
-              <height>23</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>PushButton</string>
-            </property>
-           </widget>
-           <widget class="QPushButton" name="pushButton_13">
-            <property name="geometry">
-             <rect>
-              <x>1020</x>
-              <y>30</y>
-              <width>21</width>
-              <height>23</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>PushButton</string>
-            </property>
-           </widget>
-           <widget class="QLabel" name="label_13">
-            <property name="geometry">
-             <rect>
-              <x>920</x>
-              <y>30</y>
-              <width>41</width>
-              <height>16</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>...</string>
-            </property>
-           </widget>
-          </widget>
+          <widget class="MyTableWidget" name="widget_5" native="true"/>
          </item>
         </layout>
        </widget>
@@ -560,6 +415,14 @@ background-color:rgb(236,236,236)</string>
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MyTableWidget</class>
+   <extends>QWidget</extends>
+   <header>UIModule/Comm/mytablewidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="../Resouce.qrc"/>
  </resources>

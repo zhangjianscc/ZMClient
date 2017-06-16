@@ -83,5 +83,6 @@
         <file>images/监控区域信息维护图标.png</file>
         <file>images/目标人管理小图标.png</file>
         <file>images/监控位置信息维护小图标.png</file>
+        <file>images/1080-680.png</file>
     </qresource>
 </RCC>

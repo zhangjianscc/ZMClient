@@ -595,6 +595,16 @@ border-radius:0px;</string>
 border-radius:0px;</string>
     </property>
    </widget>
+   <widget class="QWidget" name="widget_3" native="true">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>520</y>
+      <width>120</width>
+      <height>80</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
  </widget>
  <customwidgets>
