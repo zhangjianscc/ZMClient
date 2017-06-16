@@ -13,6 +13,7 @@ class QStackedWidget;
 class MyTargetButton;
 class RealTimeMonitorPane;
 class FaceOneToOnePane;
+class WarningWidget;
 class FaceOneToNPane;
 class FaceIdentityDiscern;
 class FaceHistoryCompare;

@@ -306,6 +306,7 @@ void MainWindow::onSlotBtnNaviCtr()
         m_pBtnMonitorConfig->setVisible(false);
     }
 }
+
 void MainWindow::onSlotBtnFaceDetection()
 {
     if(m_pBtnFaceDetection->isChecked())
@@ -492,7 +493,6 @@ void MainWindow::initUserInfo()
     m_strUserType = "管理员";
 }
 
-
 void MainWindow::updateRealTimeMonitorData()
 {
     // by ly
@@ -543,4 +543,16 @@ void MainWindow::checkPane(MyToolButton* pBtn)
 
 
 void MainWindow::test()
-{}
+{
+    QList<QString> listString;
+    for(int i=0; i<5; ++i)
+    {
+        listString.append(tr("全国失踪人口库A"));
+        listString.append(tr("全国失踪人口库B"));
+        listString.append(tr("全国失踪人口库C"));
+        listString.append(tr("全国失踪人口库D"));
+        listString.append(tr("全国失踪人口库E"));
+    }
+
+    m_pMonitorConfigPane->loadInfo(listString);
+}

@@ -18,6 +18,15 @@ public:
     explicit MonitorConfigPane(QWidget *parent = 0);
     ~MonitorConfigPane();
 
+    void loadInfo(QList<QString> &listName);
+
+public slots:
+    void slot_valueChanged();
+    void slot_buttonClicked();
+    void slot_closeButClicked();
+    void slot_searchButClicked();
+    void slot_saveButClicked();
+
 protected:
     void paintEvent(QPaintEvent *event);
 
@@ -25,7 +34,11 @@ private:
     Ui::MonitorConfigPane *ui;
 
     void initUi();
-    void updateData(QList<QString> &listString);
+    void updateSelectData(QList<QString> &listString);
+    void updateSelectedData();
+
+    QList<QString> m_listString;
+    QList<MyTargetButton*> m_listSelButton;
 
     int m_iWarningNumber;
     int m_iWarningValue;
