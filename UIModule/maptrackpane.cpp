@@ -54,6 +54,13 @@ void MapTrackPane::initUI()
     ui->m_table->setFocusPolicy(Qt::NoFocus);
     ui->m_table->verticalScrollBar()->setStyleSheet("QScrollBar:vertical{border:none;width:10px;background:rgb(236,236,236)}"
                                                             "QScrollBar::handle{border:none;border-radius:5px;width:10px;background:rgb(178,178,178);}");
+    // 地图
+    ui->m_axWidgetMap->setControl("{8856F961-340A-11D0-A96B-00C04FD705A2}"); //设置插件为IE
+    ui->m_axWidgetMap->setFocusPolicy(Qt::StrongFocus);//设置控件接收键盘焦点的方式：鼠标单击、Tab键
+    ui->m_axWidgetMap->setProperty("DisplayAlerts",false); //不显示任何警告信息。
+    ui->m_axWidgetMap->setProperty("DisplayScrollBars",true); // 显示滚动条
+    QString mapHtml = QDir::currentPath()+"/MapFile/BaiduMap.html";
+    ui->m_axWidgetMap->dynamicCall("Navigate(const QString&)", mapHtml); //调用参数
 }
 
 void MapTrackPane::initTable(QList<MapTrackData> list)
@@ -61,7 +68,6 @@ void MapTrackPane::initTable(QList<MapTrackData> list)
     ui->m_table->clearContents();
     ui->m_table->setColumnCount(1);
     ui->m_table->setRowCount(list.size());
-
 
     // 添加数据
     for(int i = 0 ; i < list.size() ; ++i)

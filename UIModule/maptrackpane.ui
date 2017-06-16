@@ -175,22 +175,6 @@ border-radius:0px;</string>
          <string notr="true">border-radius:0px;
 border:1px solid rgb(180,180,180);</string>
         </property>
-        <widget class="QLabel" name="label_3">
-         <property name="geometry">
-          <rect>
-           <x>30</x>
-           <y>120</y>
-           <width>661</width>
-           <height>401</height>
-          </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">border-radius:0px;</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
         <widget class="QPushButton" name="m_btnReturn">
          <property name="geometry">
           <rect>
@@ -212,9 +196,19 @@ color: rgb(255, 255, 255);
           <string>返回上一层</string>
          </property>
         </widget>
-        <zorder>label_3</zorder>
-        <zorder>m_btnReturn</zorder>
-        <zorder>m_table</zorder>
+        <widget class="QAxWidget" name="m_axWidgetMap">
+         <property name="geometry" stdset="0">
+          <rect>
+           <x>20</x>
+           <y>130</y>
+           <width>670</width>
+           <height>400</height>
+          </rect>
+         </property>
+         <property name="styleSheet" stdset="0">
+          <string notr="true">border:none</string>
+         </property>
+        </widget>
        </widget>
       </item>
       <item>
@@ -271,6 +265,13 @@ font: 16pt &quot;黑体&quot;;</string>
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QAxWidget</class>
+   <extends>QWidget</extends>
+   <header>qaxwidget.h</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="../Resouce.qrc"/>
  </resources>
