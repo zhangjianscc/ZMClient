@@ -209,10 +209,10 @@ QComboBox::drop-down:border-image: url(:/images/down-01.png);
          <widget class="QPushButton" name="m_btnSelectImage">
           <property name="geometry">
            <rect>
-            <x>90</x>
-            <y>360</y>
-            <width>101</width>
-            <height>41</height>
+            <x>70</x>
+            <y>350</y>
+            <width>147</width>
+            <height>58</height>
            </rect>
           </property>
           <property name="styleSheet">
@@ -226,9 +226,9 @@ border-image: url(:/images/选择照片.png);</string>
          <widget class="QLabel" name="m_labelImage">
           <property name="geometry">
            <rect>
-            <x>40</x>
+            <x>30</x>
             <y>100</y>
-            <width>211</width>
+            <width>230</width>
             <height>251</height>
            </rect>
           </property>
@@ -419,18 +419,14 @@ font: 11pt &quot;黑体&quot;;</string>
         <widget class="QPushButton" name="btnBeginCompare">
          <property name="geometry">
           <rect>
-           <x>260</x>
-           <y>560</y>
-           <width>131</width>
-           <height>51</height>
+           <x>230</x>
+           <y>570</y>
+           <width>191</width>
+           <height>71</height>
           </rect>
          </property>
-         <property name="styleSheet">
-          <string notr="true">border-image: url(:/images/btnBeginCompare-01.png);
-</string>
-         </property>
          <property name="text">
-          <string/>
+          <string>开始比对</string>
          </property>
         </widget>
        </widget>

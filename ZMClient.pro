@@ -86,7 +86,8 @@ HEADERS += \
     UIModule/Comm/mytwoimagecomparepane.h \
     UIModule/Comm/facehistoryimageitem.h \
     UIModule/Comm/maptrackitem.h \
-    UIModule/Comm/mytablewidget.h
+    UIModule/Comm/mytablewidget.h \
+    UIModule/Comm/mycheckboxheaderview.h
 
 SOURCES += \
     base64/base64.cpp \
@@ -141,7 +142,8 @@ SOURCES += \
     UIModule/Comm/mytwoimagecomparepane.cpp \
     UIModule/Comm/facehistoryimageitem.cpp \
     UIModule/Comm/maptrackitem.cpp \
-    UIModule/Comm/mytablewidget.cpp
+    UIModule/Comm/mytablewidget.cpp \
+    UIModule/Comm/mycheckboxheaderview.cpp
 
 FORMS += \
     UIModule/adddevicedlg.ui \

@@ -132,7 +132,7 @@ background-color:rgb(236,236,236)</string>
            <property name="geometry">
             <rect>
              <x>90</x>
-             <y>26</y>
+             <y>20</y>
              <width>91</width>
              <height>20</height>
             </rect>
@@ -148,10 +148,10 @@ font: 11pt &quot;黑体&quot;;</string>
           <widget class="QLabel" name="m_laelImage">
            <property name="geometry">
             <rect>
-             <x>40</x>
+             <x>30</x>
              <y>60</y>
-             <width>181</width>
-             <height>221</height>
+             <width>210</width>
+             <height>240</height>
             </rect>
            </property>
            <property name="text">
@@ -164,10 +164,10 @@ font: 11pt &quot;黑体&quot;;</string>
           <widget class="QPushButton" name="m_btnSelectImage">
            <property name="geometry">
             <rect>
-             <x>74</x>
-             <y>312</y>
-             <width>101</width>
-             <height>51</height>
+             <x>60</x>
+             <y>310</y>
+             <width>147</width>
+             <height>58</height>
             </rect>
            </property>
            <property name="styleSheet">
@@ -326,10 +326,10 @@ font: 10pt &quot;黑体&quot;;</string>
          <widget class="QPushButton" name="m_btnBeginCompare">
           <property name="geometry">
            <rect>
-            <x>240</x>
+            <x>230</x>
             <y>520</y>
-            <width>161</width>
-            <height>61</height>
+            <width>205</width>
+            <height>76</height>
            </rect>
           </property>
           <property name="styleSheet">
@@ -406,15 +406,24 @@ font: 18pt &quot;黑体&quot;;</string>
          <widget class="QLabel" name="label_13">
           <property name="geometry">
            <rect>
-            <x>180</x>
-            <y>40</y>
-            <width>81</width>
-            <height>21</height>
+            <x>160</x>
+            <y>30</y>
+            <width>101</width>
+            <height>31</height>
            </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>黑体</family>
+            <pointsize>16</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
           </property>
           <property name="styleSheet">
            <string notr="true">border:none;
-font: 13pt &quot;黑体&quot;;</string>
+font: 16pt &quot;黑体&quot;;</string>
           </property>
           <property name="text">
            <string>比对结果</string>
@@ -423,10 +432,10 @@ font: 13pt &quot;黑体&quot;;</string>
          <widget class="QPushButton" name="m_btnRunTrack">
           <property name="geometry">
            <rect>
-            <x>160</x>
+            <x>120</x>
             <y>580</y>
-            <width>161</width>
-            <height>51</height>
+            <width>220</width>
+            <height>60</height>
            </rect>
           </property>
           <property name="styleSheet">
