@@ -164,10 +164,10 @@ font: 11pt &quot;黑体&quot;;</string>
           <widget class="QPushButton" name="m_btnSelectImage">
            <property name="geometry">
             <rect>
-             <x>60</x>
+             <x>80</x>
              <y>310</y>
-             <width>147</width>
-             <height>58</height>
+             <width>111</width>
+             <height>51</height>
             </rect>
            </property>
            <property name="styleSheet">
@@ -326,10 +326,10 @@ font: 10pt &quot;黑体&quot;;</string>
          <widget class="QPushButton" name="m_btnBeginCompare">
           <property name="geometry">
            <rect>
-            <x>230</x>
+            <x>250</x>
             <y>520</y>
-            <width>205</width>
-            <height>76</height>
+            <width>151</width>
+            <height>61</height>
            </rect>
           </property>
           <property name="styleSheet">
@@ -432,10 +432,10 @@ font: 16pt &quot;黑体&quot;;</string>
          <widget class="QPushButton" name="m_btnRunTrack">
           <property name="geometry">
            <rect>
-            <x>120</x>
+            <x>140</x>
             <y>580</y>
-            <width>220</width>
-            <height>60</height>
+            <width>151</width>
+            <height>51</height>
            </rect>
           </property>
           <property name="styleSheet">

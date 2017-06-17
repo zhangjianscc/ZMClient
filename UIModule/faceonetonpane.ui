@@ -209,10 +209,10 @@ QComboBox::drop-down:border-image: url(:/images/down-01.png);
          <widget class="QPushButton" name="m_btnSelectImage">
           <property name="geometry">
            <rect>
-            <x>70</x>
-            <y>350</y>
-            <width>147</width>
-            <height>58</height>
+            <x>80</x>
+            <y>360</y>
+            <width>111</width>
+            <height>45</height>
            </rect>
           </property>
           <property name="styleSheet">
@@ -421,8 +421,8 @@ font: 11pt &quot;黑体&quot;;</string>
           <rect>
            <x>230</x>
            <y>570</y>
-           <width>191</width>
-           <height>71</height>
+           <width>151</width>
+           <height>61</height>
           </rect>
          </property>
          <property name="text">

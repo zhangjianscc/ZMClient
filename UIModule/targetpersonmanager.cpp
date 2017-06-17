@@ -2,6 +2,7 @@
 #include "ui_targetpersonmanager.h"
 #include "UIModule/Comm/mytablewidget.h"
 #include "UIModule/Comm/mycheckboxheaderview.h"
+#include "UIModule/addtargetpersondlg.h"
 
 TargetPersonManager::TargetPersonManager(QWidget *parent) :
     QWidget(parent),
@@ -93,10 +94,7 @@ void TargetPersonManager::initUI()
     connect(ui->m_btnPageFive,SIGNAL(clicked(bool)),this,SLOT(onBtnPage5()));
     connect(ui->m_btnPageNext,SIGNAL(clicked(bool)),this,SLOT(onBtnPageNext()));
     connect(ui->m_btnPageLast,SIGNAL(clicked(bool)),this,SLOT(onBtnPageLast()));
-
-
-
-
+    connect(ui->m_btnAddTargetPerson,SIGNAL(clicked(bool)),this,SLOT(onBtnAddTargetPerson()));
 }
 void TargetPersonManager::onBtnSearch()
 {}
@@ -126,6 +124,11 @@ void TargetPersonManager::onBtnEdit()
 {}
 void TargetPersonManager::onSlotselectChanged(bool checked)
 {}
+void TargetPersonManager::onBtnAddTargetPerson()
+{
+    AddTargetPersonDlg* pDlg = new AddTargetPersonDlg(NULL);
+    pDlg->show();
+}
 /*
 void TargetPersonManager::updateData()
 {
