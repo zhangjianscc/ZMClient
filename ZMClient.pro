@@ -86,7 +86,13 @@ HEADERS += \
     UIModule/Comm/mytwoimagecomparepane.h \
     UIModule/Comm/facehistoryimageitem.h \
     UIModule/Comm/maptrackitem.h \
+<<<<<<< HEAD
     UIModule/Comm/mytablewidget.h
+=======
+    UIModule/Comm/mytablewidget.h \
+    UIModule/warningdismonareadialog.h \
+    UIModule/warningdisdelsuredialog.h
+>>>>>>> wb
 
 SOURCES += \
     base64/base64.cpp \
@@ -141,7 +147,13 @@ SOURCES += \
     UIModule/Comm/mytwoimagecomparepane.cpp \
     UIModule/Comm/facehistoryimageitem.cpp \
     UIModule/Comm/maptrackitem.cpp \
+<<<<<<< HEAD
     UIModule/Comm/mytablewidget.cpp
+=======
+    UIModule/Comm/mytablewidget.cpp \
+    UIModule/warningdismonareadialog.cpp \
+    UIModule/warningdisdelsuredialog.cpp
+>>>>>>> wb
 
 FORMS += \
     UIModule/adddevicedlg.ui \
@@ -175,7 +187,13 @@ FORMS += \
     UIModule/Comm/mytwoimagecomparepane.ui \
     UIModule/Comm/facehistoryimageitem.ui \
     UIModule/Comm/maptrackitem.ui \
+<<<<<<< HEAD
     UIModule/Comm/mytablewidget.ui
+=======
+    UIModule/Comm/mytablewidget.ui \
+    UIModule/warningdismonareadialog.ui \
+    UIModule/warningdisdelsuredialog.ui
+>>>>>>> wb
 
 RESOURCES += \
     Resouce.qrc

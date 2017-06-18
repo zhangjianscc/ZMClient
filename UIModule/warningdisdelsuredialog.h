@@ -1,19 +1,19 @@
-#ifndef ADDMONITORPOSITIONDLG_H
-#define ADDMONITORPOSITIONDLG_H
+#ifndef WARNINGDISDELSUREDIALOG_H
+#define WARNINGDISDELSUREDIALOG_H
 
 #include <QDialog>
 
 namespace Ui {
-class AddMonitorPositionDlg;
+class WarningDisDelSureDialog;
 }
 
-class AddMonitorPositionDlg : public QDialog
+class WarningDisDelSureDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit AddMonitorPositionDlg(QWidget *parent = 0);
-    ~AddMonitorPositionDlg();
+    explicit WarningDisDelSureDialog(QWidget *parent = 0);
+    ~WarningDisDelSureDialog();
 
     QPoint m_curWindowPos;
     QPoint m_curMousePos;
@@ -21,8 +21,7 @@ public:
 
 public slots:
     void slot_closeButClicked();
-    void slot_openButClicked();
-    void slot_saveButClicked();
+    void slot_deleteButClicked();
     void slot_cancelButClicked();
 
 protected:
@@ -31,9 +30,9 @@ protected:
     void paintEvent(QPaintEvent *event);
 
 private:
-    Ui::AddMonitorPositionDlg *ui;
+    Ui::WarningDisDelSureDialog *ui;
 
     void initUi();
 };
 
-#endif // ADDMONITORPOSITIONDLG_H
+#endif // WARNINGDISDELSUREDIALOG_H

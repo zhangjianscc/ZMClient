@@ -9,7 +9,11 @@ struct Area
 {
     QString id;             /// 区域编号
     QString name;           /// 区域名称
+<<<<<<< HEAD
     QString area;           /// 行政区划
+=======
+    QString addr;           /// 行政区划
+>>>>>>> wb
     QString type;           /// 区域类型
     QString status;         /// 区域状态
     QString description;    /// 区域描述

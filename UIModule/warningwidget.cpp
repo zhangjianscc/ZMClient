@@ -10,16 +10,16 @@ WarningWidget::WarningWidget(QWidget *parent) :
     initUi();
 }
 
-void WarningWidget::mousePressEvent(QMouseEvent *ev)
+void WarningWidget::mousePressEvent(QMouseEvent *event)
 {
      this->m_curWindowPos = this->pos();
-     this->m_curMousePos = ev->globalPos();
+     this->m_curMousePos = event->globalPos();
      this->m_destWindowPos = m_curMousePos - m_curWindowPos;
 }
 
-void WarningWidget::mouseMoveEvent(QMouseEvent *ev)
+void WarningWidget::mouseMoveEvent(QMouseEvent *event)
 {
-     this->move(ev->globalPos() - this->m_destWindowPos);
+     this->move(event->globalPos() - this->m_destWindowPos);
 }
 
 void WarningWidget::paintEvent(QPaintEvent *event)

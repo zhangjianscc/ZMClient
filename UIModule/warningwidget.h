@@ -32,8 +32,8 @@ public slots:
     void slot_okButClicked();
 
 protected:
-    void mousePressEvent(QMouseEvent *ev);
-    void mouseMoveEvent(QMouseEvent *ev);
+    void mousePressEvent(QMouseEvent *event);
+    void mouseMoveEvent(QMouseEvent *event);
     void paintEvent(QPaintEvent *event);
 
 private:

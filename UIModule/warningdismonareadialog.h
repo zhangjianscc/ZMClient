@@ -1,19 +1,19 @@
-#ifndef EDITMONITORAREADLG_H
-#define EDITMONITORAREADLG_H
+#ifndef WARNINGDISMONAREADIALOG_H
+#define WARNINGDISMONAREADIALOG_H
 
 #include <QDialog>
 
 namespace Ui {
-class EditMonitorAreaDlg;
+class WarningDisMonAreaDialog;
 }
 
-class EditMonitorAreaDlg : public QDialog
+class WarningDisMonAreaDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit EditMonitorAreaDlg(QWidget *parent = 0);
-    ~EditMonitorAreaDlg();
+    explicit WarningDisMonAreaDialog(QWidget *parent = 0);
+    ~WarningDisMonAreaDialog();
 
     QPoint m_curWindowPos;
     QPoint m_curMousePos;
@@ -21,8 +21,7 @@ public:
 
 public slots:
     void slot_closeButClicked();
-    void slot_saveButClicked();
-    void slot_cancelButClicked();
+    void slot_okButClicked();
 
 protected:
     void mousePressEvent(QMouseEvent *event);
@@ -30,9 +29,9 @@ protected:
     void paintEvent(QPaintEvent *event);
 
 private:
-    Ui::EditMonitorAreaDlg *ui;
+    Ui::WarningDisMonAreaDialog *ui;
 
     void initUi();
 };
 
-#endif // EDITMONITORAREADLG_H
+#endif // WARNINGDISMONAREADIALOG_H
