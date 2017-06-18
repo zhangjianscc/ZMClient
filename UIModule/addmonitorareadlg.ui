@@ -76,11 +76,7 @@ border:none</string>
      <string notr="true">border:none;</string>
     </property>
     <property name="text">
-     <string>PushButton</string>
-    </property>
-    <property name="icon">
-     <iconset resource="../Resouce.qrc">
-      <normaloff>:/images/弹窗X选.png</normaloff>:/images/弹窗X选.png</iconset>
+     <string/>
     </property>
    </widget>
   </widget>
@@ -322,26 +318,8 @@ border-radius:0px;
 background-color:rgb(255,255,255);</string>
     </property>
    </widget>
-   <zorder>nameLabel</zorder>
-   <zorder>areaComboBox</zorder>
-   <zorder>savePushButton</zorder>
-   <zorder>cancelPushButton</zorder>
-   <zorder>areaLabel</zorder>
-   <zorder>typeLabel</zorder>
-   <zorder>descriptionLabel</zorder>
-   <zorder>remakeLabel</zorder>
-   <zorder>typeComboBox</zorder>
-   <zorder>nameLineEdit</zorder>
-   <zorder>descriptionTextEdit</zorder>
-   <zorder>remakeTextEdit</zorder>
-   <zorder>titleWidget</zorder>
   </widget>
-  <zorder>contentWidget</zorder>
-  <zorder>titleWidget</zorder>
-  <zorder>contentWidget</zorder>
  </widget>
- <resources>
-  <include location="../Resouce.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

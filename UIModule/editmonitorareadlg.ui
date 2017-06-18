@@ -76,11 +76,7 @@ border:none</string>
      <string notr="true">border:none;</string>
     </property>
     <property name="text">
-     <string>PushButton</string>
-    </property>
-    <property name="icon">
-     <iconset resource="../Resouce.qrc">
-      <normaloff>:/images/弹窗X选.png</normaloff>:/images/弹窗X选.png</iconset>
+     <string/>
     </property>
    </widget>
   </widget>
@@ -324,8 +320,6 @@ background-color:rgb(255,255,255);</string>
    </widget>
   </widget>
  </widget>
- <resources>
-  <include location="../Resouce.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

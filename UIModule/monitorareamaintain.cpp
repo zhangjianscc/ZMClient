@@ -2,6 +2,8 @@
 #include "ui_monitorareamaintain.h"
 #include "addmonitorareadlg.h"
 #include "editmonitorareadlg.h"
+#include "warningdismonareadialog.h"
+#include "warningdisdelsuredialog.h"
 
 MonitorAreaMaintain::MonitorAreaMaintain(QWidget *parent) :
     QWidget(parent),
@@ -81,6 +83,16 @@ void MonitorAreaMaintain::initUi()
     pHBoxLayout->addWidget(ui->fiveButton);
     pHBoxLayout->addWidget(ui->nextPushButton);
     pHBoxLayout->addWidget(ui->endPushButton);
+
+    ui->startPushButton->setVisible(false);
+    ui->frontPushButton->setVisible(false);
+    ui->oneButton->setVisible(false);
+    ui->twoButton->setVisible(false);
+    ui->threeButton->setVisible(false);
+    ui->buttonLabel->setVisible(false);
+    ui->fiveButton->setVisible(false);
+    ui->nextPushButton->setVisible(false);
+    ui->endPushButton->setVisible(false);
 
     connect(ui->searchPushButton, SIGNAL(clicked(bool)), this, SLOT(slot_searchButClicked()));
     connect(ui->addPushButton, SIGNAL(clicked(bool)), this, SLOT(slot_addButClicked()));
@@ -216,7 +228,7 @@ void MonitorAreaMaintain::updateData()
             pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
             ui->tableWidget->setItem(i-startIndex, 1, pItem);
 
-            pItem = new QTableWidgetItem(m_dataList[i].area);
+            pItem = new QTableWidgetItem(m_dataList[i].addr);
             pItem->setTextAlignment(Qt::AlignCenter);
             pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
             ui->tableWidget->setItem(i-startIndex, 2, pItem);
@@ -256,7 +268,7 @@ void MonitorAreaMaintain::slot_searchButClicked()
     Area area;
     area.id = ui->numberLineEdit->text();
     area.name = ui->nameLineEdit->text();
-    area.area = ui->areaComboBox->currentText();
+    area.addr = ui->addrComboBox->currentText();
     area.type = ui->typeLlineEdit->text();
     area.status = ui->statusComboBox->currentText();
 
@@ -265,7 +277,7 @@ void MonitorAreaMaintain::slot_searchButClicked()
     /// 测试代码
     area.id = "TC1301230182";
     area.name = "第九区";
-    area.area = "四川省成都市高新区";
+    area.addr = "四川省成都市高新区";
     area.type = "常用区域";
     area.status = "启用";
     area.description = "重点监控区域";
@@ -292,7 +304,11 @@ void MonitorAreaMaintain::slot_editButClicked()
 }
 
 void MonitorAreaMaintain::slot_allSelButClicked()
-{}
+{
+    /// 测试代码
+    WarningDisDelSureDialog warningDisMonAreaDialog;
+    warningDisMonAreaDialog.exec();
+}
 
 void MonitorAreaMaintain::slot_allCleButClicked()
 {}

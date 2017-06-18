@@ -255,7 +255,7 @@ border-radius:0px;</string>
 background-color:rgb(255,255,255);</string>
     </property>
    </widget>
-   <widget class="QLabel" name="areaLabel">
+   <widget class="QLabel" name="addrLabel">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -272,7 +272,7 @@ border-radius:0px;</string>
      <string>行政区划</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="areaComboBox">
+   <widget class="QComboBox" name="addrComboBox">
     <property name="geometry">
      <rect>
       <x>80</x>
@@ -583,12 +583,6 @@ border-radius:2px;</string>
     </property>
    </widget>
   </widget>
-  <zorder>titleWidget</zorder>
-  <zorder>areaButWidget</zorder>
-  <zorder>tableWidget</zorder>
-  <zorder>areaConWidget</zorder>
-  <zorder>tableWidget</zorder>
-  <zorder>buttonWidget</zorder>
  </widget>
  <resources>
   <include location="../Resouce.qrc"/>
