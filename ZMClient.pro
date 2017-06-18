@@ -87,12 +87,17 @@ HEADERS += \
     UIModule/Comm/facehistoryimageitem.h \
     UIModule/Comm/maptrackitem.h \
 <<<<<<< HEAD
+<<<<<<< HEAD
     UIModule/Comm/mytablewidget.h
 =======
     UIModule/Comm/mytablewidget.h \
     UIModule/warningdismonareadialog.h \
     UIModule/warningdisdelsuredialog.h
 >>>>>>> wb
+=======
+    UIModule/Comm/mytablewidget.h \
+    UIModule/Comm/mycheckboxheaderview.h
+>>>>>>> 2717df90ae021ef2c219423b2227a9c339c2bd5a
 
 SOURCES += \
     base64/base64.cpp \
@@ -148,12 +153,17 @@ SOURCES += \
     UIModule/Comm/facehistoryimageitem.cpp \
     UIModule/Comm/maptrackitem.cpp \
 <<<<<<< HEAD
+<<<<<<< HEAD
     UIModule/Comm/mytablewidget.cpp
 =======
     UIModule/Comm/mytablewidget.cpp \
     UIModule/warningdismonareadialog.cpp \
     UIModule/warningdisdelsuredialog.cpp
 >>>>>>> wb
+=======
+    UIModule/Comm/mytablewidget.cpp \
+    UIModule/Comm/mycheckboxheaderview.cpp
+>>>>>>> 2717df90ae021ef2c219423b2227a9c339c2bd5a
 
 FORMS += \
     UIModule/adddevicedlg.ui \

@@ -391,9 +391,9 @@ font: 11pt &quot;黑体&quot;;</string>
          <widget class="QPushButton" name="btnBeginCompare">
           <property name="geometry">
            <rect>
-            <x>214</x>
-            <y>510</y>
-            <width>161</width>
+            <x>260</x>
+            <y>530</y>
+            <width>151</width>
             <height>61</height>
            </rect>
           </property>

@@ -44,7 +44,6 @@ public slots:
     void onBtnPage1();
     void onBtnPage2();
     void onBtnPage3();
-    void onBtnPage4();
     void onBtnPage5();
     void onBtnPageNext();
     void onBtnPageLast();

@@ -61,7 +61,7 @@ border:1px solid rgb(180,180,180);</string>
 border:none</string>
       </property>
       <property name="text">
-       <string>编辑目标人</string>
+       <string>添加目标人</string>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton">
@@ -94,7 +94,7 @@ border:none</string>
        </rect>
       </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string>出生日期</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_3">
@@ -107,7 +107,7 @@ border:none</string>
        </rect>
       </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string>姓名</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_4">

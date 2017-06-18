@@ -51,7 +51,8 @@ void FaceOneToNPane::initUI()
     ui->m_tableDestLibary->horizontalHeader()->setStretchLastSection(true);
     ui->m_tableDestLibary->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     ui->m_tableDestLibary->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    ui->m_tableDestLibary->setSelectionMode(QAbstractItemView::SingleSelection);
+    ui->m_tableDestLibary->setSelectionMode(QAbstractItemView::NoSelection);
+    ui->m_tableDestLibary->setFocusPolicy(Qt::NoFocus);
     ui->m_tableDestLibary->verticalScrollBar()->setStyleSheet("QScrollBar:vertical{border:none;width:10px;background:rgb(236,236,236)}"
                                                             "QScrollBar::handle{border:none;border-radius:5px;width:10px;background:rgb(178,178,178);}");
 
@@ -106,8 +107,8 @@ void FaceOneToNPane::initTargetLibraryData(QStringList list)
         QWidget* pWid = new QWidget();
         QHBoxLayout* pLayout = new QHBoxLayout(pWid);
         pLayout->setMargin(0);
-        pLayout->addWidget(pBtn,0,Qt::AlignCenter);
-        ui->m_tableDestLibary->setRowHeight(i,pWid->height() + 3);
+        pLayout->addWidget(pBtn);
+        ui->m_tableDestLibary->setRowHeight(i,pBtn->height() + 3);
         ui->m_tableDestLibary->setCellWidget(i,0,pWid);
 
         connect(pBtn, SIGNAL(clicked(bool)), this, SLOT(slot_test()));

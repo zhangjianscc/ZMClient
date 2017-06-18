@@ -52,8 +52,6 @@ void MyTableWidget::onBtnPage2()
 {}
 void MyTableWidget::onBtnPage3()
 {}
-void MyTableWidget::onBtnPage4()
-{}
 void MyTableWidget::onBtnPage5()
 {}
 void MyTableWidget::onBtnPageNext()
