@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>700</height>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,22 +15,44 @@
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(227, 227, 227);
-border:1px solid rgb(180,180,180);</string>
+border:1px solid rgb(180,180,180);
+border-radius:5px</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
    <item>
     <widget class="QWidget" name="widget" native="true">
      <property name="minimumSize">
       <size>
        <width>0</width>
-       <height>40</height>
+       <height>30</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
        <width>16777215</width>
-       <height>40</height>
+       <height>30</height>
       </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-top-left-radius:5px;
+border-top-right-radius:5px;
+border-bottom-left-radius:0px;
+border-bottom-right-radius:0px;</string>
      </property>
      <widget class="QLabel" name="label">
       <property name="geometry">
@@ -38,8 +60,14 @@ border:1px solid rgb(180,180,180);</string>
         <x>20</x>
         <y>5</y>
         <width>101</width>
-        <height>31</height>
+        <height>21</height>
        </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
       </property>
       <property name="styleSheet">
        <string notr="true">font: 11pt &quot;黑体&quot;;
@@ -49,66 +77,101 @@ border:none</string>
        <string>添加照片</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="m_btnClose">
       <property name="geometry">
        <rect>
-        <x>779</x>
+        <x>775</x>
         <y>0</y>
-        <width>20</width>
-        <height>20</height>
+        <width>25</width>
+        <height>25</height>
        </rect>
       </property>
+      <property name="minimumSize">
+       <size>
+        <width>25</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>25</width>
+        <height>25</height>
+       </size>
+      </property>
       <property name="styleSheet">
-       <string notr="true">border-image: url(:/images/mouseenter03.png);</string>
+       <string notr="true">border-top-left-radius:0px;
+border-top-right-radius:5px;
+border-bottom-left-radius:0px;
+border-bottom-right-radius:0px;</string>
       </property>
       <property name="text">
        <string/>
       </property>
      </widget>
-     <zorder>label</zorder>
-     <zorder>pushButton</zorder>
-     <zorder>widget_2</zorder>
     </widget>
    </item>
    <item>
     <widget class="QWidget" name="widget_2" native="true">
-     <widget class="QPushButton" name="pushButton_2">
+     <property name="styleSheet">
+      <string notr="true">border-top-left-radius:0px;
+border-top-right-radius:0px;
+border-bottom-left-radius:5px;
+border-bottom-right-radius:5px;</string>
+     </property>
+     <widget class="QPushButton" name="m_btnSave">
       <property name="geometry">
        <rect>
-        <x>530</x>
-        <y>550</y>
+        <x>610</x>
+        <y>520</y>
         <width>75</width>
-        <height>23</height>
+        <height>31</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">font: 14pt &quot;黑体&quot;;
+border: none;
+border-radius: 2px;
+background-color:rgb(180,180,180)</string>
+      </property>
       <property name="text">
-       <string>PushButton</string>
+       <string>保存</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_3">
+     <widget class="QPushButton" name="m_btnCancel">
       <property name="geometry">
        <rect>
-        <x>630</x>
-        <y>550</y>
+        <x>700</x>
+        <y>520</y>
         <width>75</width>
-        <height>23</height>
+        <height>31</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">font: 14pt &quot;黑体&quot;;
+border: none;
+border-radius: 2px;
+background-color:rgb(180,180,180)</string>
+      </property>
       <property name="text">
-       <string>PushButton</string>
+       <string>取消</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
-        <x>140</x>
+        <x>130</x>
         <y>70</y>
-        <width>54</width>
-        <height>12</height>
+        <width>111</width>
+        <height>31</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius:0px;
+border:none;
+font: 14pt &quot;黑体&quot;;</string>
+      </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string>目标人信息</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_3">
@@ -120,8 +183,12 @@ border:none</string>
         <height>12</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">border:none;
+font: 10pt &quot;黑体&quot;;</string>
+      </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string>沃尔沃</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_4">
@@ -133,8 +200,12 @@ border:none</string>
         <height>12</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">border:none;
+font: 10pt &quot;黑体&quot;;</string>
+      </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string>男</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_5">
@@ -146,8 +217,12 @@ border:none</string>
         <height>12</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">border:none;
+font: 10pt &quot;黑体&quot;;</string>
+      </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string>45岁</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_6">
@@ -159,8 +234,12 @@ border:none</string>
         <height>12</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">border:none;
+font: 10pt &quot;黑体&quot;;</string>
+      </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string>极度危险</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_7">
@@ -172,34 +251,43 @@ border:none</string>
         <height>12</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">border:none;
+font: 10pt &quot;黑体&quot;;</string>
+      </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string>在逃</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_8">
       <property name="geometry">
        <rect>
-        <x>140</x>
+        <x>90</x>
         <y>160</y>
         <width>54</width>
-        <height>12</height>
+        <height>16</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">border:none;
+font: 10pt &quot;黑体&quot;;</string>
+      </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string>身份证</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_9">
       <property name="geometry">
        <rect>
         <x>470</x>
-        <y>10</y>
+        <y>40</y>
         <width>121</width>
         <height>161</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">border:1px solid rgb(180,180,180)</string>
+       <string notr="true">border:1px solid rgb(180,180,180);
+border-radius:0px</string>
       </property>
       <property name="text">
        <string/>
@@ -208,83 +296,124 @@ border:none</string>
      <widget class="QPushButton" name="pushButton_4">
       <property name="geometry">
        <rect>
-        <x>510</x>
-        <y>200</y>
+        <x>500</x>
+        <y>220</y>
         <width>75</width>
         <height>23</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius:0px</string>
+      </property>
       <property name="text">
-       <string>PushButton</string>
+       <string>选择图片</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_10">
       <property name="geometry">
        <rect>
         <x>60</x>
-        <y>320</y>
+        <y>310</y>
         <width>54</width>
         <height>21</height>
        </rect>
       </property>
-      <property name="text">
-       <string>TextLabel</string>
+      <property name="styleSheet">
+       <string notr="true">border:none;
+font: 12pt &quot;黑体&quot;;</string>
       </property>
-     </widget>
-     <widget class="QComboBox" name="comboBox">
-      <property name="geometry">
-       <rect>
-        <x>120</x>
-        <y>320</y>
-        <width>141</width>
-        <height>22</height>
-       </rect>
+      <property name="text">
+       <string>选择库</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_11">
       <property name="geometry">
        <rect>
-        <x>380</x>
-        <y>320</y>
-        <width>54</width>
-        <height>12</height>
+        <x>363</x>
+        <y>310</y>
+        <width>71</width>
+        <height>21</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">border:none;
+font: 12pt &quot;黑体&quot;;</string>
+      </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string>照片名称</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit">
       <property name="geometry">
        <rect>
-        <x>470</x>
+        <x>440</x>
         <y>310</y>
-        <width>113</width>
+        <width>251</width>
         <height>51</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius:0px</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_12">
       <property name="geometry">
        <rect>
-        <x>380</x>
-        <y>400</y>
-        <width>54</width>
-        <height>12</height>
+        <x>363</x>
+        <y>380</y>
+        <width>71</width>
+        <height>21</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">border:none;
+font: 12pt &quot;黑体&quot;;</string>
+      </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string>照片描述</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit_2">
       <property name="geometry">
        <rect>
-        <x>470</x>
+        <x>440</x>
         <y>380</y>
-        <width>113</width>
-        <height>111</height>
+        <width>251</width>
+        <height>101</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius:0px</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_13">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>160</y>
+        <width>131</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border:none;
+font: 10pt &quot;黑体&quot;;</string>
+      </property>
+      <property name="text">
+       <string>510824198808082525</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_3">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>310</y>
+        <width>171</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius:0px</string>
       </property>
      </widget>
     </widget>

@@ -79,8 +79,6 @@ QPushButton#btnBeginCompare{
     border-image:url(:/images/btnBeginCompare-01.png);
     border: 0px;
     border-radius: 0px;
-    width: 160px;
-    height: 70px;
 }
 QPushButton#btnBeginCompare:hover{
     border-image:url(:/images/btnBeginCompare-02.png);
@@ -88,7 +86,6 @@ QPushButton#btnBeginCompare:hover{
 QPushButton#btnBeginCompare:pressed{
     border-image:url(:/images/btnBeginCompare-03.png);
 }
-
 
 
 

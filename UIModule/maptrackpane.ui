@@ -133,6 +133,12 @@ font: 11pt &quot;黑体&quot;;</string>
           <height>25</height>
          </size>
         </property>
+        <property name="maximumSize">
+         <size>
+          <width>25</width>
+          <height>25</height>
+         </size>
+        </property>
         <property name="styleSheet">
          <string notr="true">border-radius:0px;
 border-top-right-radius:5px;

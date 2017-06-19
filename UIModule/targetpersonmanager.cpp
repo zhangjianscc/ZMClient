@@ -3,6 +3,7 @@
 #include "UIModule/Comm/mytablewidget.h"
 #include "UIModule/Comm/mycheckboxheaderview.h"
 #include "UIModule/addtargetpersondlg.h"
+#include "UIModule/edittargetpersondlg.h"
 
 TargetPersonManager::TargetPersonManager(QWidget *parent) :
     QWidget(parent),
@@ -10,6 +11,8 @@ TargetPersonManager::TargetPersonManager(QWidget *parent) :
 {
     ui->setupUi(this);
     initUI();
+    // test
+    onBtnEditTargetPerson();
 }
 
 TargetPersonManager::~TargetPersonManager()
@@ -127,6 +130,11 @@ void TargetPersonManager::onSlotselectChanged(bool checked)
 void TargetPersonManager::onBtnAddTargetPerson()
 {
     AddTargetPersonDlg* pDlg = new AddTargetPersonDlg(NULL);
+    pDlg->show();
+}
+void TargetPersonManager::onBtnEditTargetPerson()
+{
+    EditTargetPersonDlg* pDlg = new EditTargetPersonDlg(NULL);
     pDlg->show();
 }
 /*
