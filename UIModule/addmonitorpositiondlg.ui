@@ -13,6 +13,11 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">border:1px solid rgb(200,200,200);
+border-radius:5px;
+background-color:rgb(236,236,236);</string>
+  </property>
   <widget class="QWidget" name="contentWidget" native="true">
    <property name="geometry">
     <rect>
@@ -219,7 +224,7 @@ border-radius:5px</string>
      <string>点击查看地图</string>
     </property>
    </widget>
-   <widget class="QLabel" name="displayLabel">
+   <widget class="QLabel" name="coordinatesDisLabel">
     <property name="geometry">
      <rect>
       <x>130</x>

@@ -12,7 +12,7 @@ class WarningDisDelSureDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit WarningDisDelSureDialog(QWidget *parent = 0);
+    explicit WarningDisDelSureDialog(QString text, QWidget *parent = 0);
     ~WarningDisDelSureDialog();
 
     QPoint m_curWindowPos;
@@ -33,6 +33,8 @@ private:
     Ui::WarningDisDelSureDialog *ui;
 
     void initUi();
+
+    QString m_text;
 };
 
 #endif // WARNINGDISDELSUREDIALOG_H

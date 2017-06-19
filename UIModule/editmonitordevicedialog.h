@@ -1,19 +1,19 @@
-#ifndef EDITMONITORPOSITIONDLG_H
-#define EDITMONITORPOSITIONDLG_H
+#ifndef EDITMONITORDEVICEDIALOG_H
+#define EDITMONITORDEVICEDIALOG_H
 
 #include <QDialog>
 
 namespace Ui {
-class EditMonitorPositionDlg;
+class EditMonitorDeviceDialog;
 }
 
-class EditMonitorPositionDlg : public QDialog
+class EditMonitorDeviceDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit EditMonitorPositionDlg(QWidget *parent = 0);
-    ~EditMonitorPositionDlg();
+    explicit EditMonitorDeviceDialog(QWidget *parent = 0);
+    ~EditMonitorDeviceDialog();
 
     QPoint m_curWindowPos;
     QPoint m_curMousePos;
@@ -21,7 +21,6 @@ public:
 
 public slots:
     void slot_closeButClicked();
-    void slot_openButClicked();
     void slot_saveButClicked();
     void slot_cancelButClicked();
 
@@ -31,9 +30,9 @@ protected:
     void paintEvent(QPaintEvent *event);
 
 private:
-    Ui::EditMonitorPositionDlg *ui;
+    Ui::EditMonitorDeviceDialog *ui;
 
     void initUi();
 };
 
-#endif // EDITMONITORPOSITIONDLG_H
+#endif // EDITMONITORDEVICEDIALOG_H

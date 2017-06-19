@@ -2,6 +2,9 @@
 #include "ui_monitorpositionmaintain.h"
 #include "addmonitorpositiondlg.h"
 #include "editmonitorpositiondlg.h"
+#include "warningdismonposdialog.h"
+#include "warningdisdelsuredialog.h"
+#include "Comm/mycheckboxheaderview.h"
 
 MonitorPositionMaintain::MonitorPositionMaintain(QWidget *parent) :
     QWidget(parent),
@@ -54,11 +57,17 @@ void MonitorPositionMaintain::initUi()
     ui->endPushButton->setStyleSheet(m_stringStyle);
 
     /// 数据列表显示区
+    ui->tableWidget->verticalHeader()->setVisible(false);
+
+    MyCheckBoxHeaderView *myCheckBoxHeaderView = new MyCheckBoxHeaderView(0, Qt::Horizontal, ui->tableWidget);
+    ui->tableWidget->setHorizontalHeader(myCheckBoxHeaderView);
+    connect(myCheckBoxHeaderView, SIGNAL(checkStausChange(bool)), this, SLOT(slot_allSelButClicked()));
+
     ui->tableWidget->setRowCount(8);
-    ui->tableWidget->setColumnCount(7);
+    ui->tableWidget->setColumnCount(8);
     QStringList stringList;
     stringList.clear();
-    stringList << "位置编号" << "位置名称" << "行政区划" << "监控区域" << "经纬度" << "状态" << "操作";
+    stringList << "" << "位置编号" << "位置名称" << "行政区划" << "监控区域" << "经纬度" << "状态" << "操作";
     ui->tableWidget->setHorizontalHeaderLabels(stringList);
     for(int i=0; i<stringList.count(); ++i)
     {
@@ -67,6 +76,7 @@ void MonitorPositionMaintain::initUi()
     ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tableWidget->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     /// 页面按钮布局
     QHBoxLayout *pHBoxLayout = new QHBoxLayout(ui->buttonWidget);
@@ -216,35 +226,41 @@ void MonitorPositionMaintain::updateData()
     {
         if(i < m_dataList.count())
         {
-            QTableWidgetItem *pItem = new QTableWidgetItem(m_dataList[i].id);
-            pItem->setTextAlignment(Qt::AlignCenter);
-            pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
-            ui->tableWidget->setItem(i-startIndex, 0, pItem);
+            QWidget *pCheckBoxWidget = new QWidget;
+            QCheckBox *pCheckBox = new QCheckBox;
+            QHBoxLayout *pCheckBoxLayout = new QHBoxLayout(pCheckBoxWidget);
+            pCheckBoxLayout->addWidget(pCheckBox, 0, Qt::AlignCenter);
+            ui->tableWidget->setCellWidget(i-startIndex, 0, pCheckBoxWidget);
 
-            pItem = new QTableWidgetItem(m_dataList[i].name);
+            QTableWidgetItem *pItem = new QTableWidgetItem(m_dataList[i].id);
             pItem->setTextAlignment(Qt::AlignCenter);
             pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
             ui->tableWidget->setItem(i-startIndex, 1, pItem);
 
-            pItem = new QTableWidgetItem(m_dataList[i].addr);
+            pItem = new QTableWidgetItem(m_dataList[i].name);
             pItem->setTextAlignment(Qt::AlignCenter);
             pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
             ui->tableWidget->setItem(i-startIndex, 2, pItem);
 
-            pItem = new QTableWidgetItem(m_dataList[i].area);
+            pItem = new QTableWidgetItem(m_dataList[i].addr);
             pItem->setTextAlignment(Qt::AlignCenter);
             pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
             ui->tableWidget->setItem(i-startIndex, 3, pItem);
 
-            pItem = new QTableWidgetItem(m_dataList[i].Coordinates);
+            pItem = new QTableWidgetItem(m_dataList[i].area);
             pItem->setTextAlignment(Qt::AlignCenter);
             pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
             ui->tableWidget->setItem(i-startIndex, 4, pItem);
 
-            pItem = new QTableWidgetItem(m_dataList[i].status);
+            pItem = new QTableWidgetItem(m_dataList[i].Coordinates);
             pItem->setTextAlignment(Qt::AlignCenter);
             pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
             ui->tableWidget->setItem(i-startIndex, 5, pItem);
+
+            pItem = new QTableWidgetItem(m_dataList[i].status);
+            pItem->setTextAlignment(Qt::AlignCenter);
+            pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
+            ui->tableWidget->setItem(i-startIndex, 6, pItem);
 
             QWidget *pWidget = new QWidget;
             pWidget->setStyleSheet("QWidget{border:none}");
@@ -254,7 +270,7 @@ void MonitorPositionMaintain::updateData()
             QHBoxLayout *pHBoxLayout = new QHBoxLayout(pWidget);
             pHBoxLayout->addWidget(pEditPushButton, 0, Qt::AlignCenter);
             pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
-            ui->tableWidget->setCellWidget(i-startIndex, 6, pWidget);
+            ui->tableWidget->setCellWidget(i-startIndex, 7, pWidget);
 
             connect(pEditPushButton, SIGNAL(clicked(bool)), this, SLOT(slot_editButClicked()));
         }
@@ -301,7 +317,12 @@ void MonitorPositionMaintain::slot_editButClicked()
 }
 
 void MonitorPositionMaintain::slot_allSelButClicked()
-{}
+{
+    /// 测试代码
+    //WarningDisMonPosdialog warningDisMonPosdialog;
+    WarningDisDelSureDialog *warningDisMonPosdialog = new WarningDisDelSureDialog(tr("监控位置"));
+    warningDisMonPosdialog->exec();
+}
 
 void MonitorPositionMaintain::slot_allCleButClicked()
 {}

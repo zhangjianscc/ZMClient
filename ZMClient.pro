@@ -89,7 +89,10 @@ HEADERS += \
     UIModule/warningdisdelsuredialog.h \
     UIModule/Comm/mytablewidget.h \
     UIModule/Comm/mycheckboxheaderview.h \
-    UIModule/addmonitorareadlg.h
+    UIModule/addmonitorareadlg.h \
+    UIModule/warningdismonposdialog.h \
+    UIModule/addmonitordevicedialog.h \
+    UIModule/editmonitordevicedialog.h
 
 SOURCES += \
     base64/base64.cpp \
@@ -147,7 +150,10 @@ SOURCES += \
     UIModule/warningdismonareadialog.cpp \
     UIModule/warningdisdelsuredialog.cpp \
     UIModule/Comm/mycheckboxheaderview.cpp \
-    UIModule/addmonitorareadlg.cpp
+    UIModule/addmonitorareadlg.cpp \
+    UIModule/warningdismonposdialog.cpp \
+    UIModule/addmonitordevicedialog.cpp \
+    UIModule/editmonitordevicedialog.cpp
 
 FORMS += \
     UIModule/adddevicedlg.ui \
@@ -183,7 +189,10 @@ FORMS += \
     UIModule/Comm/mytablewidget.ui \
     UIModule/warningdismonareadialog.ui \
     UIModule/warningdisdelsuredialog.ui \
-    UIModule/addmonitorareadlg.ui
+    UIModule/addmonitorareadlg.ui \
+    UIModule/warningdismonposdialog.ui \
+    UIModule/addmonitordevicedialog.ui \
+    UIModule/editmonitordevicedialog.ui
 
 RESOURCES += \
     Resouce.qrc

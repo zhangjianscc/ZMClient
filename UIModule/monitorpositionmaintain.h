@@ -5,8 +5,8 @@
 
 struct Position
 {
-    QString id;             /// 区域编号
-    QString name;           /// 区域名称
+    QString id;             /// 位置编号
+    QString name;           /// 位置名称
     QString addr;           /// 行政区划
     QString area;           /// 监控区域
     QString Coordinates ;   /// 经纬度

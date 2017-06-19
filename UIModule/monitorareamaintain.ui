@@ -128,6 +128,10 @@ background-color:rgb(236,236,236);</string>
      <bool>false</bool>
     </property>
    </widget>
+   <zorder>allSelPushButton</zorder>
+   <zorder>allClePushButton</zorder>
+   <zorder>deletePushButton</zorder>
+   <zorder>buttonWidget</zorder>
   </widget>
   <widget class="QWidget" name="areaConWidget" native="true">
    <property name="geometry">
@@ -147,9 +151,9 @@ background-color:rgb(236,236,236);</string>
     <property name="geometry">
      <rect>
       <x>780</x>
-      <y>30</y>
+      <y>22</y>
       <width>75</width>
-      <height>23</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -344,8 +348,7 @@ background-color:rgb(255,255,255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border:1px solid rgb(200,200,200);
-border-radius:0px;
+    <string notr="true">border:none;
 background-color:rgb(236,236,236);</string>
    </property>
    <property name="rowCount">
@@ -583,12 +586,6 @@ border-radius:2px;</string>
     </property>
    </widget>
   </widget>
-  <zorder>titleWidget</zorder>
-  <zorder>areaButWidget</zorder>
-  <zorder>tableWidget</zorder>
-  <zorder>areaConWidget</zorder>
-  <zorder>tableWidget</zorder>
-  <zorder>buttonWidget</zorder>
  </widget>
  <resources>
   <include location="../Resouce.qrc"/>

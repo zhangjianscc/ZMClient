@@ -1,7 +1,7 @@
 #include "warningdisdelsuredialog.h"
 #include "ui_warningdisdelsuredialog.h"
 
-WarningDisDelSureDialog::WarningDisDelSureDialog(QWidget *parent) :
+WarningDisDelSureDialog::WarningDisDelSureDialog(QString text, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::WarningDisDelSureDialog)
 {
@@ -9,6 +9,7 @@ WarningDisDelSureDialog::WarningDisDelSureDialog(QWidget *parent) :
 
     this->setWindowFlags(Qt::FramelessWindowHint);
 
+    m_text = text;
     initUi();
 }
 
@@ -44,7 +45,7 @@ void WarningDisDelSureDialog::initUi()
                                        "QPushButton:hover{border-image:url(://images//弹窗X选-02.png)}"
                                        "QPushButton:pressed{border-image:url(://images//弹窗X选-02.png)}");
 
-    ui->contentLabel->setText("<font color=#000000 size=3>是否确认要</font><font color=#ff0000 size=3>删除</font><font color=#000000 size=3>该监控区域？</font>");
+    ui->contentLabel->setText(tr("<font color=#000000 size=3>是否确认要</font><font color=#ff0000 size=3>删除</font><font color=#000000 size=3>该%1？</font>").arg(m_text));
     ui->contentLabel->setAlignment(Qt::AlignCenter);
 
     ui->deletePushButton->setStyleSheet("QPushButton{color:rgb(0,0,0); background-color:rgb(255,255,255)}"

@@ -4,6 +4,7 @@
 #include "editmonitorareadlg.h"
 #include "warningdismonareadialog.h"
 #include "warningdisdelsuredialog.h"
+#include "Comm/mycheckboxheaderview.h"
 
 MonitorAreaMaintain::MonitorAreaMaintain(QWidget *parent) :
     QWidget(parent),
@@ -56,19 +57,29 @@ void MonitorAreaMaintain::initUi()
     ui->endPushButton->setStyleSheet(m_stringStyle);
 
     /// 数据列表显示区
+    ui->tableWidget->verticalHeader()->setVisible(false);
+
+    MyCheckBoxHeaderView *myCheckBoxHeaderView = new MyCheckBoxHeaderView(0, Qt::Horizontal, ui->tableWidget);
+    ui->tableWidget->setHorizontalHeader(myCheckBoxHeaderView);
+    connect(myCheckBoxHeaderView, SIGNAL(checkStausChange(bool)), this, SLOT(slot_allSelButClicked()));
+
     ui->tableWidget->setRowCount(8);
-    ui->tableWidget->setColumnCount(7);
+    ui->tableWidget->setColumnCount(8);
     QStringList stringList;
     stringList.clear();
-    stringList << "区域编号" << "区域名称" << "行政区划" << "区域类型" << "区域状态" << "区域描述" << "操作";
+    stringList << "" << tr("区域编号") << tr("区域名称") << tr("行政区划") << tr("区域类型") << tr("区域状态") << tr("区域描述") << tr("操作");
     ui->tableWidget->setHorizontalHeaderLabels(stringList);
     for(int i=0; i<stringList.count(); ++i)
     {
-        ui->tableWidget->horizontalHeaderItem(i)->setTextColor(QColor(18, 132, 255));
+        QTableWidgetItem *item = ui->tableWidget->horizontalHeaderItem(i);
+        item->setBackgroundColor(QColor(200,200,200)); //设置单元格背景颜色
+        item->setTextColor(QColor(18, 132, 255));
     }
+
     ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tableWidget->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     /// 页面按钮布局
     QHBoxLayout *pHBoxLayout = new QHBoxLayout(ui->buttonWidget);
@@ -218,45 +229,50 @@ void MonitorAreaMaintain::updateData()
     {
         if(i < m_dataList.count())
         {
+            QWidget *pCheckBoxWidget = new QWidget;
+            QCheckBox *pCheckBox = new QCheckBox;
+            QHBoxLayout *pCheckBoxLayout = new QHBoxLayout(pCheckBoxWidget);
+            pCheckBoxLayout->addWidget(pCheckBox, 0, Qt::AlignCenter);
+            ui->tableWidget->setCellWidget(i-startIndex, 0, pCheckBoxWidget);
+
             QTableWidgetItem *pItem = new QTableWidgetItem(m_dataList[i].id);
             pItem->setTextAlignment(Qt::AlignCenter);
-            pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
-            ui->tableWidget->setItem(i-startIndex, 0, pItem);
+            //pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
+            ui->tableWidget->setItem(i-startIndex, 1, pItem);
 
             pItem = new QTableWidgetItem(m_dataList[i].name);
             pItem->setTextAlignment(Qt::AlignCenter);
-            pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
-            ui->tableWidget->setItem(i-startIndex, 1, pItem);
+            //pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
+            ui->tableWidget->setItem(i-startIndex, 2, pItem);
 
             pItem = new QTableWidgetItem(m_dataList[i].addr);
             pItem->setTextAlignment(Qt::AlignCenter);
-            pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
-            ui->tableWidget->setItem(i-startIndex, 2, pItem);
+            //pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
+            ui->tableWidget->setItem(i-startIndex, 3, pItem);
 
             pItem = new QTableWidgetItem(m_dataList[i].type);
             pItem->setTextAlignment(Qt::AlignCenter);
-            pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
-            ui->tableWidget->setItem(i-startIndex, 3, pItem);
+            //pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
+            ui->tableWidget->setItem(i-startIndex, 4, pItem);
 
             pItem = new QTableWidgetItem(m_dataList[i].status);
             pItem->setTextAlignment(Qt::AlignCenter);
-            pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
-            ui->tableWidget->setItem(i-startIndex, 4, pItem);
+            //pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
+            ui->tableWidget->setItem(i-startIndex, 5, pItem);
 
             pItem = new QTableWidgetItem(m_dataList[i].description);
             pItem->setTextAlignment(Qt::AlignCenter);
-            pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
-            ui->tableWidget->setItem(i-startIndex, 5, pItem);
+            //pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
+            ui->tableWidget->setItem(i-startIndex, 6, pItem);
 
-            QWidget *pWidget = new QWidget;
-            pWidget->setStyleSheet("QWidget{border:none}");
+            QWidget *pPushButtonWidget = new QWidget;
             QPushButton *pEditPushButton = new QPushButton(tr("编辑"));
             pEditPushButton->setFixedSize(51, 23);
             pEditPushButton->setStyleSheet(m_stringStyle);
-            QHBoxLayout *pHBoxLayout = new QHBoxLayout(pWidget);
-            pHBoxLayout->addWidget(pEditPushButton, 0, Qt::AlignCenter);
-            pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
-            ui->tableWidget->setCellWidget(i-startIndex, 6, pWidget);
+            QHBoxLayout *pPushButtonLayout = new QHBoxLayout(pPushButtonWidget);
+            pPushButtonLayout->addWidget(pEditPushButton, 0, Qt::AlignCenter);
+            //pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
+            ui->tableWidget->setCellWidget(i-startIndex, 7, pPushButtonWidget);
 
             connect(pEditPushButton, SIGNAL(clicked(bool)), this, SLOT(slot_editButClicked()));
         }
@@ -306,8 +322,9 @@ void MonitorAreaMaintain::slot_editButClicked()
 void MonitorAreaMaintain::slot_allSelButClicked()
 {
     /// 测试代码
-    WarningDisDelSureDialog warningDisMonAreaDialog;
-    warningDisMonAreaDialog.exec();
+    //WarningDisMonAreaDialog warningDisMonAreaDialog;
+    WarningDisDelSureDialog *warningDisMonAreaDialog = new WarningDisDelSureDialog(tr("监控区域"));
+    warningDisMonAreaDialog->exec();
 }
 
 void MonitorAreaMaintain::slot_allCleButClicked()

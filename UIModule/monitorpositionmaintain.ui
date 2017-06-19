@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border:1px solid rgb(200,200,200);
+    <string notr="true">border:none;
 border-radius:0px;
 background-color:rgb(236,236,236);</string>
    </property>
@@ -33,6 +33,9 @@ background-color:rgb(236,236,236);</string>
    <property name="columnCount">
     <number>0</number>
    </property>
+   <attribute name="verticalHeaderVisible">
+    <bool>false</bool>
+   </attribute>
    <attribute name="verticalHeaderStretchLastSection">
     <bool>false</bool>
    </attribute>
