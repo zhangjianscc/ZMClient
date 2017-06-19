@@ -14,6 +14,8 @@ class AddTargetPersonImageDlg : public QDialog
 public:
     explicit AddTargetPersonImageDlg(QWidget *parent = 0);
     ~AddTargetPersonImageDlg();
+private:
+    initUI();
 
 private:
     Ui::AddTargetPersonImage *ui;

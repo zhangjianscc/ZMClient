@@ -19,6 +19,8 @@ private:
 
 private:
     Ui::AddTargetPerson *ui;
+public slots:
+    void onSlotClose();
 };
 
 #endif // ADDTARGETPERSON_H

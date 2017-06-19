@@ -41,6 +41,7 @@ public slots:
     void onBtnEdit();
     void onSlotselectChanged(bool checked);
     void onBtnAddTargetPerson();
+    void onBtnEditTargetPerson();
 };
 
 #endif // TARGETPERSONMANAGER_H

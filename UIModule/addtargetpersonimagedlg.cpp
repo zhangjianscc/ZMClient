@@ -6,9 +6,17 @@ AddTargetPersonImageDlg::AddTargetPersonImageDlg(QWidget *parent) :
     ui(new Ui::AddTargetPersonImage)
 {
     ui->setupUi(this);
+    initUI();
 }
 
 AddTargetPersonImageDlg::~AddTargetPersonImageDlg()
 {
     delete ui;
+}
+
+void AddTargetPersonImageDlg::initUI()
+{
+    // 去除窗口标题栏 设置圆角对话框
+    this->setWindowFlags(Qt::FramelessWindowHint);
+    this->setWindowModality(Qt::ApplicationModal);
 }
