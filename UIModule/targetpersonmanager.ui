@@ -519,6 +519,18 @@ background-color:rgb(255,255,255)</string>
               </property>
               <item>
                <widget class="QPushButton" name="m_btnSelectAll">
+                <property name="minimumSize">
+                 <size>
+                  <width>52</width>
+                  <height>22</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>52</width>
+                  <height>22</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">border:1px solid rgb(180,180,180);
 border-radius:2px;
@@ -537,6 +549,18 @@ pressed:background-color: rgb(41, 147, 207);
               </item>
               <item>
                <widget class="QPushButton" name="m_btnReSelectAll">
+                <property name="minimumSize">
+                 <size>
+                  <width>52</width>
+                  <height>22</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>52</width>
+                  <height>22</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">border:1px solid rgb(180,180,180);
 border-radius:2px;
@@ -555,6 +579,18 @@ pressed:background-color: rgb(41, 147, 207);
               </item>
               <item>
                <widget class="QPushButton" name="m_btnDelete">
+                <property name="minimumSize">
+                 <size>
+                  <width>52</width>
+                  <height>22</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>52</width>
+                  <height>22</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">border:1px solid rgb(180,180,180);
 border-radius:2px;
@@ -586,10 +622,16 @@ pressed:background-color: rgb(41, 147, 207);
               </item>
               <item>
                <widget class="QPushButton" name="m_btnPageFirst">
+                <property name="minimumSize">
+                 <size>
+                  <width>22</width>
+                  <height>22</height>
+                 </size>
+                </property>
                 <property name="maximumSize">
                  <size>
-                  <width>25</width>
-                  <height>16777215</height>
+                  <width>22</width>
+                  <height>22</height>
                  </size>
                 </property>
                 <property name="styleSheet">
@@ -611,10 +653,16 @@ pressed:background-color: rgb(41, 147, 207);
               </item>
               <item>
                <widget class="QPushButton" name="m_btnPagePre">
+                <property name="minimumSize">
+                 <size>
+                  <width>22</width>
+                  <height>22</height>
+                 </size>
+                </property>
                 <property name="maximumSize">
                  <size>
-                  <width>25</width>
-                  <height>16777215</height>
+                  <width>22</width>
+                  <height>22</height>
                  </size>
                 </property>
                 <property name="styleSheet">
@@ -635,10 +683,16 @@ pressed:background-color: rgb(41, 147, 207);
               </item>
               <item>
                <widget class="QPushButton" name="m_btnPageOne">
+                <property name="minimumSize">
+                 <size>
+                  <width>22</width>
+                  <height>22</height>
+                 </size>
+                </property>
                 <property name="maximumSize">
                  <size>
-                  <width>25</width>
-                  <height>16777215</height>
+                  <width>22</width>
+                  <height>22</height>
                  </size>
                 </property>
                 <property name="styleSheet">
@@ -662,10 +716,16 @@ pressed:background-color: rgb(41, 147, 207);
               </item>
               <item>
                <widget class="QPushButton" name="m_btnPageTwo">
+                <property name="minimumSize">
+                 <size>
+                  <width>22</width>
+                  <height>22</height>
+                 </size>
+                </property>
                 <property name="maximumSize">
                  <size>
-                  <width>25</width>
-                  <height>16777215</height>
+                  <width>22</width>
+                  <height>22</height>
                  </size>
                 </property>
                 <property name="styleSheet">
@@ -689,10 +749,16 @@ pressed:background-color: rgb(41, 147, 207);
               </item>
               <item>
                <widget class="QPushButton" name="m_btnPageThree">
+                <property name="minimumSize">
+                 <size>
+                  <width>22</width>
+                  <height>22</height>
+                 </size>
+                </property>
                 <property name="maximumSize">
                  <size>
-                  <width>25</width>
-                  <height>16777215</height>
+                  <width>22</width>
+                  <height>22</height>
                  </size>
                 </property>
                 <property name="styleSheet">
@@ -727,10 +793,16 @@ border:none</string>
               </item>
               <item>
                <widget class="QPushButton" name="m_btnPageFive">
+                <property name="minimumSize">
+                 <size>
+                  <width>22</width>
+                  <height>22</height>
+                 </size>
+                </property>
                 <property name="maximumSize">
                  <size>
-                  <width>25</width>
-                  <height>16777215</height>
+                  <width>22</width>
+                  <height>22</height>
                  </size>
                 </property>
                 <property name="styleSheet">
@@ -754,10 +826,16 @@ pressed:background-color: rgb(41, 147, 207);
               </item>
               <item>
                <widget class="QPushButton" name="m_btnPageNext">
+                <property name="minimumSize">
+                 <size>
+                  <width>22</width>
+                  <height>22</height>
+                 </size>
+                </property>
                 <property name="maximumSize">
                  <size>
-                  <width>25</width>
-                  <height>16777215</height>
+                  <width>22</width>
+                  <height>22</height>
                  </size>
                 </property>
                 <property name="styleSheet">
@@ -784,10 +862,16 @@ pressed:background-color: rgb(41, 147, 207);
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>22</width>
+                  <height>22</height>
+                 </size>
+                </property>
                 <property name="maximumSize">
                  <size>
-                  <width>25</width>
-                  <height>16777215</height>
+                  <width>22</width>
+                  <height>22</height>
                  </size>
                 </property>
                 <property name="styleSheet">

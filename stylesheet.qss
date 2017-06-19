@@ -1,6 +1,6 @@
 QComboBox{
     border-radius:3px;
-    background:rgb(255,255,255);
+    background-color:rgb(255,255,255);
     padding: 4px;
     height:30;
     font: 12pt "黑体";
@@ -87,6 +87,9 @@ QPushButton#btnBeginCompare:pressed{
     border-image:url(:/images/btnBeginCompare-03.png);
 }
 
+QLineEdit{
+    background-color:rgb(255,255,255);
+}
 
 
 

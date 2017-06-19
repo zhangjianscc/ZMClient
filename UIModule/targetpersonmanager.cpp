@@ -4,6 +4,7 @@
 #include "UIModule/Comm/mycheckboxheaderview.h"
 #include "UIModule/addtargetpersondlg.h"
 #include "UIModule/edittargetpersondlg.h"
+#include "UIModule/deletetargetperson.h"
 
 TargetPersonManager::TargetPersonManager(QWidget *parent) :
     QWidget(parent),
@@ -13,6 +14,8 @@ TargetPersonManager::TargetPersonManager(QWidget *parent) :
     initUI();
     // test
     onBtnEditTargetPerson();
+    DeleteTargetPerson dlg("确认要删除该记录，删除后将","无法恢复","？");
+    dlg.exec();
 }
 
 TargetPersonManager::~TargetPersonManager()
@@ -22,15 +25,16 @@ TargetPersonManager::~TargetPersonManager()
 
 void TargetPersonManager::initUI()
 {
-    // 按钮样式
+    // 添加联系人
     ui->m_btnAddTargetPerson->setStyleSheet("QPushButton{color:rgb(255,255,255); border:1px; border-radius:5px;background-color:rgb(18,132,194)}"
                                    "QPushButton:hover{color:rgb(255,255,255); border:1px; border-radius:5px;background-color:rgb(18,132,255)}"
                                    "QPushButton:pressed{color:rgb(255,255,255); border:1px; border-radius:5px;background-color:rgb(18,132,194)}");
 
-
-    QString m_stringStyle = "QPushButton{background-color:qconicalgradient(cx:0.5, cy:0.522909, angle:179.9, stop:0.494318 rgba(214, 214, 214, 255), stop:0.5 rgba(236, 236, 236, 255));border: 1px solid rgb(180, 180, 180);border-radius:2px;width:50;height:20;}"
-                     "QPushButton:hover{background-color: qconicalgradient(cx:0.5, cy:0.522909, angle:179.9, stop:0.494318 rgba(181, 225, 250, 255), stop:0.5 rgba(222, 242, 251, 255))}"
-                     "QPushButton:pressed{background-color: qconicalgradient(cx:0.5, cy:0.522909, angle:179.9, stop:0.494318 rgba(134, 198, 233, 255), stop:0.5 rgba(206, 234, 248, 255))}";
+    // 翻页按钮
+    QString m_stringStyle = "QPushButton{border-radius: 2px;background-color:rgb(180,180,180)}"
+                       "QPushButton:hover{background-color:rgb(104,180,234)}"
+                       "QPushButton:pressed{background-color:rgb(4,119,182)}"
+                       "QPushButton:checked{background-color:rgb(4,119,182)}";
     ui->m_btnSearch->setStyleSheet(m_stringStyle);
     ui->m_btnSelectAll->setStyleSheet(m_stringStyle);
     ui->m_btnReSelectAll->setStyleSheet(m_stringStyle);
@@ -38,40 +42,48 @@ void TargetPersonManager::initUI()
     ui->m_btnPageFirst->setStyleSheet(m_stringStyle);
     ui->m_btnPagePre->setStyleSheet(m_stringStyle);
     ui->m_btnPageOne->setStyleSheet(m_stringStyle);
+    ui->m_btnPageOne->setCheckable(true);
     ui->m_btnPageTwo->setStyleSheet(m_stringStyle);
+    ui->m_btnPageTwo->setCheckable(true);
     ui->m_btnPageThree->setStyleSheet(m_stringStyle);
+    ui->m_btnPageThree->setCheckable(true);
     ui->m_btnPageFive->setStyleSheet(m_stringStyle);
+    ui->m_btnPageFive->setCheckable(true);
     ui->m_btnPageNext->setStyleSheet(m_stringStyle);
     ui->m_btnPageLast->setStyleSheet(m_stringStyle);
 
 
     // 表格
     ui->m_table->verticalHeader()->setVisible(false);
-    ui->m_table->verticalHeader()->setStretchLastSection(true);
+    //ui->m_table->verticalHeader()->setStretchLastSection(true);
     ui->m_table->horizontalHeader()->setVisible(false);
-    ui->m_table->horizontalHeader()->setStretchLastSection(true);
+    //ui->m_table->horizontalHeader()->setStretchLastSection(true);
 
     ui->m_table->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     ui->m_table->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     ui->m_table->setSelectionMode(QAbstractItemView::SingleSelection);
-    //ui->m_table->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-    //ui->m_table->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->m_table->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->m_table->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->m_table->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui->m_table->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->m_table->setAlternatingRowColors(true);
 
     //
-    MyCheckBoxHeaderView *myHeader = new MyCheckBoxHeaderView(0, Qt::Horizontal, ui->m_table);
-    ui->m_table->setHorizontalHeader(myHeader);
-    ui->m_table->setColumnWidth(0,25);
-    connect(myHeader,SIGNAL(checkStausChange(bool)),this,SLOT(onSlotselectAllRows(bool)));
-    //
     ui->m_table->setColumnCount(10);
-    m_iPageRowCount = 20;
+    m_iPageRowCount = 18;
     ui->m_table->setRowCount(m_iPageRowCount);
-
     QStringList hheader;
     hheader<<tr("")<<tr("姓名")<<tr("性别")<<tr("出生日期")<<tr("证件信息")<<tr("重要等级")<<tr("危险等级")<<tr("类型")<<tr("状态")<<tr("操作");
+    MyCheckBoxHeaderView *myHeader = new MyCheckBoxHeaderView(0, Qt::Horizontal, ui->m_table);
+    ui->m_table->setHorizontalHeader(myHeader);
+    ui->m_table->setColumnWidth(0,29);
+    for(int i = 1 ; i <10 ; ++i )
+    {
+        ui->m_table->setColumnWidth(i,117);
+    }
+    connect(myHeader,SIGNAL(checkStausChange(bool)),this,SLOT(onSlotselectAllRows(bool)));
+    //
+
     ui->m_table->setHorizontalHeaderLabels(hheader);
     for(int i=0; i<hheader.count(); ++i)
     {
@@ -126,7 +138,12 @@ void TargetPersonManager::onBtnPageLast()
 void TargetPersonManager::onBtnEdit()
 {}
 void TargetPersonManager::onSlotselectChanged(bool checked)
-{}
+{
+    if(checked) // 全选
+    {}
+    else // 全反选
+    {}
+}
 void TargetPersonManager::onBtnAddTargetPerson()
 {
     AddTargetPersonDlg* pDlg = new AddTargetPersonDlg(NULL);

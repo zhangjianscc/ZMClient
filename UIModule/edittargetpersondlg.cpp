@@ -99,4 +99,26 @@ void EditTargetPersonDlg::onSlotAddImage()
     pDlg->show();
 }
 
+void EditTargetPersonDlg::mousePressEvent(QMouseEvent *event)
+{
+    if(event->pos().y() <= 35)
+    {
+        m_bIsMoveing = true;
+        this->m_curWindowPos = this->pos();
+        this->m_curMousePos = event->globalPos();
+        this->m_destWindowPos = m_curMousePos - m_curWindowPos;
+    }
+}
 
+void EditTargetPersonDlg::mouseMoveEvent(QMouseEvent *event)
+{
+    if(m_bIsMoveing)
+    {
+        this->move(event->globalPos() - this->m_destWindowPos);
+    }
+}
+
+void EditTargetPersonDlg::mouseReleaseEvent(QMouseEvent *event)
+{
+    m_bIsMoveing = false;
+}

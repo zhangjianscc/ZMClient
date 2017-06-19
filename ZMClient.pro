@@ -93,7 +93,8 @@ HEADERS += \
     UIModule/warningdismonposdialog.h \
     UIModule/addmonitordevicedialog.h \
     UIModule/editmonitordevicedialog.h \
-    UIModule/Comm/targetpersonimageitem.h
+    UIModule/Comm/targetpersonimageitem.h \
+    UIModule/deletetargetperson.h
 
 SOURCES += \
     base64/base64.cpp \
@@ -155,7 +156,8 @@ SOURCES += \
     UIModule/warningdismonposdialog.cpp \
     UIModule/addmonitordevicedialog.cpp \
     UIModule/editmonitordevicedialog.cpp \
-    UIModule/Comm/targetpersonimageitem.cpp
+    UIModule/Comm/targetpersonimageitem.cpp \
+    UIModule/deletetargetperson.cpp
 
 FORMS += \
     UIModule/adddevicedlg.ui \
@@ -195,7 +197,8 @@ FORMS += \
     UIModule/warningdismonposdialog.ui \
     UIModule/addmonitordevicedialog.ui \
     UIModule/editmonitordevicedialog.ui \
-    UIModule/Comm/targetpersonimageitem.ui
+    UIModule/Comm/targetpersonimageitem.ui \
+    UIModule/deletetargetperson.ui
 
 RESOURCES += \
     Resouce.qrc

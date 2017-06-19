@@ -22,6 +22,13 @@ public:
 private:
     void initUI();
     void initPersonImages(QList<ImageItemData> list);
+    void mousePressEvent(QMouseEvent *event);
+    void mouseMoveEvent(QMouseEvent *event);
+    void mouseReleaseEvent(QMouseEvent *event);          ///
+    bool                  m_bIsMoveing;
+    QPoint                m_curWindowPos;                /// 窗口当前位置
+    QPoint                m_curMousePos;                 /// 鼠标当前位置
+    QPoint                m_destWindowPos;               /// 移动后窗口所在的位置
 
 private:
     Ui::EditTargetPerson *ui;

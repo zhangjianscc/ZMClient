@@ -50,8 +50,8 @@ private:
 private:
     QString               m_strUserType;                 /// 用户类型
     QString               m_strUserName;                 /// 用户名
-    bool                  m_bIsMoveing;
 
+    bool                  m_bIsMoveing;
     QPoint                m_curWindowPos;                /// 窗口当前位置
     QPoint                m_curMousePos;                 /// 鼠标当前位置
     QPoint                m_destWindowPos;               /// 移动后窗口所在的位置

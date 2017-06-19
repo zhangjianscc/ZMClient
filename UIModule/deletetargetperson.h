@@ -1,21 +1,24 @@
-#ifndef ADDTARGETPERSON_H
-#define ADDTARGETPERSON_H
+#ifndef DELETETARGETPERSON_H
+#define DELETETARGETPERSON_H
 
+#include <QWidget>
 #include <QDialog>
 
 namespace Ui {
-class AddTargetPerson;
+class DeleteTargetPerson;
 }
 
-class AddTargetPersonDlg : public QDialog
+class DeleteTargetPerson : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit AddTargetPersonDlg(QWidget *parent = 0);
-    ~AddTargetPersonDlg();
+    // info1 + redinfo + info3 组成提示字符串 其中redInfo为红色高亮显示
+    explicit DeleteTargetPerson(QString info1,QString redInfo,QString info3);
+    ~DeleteTargetPerson();
 private:
     void initUI();
+
     void mousePressEvent(QMouseEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
     void mouseReleaseEvent(QMouseEvent *event);          ///
@@ -25,11 +28,11 @@ private:
     QPoint                m_destWindowPos;               /// 移动后窗口所在的位置
 
 private:
-    Ui::AddTargetPerson *ui;
+    Ui::DeleteTargetPerson *ui;
 public slots:
     void onSlotClose();
-    void onSlotSave();
+    void onSlotDelete();
     void onSlotCancel();
 };
 
-#endif // ADDTARGETPERSON_H
+#endif // DELETETARGETPERSON_H
