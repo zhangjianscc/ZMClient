@@ -8,11 +8,8 @@ EditMonitorAreaDlg::EditMonitorAreaDlg(QWidget *parent) :
     ui->setupUi(this);
 
     this->setWindowFlags(Qt::FramelessWindowHint);
-<<<<<<< HEAD
-=======
 
     initUi();
->>>>>>> wb
 }
 
 EditMonitorAreaDlg::~EditMonitorAreaDlg()

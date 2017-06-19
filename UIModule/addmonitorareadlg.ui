@@ -46,7 +46,7 @@ border-bottom-left-radius:0px;
 border-bottom-right-radius:0px;
 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(235, 235, 235, 255), stop:1 rgba(170, 170, 170, 255));</string>
    </property>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="titleLabel">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -76,15 +76,7 @@ border:none</string>
      <string notr="true">border:none;</string>
     </property>
     <property name="text">
-<<<<<<< HEAD
-     <string>PushButton</string>
-    </property>
-    <property name="icon">
-     <iconset resource="../Resouce.qrc">
-      <normaloff>:/images/弹窗X选.png</normaloff>:/images/弹窗X选.png</iconset>
-=======
      <string/>
->>>>>>> wb
     </property>
    </widget>
   </widget>
@@ -127,7 +119,7 @@ border-radius:0px;</string>
      <string>区域名称</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="areaComboBox">
+   <widget class="QComboBox" name="addrComboBox">
     <property name="geometry">
      <rect>
       <x>130</x>
@@ -146,7 +138,7 @@ background-color:rgb(255,255,255);</string>
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>550</y>
+      <y>560</y>
       <width>75</width>
       <height>31</height>
      </rect>
@@ -164,7 +156,7 @@ background-color:rgb(255,255,255);</string>
     <property name="geometry">
      <rect>
       <x>270</x>
-      <y>550</y>
+      <y>560</y>
       <width>75</width>
       <height>31</height>
      </rect>
@@ -178,7 +170,7 @@ background-color:rgb(255,255,255);</string>
      <string>取消</string>
     </property>
    </widget>
-   <widget class="QLabel" name="areaLabel">
+   <widget class="QLabel" name="addrLabel">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -243,27 +235,8 @@ border-radius:0px;</string>
     <property name="text">
      <string>区域描述</string>
     </property>
-   </widget>
-   <widget class="QLabel" name="remakeLabel">
-    <property name="geometry">
-     <rect>
-      <x>80</x>
-      <y>360</y>
-      <width>31</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border:none;
-border-radius:0px;</string>
-    </property>
-    <property name="text">
-     <string>备注</string>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
     </property>
    </widget>
    <widget class="QComboBox" name="typeComboBox">
@@ -302,22 +275,47 @@ background-color:rgb(255,255,255);</string>
       <x>130</x>
       <y>220</y>
       <width>281</width>
-      <height>111</height>
+      <height>81</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">border:1px solid rgb(200,200,200);
 border-radius:0px;
 background-color:rgb(255,255,255);</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="remakeLabel">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>320</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:none;
+border-radius:0px;</string>
+    </property>
+    <property name="text">
+     <string>备注</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
    <widget class="QTextEdit" name="remakeTextEdit">
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>370</y>
+      <y>330</y>
       <width>281</width>
-      <height>151</height>
+      <height>171</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -326,30 +324,8 @@ border-radius:0px;
 background-color:rgb(255,255,255);</string>
     </property>
    </widget>
-<<<<<<< HEAD
-   <zorder>nameLabel</zorder>
-   <zorder>areaComboBox</zorder>
-   <zorder>savePushButton</zorder>
-   <zorder>cancelPushButton</zorder>
-   <zorder>areaLabel</zorder>
-   <zorder>typeLabel</zorder>
-   <zorder>descriptionLabel</zorder>
-   <zorder>remakeLabel</zorder>
-   <zorder>typeComboBox</zorder>
-   <zorder>nameLineEdit</zorder>
-   <zorder>descriptionTextEdit</zorder>
-   <zorder>remakeTextEdit</zorder>
-   <zorder>titleWidget</zorder>
   </widget>
-  <zorder>contentWidget</zorder>
-  <zorder>titleWidget</zorder>
-  <zorder>contentWidget</zorder>
-=======
-  </widget>
->>>>>>> wb
  </widget>
- <resources>
-  <include location="../Resouce.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

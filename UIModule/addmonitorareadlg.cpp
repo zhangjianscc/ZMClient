@@ -17,10 +17,6 @@ AddMonitorAreaDlg::~AddMonitorAreaDlg()
     delete ui;
 }
 
-<<<<<<< HEAD
-void AddMonitorAreaDlg::initUi()
-{
-=======
 void AddMonitorAreaDlg::mousePressEvent(QMouseEvent *event)
 {
      this->m_curWindowPos = this->pos();
@@ -48,21 +44,11 @@ void AddMonitorAreaDlg::initUi()
                                        "QPushButton:hover{border-image:url(://images//弹窗X选-02.png)}"
                                        "QPushButton:pressed{border-image:url(://images//弹窗X选-02.png)}");
 
->>>>>>> wb
     QString string = "QPushButton{color:rgb(0,0,0); border:1px solid rgb(200,200,200); border-radius:5px;background-color:rgb(255,255,255)}"
                      "QPushButton:hover{color:rgb(255,255,255); border:1px; border-radius:5px;background-color:rgb(18,132,255)}"
                      "QPushButton:pressed{color:rgb(255,255,255); border:1px; border-radius:5px;background-color:rgb(18,132,194)}";
     ui->savePushButton->setStyleSheet(string);
     ui->cancelPushButton->setStyleSheet(string);
-<<<<<<< HEAD
-}
-
-void AddMonitorAreaDlg::slot_saveButClicked()
-{}
-
-void AddMonitorAreaDlg::slot_cancelButClicked()
-{}
-=======
 
     connect(ui->closePushButton, SIGNAL(clicked(bool)), this, SLOT(slot_closeButClicked()));
     connect(ui->savePushButton, SIGNAL(clicked(bool)), this, SLOT(slot_saveButClicked()));
@@ -77,7 +63,7 @@ void AddMonitorAreaDlg::slot_closeButClicked()
 void AddMonitorAreaDlg::slot_saveButClicked()
 {
     QString sName = ui->nameLineEdit->text();
-    QString sArea = ui->areaComboBox->currentText();
+    QString sAddr = ui->addrComboBox->currentText();
     QString sType = ui->typeComboBox->currentText();
     QString sDescription = ui->descriptionTextEdit->toPlainText();
     QString sRemake = ui->remakeTextEdit->toPlainText();
@@ -87,4 +73,3 @@ void AddMonitorAreaDlg::slot_cancelButClicked()
 {
     this->close();
 }
->>>>>>> wb

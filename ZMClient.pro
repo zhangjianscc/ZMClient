@@ -49,7 +49,6 @@ HEADERS += \
     UIModule/Comm/mywidgetfolder.h \
     UIModule/adddevicedlg.h \
     UIModule/addlibrarydlg.h \
-    UIModule/addmonitorareadlg.h \
     UIModule/addmonitorpositiondlg.h \
     UIModule/addtargetpersondlg.h \
     UIModule/addtargetpersonimagedlg.h \
@@ -86,18 +85,11 @@ HEADERS += \
     UIModule/Comm/mytwoimagecomparepane.h \
     UIModule/Comm/facehistoryimageitem.h \
     UIModule/Comm/maptrackitem.h \
-<<<<<<< HEAD
-<<<<<<< HEAD
-    UIModule/Comm/mytablewidget.h
-=======
-    UIModule/Comm/mytablewidget.h \
     UIModule/warningdismonareadialog.h \
-    UIModule/warningdisdelsuredialog.h
->>>>>>> wb
-=======
+    UIModule/warningdisdelsuredialog.h \
     UIModule/Comm/mytablewidget.h \
-    UIModule/Comm/mycheckboxheaderview.h
->>>>>>> 2717df90ae021ef2c219423b2227a9c339c2bd5a
+    UIModule/Comm/mycheckboxheaderview.h \
+    UIModule/addmonitorareadlg.h
 
 SOURCES += \
     base64/base64.cpp \
@@ -116,7 +108,6 @@ SOURCES += \
     UIModule/Comm/mywidgetfolder.cpp \
     UIModule/adddevicedlg.cpp \
     UIModule/addlibrarydlg.cpp \
-    UIModule/addmonitorareadlg.cpp \
     UIModule/addmonitorpositiondlg.cpp \
     UIModule/addtargetpersondlg.cpp \
     UIModule/addtargetpersonimagedlg.cpp \
@@ -152,23 +143,15 @@ SOURCES += \
     UIModule/Comm/mytwoimagecomparepane.cpp \
     UIModule/Comm/facehistoryimageitem.cpp \
     UIModule/Comm/maptrackitem.cpp \
-<<<<<<< HEAD
-<<<<<<< HEAD
-    UIModule/Comm/mytablewidget.cpp
-=======
     UIModule/Comm/mytablewidget.cpp \
     UIModule/warningdismonareadialog.cpp \
-    UIModule/warningdisdelsuredialog.cpp
->>>>>>> wb
-=======
-    UIModule/Comm/mytablewidget.cpp \
-    UIModule/Comm/mycheckboxheaderview.cpp
->>>>>>> 2717df90ae021ef2c219423b2227a9c339c2bd5a
+    UIModule/warningdisdelsuredialog.cpp \
+    UIModule/Comm/mycheckboxheaderview.cpp \
+    UIModule/addmonitorareadlg.cpp
 
 FORMS += \
     UIModule/adddevicedlg.ui \
     UIModule/addlibrary.ui \
-    UIModule/addmonitorareadlg.ui \
     UIModule/addmonitorpositiondlg.ui \
     UIModule/addtargetperson.ui \
     UIModule/addtargetpersonimage.ui \
@@ -197,13 +180,10 @@ FORMS += \
     UIModule/Comm/mytwoimagecomparepane.ui \
     UIModule/Comm/facehistoryimageitem.ui \
     UIModule/Comm/maptrackitem.ui \
-<<<<<<< HEAD
-    UIModule/Comm/mytablewidget.ui
-=======
     UIModule/Comm/mytablewidget.ui \
     UIModule/warningdismonareadialog.ui \
-    UIModule/warningdisdelsuredialog.ui
->>>>>>> wb
+    UIModule/warningdisdelsuredialog.ui \
+    UIModule/addmonitorareadlg.ui
 
 RESOURCES += \
     Resouce.qrc
