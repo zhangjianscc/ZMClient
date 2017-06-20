@@ -7,6 +7,17 @@ namespace Ui {
 class TargetPersonManager;
 }
 
+struct PersonData
+{
+    QString name;
+    QString sex;
+    QString birthday;
+    QString identityNumber;
+    QString importanceLevel;
+    QString dangersLevel;
+    QString type;
+    QString status;
+};
 class TargetPersonManager : public QWidget
 {
     Q_OBJECT
@@ -16,19 +27,23 @@ public:
     ~TargetPersonManager();
 private:
     void initUI();
-    //void updateData();
+    void updatePersonData();
+    void updateBtnStatus();
+    void updateTableView();
 
 private:
     Ui::TargetPersonManager *ui;
     int m_iTotalPage;
     int m_iCurPage;
     int m_iPageRowCount;
+    QList<PersonData> m_listPersonData;
+    QString m_strBtnStyle;
 signals:
 
 public slots:
     void onBtnSearch();
     void onBtnSelectAll();
-    void onBtnReSelectAll();
+    void onBtnUnSelectAll();
     void onBtnDelete();
     void onBtnPageFirst();
     void onBtnPagePre();
@@ -42,6 +57,7 @@ public slots:
     void onSlotselectChanged(bool checked);
     void onBtnAddTargetPerson();
     void onBtnEditTargetPerson();
+    void onSlotCheckBoxChanged(int checked);
 };
 
 #endif // TARGETPERSONMANAGER_H

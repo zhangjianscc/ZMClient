@@ -5,6 +5,7 @@
 #include "UIModule/addtargetpersondlg.h"
 #include "UIModule/edittargetpersondlg.h"
 #include "UIModule/deletetargetperson.h"
+#include "stable.h"
 
 TargetPersonManager::TargetPersonManager(QWidget *parent) :
     QWidget(parent),
@@ -12,10 +13,8 @@ TargetPersonManager::TargetPersonManager(QWidget *parent) :
 {
     ui->setupUi(this);
     initUI();
-    // test
-    onBtnEditTargetPerson();
-    DeleteTargetPerson dlg("确认要删除该记录，删除后将","无法恢复","？");
-    dlg.exec();
+    // test by ly
+    updatePersonData();
 }
 
 TargetPersonManager::~TargetPersonManager()
@@ -31,26 +30,26 @@ void TargetPersonManager::initUI()
                                    "QPushButton:pressed{color:rgb(255,255,255); border:1px; border-radius:5px;background-color:rgb(18,132,194)}");
 
     // 翻页按钮
-    QString m_stringStyle = "QPushButton{border-radius: 2px;background-color:rgb(180,180,180)}"
+    m_strBtnStyle = "QPushButton{border-radius: 2px;background-color:rgb(180,180,180)}"
                        "QPushButton:hover{background-color:rgb(104,180,234)}"
                        "QPushButton:pressed{background-color:rgb(4,119,182)}"
                        "QPushButton:checked{background-color:rgb(4,119,182)}";
-    ui->m_btnSearch->setStyleSheet(m_stringStyle);
-    ui->m_btnSelectAll->setStyleSheet(m_stringStyle);
-    ui->m_btnReSelectAll->setStyleSheet(m_stringStyle);
-    ui->m_btnDelete->setStyleSheet(m_stringStyle);
-    ui->m_btnPageFirst->setStyleSheet(m_stringStyle);
-    ui->m_btnPagePre->setStyleSheet(m_stringStyle);
-    ui->m_btnPageOne->setStyleSheet(m_stringStyle);
+    ui->m_btnSearch->setStyleSheet(m_strBtnStyle);
+    ui->m_btnSelectAll->setStyleSheet(m_strBtnStyle);
+    ui->m_btnReSelectAll->setStyleSheet(m_strBtnStyle);
+    ui->m_btnDelete->setStyleSheet(m_strBtnStyle);
+    ui->m_btnPageFirst->setStyleSheet(m_strBtnStyle);
+    ui->m_btnPagePre->setStyleSheet(m_strBtnStyle);
+    ui->m_btnPageOne->setStyleSheet(m_strBtnStyle);
     ui->m_btnPageOne->setCheckable(true);
-    ui->m_btnPageTwo->setStyleSheet(m_stringStyle);
+    ui->m_btnPageTwo->setStyleSheet(m_strBtnStyle);
     ui->m_btnPageTwo->setCheckable(true);
-    ui->m_btnPageThree->setStyleSheet(m_stringStyle);
+    ui->m_btnPageThree->setStyleSheet(m_strBtnStyle);
     ui->m_btnPageThree->setCheckable(true);
-    ui->m_btnPageFive->setStyleSheet(m_stringStyle);
+    ui->m_btnPageFive->setStyleSheet(m_strBtnStyle);
     ui->m_btnPageFive->setCheckable(true);
-    ui->m_btnPageNext->setStyleSheet(m_stringStyle);
-    ui->m_btnPageLast->setStyleSheet(m_stringStyle);
+    ui->m_btnPageNext->setStyleSheet(m_strBtnStyle);
+    ui->m_btnPageLast->setStyleSheet(m_strBtnStyle);
 
 
     // 表格
@@ -70,7 +69,7 @@ void TargetPersonManager::initUI()
 
     //
     ui->m_table->setColumnCount(10);
-    m_iPageRowCount = 18;
+    m_iPageRowCount = 15;
     ui->m_table->setRowCount(m_iPageRowCount);
     QStringList hheader;
     hheader<<tr("")<<tr("姓名")<<tr("性别")<<tr("出生日期")<<tr("证件信息")<<tr("重要等级")<<tr("危险等级")<<tr("类型")<<tr("状态")<<tr("操作");
@@ -99,7 +98,7 @@ void TargetPersonManager::initUI()
     // 底部按钮
     connect(ui->m_btnSearch,SIGNAL(clicked(bool)),this,SLOT(onBtnSearch()));
     connect(ui->m_btnSelectAll,SIGNAL(clicked(bool)),this,SLOT(onBtnSelectAll()));
-    connect(ui->m_btnReSelectAll,SIGNAL(clicked(bool)),this,SLOT(onBtnReSelectAll()));
+    connect(ui->m_btnReSelectAll,SIGNAL(clicked(bool)),this,SLOT(onBtnUnSelectAll()));
     connect(ui->m_btnDelete,SIGNAL(clicked(bool)),this,SLOT(onBtnDelete()));
     connect(ui->m_btnPageFirst,SIGNAL(clicked(bool)),this,SLOT(onBtnPageFirst()));
     connect(ui->m_btnPagePre,SIGNAL(clicked(bool)),this,SLOT(onBtnPagePre()));
@@ -112,10 +111,12 @@ void TargetPersonManager::initUI()
     connect(ui->m_btnAddTargetPerson,SIGNAL(clicked(bool)),this,SLOT(onBtnAddTargetPerson()));
 }
 void TargetPersonManager::onBtnSearch()
-{}
+{
+    updatePersonData();
+}
 void TargetPersonManager::onBtnSelectAll()
 {}
-void TargetPersonManager::onBtnReSelectAll()
+void TargetPersonManager::onBtnUnSelectAll()
 {}
 void TargetPersonManager::onBtnDelete()
 {}
@@ -140,7 +141,9 @@ void TargetPersonManager::onBtnEdit()
 void TargetPersonManager::onSlotselectChanged(bool checked)
 {
     if(checked) // 全选
-    {}
+    {
+
+    }
     else // 全反选
     {}
 }
@@ -154,158 +157,156 @@ void TargetPersonManager::onBtnEditTargetPerson()
     EditTargetPersonDlg* pDlg = new EditTargetPersonDlg(NULL);
     pDlg->show();
 }
-/*
-void TargetPersonManager::updateData()
+
+void TargetPersonManager::updatePersonData()
 {
-    ui->tableWidget->clearContents();
-
-    // 计算页数
-    m_iCouPage = m_dataList.size() / 8;
-    if(m_dataList.size() % 8)
+    // by ly
+    m_listPersonData.clear();
+    for(int i = 0 ; i < 50 ; ++i)
     {
-        ++m_iCouPage;
-    }
-    if(m_iCurPage > m_iCouPage)
-    {
-        m_iCurPage = m_iCouPage;
-    }
-
-    if(0 == m_iCouPage)
-    {
-        ui->startPushButton->setVisible(false);
-        ui->frontPushButton->setVisible(false);
-        ui->oneButton->setVisible(false);
-        ui->twoButton->setVisible(false);
-        ui->threeButton->setVisible(false);
-        ui->buttonLabel->setVisible(false);
-        ui->fiveButton->setVisible(false);
-        ui->nextPushButton->setVisible(false);
-        ui->endPushButton->setVisible(false);
-    }
-    if(1 == m_iCouPage)
-    {
-        ui->startPushButton->setVisible(true);
-        ui->frontPushButton->setVisible(true);
-        ui->oneButton->setVisible(true);
-        ui->twoButton->setVisible(false);
-        ui->threeButton->setVisible(false);
-        ui->buttonLabel->setVisible(false);
-        ui->fiveButton->setVisible(false);
-        ui->nextPushButton->setVisible(true);
-        ui->endPushButton->setVisible(true);
-    }
-    if(2 == m_iCouPage)
-    {
-        ui->startPushButton->setVisible(true);
-        ui->frontPushButton->setVisible(true);
-        ui->oneButton->setVisible(true);
-        ui->twoButton->setVisible(true);
-        ui->threeButton->setVisible(false);
-        ui->buttonLabel->setVisible(false);
-        ui->fiveButton->setVisible(false);
-        ui->nextPushButton->setVisible(true);
-        ui->endPushButton->setVisible(true);
-    }
-    if(3 == m_iCouPage)
-    {
-        ui->startPushButton->setVisible(true);
-        ui->frontPushButton->setVisible(true);
-        ui->oneButton->setVisible(true);
-        ui->twoButton->setVisible(true);
-        ui->threeButton->setVisible(true);
-        ui->buttonLabel->setVisible(false);
-        ui->fiveButton->setVisible(false);
-        ui->nextPushButton->setVisible(true);
-        ui->endPushButton->setVisible(true);
-    }
-    if(4 == m_iCouPage)
-    {
-        ui->startPushButton->setVisible(true);
-        ui->frontPushButton->setVisible(true);
-        ui->oneButton->setVisible(true);
-        ui->twoButton->setVisible(true);
-        ui->threeButton->setVisible(true);
-        ui->buttonLabel->setVisible(false);
-        ui->fiveButton->setVisible(true);
-        ui->fiveButton->setText("4");
-        ui->nextPushButton->setVisible(true);
-        ui->endPushButton->setVisible(true);
-    }
-    if(5 == m_iCouPage)
-    {
-        ui->startPushButton->setVisible(true);
-        ui->frontPushButton->setVisible(true);
-        ui->oneButton->setVisible(true);
-        ui->twoButton->setVisible(true);
-        ui->threeButton->setVisible(true);
-        ui->buttonLabel->setVisible(true);
-        ui->fiveButton->setVisible(true);
-        ui->fiveButton->setText("5");
-        ui->nextPushButton->setVisible(true);
-        ui->endPushButton->setVisible(true);
-    }
-    if(5 < m_iCouPage)
-    {
-        ui->startPushButton->setVisible(true);
-        ui->frontPushButton->setVisible(true);
-        ui->oneButton->setVisible(true);
-        ui->twoButton->setVisible(true);
-        ui->threeButton->setVisible(true);
-        ui->buttonLabel->setVisible(true);
-        ui->fiveButton->setVisible(true);
-        ui->fiveButton->setText(QString("%1").arg(m_iCouPage));
-        ui->nextPushButton->setVisible(true);
-        ui->endPushButton->setVisible(true);
+        PersonData data;
+        data.name = "宝马";
+        data.sex = "人妖";
+        data.birthday = "1900-04-11";
+        data.identityNumber = "11112356421544";
+        data.importanceLevel = "非常重要";
+        data.dangersLevel = "极度危险";
+        data.type = "在逃";
+        data.status = "流窜中";
+        m_listPersonData.append(data);
     }
 
-    // 绑定当前页数据
-    int startIndex = (m_iCurPage - 1) * 8;
-    for(int i = startIndex; i < startIndex + 8 ; ++i)
+    // 更新按钮状态
+    updateBtnStatus();
+    // 更新表格数据
+    updateTableView();
+}
+void TargetPersonManager::updateBtnStatus()
+{
+    // 计算页码
+    int count = m_listPersonData.size();
+    int totalPage = count/m_iPageRowCount;
+    if(count%m_iPageRowCount)
     {
-        if(i < m_dataList.count())
+        ++totalPage;
+    }
+    m_iCurPage = m_iCurPage>totalPage?totalPage:m_iCurPage;
+    m_iCurPage = m_iCurPage<1?1:m_iCurPage;
+
+    // 更新页码标签
+    ui->m_btnPageOne->setText(QString::number(m_iCurPage));
+    if(count > m_iPageRowCount)
+    {
+        ui->m_btnPageTwo->setVisible(true);
+        ui->m_btnPageOne->setText(QString::number(m_iCurPage + 1));
+    }
+    if(count > m_iPageRowCount * 2)
+    {
+        ui->m_btnPageThree->setVisible(true);
+        ui->m_btnPageOne->setText(QString::number(m_iCurPage + 2));
+    }
+    if(count > m_iPageRowCount * 3)
+    {
+        ui->m_btnPageFive->setVisible(true);
+        ui->m_btnPageFive->setText(QString::number(m_iCurPage + 3));
+    }
+    if(count > m_iPageRowCount * 4)
+    {
+        ui->m_labelPage->setVisible(true);
+        int nPage = count / m_iPageRowCount;
+        if(m_iPageRowCount * nPage < count)
         {
-            QTableWidgetItem *pItem = new QTableWidgetItem(m_dataList[i].id);
+            nPage++;
+        }
+        ui->m_btnPageFive->setText(QString::number(nPage));
+    }
+}
+void TargetPersonManager::updateTableView()
+{
+    int index = m_iPageRowCount * (m_iCurPage - 1);
+    for(int i = 0 ; i < m_iPageRowCount ; ++i)
+    {
+        if(index + i < m_listPersonData.size())
+        {
+            QWidget* pWid = new QWidget(ui->m_table);
+            pWid->setStyleSheet("QWidget{background:rgba(0,0,0,0);border:none}");
+            QHBoxLayout* playout = new QHBoxLayout(pWid);
+            playout->setMargin(0);
+            QCheckBox* box = new QCheckBox();
+            connect(box,SIGNAL(stateChanged(int)),this,SLOT(onSlotCheckBoxChanged(int)));
+            playout->addWidget(box,0,Qt::AlignCenter);
+            ui->m_table->setCellWidget(i,0,pWid);
+
+            QTableWidgetItem *pItem;
+
+            pItem = new QTableWidgetItem(m_listPersonData[index + i].name);
             pItem->setTextAlignment(Qt::AlignCenter);
-            pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
-            ui->tableWidget->setItem(i-startIndex, 0, pItem);
+            //pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
+            ui->m_table->setItem(i, 1, pItem);
 
-            pItem = new QTableWidgetItem(m_dataList[i].name);
+            pItem = new QTableWidgetItem(m_listPersonData[index + i].sex);
             pItem->setTextAlignment(Qt::AlignCenter);
-            pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
-            ui->tableWidget->setItem(i-startIndex, 1, pItem);
+            //pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
+            ui->m_table->setItem(i, 2, pItem);
 
-            pItem = new QTableWidgetItem(m_dataList[i].area);
+            pItem = new QTableWidgetItem(m_listPersonData[index + i].birthday);
             pItem->setTextAlignment(Qt::AlignCenter);
-            pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
-            ui->tableWidget->setItem(i-startIndex, 2, pItem);
+            //pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
+            ui->m_table->setItem(i, 3, pItem);
 
-            pItem = new QTableWidgetItem(m_dataList[i].type);
+            pItem = new QTableWidgetItem(m_listPersonData[index + i].identityNumber);
             pItem->setTextAlignment(Qt::AlignCenter);
-            pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
-            ui->tableWidget->setItem(i-startIndex, 3, pItem);
+            //pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
+            ui->m_table->setItem(i, 4, pItem);
 
-            pItem = new QTableWidgetItem(m_dataList[i].status);
+            pItem = new QTableWidgetItem(m_listPersonData[index + i].importanceLevel);
             pItem->setTextAlignment(Qt::AlignCenter);
-            pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
-            ui->tableWidget->setItem(i-startIndex, 4, pItem);
+            //pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
+            ui->m_table->setItem(i, 5, pItem);
 
-            pItem = new QTableWidgetItem(m_dataList[i].description);
+            pItem = new QTableWidgetItem(m_listPersonData[index + i].dangersLevel);
             pItem->setTextAlignment(Qt::AlignCenter);
-            pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
-            ui->tableWidget->setItem(i-startIndex, 5, pItem);
+            //pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
+            ui->m_table->setItem(i, 6, pItem);
 
-            QWidget *pWidget = new QWidget;
-            pWidget->setStyleSheet("QWidget{border:none}");
-            QPushButton *pEditPushButton = new QPushButton(tr("编辑"));
-            pEditPushButton->setFixedSize(51, 23);
-            pEditPushButton->setStyleSheet(m_stringStyle);
-            QHBoxLayout *pHBoxLayout = new QHBoxLayout(pWidget);
-            pHBoxLayout->addWidget(pEditPushButton, 0, Qt::AlignCenter);
-            pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
-            ui->tableWidget->setCellWidget(i-startIndex, 6, pWidget);
+            pItem = new QTableWidgetItem(m_listPersonData[index + i].type);
+            pItem->setTextAlignment(Qt::AlignCenter);
+            //pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
+            ui->m_table->setItem(i, 7, pItem);
 
-            connect(pEditPushButton, SIGNAL(clicked(bool)), this, SLOT(slot_editButClicked()));
+            pItem = new QTableWidgetItem(m_listPersonData[index + i].status);
+            pItem->setTextAlignment(Qt::AlignCenter);
+            //pItem->setFlags(pItem->flags() & ~Qt::ItemIsEditable);
+            ui->m_table->setItem(i, 8, pItem);
+
+            QWidget* pWid2 = new QWidget(ui->m_table);
+            pWid2->setStyleSheet("QWidget{background:rgba(0,0,0,0);border:none}");
+            QHBoxLayout* playout2 = new QHBoxLayout(pWid2);
+            playout2->setMargin(0);
+            QPushButton* btn = new QPushButton("编辑");
+            btn->setFixedSize(51, 23);
+            btn->setStyleSheet(m_strBtnStyle);
+            connect(btn,SIGNAL(clicked(bool)),this,SLOT(onBtnEditTargetPerson()));
+            playout2->addWidget(btn,0,Qt::AlignCenter);
+            ui->m_table->setCellWidget(i,9,pWid2);
         }
     }
 }
-*/
+
+void TargetPersonManager::onSlotCheckBoxChanged(int checked)
+{}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

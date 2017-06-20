@@ -38,5 +38,6 @@ const int g_topMenuPaneHei = 40;
 #include <QDesktopWidget>
 #include <QScrollBar>
 #include <QFileDialog>
+#include <QCheckBox>
 
 #endif // STABLE_H
