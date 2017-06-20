@@ -86,12 +86,12 @@ void AddTargetPersonImageDlg::onSlotClose()
 
 void AddTargetPersonImageDlg::onSlotSave()
 {
-
+    this->accept();
 }
 
 void AddTargetPersonImageDlg::onSlotCancel()
 {
-
+    this->reject();
 }
 
 void AddTargetPersonImageDlg::updatePersonInfo(QString name,QString sex,int age,QString dangersLevel,QString status,QString identitype,QString identiNumber)

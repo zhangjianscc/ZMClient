@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">border:none
+</string>
+  </property>
   <widget class="QLabel" name="m_labelImage">
    <property name="geometry">
     <rect>
@@ -40,6 +44,9 @@
      <width>91</width>
      <height>20</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:none</string>
    </property>
    <property name="text">
     <string>ImageName</string>

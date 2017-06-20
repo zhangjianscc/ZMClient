@@ -38,6 +38,8 @@ private:
     int m_iPageRowCount;
     QList<PersonData> m_listPersonData;
     QString m_strBtnStyle;
+    QList<QCheckBox*>   m_listCheckBox;
+    QList<QPushButton*> m_listButtons;
 signals:
 
 public slots:
@@ -53,7 +55,6 @@ public slots:
     void onBtnPage5();
     void onBtnPageNext();
     void onBtnPageLast();
-    void onBtnEdit();
     void onSlotselectChanged(bool checked);
     void onBtnAddTargetPerson();
     void onBtnEditTargetPerson();

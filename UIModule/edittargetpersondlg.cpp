@@ -14,7 +14,7 @@ EditTargetPersonDlg::EditTargetPersonDlg(QWidget *parent) :
     for(int i = 1 ; i < 7 ; ++i)
     {
         ImageItemData data;
-        data.pix = QPixmap(QString("://images//head%1.jpg").arg(i));
+        data.pix = QPixmap("://images//head2.jpg");
         data.name = QString("沃尔沃%1").arg(i);
         list.append(data);
     }
@@ -85,7 +85,7 @@ void EditTargetPersonDlg::initPersonImages(QList<ImageItemData> list)
         pItem->setData(list[i].pix,list[i].name);
         QWidget* pWid = new QWidget();
         QHBoxLayout* pLayout = new QHBoxLayout(pWid);
-        pLayout ->setMargin(0);
+        pLayout->setMargin(0);
         pLayout->addWidget(pItem,0,Qt::AlignCenter);
         int hei = pItem->height() + 10;
         ui->m_table->setRowHeight(i/2,hei);

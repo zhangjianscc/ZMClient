@@ -13,8 +13,7 @@ TargetPersonManager::TargetPersonManager(QWidget *parent) :
 {
     ui->setupUi(this);
     initUI();
-    // test by ly
-    updatePersonData();
+    m_iCurPage = 1;
 }
 
 TargetPersonManager::~TargetPersonManager()
@@ -80,7 +79,7 @@ void TargetPersonManager::initUI()
     {
         ui->m_table->setColumnWidth(i,117);
     }
-    connect(myHeader,SIGNAL(checkStausChange(bool)),this,SLOT(onSlotselectAllRows(bool)));
+    connect(myHeader,SIGNAL(checkStausChange(bool)),this,SLOT(onSlotselectChanged(bool)));
     //
 
     ui->m_table->setHorizontalHeaderLabels(hheader);
@@ -115,37 +114,112 @@ void TargetPersonManager::onBtnSearch()
     updatePersonData();
 }
 void TargetPersonManager::onBtnSelectAll()
-{}
+{
+    for(int i = 0 ; i < m_iPageRowCount ; ++i)
+    {
+        if(i < m_listCheckBox.size())
+        {
+            m_listCheckBox[i]->setChecked(true);
+        }
+    }
+}
 void TargetPersonManager::onBtnUnSelectAll()
-{}
+{
+    for(int i = 0 ; i < m_iPageRowCount ; ++i)
+    {
+        if(i < m_listCheckBox.size())
+        {
+            m_listCheckBox[i]->setChecked(false);
+        }
+    }
+}
 void TargetPersonManager::onBtnDelete()
-{}
+{
+    // by ly
+    int curRow = ui->m_table->currentRow();
+    int index = (m_iCurPage - 1) * m_iPageRowCount + curRow;
+    m_listPersonData.removeAt(index);
+    ui->m_table->removeRow(curRow);
+    // 更新按钮状态
+    updateBtnStatus();
+    // 更新表格显示
+    updateTableView();
+}
 void TargetPersonManager::onBtnPageFirst()
-{}
+{
+    m_iCurPage = 1;
+    // 更新按钮状态
+    updateBtnStatus();
+    // 更新表格显示
+    updateTableView();
+}
 void TargetPersonManager::onBtnPagePre()
-{}
+{
+    m_iCurPage--;
+    // 更新按钮状态
+    updateBtnStatus();
+    // 更新表格显示
+    updateTableView();
+}
 void TargetPersonManager::onBtnPage1()
-{}
+{
+    m_iCurPage = ui->m_btnPageOne->text().toInt();
+    // 更新按钮状态
+    updateBtnStatus();
+    // 更新表格显示
+    updateTableView();
+}
 void TargetPersonManager::onBtnPage2()
-{}
+{
+    m_iCurPage = ui->m_btnPageTwo->text().toInt();
+    // 更新按钮状态
+    updateBtnStatus();
+    // 更新表格显示
+    updateTableView();
+}
 void TargetPersonManager::onBtnPage3()
-{}
+{
+    m_iCurPage = ui->m_btnPageThree->text().toInt();
+    // 更新按钮状态
+    updateBtnStatus();
+    // 更新表格显示
+    updateTableView();
+}
 void TargetPersonManager::onBtnPage5()
-{}
+{
+    m_iCurPage = ui->m_btnPageFive->text().toInt();
+    // 更新按钮状态
+    updateBtnStatus();
+    // 更新表格显示
+    updateTableView();
+}
 void TargetPersonManager::onBtnPageNext()
-{}
+{
+    m_iCurPage++;
+    // 更新按钮状态
+    updateBtnStatus();
+    // 更新表格显示
+    updateTableView();
+}
 void TargetPersonManager::onBtnPageLast()
-{}
-void TargetPersonManager::onBtnEdit()
-{}
+{
+    m_iCurPage = m_iTotalPage;
+    // 更新按钮状态
+    updateBtnStatus();
+    // 更新表格显示
+    updateTableView();
+}
+
 void TargetPersonManager::onSlotselectChanged(bool checked)
 {
     if(checked) // 全选
     {
-
+        onBtnSelectAll();
     }
     else // 全反选
-    {}
+    {
+        onBtnUnSelectAll();
+    }
 }
 void TargetPersonManager::onBtnAddTargetPerson()
 {
@@ -165,7 +239,7 @@ void TargetPersonManager::updatePersonData()
     for(int i = 0 ; i < 50 ; ++i)
     {
         PersonData data;
-        data.name = "宝马";
+        data.name = QString("宝马%1").arg(i);
         data.sex = "人妖";
         data.birthday = "1900-04-11";
         data.identityNumber = "11112356421544";
@@ -178,51 +252,233 @@ void TargetPersonManager::updatePersonData()
 
     // 更新按钮状态
     updateBtnStatus();
-    // 更新表格数据
+    // 更新表格显示
     updateTableView();
 }
 void TargetPersonManager::updateBtnStatus()
 {
     // 计算页码
     int count = m_listPersonData.size();
-    int totalPage = count/m_iPageRowCount;
+    m_iTotalPage = count/m_iPageRowCount;
     if(count%m_iPageRowCount)
     {
-        ++totalPage;
+        ++m_iTotalPage;
     }
-    m_iCurPage = m_iCurPage>totalPage?totalPage:m_iCurPage;
+    m_iCurPage = m_iCurPage>m_iTotalPage?m_iTotalPage:m_iCurPage;
     m_iCurPage = m_iCurPage<1?1:m_iCurPage;
 
     // 更新页码标签
-    ui->m_btnPageOne->setText(QString::number(m_iCurPage));
-    if(count > m_iPageRowCount)
+    if(count <= m_iPageRowCount)
     {
+        ui->m_btnPageOne->setVisible(true);
+        ui->m_btnPageOne->setText("1");
+        ui->m_btnPageOne->setChecked(true);
+        ui->m_btnPageTwo->setVisible(false);
+        ui->m_btnPageThree->setVisible(false);
+        ui->m_btnPageFive->setVisible(false);
+        ui->m_labelPage->setVisible(false);
+    }
+    else if(count <= m_iPageRowCount * 2)
+    {
+        ui->m_btnPageOne->setVisible(true);
+        ui->m_btnPageOne->setText("1");
+        ui->m_btnPageOne->setChecked(false);
+
         ui->m_btnPageTwo->setVisible(true);
-        ui->m_btnPageOne->setText(QString::number(m_iCurPage + 1));
-    }
-    if(count > m_iPageRowCount * 2)
-    {
-        ui->m_btnPageThree->setVisible(true);
-        ui->m_btnPageOne->setText(QString::number(m_iCurPage + 2));
-    }
-    if(count > m_iPageRowCount * 3)
-    {
-        ui->m_btnPageFive->setVisible(true);
-        ui->m_btnPageFive->setText(QString::number(m_iCurPage + 3));
-    }
-    if(count > m_iPageRowCount * 4)
-    {
-        ui->m_labelPage->setVisible(true);
-        int nPage = count / m_iPageRowCount;
-        if(m_iPageRowCount * nPage < count)
+        ui->m_btnPageTwo->setText("2");
+        ui->m_btnPageTwo->setChecked(false);
+
+        ui->m_btnPageThree->setVisible(false);
+        ui->m_btnPageFive->setVisible(false);
+        ui->m_labelPage->setVisible(false);
+
+        if(m_iCurPage == 1)
         {
-            nPage++;
+            ui->m_btnPageOne->setChecked(true);
         }
-        ui->m_btnPageFive->setText(QString::number(nPage));
+        else
+        {
+            ui->m_btnPageTwo->setChecked(true);
+        }
+    }
+    else if(count <= m_iPageRowCount * 3)
+    {
+        ui->m_btnPageOne->setVisible(true);
+        ui->m_btnPageOne->setText("1");
+        ui->m_btnPageOne->setChecked(false);
+
+        ui->m_btnPageTwo->setVisible(true);
+        ui->m_btnPageTwo->setText("2");
+        ui->m_btnPageTwo->setChecked(false);
+
+        ui->m_btnPageThree->setVisible(true);
+        ui->m_btnPageThree->setText("3");
+        ui->m_btnPageThree->setChecked(false);
+
+        ui->m_btnPageFive->setVisible(false);
+        ui->m_labelPage->setVisible(false);
+
+        if(m_iCurPage == 1)
+        {
+            ui->m_btnPageOne->setChecked(true);
+        }
+        else if(m_iCurPage == 2)
+        {
+            ui->m_btnPageTwo->setChecked(true);
+        }
+        else
+        {
+            ui->m_btnPageThree->setChecked(true);
+        }
+    }
+    else if(count <= m_iPageRowCount * 4)
+    {
+        ui->m_btnPageOne->setVisible(true);
+        ui->m_btnPageOne->setText("1");
+        ui->m_btnPageOne->setChecked(false);
+
+        ui->m_btnPageTwo->setVisible(true);
+        ui->m_btnPageTwo->setText("2");
+        ui->m_btnPageTwo->setChecked(false);
+
+        ui->m_btnPageThree->setVisible(true);
+        ui->m_btnPageThree->setText("3");
+        ui->m_btnPageThree->setChecked(false);
+
+        ui->m_btnPageFive->setVisible(true);
+        ui->m_btnPageFive->setText("4");
+        ui->m_btnPageFive->setChecked(false);
+
+        ui->m_labelPage->setVisible(false);
+
+        if(m_iCurPage == 1)
+        {
+            ui->m_btnPageOne->setChecked(true);
+        }
+        else if(m_iCurPage == 2)
+        {
+            ui->m_btnPageTwo->setChecked(true);
+        }
+        else if(m_iCurPage == 3)
+        {
+            ui->m_btnPageThree->setChecked(true);
+        }
+        else
+        {
+            ui->m_btnPageFive->setChecked(true);
+        }
+    }
+    else // >4页
+    {
+        if(m_iCurPage == 1)
+        {
+            ui->m_btnPageOne->setVisible(true);
+            ui->m_btnPageOne->setText("1");
+            ui->m_btnPageOne->setChecked(true);
+
+            ui->m_btnPageTwo->setVisible(true);
+            ui->m_btnPageTwo->setText("2");
+            ui->m_btnPageTwo->setChecked(false);
+
+            ui->m_btnPageThree->setVisible(true);
+            ui->m_btnPageThree->setText("3");
+            ui->m_btnPageThree->setChecked(false);
+
+            ui->m_btnPageFive->setVisible(true);
+            ui->m_btnPageFive->setText(QString::number(m_iTotalPage));
+            ui->m_btnPageFive->setChecked(false);
+
+            ui->m_labelPage->setVisible(true);
+        }
+        else if(m_iCurPage == 2)
+        {
+            ui->m_btnPageOne->setVisible(true);
+            ui->m_btnPageOne->setText("1");
+            ui->m_btnPageOne->setChecked(false);
+
+            ui->m_btnPageTwo->setVisible(true);
+            ui->m_btnPageTwo->setText("2");
+            ui->m_btnPageTwo->setChecked(true);
+
+            ui->m_btnPageThree->setVisible(true);
+            ui->m_btnPageThree->setText("3");
+            ui->m_btnPageThree->setChecked(false);
+
+            ui->m_btnPageFive->setVisible(true);
+            ui->m_btnPageFive->setText("4");
+            ui->m_btnPageFive->setChecked(false);
+
+            ui->m_labelPage->setVisible(true);
+        }
+        else if(m_iCurPage == 3)
+        {
+            ui->m_btnPageOne->setVisible(true);
+            ui->m_btnPageOne->setText("1");
+            ui->m_btnPageOne->setChecked(false);
+
+            ui->m_btnPageTwo->setVisible(true);
+            ui->m_btnPageTwo->setText("2");
+            ui->m_btnPageTwo->setChecked(false);
+
+            ui->m_btnPageThree->setVisible(true);
+            ui->m_btnPageThree->setText("3");
+            ui->m_btnPageThree->setChecked(true);
+
+            ui->m_btnPageFive->setVisible(true);
+            ui->m_btnPageFive->setText(QString::number(m_iTotalPage));
+            ui->m_btnPageFive->setChecked(false);
+
+            ui->m_labelPage->setVisible(true);
+        }
+        else if(m_iCurPage == m_iTotalPage)
+        {
+            ui->m_btnPageOne->setVisible(true);
+            ui->m_btnPageOne->setText(QString::number(m_iTotalPage-3));
+            ui->m_btnPageOne->setChecked(false);
+
+            ui->m_btnPageTwo->setVisible(true);
+            ui->m_btnPageTwo->setText(QString::number(m_iTotalPage-2));
+            ui->m_btnPageTwo->setChecked(false);
+
+            ui->m_btnPageThree->setVisible(true);
+            ui->m_btnPageThree->setText(QString::number(m_iTotalPage-1));
+            ui->m_btnPageThree->setChecked(false);
+
+            ui->m_btnPageFive->setVisible(true);
+            ui->m_btnPageFive->setText(QString::number(m_iTotalPage));
+            ui->m_btnPageFive->setChecked(true);
+
+            ui->m_labelPage->setVisible(true);
+        }
+        else
+        {
+            ui->m_btnPageOne->setVisible(true);
+            ui->m_btnPageOne->setText(QString::number(m_iCurPage-2));
+            ui->m_btnPageOne->setChecked(false);
+
+            ui->m_btnPageTwo->setVisible(true);
+            ui->m_btnPageTwo->setText(QString::number(m_iCurPage-1));
+            ui->m_btnPageTwo->setChecked(false);
+
+            ui->m_btnPageThree->setVisible(true);
+            ui->m_btnPageThree->setText(QString::number(m_iCurPage));
+            ui->m_btnPageThree->setChecked(true);
+
+            ui->m_btnPageFive->setVisible(true);
+            ui->m_btnPageFive->setText(QString::number(m_iTotalPage));
+            ui->m_btnPageFive->setChecked(false);
+
+            ui->m_labelPage->setVisible(true);
+        }
     }
 }
 void TargetPersonManager::updateTableView()
 {
+    m_listButtons.clear();
+    m_listCheckBox.clear();
+    ui->m_table->clearContents();
+    ui->m_table->setRowCount(m_iPageRowCount);
+    //
     int index = m_iPageRowCount * (m_iCurPage - 1);
     for(int i = 0 ; i < m_iPageRowCount ; ++i)
     {
@@ -234,6 +490,7 @@ void TargetPersonManager::updateTableView()
             playout->setMargin(0);
             QCheckBox* box = new QCheckBox();
             connect(box,SIGNAL(stateChanged(int)),this,SLOT(onSlotCheckBoxChanged(int)));
+            m_listCheckBox.append(box);
             playout->addWidget(box,0,Qt::AlignCenter);
             ui->m_table->setCellWidget(i,0,pWid);
 
@@ -284,6 +541,7 @@ void TargetPersonManager::updateTableView()
             QHBoxLayout* playout2 = new QHBoxLayout(pWid2);
             playout2->setMargin(0);
             QPushButton* btn = new QPushButton("编辑");
+            m_listButtons.append(btn);
             btn->setFixedSize(51, 23);
             btn->setStyleSheet(m_strBtnStyle);
             connect(btn,SIGNAL(clicked(bool)),this,SLOT(onBtnEditTargetPerson()));
