@@ -8,14 +8,14 @@ namespace Ui {
 class DeleteTargetPerson;
 }
 
-class DeleteTargetPerson : public QDialog
+class DeleteConfirmationDlg : public QDialog
 {
     Q_OBJECT
 
 public:
     // info1 + redinfo + info3 组成提示字符串 其中redInfo为红色高亮显示
-    explicit DeleteTargetPerson(QString info1,QString redInfo,QString info3);
-    ~DeleteTargetPerson();
+    explicit DeleteConfirmationDlg(QString info1,QString redInfo,QString info3);
+    ~DeleteConfirmationDlg();
 private:
     void initUI();
 

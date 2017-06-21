@@ -94,7 +94,10 @@ HEADERS += \
     UIModule/addmonitordevicedialog.h \
     UIModule/editmonitordevicedialog.h \
     UIModule/Comm/targetpersonimageitem.h \
-    UIModule/deletetargetperson.h
+    UIModule/deleteconfirmationdlg.h \
+    UIModule/Comm/deleteconfirmationdlg.h \
+    UIModule/Comm/templateitem.h \
+    UIModule/batchaddtemplatedlg.h
 
 SOURCES += \
     base64/base64.cpp \
@@ -157,7 +160,9 @@ SOURCES += \
     UIModule/addmonitordevicedialog.cpp \
     UIModule/editmonitordevicedialog.cpp \
     UIModule/Comm/targetpersonimageitem.cpp \
-    UIModule/deletetargetperson.cpp
+    UIModule/Comm/deleteconfirmationdlg.cpp \
+    UIModule/Comm/templateitem.cpp \
+    UIModule/batchaddtemplatedlg.cpp
 
 FORMS += \
     UIModule/adddevicedlg.ui \
@@ -198,7 +203,9 @@ FORMS += \
     UIModule/addmonitordevicedialog.ui \
     UIModule/editmonitordevicedialog.ui \
     UIModule/Comm/targetpersonimageitem.ui \
-    UIModule/deletetargetperson.ui
+    UIModule/deletetargetperson.ui \
+    UIModule/Comm/templateitem.ui \
+    UIModule/batchaddtemplatedlg.ui
 
 RESOURCES += \
     Resouce.qrc

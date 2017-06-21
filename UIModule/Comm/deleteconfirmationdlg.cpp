@@ -1,7 +1,7 @@
-#include "deletetargetperson.h"
+#include "deleteconfirmationdlg.h"
 #include "ui_deletetargetperson.h"
 
-DeleteTargetPerson::DeleteTargetPerson(QString info1,QString redInfo,QString info3) :
+DeleteConfirmationDlg::DeleteConfirmationDlg(QString info1,QString redInfo,QString info3) :
     QDialog(0),
     ui(new Ui::DeleteTargetPerson)
 {
@@ -12,11 +12,11 @@ DeleteTargetPerson::DeleteTargetPerson(QString info1,QString redInfo,QString inf
     ui->m_labelInfo3->setText(info3);
 }
 
-DeleteTargetPerson::~DeleteTargetPerson()
+DeleteConfirmationDlg::~DeleteConfirmationDlg()
 {
     delete ui;
 }
-void DeleteTargetPerson::initUI()
+void DeleteConfirmationDlg::initUI()
 {
     // 去除窗口标题栏 设置圆角对话框
     this->setWindowFlags(Qt::FramelessWindowHint);
@@ -41,22 +41,22 @@ void DeleteTargetPerson::initUI()
 
 }
 
-void DeleteTargetPerson::onSlotClose()
+void DeleteConfirmationDlg::onSlotClose()
 {
     this->reject();
 }
 
-void DeleteTargetPerson::onSlotDelete()
+void DeleteConfirmationDlg::onSlotDelete()
 {
     this->accept();
 }
 
-void DeleteTargetPerson::onSlotCancel()
+void DeleteConfirmationDlg::onSlotCancel()
 {
     this->reject();
 }
 
-void DeleteTargetPerson::mousePressEvent(QMouseEvent *event)
+void DeleteConfirmationDlg::mousePressEvent(QMouseEvent *event)
 {
     if(event->pos().y() <= 35)
     {
@@ -67,7 +67,7 @@ void DeleteTargetPerson::mousePressEvent(QMouseEvent *event)
     }
 }
 
-void DeleteTargetPerson::mouseMoveEvent(QMouseEvent *event)
+void DeleteConfirmationDlg::mouseMoveEvent(QMouseEvent *event)
 {
     if(m_bIsMoveing)
     {
@@ -75,7 +75,7 @@ void DeleteTargetPerson::mouseMoveEvent(QMouseEvent *event)
     }
 }
 
-void DeleteTargetPerson::mouseReleaseEvent(QMouseEvent *event)
+void DeleteConfirmationDlg::mouseReleaseEvent(QMouseEvent *event)
 {
     m_bIsMoveing = false;
 }

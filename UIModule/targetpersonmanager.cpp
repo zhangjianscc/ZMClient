@@ -4,8 +4,9 @@
 #include "UIModule/Comm/mycheckboxheaderview.h"
 #include "UIModule/addtargetpersondlg.h"
 #include "UIModule/edittargetpersondlg.h"
-#include "UIModule/deletetargetperson.h"
+#include "UIModule/Comm/deleteconfirmationdlg.h"
 #include "stable.h"
+#include "UIModule/Comm/templateitem.h"
 
 TargetPersonManager::TargetPersonManager(QWidget *parent) :
     QWidget(parent),
@@ -136,14 +137,21 @@ void TargetPersonManager::onBtnUnSelectAll()
 void TargetPersonManager::onBtnDelete()
 {
     // by ly
-    int curRow = ui->m_table->currentRow();
-    int index = (m_iCurPage - 1) * m_iPageRowCount + curRow;
-    m_listPersonData.removeAt(index);
-    ui->m_table->removeRow(curRow);
-    // 更新按钮状态
-    updateBtnStatus();
-    // 更新表格显示
-    updateTableView();
+    DeleteConfirmationDlg* pDlg = new DeleteConfirmationDlg("确认要删除该记录，删除后将","无法恢复","？");
+    if(pDlg->exec() == QDialog::Accepted)
+    {
+        // test
+        int curRow = ui->m_table->currentRow();
+        int index = (m_iCurPage - 1) * m_iPageRowCount + curRow;
+        m_listPersonData.removeAt(index);
+        ui->m_table->removeRow(curRow);
+        // 更新按钮状态
+        updateBtnStatus();
+        // 更新表格显示
+        updateTableView();
+        // by ly delete all checked data
+
+    }
 }
 void TargetPersonManager::onBtnPageFirst()
 {

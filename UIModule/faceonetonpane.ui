@@ -200,8 +200,10 @@ font: 11pt &quot;黑体&quot;;</string>
            </rect>
           </property>
           <property name="styleSheet">
-           <string notr="true">border-radius:3px;
+           <string notr="true">border:1px solid rgb(180,180,180);
+border-radius:2px;
 QComboBox::drop-down:border-image: url(:/images/down-01.png);
+background-color:rgb(255,255,255)
 
 </string>
           </property>
@@ -314,6 +316,10 @@ font: 13pt &quot;黑体&quot;;</string>
              <height>30</height>
             </rect>
            </property>
+           <property name="styleSheet">
+            <string notr="true">border-radius:2px;
+background-color:rgb(255,255,255)</string>
+           </property>
           </widget>
          </widget>
         </widget>
@@ -413,7 +419,10 @@ font: 11pt &quot;黑体&quot;;</string>
           </rect>
          </property>
          <property name="styleSheet">
-          <string notr="true">border:1px solid rgb(180,180,180);</string>
+          <string notr="true">border:1px solid rgb(180,180,180);
+border-radius:2px;
+QComboBox::drop-down:border-image: url(:/images/down-01.png);
+background-color:rgb(255,255,255)</string>
          </property>
         </widget>
         <widget class="QPushButton" name="btnBeginCompare">

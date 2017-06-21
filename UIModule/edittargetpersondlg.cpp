@@ -52,18 +52,20 @@ void EditTargetPersonDlg::initUI()
     ui->m_btnAddImage->setStyleSheet(addStyle);
     connect(ui->m_btnAddImage,SIGNAL(clicked(bool)),this,SLOT(onSlotAddImage()));
 
-    // 表格
-    ui->m_table->verticalHeader()->setVisible(false);
-    ui->m_table->verticalHeader()->setStretchLastSection(true);
+
+    // 目标人照片表格
     ui->m_table->horizontalHeader()->setVisible(false);
+    ui->m_table->verticalHeader()->setVisible(false);
+    ui->m_table->setShowGrid(false);
     ui->m_table->horizontalHeader()->setStretchLastSection(true);
     ui->m_table->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     ui->m_table->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     ui->m_table->setSelectionMode(QAbstractItemView::NoSelection);
-    ui->m_table->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-    ui->m_table->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->m_table->setFocusPolicy(Qt::NoFocus);
-    ui->m_table->setShowGrid(false);
+    ui->m_table->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    //ui->m_table->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->m_table->verticalScrollBar()->setStyleSheet("QScrollBar:vertical{border:none;width:10px;background:rgb(236,236,236)}"
+                                                            "QScrollBar::handle{border:none;border-radius:5px;width:10px;background:rgb(178,178,178);}");
 }
 
 void EditTargetPersonDlg::onSlotClose()
@@ -83,13 +85,9 @@ void EditTargetPersonDlg::initPersonImages(QList<ImageItemData> list)
     {
         TargetPersonImageItem* pItem = new TargetPersonImageItem();
         pItem->setData(list[i].pix,list[i].name);
-        QWidget* pWid = new QWidget();
-        QHBoxLayout* pLayout = new QHBoxLayout(pWid);
-        pLayout->setMargin(0);
-        pLayout->addWidget(pItem,0,Qt::AlignCenter);
         int hei = pItem->height() + 10;
         ui->m_table->setRowHeight(i/2,hei);
-        ui->m_table->setCellWidget(i/2,i%2,pWid);
+        ui->m_table->setCellWidget(i/2,i%2,pItem);
     }
 }
 

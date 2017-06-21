@@ -42,13 +42,13 @@
        <number>0</number>
       </property>
       <property name="leftMargin">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="topMargin">
        <number>0</number>
       </property>
       <property name="rightMargin">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="bottomMargin">
        <number>0</number>
@@ -57,13 +57,13 @@
        <widget class="QWidget" name="widget_2" native="true">
         <property name="minimumSize">
          <size>
-          <width>0</width>
+          <width>1078</width>
           <height>25</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>16777215</width>
+          <width>1078</width>
           <height>25</height>
          </size>
         </property>
@@ -111,6 +111,18 @@ font: 11pt &quot;黑体&quot;;</string>
       </item>
       <item>
        <widget class="QWidget" name="widget_3" native="true">
+        <property name="minimumSize">
+         <size>
+          <width>1078</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>1078</width>
+          <height>16777215</height>
+         </size>
+        </property>
         <property name="styleSheet">
          <string notr="true">border:1px solid rgb(180,180,180)</string>
         </property>
@@ -134,13 +146,13 @@ font: 11pt &quot;黑体&quot;;</string>
           <widget class="QWidget" name="widget_4" native="true">
            <property name="minimumSize">
             <size>
-             <width>0</width>
+             <width>1078</width>
              <height>70</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
-             <width>16777215</width>
+             <width>1078</width>
              <height>80</height>
             </size>
            </property>
