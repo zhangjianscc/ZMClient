@@ -7,7 +7,7 @@ MyToolButton::MyToolButton(QString text) :
     m_bImageButton(false)
 {
     this->setText(text);
-    this->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    this->setToolButtonStyle(Qt::ToolButtonTextOnly);
     this->setCheckable(true);
     this->setFixedHeight(30);
     this->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);

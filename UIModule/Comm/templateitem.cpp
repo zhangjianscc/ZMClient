@@ -39,7 +39,7 @@ void TemplateItem::setData(QPixmap pix,QString imageName,QString name,QString se
     ui->m_labelName->setText(name);
     ui->m_labelSex->setText(sex);
     ui->m_labelAge->setText(QString("%1岁").arg(age));
-    ui->m_labelName->setText(identityNumber);
+    ui->m_labelNumber->setText(identityNumber);
     ui->m_labelImportanceLevel->setText(importanceLevel);
     ui->m_labelDangersLevel->setText(dangersLevel);
 }
