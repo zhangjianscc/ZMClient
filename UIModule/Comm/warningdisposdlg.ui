@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>WarningDisposDlg</class>
+ <widget class="QDialog" name="WarningDisposDlg">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>180</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">border:1px solid rgb(180,180,180);</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QWidget" name="widget" native="true">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-top-left-radius:5px;
+border-top-right-radius:5px;
+border-bottom-left-radius:0px;
+border-bottom-right-radius:0px;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(235, 235, 235, 255), stop:1 rgba(170, 170, 170, 255));</string>
+     </property>
+     <widget class="QLabel" name="label_4">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>1</y>
+        <width>71</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 12pt &quot;黑体&quot;;
+border:none</string>
+      </property>
+      <property name="text">
+       <string>告警处理</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="m_btnClose">
+      <property name="geometry">
+       <rect>
+        <x>375</x>
+        <y>0</y>
+        <width>25</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>25</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>25</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+border-top-left-radius:0px;
+border-top-right-radius:5px;
+border-bottom-left-radius:0px;
+border-bottom-right-radius:0px;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="widget_2" native="true">
+     <widget class="QLabel" name="m_labelInfo1">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>40</y>
+        <width>71</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 12pt &quot;黑体&quot;;
+border:none</string>
+      </property>
+      <property name="text">
+       <string>确认结果</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="m_btnSave">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>102</y>
+        <width>75</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 12pt &quot;黑体&quot;;
+border-radius:3px;
+border:1px solid rgb(180,180,180)</string>
+      </property>
+      <property name="text">
+       <string>保存</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="m_btnCancel">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>102</y>
+        <width>75</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 12pt &quot;黑体&quot;;
+border-radius:3px;
+border:1px solid rgb(180,180,180)</string>
+      </property>
+      <property name="text">
+       <string>取消</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="m_comboResult">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>40</y>
+        <width>101</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

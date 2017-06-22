@@ -99,7 +99,9 @@ HEADERS += \
     UIModule/Comm/templateitem.h \
     UIModule/batchaddtemplatedlg.h \
     UIModule/editlibrarydlg.h \
-    UIModule/Comm/noticedlg.h
+    UIModule/Comm/noticedlg.h \
+    UIModule/Comm/realwarningitem.h \
+    UIModule/Comm/warningdisposdlg.h
 
 SOURCES += \
     base64/base64.cpp \
@@ -166,7 +168,9 @@ SOURCES += \
     UIModule/Comm/templateitem.cpp \
     UIModule/batchaddtemplatedlg.cpp \
     UIModule/editlibrarydlg.cpp \
-    UIModule/Comm/noticedlg.cpp
+    UIModule/Comm/noticedlg.cpp \
+    UIModule/Comm/realwarningitem.cpp \
+    UIModule/Comm/warningdisposdlg.cpp
 
 FORMS += \
     UIModule/adddevicedlg.ui \
@@ -211,7 +215,9 @@ FORMS += \
     UIModule/Comm/templateitem.ui \
     UIModule/batchaddtemplatedlg.ui \
     UIModule/editlibrarydlg.ui \
-    UIModule/Comm/noticedlg.ui
+    UIModule/Comm/noticedlg.ui \
+    UIModule/Comm/realwarningitem.ui \
+    UIModule/Comm/warningdisposdlg.ui
 
 RESOURCES += \
     Resouce.qrc

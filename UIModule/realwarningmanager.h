@@ -11,13 +11,15 @@ struct WarningData
 {
     QPixmap pix1;
     QPixmap pix2;
-    QString imageName;
+    double  similar;
     QString name;
     QString sex;
     int     age;
-    QString identityNumber;
     QString importanceLevel;
     QString dangersLevel;
+    QString warningTime;
+    QString warningPlace;
+    QString area;
 };
 class RealWarningManager : public QWidget
 {
@@ -28,7 +30,7 @@ public:
     ~RealWarningManager();
 private:
     void initUI();
-    void updateTemplateData();
+    void updateData();
     void updateBtnStatus();
     void updateTableView();
 private:
@@ -38,7 +40,7 @@ private:
     int m_iRowCount;
     int m_iColumnCount;
     QString m_strBtnStyle;
-    QList<TemplateData> m_listData;
+    QList<WarningData> m_listData;
 signals:
 
 public slots:
@@ -54,8 +56,6 @@ public slots:
     void onSlotBtnPage5();
     void onSlotBtnPageNext();
     void onSlotBtnPageLast();
-    void onSlotBtnAdd();
-    void onSlotBatchAdd();
 };
 
 #endif // REALWARNINGMANAGER_H
