@@ -26,7 +26,7 @@ public:
     ~TemplateManager();
 private:
     void initUI();
-    void updateTemplateData();
+    void updateData();
     void updateBtnStatus();
     void updateTableView();
 private:

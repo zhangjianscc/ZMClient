@@ -90,7 +90,7 @@ void TemplateManager::initUI()
 }
 void TemplateManager::onSlotBtnSearch()
 {
-    updateTemplateData();
+    updateData();
 }
 void TemplateManager::onSlotBtnSelectAll()
 {
@@ -204,7 +204,7 @@ void TemplateManager::onSlotBtnPageLast()
     updateTableView();
 }
 
-void TemplateManager::updateTemplateData()
+void TemplateManager::updateData()
 {
     // by ly
     m_listData.clear();
