@@ -216,7 +216,7 @@ void TemplateManager::updateData()
         data.name = QString("宝马%1").arg(i);
         data.sex = "人妖";
         data.age = 100;
-        data.identityNumber = "11112356421544";
+        data.identityNumber = "510824199999999999";
         data.importanceLevel = "非常重要";
         data.dangersLevel = "极度危险";
         m_listData.append(data);

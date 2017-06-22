@@ -97,7 +97,9 @@ HEADERS += \
     UIModule/deleteconfirmationdlg.h \
     UIModule/Comm/deleteconfirmationdlg.h \
     UIModule/Comm/templateitem.h \
-    UIModule/batchaddtemplatedlg.h
+    UIModule/batchaddtemplatedlg.h \
+    UIModule/editlibrarydlg.h \
+    UIModule/Comm/noticedlg.h
 
 SOURCES += \
     base64/base64.cpp \
@@ -162,7 +164,9 @@ SOURCES += \
     UIModule/Comm/targetpersonimageitem.cpp \
     UIModule/Comm/deleteconfirmationdlg.cpp \
     UIModule/Comm/templateitem.cpp \
-    UIModule/batchaddtemplatedlg.cpp
+    UIModule/batchaddtemplatedlg.cpp \
+    UIModule/editlibrarydlg.cpp \
+    UIModule/Comm/noticedlg.cpp
 
 FORMS += \
     UIModule/adddevicedlg.ui \
@@ -205,7 +209,9 @@ FORMS += \
     UIModule/Comm/targetpersonimageitem.ui \
     UIModule/deletetargetperson.ui \
     UIModule/Comm/templateitem.ui \
-    UIModule/batchaddtemplatedlg.ui
+    UIModule/batchaddtemplatedlg.ui \
+    UIModule/editlibrarydlg.ui \
+    UIModule/Comm/noticedlg.ui
 
 RESOURCES += \
     Resouce.qrc

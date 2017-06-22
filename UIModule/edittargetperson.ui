@@ -121,7 +121,7 @@ border-bottom-left-radius:px;</string>
       <x>0</x>
       <y>0</y>
       <width>320</width>
-      <height>470</height>
+      <height>471</height>
      </rect>
     </property>
     <widget class="QLabel" name="label_2">
@@ -170,7 +170,7 @@ border:none</string>
       </sizepolicy>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 14pt &quot;黑体&quot;;
+      <string notr="true">font: 12pt &quot;黑体&quot;;
 border: none;
 border-radius: 2px;
 background-color:rgb(180,180,180)</string>
@@ -186,7 +186,7 @@ background-color:rgb(180,180,180)</string>
       <x>319</x>
       <y>0</y>
       <width>481</width>
-      <height>470</height>
+      <height>471</height>
      </rect>
     </property>
     <widget class="QLabel" name="label_3">
@@ -292,9 +292,9 @@ font: 11pt &quot;黑体&quot;;</string>
     <widget class="QLineEdit" name="lineEdit">
      <property name="geometry">
       <rect>
-       <x>130</x>
+       <x>120</x>
        <y>80</y>
-       <width>113</width>
+       <width>131</width>
        <height>20</height>
       </rect>
      </property>
@@ -306,9 +306,9 @@ background-color: rgb(255, 255, 255);</string>
     <widget class="QDateEdit" name="dateEdit">
      <property name="geometry">
       <rect>
-       <x>130</x>
+       <x>120</x>
        <y>130</y>
-       <width>110</width>
+       <width>131</width>
        <height>22</height>
       </rect>
      </property>
@@ -320,9 +320,9 @@ background-color: rgb(255, 255, 255);</string>
     <widget class="QLineEdit" name="lineEdit_2">
      <property name="geometry">
       <rect>
-       <x>130</x>
+       <x>120</x>
        <y>180</y>
-       <width>113</width>
+       <width>131</width>
        <height>20</height>
       </rect>
      </property>
@@ -334,9 +334,9 @@ background-color: rgb(255, 255, 255);</string>
     <widget class="QComboBox" name="comboBox">
      <property name="geometry">
       <rect>
-       <x>130</x>
+       <x>120</x>
        <y>230</y>
-       <width>69</width>
+       <width>81</width>
        <height>22</height>
       </rect>
      </property>
@@ -348,9 +348,9 @@ background-color: rgb(255, 255, 255);</string>
     <widget class="QComboBox" name="comboBox_2">
      <property name="geometry">
       <rect>
-       <x>130</x>
+       <x>120</x>
        <y>280</y>
-       <width>69</width>
+       <width>81</width>
        <height>22</height>
       </rect>
      </property>
@@ -422,9 +422,9 @@ font: 11pt &quot;黑体&quot;;</string>
     <widget class="QComboBox" name="comboBox_3">
      <property name="geometry">
       <rect>
-       <x>370</x>
+       <x>360</x>
        <y>80</y>
-       <width>69</width>
+       <width>81</width>
        <height>22</height>
       </rect>
      </property>
@@ -436,9 +436,9 @@ background-color: rgb(255, 255, 255);</string>
     <widget class="QComboBox" name="comboBox_4">
      <property name="geometry">
       <rect>
-       <x>370</x>
+       <x>360</x>
        <y>130</y>
-       <width>69</width>
+       <width>81</width>
        <height>22</height>
       </rect>
      </property>
@@ -450,9 +450,9 @@ background-color: rgb(255, 255, 255);</string>
     <widget class="QComboBox" name="comboBox_5">
      <property name="geometry">
       <rect>
-       <x>370</x>
+       <x>360</x>
        <y>180</y>
-       <width>69</width>
+       <width>81</width>
        <height>22</height>
       </rect>
      </property>

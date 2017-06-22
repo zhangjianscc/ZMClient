@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>AddLibrary</class>
- <widget class="QWidget" name="AddLibrary">
+ <class>EditLibraryDlg</class>
+ <widget class="QDialog" name="EditLibraryDlg">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Dialog</string>
   </property>
   <property name="styleSheet">
    <string notr="true">border:1px solid rgb(180,180,180);
@@ -63,7 +63,7 @@ border-bottom-left-radius:5px;</string>
     <property name="geometry">
      <rect>
       <x>110</x>
-      <y>70</y>
+      <y>80</y>
       <width>51</width>
       <height>21</height>
      </rect>
@@ -80,7 +80,7 @@ font: 11pt &quot;等线&quot;;</string>
     <property name="geometry">
      <rect>
       <x>170</x>
-      <y>70</y>
+      <y>80</y>
       <width>281</width>
       <height>20</height>
      </rect>
@@ -125,6 +125,76 @@ border-radius:2px;</string>
      <string>取消</string>
     </property>
    </widget>
+   <widget class="QLineEdit" name="m_editLibNumber">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>40</y>
+      <width>281</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid rgb(180,180,180);
+border-radius:2px;
+background-color:rgb(255,255,255);</string>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>40</y>
+      <width>51</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:none;
+font: 11pt &quot;等线&quot;;</string>
+    </property>
+    <property name="text">
+     <string>库编号</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="m_editUserName">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>120</y>
+      <width>281</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid rgb(180,180,180);
+border-radius:2px;
+background-color:rgb(255,255,255);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>120</y>
+      <width>51</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:none;
+font: 11pt &quot;等线&quot;;</string>
+    </property>
+    <property name="text">
+     <string>用户</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QWidget" name="widget" native="true">
    <property name="geometry">
@@ -152,8 +222,7 @@ border-radius:2px;</string>
 border-top-right-radius:5px;
 border-top-left-radius:5px;
 border-bottom-right-radius:0px;
-border-bottom-left-radius:0px;
-</string>
+border-bottom-left-radius:0px;</string>
    </property>
    <widget class="QLabel" name="label">
     <property name="geometry">
@@ -169,7 +238,7 @@ border-bottom-left-radius:0px;
 border:none</string>
     </property>
     <property name="text">
-     <string>添加库</string>
+     <string>编辑库</string>
     </property>
    </widget>
    <widget class="QPushButton" name="m_btnClose">

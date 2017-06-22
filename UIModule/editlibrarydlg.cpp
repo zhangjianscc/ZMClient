@@ -1,20 +1,20 @@
-#include "addlibrarydlg.h"
-#include "ui_addlibrary.h"
+#include "editlibrarydlg.h"
+#include "ui_editlibrarydlg.h"
 
-AddLibraryDlg::AddLibraryDlg(QWidget *parent) :
+EditLibraryDlg::EditLibraryDlg(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::AddLibrary)
+    ui(new Ui::EditLibraryDlg)
 {
     ui->setupUi(this);
     initUI();
 }
 
-AddLibraryDlg::~AddLibraryDlg()
+EditLibraryDlg::~EditLibraryDlg()
 {
     delete ui;
 }
 
-void AddLibraryDlg::initUI()
+void EditLibraryDlg::initUI()
 {
     // 去除窗口标题栏 设置圆角对话框
     this->setWindowFlags(Qt::FramelessWindowHint);
@@ -37,22 +37,22 @@ void AddLibraryDlg::initUI()
 
 }
 
-void AddLibraryDlg::onSlotSave()
+void EditLibraryDlg::onSlotSave()
 {
     this->accept();
 }
 
-void AddLibraryDlg::onSlotCancel()
+void EditLibraryDlg::onSlotCancel()
 {
     this->reject();
 }
 
-void AddLibraryDlg::onSlotClose()
+void EditLibraryDlg::onSlotClose()
 {
     this->reject();
 }
 
-void AddLibraryDlg::mousePressEvent(QMouseEvent *event)
+void EditLibraryDlg::mousePressEvent(QMouseEvent *event)
 {
     if(event->pos().y() <= 35)
     {
@@ -63,7 +63,7 @@ void AddLibraryDlg::mousePressEvent(QMouseEvent *event)
     }
 }
 
-void AddLibraryDlg::mouseMoveEvent(QMouseEvent *event)
+void EditLibraryDlg::mouseMoveEvent(QMouseEvent *event)
 {
     if(m_bIsMoveing)
     {
@@ -71,7 +71,7 @@ void AddLibraryDlg::mouseMoveEvent(QMouseEvent *event)
     }
 }
 
-void AddLibraryDlg::mouseReleaseEvent(QMouseEvent *event)
+void EditLibraryDlg::mouseReleaseEvent(QMouseEvent *event)
 {
     m_bIsMoveing = false;
 }

@@ -18,6 +18,8 @@ struct PersonData
     QString type;
     QString status;
 };
+class QCheckBox;
+class QPushButton;
 class TargetPersonManager : public QWidget
 {
     Q_OBJECT
@@ -27,7 +29,7 @@ public:
     ~TargetPersonManager();
 private:
     void initUI();
-    void updatePersonData();
+    void updateData();
     void updateBtnStatus();
     void updateTableView();
 
@@ -35,30 +37,31 @@ private:
     Ui::TargetPersonManager *ui;
     int m_iTotalPage;
     int m_iCurPage;
-    int m_iPageRowCount;
-    QList<PersonData> m_listPersonData;
-    QString m_strBtnStyle;
+    int m_iRowCount;
+    int m_iColumCount;
+    QList<PersonData>   m_listData;
+    QString             m_strBtnStyle;
     QList<QCheckBox*>   m_listCheckBox;
     QList<QPushButton*> m_listButtons;
 signals:
 
 public slots:
-    void onBtnSearch();
-    void onBtnSelectAll();
-    void onBtnUnSelectAll();
-    void onBtnDelete();
-    void onBtnPageFirst();
-    void onBtnPagePre();
-    void onBtnPage1();
-    void onBtnPage2();
-    void onBtnPage3();
-    void onBtnPage5();
-    void onBtnPageNext();
-    void onBtnPageLast();
-    void onSlotselectChanged(bool checked);
-    void onBtnAddTargetPerson();
-    void onBtnEditTargetPerson();
-    void onSlotCheckBoxChanged(int checked);
+    void onSlotBtnSearch();
+    void onSlotBtnSelectAll();
+    void onSlotBtnUnSelectAll();
+    void onSlotBtnDelete();
+    void onSlotBtnPageFirst();
+    void onSlotBtnPagePre();
+    void onSlotBtnPage1();
+    void onSlotBtnPage2();
+    void onSlotBtnPage3();
+    void onSlotBtnPage5();
+    void onSlotBtnPageNext();
+    void onSlotBtnPageLast();
+    void onSlotBtnAdd();
+    void onSlotBtnEdit();
+    void onSlotRowCheckBoxChanged(int checked);
+    void onSlotHeaderCheckBoxChanged(bool checked);
 };
 
 #endif // TARGETPERSONMANAGER_H
