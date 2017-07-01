@@ -2,6 +2,7 @@
 #define MAPTRACKPANE_H
 
 #include <QWidget>
+#include <QMap>
 
 namespace Ui {
 class MapTrackPane;
@@ -11,7 +12,9 @@ struct MapTrackData
 {
     QPixmap pixmap;
     QString postion;
-    QString dateTime;
+    QString dateTime; //
+    double  longitude;
+    double  latitude;
 };
 class MapTrackPane : public QWidget
 {
@@ -22,13 +25,17 @@ public:
     ~MapTrackPane();
 private:
     void initUI();
-    void initTable(QList<MapTrackData> list);
+    void initTableData();
+    void initMapData();
+    void loadMap();
 
 private:
     Ui::MapTrackPane *ui;
+    QMap<QDateTime,MapTrackData> m_mapData;
 signals:
 public slots:
     void onSlotReturn();
+    void onSlotClose();
 };
 
 #endif // MAPTRACKPANE_H

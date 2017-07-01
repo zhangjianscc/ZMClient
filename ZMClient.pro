@@ -4,7 +4,8 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network axcontainer
+QT       += core gui network script
+QT += widgets axcontainer
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -101,7 +102,8 @@ HEADERS += \
     UIModule/editlibrarydlg.h \
     UIModule/Comm/noticedlg.h \
     UIModule/Comm/realwarningitem.h \
-    UIModule/Comm/warningdisposdlg.h
+    UIModule/Comm/warningdisposdlg.h \
+    webaxwidget.h
 
 SOURCES += \
     base64/base64.cpp \
